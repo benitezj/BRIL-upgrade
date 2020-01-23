@@ -8,7 +8,6 @@ OUTPUTPATH=/eos/user/b/benitezj/BRIL/UpgradeStudies/CMSSW_10_6_0_patch2-PU25ns_1
 #export INPUT=$INPUTPATH/PU25ns_106X_upgrade2023_realistic_v3_2023D42PU1-v1/10000/03F0CACC-4031-0544-A93D-0C6023CA7272.root
 #export OUTPUT=$OUTPUTPATH/summary_PU1.root
 
-###this one does not work
 #export INPUT=$INPUTPATH/PU25ns_106X_upgrade2023_realistic_v3_2023D42PU1p5-v1/10000/55465DDD-4F51-1A42-98CE-7ADA9C1BD8F7.root
 #export OUTPUT=$OUTPUTPATH/summary_PU1p5.root
 
@@ -27,7 +26,7 @@ OUTPUTPATH=/eos/user/b/benitezj/BRIL/UpgradeStudies/CMSSW_10_6_0_patch2-PU25ns_1
 #export INPUT=$INPUTPATH/PU25ns_106X_upgrade2023_realistic_v3_2023D42PU140-v2/10000/747F6351-7230-6B48-9ADD-26B93C184D69.root
 #export OUTPUT=$OUTPUTPATH/summary_PU140.root
 
-#export INPUT=$INPUTPATH/PU25ns_106X_upgrade2023_realistic_v3_2023D42PU200-v1/10000/B843994D-03DC-9F43-9E2C-E8D04B11F320.root
-#export OUTPUT=$OUTPUTPATH/summary_PU200.root
+export INPUT=$INPUTPATH/PU25ns_106X_upgrade2023_realistic_v3_2023D42PU200-v1/10000/B843994D-03DC-9F43-9E2C-E8D04B11F320.root
+export OUTPUT=$OUTPUTPATH/summary_PU200.root
 
 cmsRun BRIL-upgrade/ITclusterAnalyzer_cfg.py
