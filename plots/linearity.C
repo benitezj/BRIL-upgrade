@@ -11,14 +11,14 @@ void linearity(){
   ///create the profiles to be filled below.
   TGraphErrors * TEPXClustersPerEvent[20][4];//number of clusters vs pu
   for(int d=0; d<disklist.size(); d++)
-    for(int r=0 ; r<4; r++)
+    for(int r=0 ; r<5; r++)
       TEPXClustersPerEvent[d][r] = new TGraphErrors();
 
 
   ///Non-linearity graphs
   TGraphErrors * NonLinearity_TEPXClustersPerEvent[20][4];//number of clusters vs pu
   for(int d=0; d<disklist.size(); d++){
-    for(int r=0 ; r<4; r++){
+    for(int r=0 ; r<5; r++){
       NonLinearity_TEPXClustersPerEvent[d][r] = new TGraphErrors();
     }
   }
@@ -34,7 +34,7 @@ void linearity(){
       TH2F* H=(TH2F*)F.Get(histoname+disklist[d]);
       Prof_TEPXClustersPerEvent[pu][d] = (TProfile*) H->ProfileX()->Clone(TString(H->GetName())+"Profile");//number of cluster vs ring
       
-      for(int r=0;r<4;r++){
+      for(int r=0;r<5;r++){
 	TEPXClustersPerEvent[d][r]->SetPoint(pu, pumap[pulist[pu]], Prof_TEPXClustersPerEvent[pu][d]->GetBinContent(r+1));
 	TEPXClustersPerEvent[d][r]->SetPointError(pu, 0 , Prof_TEPXClustersPerEvent[pu][d]->GetBinError(r+1));
 
@@ -50,12 +50,12 @@ void linearity(){
   label.SetTextSize(0.2);
   TF1 * FitTEPXClustersPerEvent[20][4];
   TCanvas C("C");
-  C.Divide(4,8);
+  C.Divide(5,8);
   for(long d=0;d<disklist.size();d++)
-    for(long r=0;r<4;r++){
+    for(long r=0;r<5;r++){
 
       //fix the pads
-      TVirtualPad* pad = C.cd(d*4+r+1);
+      TVirtualPad* pad = C.cd(d*5+r+1);
       pad->SetBottomMargin(0.3);
       pad->SetLeftMargin(0.3);
       
@@ -83,7 +83,7 @@ void linearity(){
 
 
   for(int d=0; d<disklist.size(); d++){
-    for(int r=0 ; r<4; r++){
+    for(int r=0 ; r<5; r++){
       for(int pu=0;pu<pulist.size();pu++){
   	NonLinearity_TEPXClustersPerEvent[d][r]->SetPoint(pu, pumap[pulist[pu]], 
 							  (Prof_TEPXClustersPerEvent[pu][d]->GetBinContent(r+1) - FitTEPXClustersPerEvent[d][r]->Eval(pumap[pulist[pu]]))/FitTEPXClustersPerEvent[d][r]->Eval(pumap[pulist[pu]]));
@@ -95,7 +95,7 @@ void linearity(){
   C.Clear();
   C.Divide(4,8);
   for(long d=0;d<disklist.size();d++)
-    for(long r=0;r<4;r++){
+    for(long r=0;r<5;r++){
 
       //fix the pads
       TVirtualPad* pad = C.cd(d*4+r+1);
