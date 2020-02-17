@@ -41,6 +41,8 @@ if [ "$action" == "0" ]; then
 fi
 
 
+   #echo "cmsJob  ${fullsubmitdir}/cfg.py" >> $fullsubmitdir/${job}.sh
+
 ##### loop over the jobs
 counter=0
 for f in `/bin/ls $fullsubmitdir | grep .txt | grep -v "~" `; do
@@ -64,9 +66,9 @@ for f in `/bin/ls $fullsubmitdir | grep .txt | grep -v "~" `; do
 
 	echo "env" >> $fullsubmitdir/${job}.sh
 
-	echo "Hello Ashish. This is job ${job}" >> $fullsubmitdir/${job}.sh
+	echo "echo 'Hello Ashish. This is job ${job}'" >> $fullsubmitdir/${job}.sh
 
-	#echo "cmsJob  ${fullsubmitdir}/cfg.py" >> $fullsubmitdir/${job}.sh
+	#echo "cmsRun  ${fullsubmitdir}/cfg.py" >> $fullsubmitdir/${job}.sh
 	#echo "cp CorrectionHisto.root $outputdir/${job}.root " >> $fullsubmitdir/${job}.sh
 
 
