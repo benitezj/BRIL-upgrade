@@ -1,0 +1,11 @@
+/RelValNuGun/CMSSW_10_6_0_patch2-PU25ns_106X_upgrade2023_realistic_v3_2023D42PU50-v1/GEN-SIM-RECO
+/RelValNuGun/CMSSW_10_6_0_patch2-PU25ns_106X_upgrade2023_realistic_v3_2023D42PU30-v1/GEN-SIM-RECO
+/RelValNuGun/CMSSW_10_6_0_patch2-PU25ns_106X_upgrade2023_realistic_v3_2023D42PU200-v1/GEN-SIM-RECO
+/RelValNuGun/CMSSW_10_6_0_patch2-PU25ns_106X_upgrade2023_realistic_v3_2023D42PU2-v1/GEN-SIM-RECO
+/RelValNuGun/CMSSW_10_6_0_patch2-PU25ns_106X_upgrade2023_realistic_v3_2023D42PU1p5-v1/GEN-SIM-RECO
+/RelValNuGun/CMSSW_10_6_0_patch2-PU25ns_106X_upgrade2023_realistic_v3_2023D42PU140-v2/GEN-SIM-RECO
+/RelValNuGun/CMSSW_10_6_0_patch2-PU25ns_106X_upgrade2023_realistic_v3_2023D42PU100-v2/GEN-SIM-RECO
+/RelValNuGun/CMSSW_10_6_0_patch2-PU25ns_106X_upgrade2023_realistic_v3_2023D42PU10-v1/GEN-SIM-RECO
+/RelValNuGun/CMSSW_10_6_0_patch2-PU25ns_106X_upgrade2023_realistic_v3_2023D42PU1-v1/GEN-SIM-RECO
+/RelValNuGun/CMSSW_10_6_0_patch2-PU25ns_106X_upgrade2023_realistic_v3_2023D42PU0p5-v1/GEN-SIM-RECO
+/RelValNuGun/CMSSW_10_6_0_patch2-106X_upgrade2023_realistic_v3_2023D42noPU-v1/GEN-SIM-RECO
