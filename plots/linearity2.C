@@ -42,17 +42,12 @@ void linearity2(){
      for(int r=0;r<5;r++){
       TEPXClustersPerEvent[d][r]->SetPoint(pu, pumap[pulist[pu]], Prof_TEPXClustersPerEvent[pu][d]->GetBinContent(r+1));
       TEPXClustersPerEvent[d][r]->SetPointError(pu, 0, Prof_TEPXClustersPerEvent[pu][d]->GetBinError(r+1));
-        
+	     
       cout<<"pu is "<<pu<<endl;
-	      
-       for(int bin=1;bin<6;bin++){
-		 
-        cout<<"Bin Content of Histogram H-X is "<<H->ProfileX()->GetBinContent(bin)<<endl;
-        cout<<"Bin Error of Histogram H-X is "<<H->ProfileX()->GetBinError(bin)<<endl;
-        
-	 }
+      cout<<"Bin Content is "<<Prof_TEPXClustersPerEvent[pu][d]->GetBinContent(r)<<endl;
+      cout<<"Bin Content of Histogram H-X is "<<H->ProfileX()->GetBinContent(r)<<endl;
+      cout<<"Bin Error of Histogram H-X is "<<H->ProfileX()->GetBinError(r)<<endl;
 
-        
       }
 
     }
@@ -142,13 +137,6 @@ void linearity2(){
 
        cout<<"pu is "<<pu<<endl;
        cout<<"PU list name is "<<pulist[pu]<<endl;
-	      
-	     for(int r=0 ; r<5; r++) {
-
-		     cout<<"Bin Content is "<<Prof_TEPXClustersPerEvent[pu][d]->GetBinContent(r)<<endl;
-        
-	     }
-        
 
       } 
     }
