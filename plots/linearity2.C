@@ -46,18 +46,13 @@ void linearity2(){
 	TEPXClustersPerEvent[d][r]->SetPointError(pu, 0, Prof_TEPXClustersPerEvent[pu][d]->GetBinError(r+1));
         
         cout<<"pu is "<<pu<<endl;
-         
-        cout<<"First Bin Content of Histogram H-X is "<<H->ProfileX()->GetBinContent(1)<<endl;
-        cout<<"First Bin Error of Histogram H-X is "<<H->ProfileX()->GetBinError(1)<<endl;
-        cout<<"Second Bin Content of Histogram H-X is "<<H->ProfileX()->GetBinContent(2)<<endl;
-        cout<<"Second Bin Error of Histogram H-X is "<<H->ProfileX()->GetBinError(2)<<endl;
-        cout<<"Third Bin Content of Histogram H-X is "<<H->ProfileX()->GetBinContent(3)<<endl;
-        cout<<"Third Bin Error of Histogram H-X is "<<H->ProfileX()->GetBinError(3)<<endl;
-        cout<<"Fourth Bin Content of Histogram H-X is "<<H->ProfileX()->GetBinContent(4)<<endl;
-        cout<<"Fourth Bin Error of Histogram H-X is "<<H->ProfileX()->GetBinError(4)<<endl;
-        cout<<"Fifth Bin Content of Histogram H-X is "<<H->ProfileX()->GetBinContent(5)<<endl;
-        cout<<"Fifth Bin Error of Histogram H-X is "<<H->ProfileX()->GetBinError(5)<<endl;
+	      
+         for(int bin=1;bin<6;bin++){
+		 
+        cout<<"Bin Content of Histogram H-X is "<<H->ProfileX()->GetBinContent(bin)<<endl;
+        cout<<"Bin Error of Histogram H-X is "<<H->ProfileX()->GetBinError(bin)<<endl;
         
+	 }
 
         
       }
