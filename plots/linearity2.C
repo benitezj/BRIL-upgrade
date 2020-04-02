@@ -130,9 +130,9 @@ void linearity2(){
 
 	  }
 
- else
+       else
 
-   {	  
+         {	  
 
 	    NonLinearity_TEPXClustersPerEvent[d][r]->SetPoint(pu, x-(r-2), y);
             NonLinearity_TEPXClustersPerEvent[d][r]->SetPointError(pu,0, yerr);
