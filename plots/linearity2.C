@@ -116,11 +116,11 @@ void linearity2(){
        float y = (Prof_TEPXClustersPerEvent[pu][d]->GetBinContent(r+1) - FitTEPXClustersPerEvent[d][r]->Eval(pumap[pulist[pu]]))/FitTEPXClustersPerEvent[d][r]->Eval(pumap[pulist[pu]]);
        float yerr = (Prof_TEPXClustersPerEvent[pu][d]->GetBinError(r+1))/FitTEPXClustersPerEvent[d][r]->Eval(pumap[pulist[pu]]); 
 		
-        if(pu > 2){ 
+       if(pu > 2){ 
 
-       NonLinearity_TEPXClustersPerEvent[d][r]->SetPoint(pu, x, y);
-       NonLinearity_TEPXClustersPerEvent[d][r]->SetPointError(pu, 0, yerr);
-       cout<< x <<"    "<< y <<"    "<< yerr<<endl;
+       		NonLinearity_TEPXClustersPerEvent[d][r]->SetPoint(pu, x, y);
+       		NonLinearity_TEPXClustersPerEvent[d][r]->SetPointError(pu, 0, yerr);
+       		cout<< x <<"    "<< y <<"    "<< yerr<<endl;
 
 	  }
 
@@ -128,14 +128,14 @@ void linearity2(){
 
          {	  
 
-	    NonLinearity_TEPXClustersPerEvent[d][r]->SetPoint(pu, x-(r-2), y);
-            NonLinearity_TEPXClustersPerEvent[d][r]->SetPointError(pu,0, yerr);
+	    	NonLinearity_TEPXClustersPerEvent[d][r]->SetPoint(pu, x-(r-2), y);
+            	NonLinearity_TEPXClustersPerEvent[d][r]->SetPointError(pu,0, yerr);
 
 	  }
 
 
-       cout<<"pu is "<<pu<<endl;
-       cout<<"PU list name is "<<pulist[pu]<<endl;
+       		cout<<"pu is "<<pu<<endl;
+       		cout<<"PU list name is "<<pulist[pu]<<endl;
 
       } 
     }
