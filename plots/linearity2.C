@@ -5,9 +5,6 @@ void linearity2(){
   TString histoname="BRIL_IT_Analysis/TEPX/2xCoincidences/Number of 2x Coincidences for Disk ";
   //TString histoname="BRIL_IT_Analysis/TEPX/3xCoincidences/Number of 3x Coincidences for Disk ";  
 
-  //std::vector<std::string> pulist={"0p5","1","1p5","2","10","50","100","140","200"};
-  //std::map<std::string,int> pumap={{"0p5",0.5},{"1",1},{"1p5",1.5},{"2",2},{"10",10},{"50",50},{"100",100},{"140",140},{"200",200}};
-
   std::vector<std::string> pulist={"2023D42PU0p5","2023D42PU1","2023D42PU1p5","2023D42PU2","2023D42PU10","2023D42PU30","2023D42PU50","2023D42PU100","2023D42PU140","2023D42PU200"};
   std::map<std::string,float> pumap={{"2023D42PU0p5",0.5},{"2023D42PU1",1},{"2023D42PU1p5",1.5},{"2023D42PU2",2},{"2023D42PU10",10},{"2023D42PU30",30},{"2023D42PU50",50},{"2023D42PU100",100},{"2023D42PU140",140},{"2023D42PU200",200}};
 
