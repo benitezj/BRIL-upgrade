@@ -243,9 +243,4 @@ void linearity2(){
     C3.Print(outputpath + "NS5Brane.gif");
     C3.Clear();
 
-  
-
-
-
-
-}
+  }
