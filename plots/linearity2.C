@@ -3,7 +3,7 @@ void linearity2(){
   TString inpath="/eos/user/a/asehrawa/TEPX/samples_17Feb2020/";
   //TString histoname="BRIL_IT_Analysis/TEPX/Clusters/Number of clusters for Disk ";
   TString histoname="BRIL_IT_Analysis/TEPX/2xCoincidences/Number of 2x Coincidences for Disk ";
-  
+  //TString histoname="BRIL_IT_Analysis/TEPX/3xCoincidences/Number of 3x Coincidences for Disk ";  
 
   //std::vector<std::string> pulist={"0p5","1","1p5","2","10","50","100","140","200"};
   //std::map<std::string,int> pumap={{"0p5",0.5},{"1",1},{"1p5",1.5},{"2",2},{"10",10},{"50",50},{"100",100},{"140",140},{"200",200}};
@@ -69,80 +69,6 @@ void linearity2(){
   }
   
 
-  //gStyle
-  gStyle->SetCanvasColor     (0);
-  gStyle->SetCanvasBorderSize(10);
-  gStyle->SetCanvasBorderMode(0);
-  gStyle->SetPalette(1,0);
-  
-  // Pads
-  gStyle->SetPadColor       (0);
-  gStyle->SetPadBorderSize  (10);
-  gStyle->SetPadBorderMode  (0);
-  gStyle->SetPadBottomMargin(0.15);
-  gStyle->SetPadTopMargin   (0.08);
-  gStyle->SetPadLeftMargin  (0.15);
-  gStyle->SetPadRightMargin (0.05);
-  gStyle->SetPadGridX       (0);
-  gStyle->SetPadGridY       (0);
-  gStyle->SetPadTickX       (1);
-  gStyle->SetPadTickY       (1);
-
-  // Frames
-  gStyle->SetLineWidth(3);
-  gStyle->SetFrameFillStyle (0);
-  gStyle->SetFrameFillColor (0);
-  
-  //gStyle->SetFrameLineColor ( 1);
-  gStyle->SetFrameLineStyle(0);
-  gStyle->SetFrameLineWidth (2);
-  gStyle->SetFrameBorderSize(10);
-  gStyle->SetFrameBorderMode(0);
-
-  // Histograms
-  gStyle->SetHistFillColor(0);
-  gStyle->SetHistFillStyle(0);
-  gStyle->SetHistLineColor(1);
-  gStyle->SetHistLineStyle(0);
-  gStyle->SetHistLineWidth(1);
-  gStyle->SetNdivisions(6);
-
-  // Functions
-  gStyle->SetFuncColor(1);
-  gStyle->SetFuncStyle(0);
-  gStyle->SetFuncWidth(2);
-
-  // Various
-  gStyle->SetMarkerStyle(8);
-  gStyle->SetMarkerColor(kBlack);
-  gStyle->SetMarkerSize (0.3);
-
-  gStyle->SetTitleBorderSize(0);
-  gStyle->SetTitleFillColor (0);
-  gStyle->SetTitleX         (0.2);
-
-  gStyle->SetTitleSize  (0.055,"X");
-  gStyle->SetTitleOffset(1.400,"X");
-  gStyle->SetLabelOffset(0.005,"X");
-  gStyle->SetLabelSize  (0.050,"X");
-  gStyle->SetLabelFont  (42   ,"X");
-
-  gStyle->SetTitleSize  (0.055,"Y");
-  gStyle->SetTitleOffset(1.400,"Y");
-  gStyle->SetLabelOffset(0.010,"Y");
-  gStyle->SetLabelSize  (0.050,"Y");
-  gStyle->SetLabelFont  (42   ,"Y");
-
-  gStyle->SetTextSize   (0.055);
-  gStyle->SetTextFont   (42);
-
-  gStyle->SetStatFont   (42);
-  gStyle->SetTitleFont  (42);
-  gStyle->SetTitleFont  (42,"X");
-  gStyle->SetTitleFont  (42,"Y");
-
-  gStyle->SetOptStat    (0);
-
   ///Make the graphs
   TLatex label; 
   label.SetTextSize(0.2);
@@ -170,8 +96,6 @@ void linearity2(){
       cout<<"Slope error is "<<FitTEPXClustersPerEvent[d][r]->GetParError(1)<<endl;
       
     
-      
-      
       //draw
       TEPXClustersPerEvent[d][r]->GetYaxis()->SetNdivisions(12);
       TEPXClustersPerEvent[d][r]->GetYaxis()->SetLabelSize(0.05);
@@ -184,6 +108,84 @@ void linearity2(){
       TEPXClustersPerEvent[d][r]->SetMarkerStyle(21);
       TEPXClustersPerEvent[d][r]->SetMarkerSize(1);
       TEPXClustersPerEvent[d][r]->SetMarkerColor(2);
+
+      //Canvas
+      gStyle->SetCanvasColor     (0);
+      gStyle->SetCanvasBorderSize(10);
+      gStyle->SetCanvasBorderMode(0);
+
+      //color palette for 2D temperature plots
+      gStyle->SetPalette(1,0);
+  
+      //Pads
+      gStyle->SetPadColor       (0);
+      gStyle->SetPadBorderSize  (10);
+      gStyle->SetPadBorderMode  (0);
+      gStyle->SetPadBottomMargin(0.15);
+      gStyle->SetPadTopMargin   (0.08);
+      gStyle->SetPadLeftMargin  (0.15);
+      gStyle->SetPadRightMargin (0.05);
+      gStyle->SetPadGridX       (0);
+      gStyle->SetPadGridY       (0);
+      gStyle->SetPadTickX       (1);
+      gStyle->SetPadTickY       (1);
+
+      //Frames
+      gStyle->SetLineWidth(3);
+      gStyle->SetFrameFillStyle ( 0);
+      gStyle->SetFrameFillColor ( 0);
+      gStyle->SetFrameLineColor ( 1);
+      gStyle->SetFrameLineStyle( 0);
+      gStyle->SetFrameLineWidth ( 2);
+      gStyle->SetFrameBorderSize(10);
+      gStyle->SetFrameBorderMode( 0);
+
+      //Histograms
+      gStyle->SetHistFillColor(0);
+      gStyle->SetHistFillStyle(0);
+      gStyle->SetHistLineColor(1);
+      gStyle->SetHistLineStyle(0);
+      gStyle->SetHistLineWidth(1);
+      gStyle->SetNdivisions(6);
+
+      //Functions
+      gStyle->SetFuncColor(1);
+      gStyle->SetFuncStyle(0);
+      gStyle->SetFuncWidth(2);
+
+      //Various
+      gStyle->SetMarkerStyle(8);
+      gStyle->SetMarkerColor(kBlack);
+      gStyle->SetMarkerSize (0.3);
+
+      gStyle->SetTitleBorderSize(0);
+      gStyle->SetTitleFillColor (0);
+      gStyle->SetTitleX         (0.2);
+
+      gStyle->SetTitleSize  (0.055,"X");
+      gStyle->SetTitleOffset(1.400,"X");
+      gStyle->SetLabelOffset(0.005,"X");
+      gStyle->SetLabelSize  (0.050,"X");
+      gStyle->SetLabelFont  (42   ,"X");
+
+      gStyle->SetStripDecimals(kFALSE);
+      gStyle->SetLineStyleString(11,"20 10");
+
+      gStyle->SetTitleSize  (0.055,"Y");
+      gStyle->SetTitleOffset(1.400,"Y");
+      gStyle->SetLabelOffset(0.010,"Y");
+      gStyle->SetLabelSize  (0.050,"Y");
+      gStyle->SetLabelFont  (42   ,"Y");
+
+      gStyle->SetTextSize   (0.055);
+      gStyle->SetTextFont   (42);
+
+      gStyle->SetStatFont   (42);
+      gStyle->SetTitleFont  (42);
+      gStyle->SetTitleFont  (42,"X");
+      gStyle->SetTitleFont  (42,"Y");
+
+      gStyle->SetOptStat    (0);
       gStyle->SetOptFit(1111);
       gPad->SetGrid(1,1);
       TEPXClustersPerEvent[d][r]->Draw("ape");
