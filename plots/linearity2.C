@@ -317,7 +317,6 @@ void linearity2(){
   
 
     //drawDisk4Ring1
-
     NonLinearity_TEPXClustersPerEvent[3][0]->GetYaxis()->SetNdivisions(10);
     NonLinearity_TEPXClustersPerEvent[3][0]->GetYaxis()->SetLabelSize(0.04);
     NonLinearity_TEPXClustersPerEvent[3][0]->GetYaxis()->SetTitle("Residual   (Data-Fit)/Fit");
