@@ -1,32 +1,21 @@
+#!/bin/bash 
 
-INPUTPATH=root://cms-xrd-global.cern.ch//store/relval/CMSSW_10_6_0_patch2/RelValNuGun/GEN-SIM-RECO
-OUTPUTPATH=/eos/user/b/benitezj/BRIL/UpgradeStudies/CMSSW_10_6_0_patch2-PU25ns_106X_upgrade2023
+#INPUTPATH=root://cms-xrd-global.cern.ch/    
+                                                                                                                                  
+SONORA=""
+COUNT=0
+file="/afs/cern.ch/user/a/asehrawa/CMSSW_10_6_0_patch2/src/BRIL-upgrade/samples/2023D42noPU.txt"
+while  IFS= read -r line && [ $COUNT -lt 25 ]; do
+#echo "$COUNT"
+cft=root://cms-xrd-global.cern.ch/     
+COUNT=$(($COUNT +1))
+line=$cft$line
+SONORA=$SONORA$line,
+done < "$file"
+echo "Value of count is: $COUNT"
+echo "${SONORA::-1}" 
+export INPUT=${SONORA::-1}
+OUTPUTPATH=/eos/user/a/asehrawa/TEPX
+#export OUTPUT=$OUTPUTPATH/summary_PU0.root
 
-export INPUT=$INPUTPATH/PU25ns_106X_upgrade2023_realistic_v3_2023D42PU0p5-v1/10000/28749F73-4D48-374E-800E-D70FB8C37FC6.root,$INPUTPATH/store/relval/CMSSW_10_6_0_patch2/RelValNuGun/GEN-SIM-RECO/PU25ns_106X_upgrade2023_realistic_v3_2023D42PU0p5-v1/10000/F1F752E7-54B7-8F4A-8C5F-552EB6181C4B.root
-export OUTPUT=$OUTPUTPATH/summary_PU0p5.root
-
-#export INPUT=$INPUTPATH/PU25ns_106X_upgrade2023_realistic_v3_2023D42PU1-v1/10000/03F0CACC-4031-0544-A93D-0C6023CA7272.root
-#export OUTPUT=$OUTPUTPATH/summary_PU1.root
-
-#export INPUT=$INPUTPATH/PU25ns_106X_upgrade2023_realistic_v3_2023D42PU1p5-v1/10000/55465DDD-4F51-1A42-98CE-7ADA9C1BD8F7.root
-#export OUTPUT=$OUTPUTPATH/summary_PU1p5.root
-
-#export INPUT=$INPUTPATH/PU25ns_106X_upgrade2023_realistic_v3_2023D42PU2-v1/10000/BD51960B-6EB2-914F-ADB1-9496B5DB45C5.root
-#export OUTPUT=$OUTPUTPATH/summary_PU2.root
-
-#export INPUT=$INPUTPATH/PU25ns_106X_upgrade2023_realistic_v3_2023D42PU10-v1/10000/6C4FE48B-0E7B-E641-B6C2-70159278107F.root
-#export OUTPUT=$OUTPUTPATH/summary_PU10.root
-
-#export INPUT=$INPUTPATH/PU25ns_106X_upgrade2023_realistic_v3_2023D42PU50-v1/10000/86FACF3C-8D63-E24D-B253-9208D8D8D112.root
-#export OUTPUT=$OUTPUTPATH/summary_PU50.root
-
-#export INPUT=$INPUTPATH/PU25ns_106X_upgrade2023_realistic_v3_2023D42PU100-v2/10000/FEB1FE54-20EE-6645-9D32-3EAB7D81BC06.root
-#export OUTPUT=$OUTPUTPATH/summary_PU100.root
-
-#export INPUT=$INPUTPATH/PU25ns_106X_upgrade2023_realistic_v3_2023D42PU140-v2/10000/747F6351-7230-6B48-9ADD-26B93C184D69.root
-#export OUTPUT=$OUTPUTPATH/summary_PU140.root
-
-#export INPUT=$INPUTPATH/PU25ns_106X_upgrade2023_realistic_v3_2023D42PU200-v1/10000/B843994D-03DC-9F43-9E2C-E8D04B11F320.root
-#export OUTPUT=$OUTPUTPATH/summary_PU200.root
-
-cmsRun BRIL-upgrade/ITclusterAnalyzer_cfg.py
+cmsRun  /afs/cern.ch/user/a/asehrawa/CMSSW_10_6_0_patch2/src/BRIL-upgrade/ITclusterAnalyzer_cfg.py
