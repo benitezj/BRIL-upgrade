@@ -1,5 +1,9 @@
 #!/bin/bash
 
+## create a submission directory containing samples to be processed
+## copy the sample text files in submission directory where each sample text file will be one job
+## create the job execution files (.sh, .sub)
+## submit the jobs
 ## directory which contains info about the samples and where log files will be put
 submitdir=$1
 if [ "$submitdir" == "" ]; then
