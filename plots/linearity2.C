@@ -5,10 +5,10 @@ void linearity2() {
     TString histoname = "BRIL_IT_Analysis/TEPX/2xCoincidences/Number of 2x Coincidences for Disk ";
     //TString histoname="BRIL_IT_Analysis/TEPX/3xCoincidences/Number of 3x Coincidences for Disk ";
     gROOT->ProcessLine(".x BRIL-upgrade/rootlogon.C");
-
+    
+    //string containing names of input sample files
     std::vector<std::string> pulist = { "2023D42PU0p5", "2023D42PU1", "2023D42PU1p5", "2023D42PU2", "2023D42PU10", "2023D42PU30", "2023D42PU50", "2023D42PU100", "2023D42PU140", "2023D42PU200" };
     std::map<std::string, float> pumap = { { "2023D42PU0p5", 0.5 }, { "2023D42PU1", 1 }, { "2023D42PU1p5", 1.5 }, { "2023D42PU2", 2 }, { "2023D42PU10", 10 }, { "2023D42PU30", 30 }, { "2023D42PU50", 50 }, { "2023D42PU100", 100 }, { "2023D42PU140", 140 }, { "2023D42PU200", 200 } };
-
     std::vector<std::string> disklist = { "-4", "-3", "-2", "-1", "1", "2", "3", "4" };
 
     //create the profiles to be filled below.
@@ -16,6 +16,7 @@ void linearity2() {
     for (int d = 0; d < disklist.size(); d++)
         for (int r = 0; r < 5; r++)
             TEPXClustersPerEvent[d][r] = new TGraphErrors();
+    
 
     //Non-linearity graphs
     TGraphErrors* NonLinearity_TEPXClustersPerEvent[20][4]; //number of clusters vs pu
@@ -24,10 +25,11 @@ void linearity2() {
             NonLinearity_TEPXClustersPerEvent[d][r] = new TGraphErrors();
         }
     }
+    
+    
 
     //read the histograms
     TProfile* Prof_TEPXClustersPerEvent[20][20]; //array pu,disk
-    TProfile* Prof_TEPXClustersPerEvent1[20][20];
     for (int pu = 0; pu < pulist.size(); pu++) {
         TFile F(inpath + pulist[pu] + ".root", "read");
         gROOT->cd();
@@ -35,7 +37,8 @@ void linearity2() {
         for (int d = 0; d < disklist.size(); d++) {
             TH2F* H = (TH2F*)F.Get(histoname + disklist[d]);
             Prof_TEPXClustersPerEvent[pu][d] = (TProfile*)H->ProfileX()->Clone(TString(H->GetName()) + "Profile"); //number of cluster vs ring
-
+           
+            //Bin content and Bin error of the  Profile X of Histogram H
             for (int r = 0; r < 5; r++) {
                 TEPXClustersPerEvent[d][r]->SetPoint(pu, pumap[pulist[pu]], Prof_TEPXClustersPerEvent[pu][d]->GetBinContent(r + 1));
                 TEPXClustersPerEvent[d][r]->SetPointError(pu, 0, Prof_TEPXClustersPerEvent[pu][d]->GetBinError(r + 1));
@@ -43,8 +46,10 @@ void linearity2() {
             }
         }
     }
+    
+    
 
-    //Make the graphs
+    //Make the fit graphs for all rings and Disks
     TLatex label;
     label.SetTextSize(0.2);
     TF1* FitTEPXClustersPerEvent[20][4];
@@ -61,7 +66,9 @@ void linearity2() {
             FitTEPXClustersPerEvent[d][r] = new TF1(TString("Fit_") + d + "_" + r, "[0]+[1]*x", 0.5, 2);
             FitTEPXClustersPerEvent[d][r]->SetLineColor(4);
             TEPXClustersPerEvent[d][r]->Fit(FitTEPXClustersPerEvent[d][r], "", "", 0.5, 2);
-
+            
+            
+            //Fit parameters
             cout << "Intercept is " << FitTEPXClustersPerEvent[d][r]->GetParameter(0) << endl;
             cout << "Slope is " << FitTEPXClustersPerEvent[d][r]->GetParameter(1) << endl;
             cout << "Chisquare value is " << FitTEPXClustersPerEvent[d][r]->GetChisquare() << endl;
@@ -69,7 +76,7 @@ void linearity2() {
             cout << "Intercept error is " << FitTEPXClustersPerEvent[d][r]->GetParError(0) << endl;
             cout << "Slope error is " << FitTEPXClustersPerEvent[d][r]->GetParError(1) << endl;
 
-            //draw
+            //draw the fit graphs for all disks and rings
             TEPXClustersPerEvent[d][r]->GetYaxis()->SetNdivisions(12);
             TEPXClustersPerEvent[d][r]->GetYaxis()->SetLabelSize(0.05);
             TEPXClustersPerEvent[d][r]->GetYaxis()->SetTitle("Mean Number of 2x Coincidences");
@@ -92,7 +99,9 @@ void linearity2() {
             C.Print(outputpath + histname);
             C.Clear();
         }
-
+    
+    
+    //Set residuals points and residuals point error
     for (int d = 0; d < disklist.size(); d++) {
         for (int r = 0; r < 5; r++) {
             for (int pu = 0; pu < pulist.size(); pu++) {
@@ -118,9 +127,11 @@ void linearity2() {
         }
     }
 
+    
     TCanvas C2("C2");
     C2.cd();
-    //draw
+    
+    //draw residuals vs pileup graph
     for (int d = 0; d < disklist.size(); d++) {
 
         NonLinearity_TEPXClustersPerEvent[d][0]->GetYaxis()->SetNdivisions(10);
@@ -169,7 +180,7 @@ void linearity2() {
     TCanvas C3("C3");
     C3.cd();
 
-    //drawDisk4Ring1
+    //draw residuals vs pileup graph for Disk 4 Ring 1
     NonLinearity_TEPXClustersPerEvent[3][0]->GetYaxis()->SetNdivisions(10);
     NonLinearity_TEPXClustersPerEvent[3][0]->GetYaxis()->SetLabelSize(0.04);
     NonLinearity_TEPXClustersPerEvent[3][0]->GetYaxis()->SetTitle("Residual   (Data-Fit)/Fit");
