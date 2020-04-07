@@ -39,11 +39,7 @@ void linearity2() {
             for (int r = 0; r < 5; r++) {
                 TEPXClustersPerEvent[d][r]->SetPoint(pu, pumap[pulist[pu]], Prof_TEPXClustersPerEvent[pu][d]->GetBinContent(r + 1));
                 TEPXClustersPerEvent[d][r]->SetPointError(pu, 0, Prof_TEPXClustersPerEvent[pu][d]->GetBinError(r + 1));
-
-                cout << "pu is " << pu << endl;
-                cout << "Bin Content is " << Prof_TEPXClustersPerEvent[pu][d]->GetBinContent(r) << endl;
-                cout << "Bin Content of Histogram H-X is " << H->ProfileX()->GetBinContent(r) << endl;
-                cout << "Bin Error of Histogram H-X is " << H->ProfileX()->GetBinError(r) << endl;
+              
             }
         }
     }
@@ -110,11 +106,7 @@ void linearity2() {
                     NonLinearity_TEPXClustersPerEvent[d][r]->SetPoint(pu, x, y);
                     NonLinearity_TEPXClustersPerEvent[d][r]->SetPointError(pu, 0, yerr);
                     cout << x << "    " << y << "    " << yerr << endl;
-                }
-
-                else
-
-                {
+                } else {
 
                     NonLinearity_TEPXClustersPerEvent[d][r]->SetPoint(pu, x - (r - 2), y);
                     NonLinearity_TEPXClustersPerEvent[d][r]->SetPointError(pu, 0, yerr);
@@ -146,8 +138,7 @@ void linearity2() {
         NonLinearity_TEPXClustersPerEvent[d][0]->SetMarkerSize(0);
         if (d <= 3) {
             NonLinearity_TEPXClustersPerEvent[d][0]->SetTitle(TString("Disk ") + (d - 4));
-        }
-        else {
+        } else {
             NonLinearity_TEPXClustersPerEvent[d][0]->SetTitle(TString("Disk ") + (d - 3));
         }
 
