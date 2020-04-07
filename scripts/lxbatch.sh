@@ -1,9 +1,9 @@
 #!/bin/bash
 
-## create a submission directory which contains info about the samples and where log files will be put
-## copy the sample text files in submission directory where each sample text file will be one job
-## create the job execution files (.sh, .sub)
-## submit the jobs 
+## create a submission directory which contains info about the samples and where log files will be put 
+## copy the sample text files in submission directory where each sample text file will be one job 
+## create the job execution files (.sh, .sub) source BRIL-upgrade/scripts/lxbatch.sh samples_17Feb2020 0
+## submit the jobs source BRIL-upgrade/scripts/lxbatch.sh samples_17Feb2020 1
 submitdir=$1
 if [ "$submitdir" == "" ]; then
     echo "invalid submitdir"
