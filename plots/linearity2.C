@@ -1,4 +1,4 @@
-void linearity2(){
+void linearity2() {
     TString outputpath = "/eos/user/a/asehrawa/";
     TString inpath = "/eos/user/a/asehrawa/TEPX/samples_17Feb2020/";
     //TString histoname="BRIL_IT_Analysis/TEPX/Clusters/Number of clusters for Disk ";
