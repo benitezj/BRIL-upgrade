@@ -49,7 +49,7 @@ void linearity2() {
     
     
 
-    //Make the fit graphs for all rings and Disks
+    //Make the fit graphs for all Rings and Disks
     TLatex label;
     label.SetTextSize(0.2);
     TF1* FitTEPXClustersPerEvent[20][4];
