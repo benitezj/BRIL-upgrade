@@ -1,6 +1,6 @@
 #!/bin/bash
 
-## create a submission directory which contains info about the samples and where log files will be put 
+## create a submission directory which contains text files containing .root files corresponding to each pileup value and where log files will be put 
 ## copy the sample text files in submission directory where each sample text file will be one job 
 ## create the job execution files (.sh, .sub) using > source BRIL-upgrade/scripts/lxbatch.sh samples_17Feb2020 0
 ## submit the jobs using > source BRIL-upgrade/scripts/lxbatch.sh samples_17Feb2020 1
@@ -101,3 +101,9 @@ for f in `/bin/ls $fullsubmitdir | grep .txt | grep -v "~" `; do
 done
 
 echo "Total jobs: $counter"
+
+   ## check successful completion of job
+     if [ "$action" == "2" ]; then
+   cat ${fullsubmitdir}/${job}.log | grep "IT cluster Analyzer processed!"
+   fi
+echo "Job is successful"
