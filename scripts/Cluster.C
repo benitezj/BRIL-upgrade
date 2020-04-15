@@ -12,7 +12,6 @@ void Cluster() {
   TFile*f9 = new TFile("/eos/user/a/asehrawa/TEPX/samples_17Feb2020/2023D42PU200.root");
   
   TCanvas * C = new TCanvas("Clusters","");
-  //C->SetLogx();
   C->SetLogy();
 
   TH2F * H = NULL;
@@ -30,7 +29,6 @@ void Cluster() {
   if (H==NULL){
   return;
    }
-  //H->GetXaxis()->SetRangeUser(0,600);
   
   H1 = (TH2F*)f1->Get("BRIL_IT_Analysis/TEPX/3xCoincidences/Number of 3x Coincidences for Disk 4");
   H2 = (TH2F*)f2->Get("BRIL_IT_Analysis/TEPX/3xCoincidences/Number of 3x Coincidences for Disk 4");
@@ -44,58 +42,57 @@ void Cluster() {
 
 
   TH1D* H10 = H->ProjectionY("H10",1,1);
-  //H10->GetYaxis()->SetRangeUser(0,16000); 
+  H10->GetYaxis()->SetRangeUser(0,5000); 
   H10->GetXaxis()->SetRangeUser(0,4);
   H10->SetLineColor(28);
-
-  //H10->Scale(1./H10->Integral());
+  H10->Scale(1./H10->Integral());
   gStyle->SetOptStat(0);
   gStyle->SetOptTitle(0); 
 
   TH1D* H11 = H1->ProjectionY("H11",1,1);
   H11->GetXaxis()->SetRangeUser(0,250);
   H11->SetLineColor(1);
-  //H11->Scale(1./H11->Integral());
+  H11->Scale(1./H11->Integral());
 
   TH1D* H12 = H2->ProjectionY("H12",1,1);
   H12->GetXaxis()->SetRangeUser(0,500);
   H12->SetLineColor(2);
-  //H12->Scale(1./H12->Integral());
+  H12->Scale(1./H12->Integral());
 
   TH1D* H13 = H3->ProjectionY("H13",1,1);
   H13->GetXaxis()->SetRangeUser(0,500);
   H13->SetLineColor(3);
-  //H13->Scale(1./H13->Integral());
+  H13->Scale(1./H13->Integral());
 
   TH1D* H14 = H4->ProjectionY("H14",1,1);
   H14->GetXaxis()->SetRangeUser(0,500);
   H14->SetLineColor(4);
-  //H14->Scale(1./H14->Integral());  
+  H14->Scale(1./H14->Integral());  
 
   TH1D* H15 = H5->ProjectionY("H15",1,1);
   H15->GetXaxis()->SetRangeUser(0,500);
   H15->SetLineColor(32);
-  //H15->Scale(1./H15->Integral());
+  H15->Scale(1./H15->Integral());
 
   TH1D* H16 = H6->ProjectionY("H16",1,1);
   H16->GetXaxis()->SetRangeUser(0,500);
   H16->SetLineColor(6);
-  //H16->Scale(1./H16->Integral());
+  H16->Scale(1./H16->Integral());
 
   TH1D* H17 = H7->ProjectionY("H17",1,1);
   H17->GetXaxis()->SetRangeUser(0,500);
   H17->SetLineColor(41);
-  //H17->Scale(1./H17->Integral());
+  H17->Scale(1./H17->Integral());
 
   TH1D* H18 = H8->ProjectionY("H18",1,1);
   H18->GetXaxis()->SetRangeUser(0,500);
   H18->SetLineColor(8);
-  //H18->Scale(1./H18->Integral());
+  H18->Scale(1./H18->Integral());
 
   TH1D* H19 = H9->ProjectionY("H19",1,1);
   H19->GetXaxis()->SetRangeUser(0,500);
   H19->SetLineColor(46);
-  //H19->Scale(1./H19->Integral());
+  H19->Scale(1./H19->Integral());
 
   H10->Draw();
   H11->Draw("same");
