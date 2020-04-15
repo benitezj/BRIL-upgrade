@@ -1,9 +1,12 @@
 void linearity2() {
     TString outputpath = "/eos/user/a/asehrawa/";
     TString inpath = "/eos/user/a/asehrawa/TEPX/samples_17Feb2020/";
-    //TString histoname="BRIL_IT_Analysis/TEPX/Clusters/Number of clusters for Disk ";
-    TString histoname = "BRIL_IT_Analysis/TEPX/2xCoincidences/Number of 2x Coincidences for Disk ";
+    TString histoname="BRIL_IT_Analysis/TEPX/Clusters/Number of clusters for Disk ";
+    //TString histoname = "BRIL_IT_Analysis/TEPX/2xCoincidences/Number of 2x Coincidences for Disk ";
     //TString histoname="BRIL_IT_Analysis/TEPX/3xCoincidences/Number of 3x Coincidences for Disk ";
+    //TString histoname="BRIL_IT_Analysis/TFPX/Clusters/Number of clusters for Disk ";
+    //TString histoname = "BRIL_IT_Analysis/TFPX/2xCoincidences/Number of 2x Coincidences for Disk ";
+    //TString histoname="BRIL_IT_Analysis/TFPX/3xCoincidences/Number of 3x Coincidences for Disk ";
     gROOT->ProcessLine(".x BRIL-upgrade/rootlogon.C");
     
     //string containing names of input sample files
@@ -66,15 +69,6 @@ void linearity2() {
             FitTEPXClustersPerEvent[d][r] = new TF1(TString("Fit_") + d + "_" + r, "[0]+[1]*x", 0.5, 2);
             FitTEPXClustersPerEvent[d][r]->SetLineColor(4);
             TEPXClustersPerEvent[d][r]->Fit(FitTEPXClustersPerEvent[d][r], "", "", 0.5, 2);
-            
-            
-            //Fit parameters
-            cout << "Intercept is " << FitTEPXClustersPerEvent[d][r]->GetParameter(0) << endl;
-            cout << "Slope is " << FitTEPXClustersPerEvent[d][r]->GetParameter(1) << endl;
-            cout << "Chisquare value is " << FitTEPXClustersPerEvent[d][r]->GetChisquare() << endl;
-            cout << "Number of degrees of freedom are " << FitTEPXClustersPerEvent[d][r]->GetNDF() << endl;
-            cout << "Intercept error is " << FitTEPXClustersPerEvent[d][r]->GetParError(0) << endl;
-            cout << "Slope error is " << FitTEPXClustersPerEvent[d][r]->GetParError(1) << endl;
 
             //draw the fit graphs for all disks and rings
             TEPXClustersPerEvent[d][r]->GetYaxis()->SetNdivisions(12);
@@ -121,15 +115,40 @@ void linearity2() {
                     NonLinearity_TEPXClustersPerEvent[d][r]->SetPointError(pu, 0, yerr);
                 }
 
-                cout << "pu is " << pu << endl;
-                cout << "PU list name is " << pulist[pu] << endl;
             }
         }
     }
-
-    
-    TCanvas C2("C2");
+TCanvas C2("C2");
     C2.cd();
+
+    //draw residuals vs pileup graph for Disk 4 Ring 1
+    NonLinearity_TEPXClustersPerEvent[3][0]->GetYaxis()->SetNdivisions(10);
+    NonLinearity_TEPXClustersPerEvent[3][0]->GetYaxis()->SetLabelSize(0.04);
+    NonLinearity_TEPXClustersPerEvent[3][0]->GetYaxis()->SetTitle("Residual   (Data-Fit)/Fit");
+    NonLinearity_TEPXClustersPerEvent[3][0]->GetYaxis()->SetMaxDigits(4);
+    NonLinearity_TEPXClustersPerEvent[3][0]->GetYaxis()->SetRangeUser(0, 1500);
+    NonLinearity_TEPXClustersPerEvent[3][0]->GetYaxis()->SetRangeUser(-0.015, 0.015);
+    NonLinearity_TEPXClustersPerEvent[3][0]->GetXaxis()->SetNdivisions(12);
+    NonLinearity_TEPXClustersPerEvent[3][0]->GetXaxis()->SetLabelSize(0.04);
+    NonLinearity_TEPXClustersPerEvent[3][0]->GetXaxis()->SetRangeUser(0, 4);
+    NonLinearity_TEPXClustersPerEvent[3][0]->GetXaxis()->SetTitle("Pileup");
+    NonLinearity_TEPXClustersPerEvent[3][0]->SetMarkerStyle(21);
+    NonLinearity_TEPXClustersPerEvent[3][0]->SetMarkerColor(2);
+    NonLinearity_TEPXClustersPerEvent[3][0]->SetMarkerSize(1);
+    NonLinearity_TEPXClustersPerEvent[3][0]->SetTitle("Disk 4 Ring 1");
+    TLine* line1 = new TLine(0, 0, 200, 0);
+    line1->SetLineColor(kBlack);
+
+    gPad->SetGrid(1, 1);
+    NonLinearity_TEPXClustersPerEvent[3][0]->Draw("ape");
+    line1->Draw("same");
+
+    C2.Print(outputpath + "NS5Brane.gif");
+    C2.Clear();
+    
+    
+    TCanvas C3("C3");
+    C3.cd();
     
     //draw residuals vs pileup graph
     for (int d = 0; d < disklist.size(); d++) {
@@ -175,36 +194,6 @@ void linearity2() {
         legend->SetFillColor(0);
         legend->Draw("same");
 
-        C2.Print(outputpath + TString("disk_") + d + ".png");
+        C3.Print(outputpath + TString("disk_") + d + ".png");
     }
-    
-    
-  
-    TCanvas C3("C3");
-    C3.cd();
-
-    //draw residuals vs pileup graph for Disk 4 Ring 1
-    NonLinearity_TEPXClustersPerEvent[3][0]->GetYaxis()->SetNdivisions(10);
-    NonLinearity_TEPXClustersPerEvent[3][0]->GetYaxis()->SetLabelSize(0.04);
-    NonLinearity_TEPXClustersPerEvent[3][0]->GetYaxis()->SetTitle("Residual   (Data-Fit)/Fit");
-    NonLinearity_TEPXClustersPerEvent[3][0]->GetYaxis()->SetMaxDigits(4);
-    NonLinearity_TEPXClustersPerEvent[3][0]->GetYaxis()->SetRangeUser(0, 1500);
-    NonLinearity_TEPXClustersPerEvent[3][0]->GetYaxis()->SetRangeUser(-0.015, 0.015);
-    NonLinearity_TEPXClustersPerEvent[3][0]->GetXaxis()->SetNdivisions(12);
-    NonLinearity_TEPXClustersPerEvent[3][0]->GetXaxis()->SetLabelSize(0.04);
-    NonLinearity_TEPXClustersPerEvent[3][0]->GetXaxis()->SetRangeUser(0, 4);
-    NonLinearity_TEPXClustersPerEvent[3][0]->GetXaxis()->SetTitle("Pileup");
-    NonLinearity_TEPXClustersPerEvent[3][0]->SetMarkerStyle(21);
-    NonLinearity_TEPXClustersPerEvent[3][0]->SetMarkerColor(2);
-    NonLinearity_TEPXClustersPerEvent[3][0]->SetMarkerSize(1);
-    NonLinearity_TEPXClustersPerEvent[3][0]->SetTitle("Disk 4 Ring 1");
-    TLine* line1 = new TLine(0, 0, 200, 0);
-    line1->SetLineColor(kBlack);
-
-    gPad->SetGrid(1, 1);
-    NonLinearity_TEPXClustersPerEvent[3][0]->Draw("ape");
-    line1->Draw("same");
-
-    C3.Print(outputpath + "NS5Brane.gif");
-    C3.Clear();
 }
