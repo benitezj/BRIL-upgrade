@@ -108,7 +108,6 @@ void linearity2() {
 
                     NonLinearity_TEPXClustersPerEvent[d][r]->SetPoint(pu, x, y);
                     NonLinearity_TEPXClustersPerEvent[d][r]->SetPointError(pu, 0, yerr);
-                    cout << x << "    " << y << "    " << yerr << endl;
                 } else {
 
                     NonLinearity_TEPXClustersPerEvent[d][r]->SetPoint(pu, x - (r - 2), y);
