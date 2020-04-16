@@ -106,4 +106,4 @@ echo "Total jobs: $counter"
      if [ "$action" == "2" ]; then
          cat ${fullsubmitdir}/${job}.log | grep "IT cluster Analyzer processed"
    fi
-echo "Job is successful"
+echo "Job is successfully completed"
