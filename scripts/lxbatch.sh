@@ -106,7 +106,7 @@ echo "Total jobs: $counter"
      if [ "$action" == "2" ]; then
         echo "Checking job status"
   
-   var = $(cat ${fullsubmitdir}/${job}.log | grep "IT cluster Analyzer processed")
+   var = '$(cat ${fullsubmitdir}/${job}.log | grep "IT cluster Analyzer processed")'
    
     if [ -z "$var" ]
 then
