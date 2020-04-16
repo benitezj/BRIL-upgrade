@@ -107,6 +107,7 @@ echo "Total jobs: $counter"
         echo "Checking job status"
   
    var = $(cat ${fullsubmitdir}/${job}.log | grep "IT cluster Analyzer processed")
+   
     if [ -z "$var" ]
 then
       echo "Job is not successfully completed"
