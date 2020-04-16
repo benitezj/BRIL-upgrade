@@ -104,12 +104,13 @@ echo "Total jobs: $counter"
 
    ## check successful completion of job
      if [ "$action" == "2" ]; then
-         var = cat ${fullsubmitdir}/${job}.log | grep "IT cluster Analyzer processed"
+        echo "Checking job status"
    fi
    
+   var = cat ${fullsubmitdir}/${job}.log | grep "IT cluster Analyzer processed"
     if [ -z "$var" ]
 then
-      echo "$var and Job is successfully completed"
-else
       echo "Job is not successfully completed"
+else
+      echo "Job is successfully completed \$var"
 fi
