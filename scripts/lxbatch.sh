@@ -109,7 +109,7 @@ echo "Total jobs: $counter"
    
     if [ -z "$var" ]
 then
-      echo "Job is successfully completed"
+      echo "$var and Job is successfully completed"
 else
       echo "Job is not successfully completed"
 fi
