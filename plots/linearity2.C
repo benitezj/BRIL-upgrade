@@ -125,7 +125,6 @@ TCanvas C2("C2");
     NonLinearity_TEPXClustersPerEvent[3][0]->GetYaxis()->SetLabelSize(0.04);
     NonLinearity_TEPXClustersPerEvent[3][0]->GetYaxis()->SetTitle("Residual   (Data-Fit)/Fit");
     NonLinearity_TEPXClustersPerEvent[3][0]->GetYaxis()->SetMaxDigits(4);
-    NonLinearity_TEPXClustersPerEvent[3][0]->GetYaxis()->SetRangeUser(0, 1500);
     NonLinearity_TEPXClustersPerEvent[3][0]->GetYaxis()->SetRangeUser(-0.015, 0.015);
     NonLinearity_TEPXClustersPerEvent[3][0]->GetXaxis()->SetNdivisions(12);
     NonLinearity_TEPXClustersPerEvent[3][0]->GetXaxis()->SetLabelSize(0.04);
