@@ -92,6 +92,7 @@ void linearity2() {
             cout << "==========================" << histname << endl;
             C.Print(outputpath + histname);
             C.Clear();
+            
         }
     
     
