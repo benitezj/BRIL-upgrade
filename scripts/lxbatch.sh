@@ -96,22 +96,21 @@ for f in `/bin/ls $fullsubmitdir | grep .txt | grep -v "~" `; do
 	submit $job
     fi
 
+## check successful completion of job
+    if [ "$action" == "2" ]; then
+	
+	var = '$(cat ${fullsubmitdir}/${job}.log | grep "IT cluster Analyzer processed")'
+   
+	if [ -z "$var" ]
+	then
+	    echo "${job} is not successfully completed"
+	else
+	    echo "${job} is successfully completed $var"
+	fi
+    fi
+
 
     counter=`echo $counter | awk '{print $1+1}'`
 done
-
 echo "Total jobs: $counter"
-
-   ## check successful completion of job
-     if [ "$action" == "2" ]; then
-        echo "Checking job status"
-  
-   var = '$(cat ${fullsubmitdir}/${job}.log | grep "IT cluster Analyzer processed")'
-   
-    if [ -z "$var" ]
-then
-      echo "Job is not successfully completed"
-else
-      echo "Job is successfully completed \$var"
-fi
-   fi
+    
