@@ -1,9 +1,12 @@
 #!/bin/bash
 
-## create a submission directory which contains text files containing .root files corresponding to each pileup value and where log files will be put 
-## copy the sample text files in submission directory where each sample text file will be one job 
-## create the job execution files (.sh, .sub) using > source BRIL-upgrade/scripts/lxbatch.sh samples_17Feb2020 0
-## submit the jobs using > source BRIL-upgrade/scripts/lxbatch.sh samples_17Feb2020 1
+## Step 1: create a submission directory
+## Step 2: Submission directory contain sample text files 2023D42PU0p5.txt, 2023D42PU1.txt, 2023D42PU100.txt, 2023D42PU140.txt, 2023D42PU10.txt, 2023D42PU1p5.txt, 2023D42PU2.txt, 2023D42PU200.txt, etc. and where log files will be put 
+## Step 3: The sample text files contain .root files /store/relval/CMSSW_10_6_0_patch2/RelValNuGun/GEN-SIM-RECO/PU25ns_106X_upgrade2023_realistic_v3_2023D42PU200-v1/10000/B843994D-03DC-9F43-9E2C-E8D04B11F320.root corresponding to each pileup value.
+## Step 4: Copy the sample text files in submission directory where each sample text file will be one job 
+## Step 5: Create the job execution files (.sh, .sub) using > source BRIL-upgrade/scripts/lxbatch.sh samples_17Feb2020 0
+## Step 6: submit the jobs using > source BRIL-upgrade/scripts/lxbatch.sh samples_17Feb2020 1
+
 submitdir=$1
 if [ "$submitdir" == "" ]; then
     echo "invalid submitdir"
@@ -95,29 +98,8 @@ for f in `/bin/ls $fullsubmitdir | grep .txt | grep -v "~" `; do
     if [ "$action" == "1" ]; then
 	submit $job
     fi
-
-<<<<<<< HEAD
-
-    
-
-   ## check successful completion of job
-    if [ "$action" == "2" ]; then
-	
-	var = '$(cat ${fullsubmitdir}/${job}.log | grep "IT cluster Analyzer processed")'
    
-	if [ -z "$var" ]
-	then
-	    echo "${job} is not successfully completed"
-	else
-	    echo "${job} is successfully completed $var"
-	fi
-    fi
 
-
-    counter=`echo $counter | awk '{print $1+1}'`
-done
-echo "Total jobs: $counter"
-=======
 ## check successful completion of job
     if [ "$action" == "2" ]; then
 	
@@ -137,4 +119,4 @@ echo "Total jobs: $counter"
 
     
 
->>>>>>> 2113fa4c669c7faffdbfdfd4f840f018b293cb65
+
