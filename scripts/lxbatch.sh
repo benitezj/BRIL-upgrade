@@ -113,8 +113,8 @@ for f in `/bin/ls $fullsubmitdir | grep .txt | grep -v "~" `; do
     fi
 
     counter=`echo $counter | awk '{print $1+1}'`
-done
-echo "Total jobs: $counter"
+   done
+          echo "Total jobs: $counter"
 
     
 
