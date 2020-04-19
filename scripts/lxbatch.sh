@@ -2,7 +2,11 @@
 
 ## Step 1: create a submission directory
 ## Step 2: Submission directory contain sample text files 2023D42PU0p5.txt, 2023D42PU1.txt, 2023D42PU100.txt, 2023D42PU140.txt, 2023D42PU10.txt, 2023D42PU1p5.txt, 2023D42PU2.txt, 2023D42PU200.txt, etc. and where log files will be put 
-## Step 3: The sample text files contain .root files /store/relval/CMSSW_10_6_0_patch2/RelValNuGun/GEN-SIM-RECO/PU25ns_106X_upgrade2023_realistic_v3_2023D42PU200-v1/10000/B843994D-03DC-9F43-9E2C-E8D04B11F320.root corresponding to each pileup value.
+## Step 3: The sample text files contain .root files /store/relval/CMSSW_10_6_0_patch2/RelValNuGun/GEN-SIM-RECO/PU25ns_106X_upgrade2023_realistic_v3_2023D42PU200-v1/10000/B843994D-03DC-9F43-9E2C-E8D04B11F320.root
+#/store/relval/CMSSW_10_6_0_patch2/RelValNuGun/GEN-SIM-RECO/PU25ns_106X_upgrade2023_realistic_v3_2023D42PU200-v1/10000/9B6F5078-6F58-FE47-AB32-D6A24D6613D3.root
+#/store/relval/CMSSW_10_6_0_patch2/RelValNuGun/GEN-SIM-RECO/PU25ns_106X_upgrade2023_realistic_v3_2023D42PU200-v1/10000/9E425928-AEA2-664F-A904-A4EF670B3740.root
+#/store/relval/CMSSW_10_6_0_patch2/RelValNuGun/GEN-SIM-RECO/PU25ns_106X_upgrade2023_realistic_v3_2023D42PU200-v1/10000/209E5015-A5A9-EA4A-A86E-995CCFE22689.root
+#/store/relval/CMSSW_10_6_0_patch2/RelValNuGun/GEN-SIM-RECO/PU25ns_106X_upgrade2023_realistic_v3_2023D42PU200-v1/10000/95A7E5A6-3D38-D148-8385-ECE34384D67F.root corresponding to each pileup value.
 ## Step 4: Copy the sample text files in submission directory where each sample text file will be one job 
 ## Step 5: Create the job execution files (.sh, .sub) using > source BRIL-upgrade/scripts/lxbatch.sh samples_17Feb2020 0
 ## Step 6: submit the jobs using > source BRIL-upgrade/scripts/lxbatch.sh samples_17Feb2020 1
