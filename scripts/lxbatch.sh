@@ -96,6 +96,7 @@ for f in `/bin/ls $fullsubmitdir | grep .txt | grep -v "~" `; do
 	submit $job
     fi
 
+<<<<<<< HEAD
 
     
 
@@ -116,3 +117,24 @@ for f in `/bin/ls $fullsubmitdir | grep .txt | grep -v "~" `; do
     counter=`echo $counter | awk '{print $1+1}'`
 done
 echo "Total jobs: $counter"
+=======
+## check successful completion of job
+    if [ "$action" == "2" ]; then
+	
+	var = '$(cat ${fullsubmitdir}/${job}.log | grep "IT cluster Analyzer processed")'
+   
+	if [ -z "$var" ]
+	then
+	    echo "${job} is not successfully completed"
+	else
+	    echo "${job} is successfully completed $var"
+	fi
+    fi
+
+    counter=`echo $counter | awk '{print $1+1}'`
+   done
+          echo "Total jobs: $counter"
+
+    
+
+>>>>>>> 2113fa4c669c7faffdbfdfd4f840f018b293cb65
