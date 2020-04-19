@@ -1,11 +1,11 @@
 #!/bin/bash
 
 ## Step 1: create a submission directory.
-## Step 2: Submission directory contains text files 2023D42PU0p5.txt, 2023D42PU1.txt, 2023D42PU10.txt, 2023D42PU100.txt, 2023D42PU140.txt, 2023D42PU1p5.txt, 2023D42PU2.txt,2023D42PU200.txt, 2023D42PU30.txt, 2023D42PU50.txt, 2023D42noPU.txt which are files corresponding to each pileup value and where log files will be put 
-## Step 3: The text files .txt contain the .root files for each pileup value /store/relval/CMSSW_10_6_0_patch2/RelValNuGun/GEN-SIM-RECO/PU25ns_106X_upgrade2023_realistic_v3_2023D42PU100-v2/10000/FEB1FE54-20EE-6645-9D32-3EAB7D81BC06.root
+## Step 2: Submission directory contains text files 2023D42PU0p5.txt, 2023D42PU1.txt, 2023D42PU10.txt, 2023D42PU100.txt, 2023D42PU140.txt, 2023D42PU1p5.txt, 2023D42PU2.txt,2023D42PU200.txt, 2023D42PU30.txt, 2023D42PU50.txt, 2023D42noPU.txt which are files corresponding to each pileup value and where log files will be put. 
+## Step 3: The text files .txt contain the .root sample files /store/relval/CMSSW_10_6_0_patch2/RelValNuGun/GEN-SIM-RECO/PU25ns_106X_upgrade2023_realistic_v3_2023D42PU100-v2/10000/FEB1FE54-20EE-6645-9D32-3EAB7D81BC06.root for each pileup value.
 ## Step 4: copy the sample text files in submission directory where each sample text file will be one job 
 ## Step 5: create the job execution files (.sh, .sub) using > source BRIL-upgrade/scripts/lxbatch.sh samples_17Feb2020 0
-## submit the jobs using > source BRIL-upgrade/scripts/lxbatch.sh samples_17Feb2020 1
+## Step 6: submit the jobs using > source BRIL-upgrade/scripts/lxbatch.sh samples_17Feb2020 1
 
 submitdir=$1
 if [ "$submitdir" == "" ]; then
