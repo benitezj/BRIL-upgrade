@@ -66,7 +66,7 @@ for f in `/bin/ls $fullsubmitdir | grep .txt | grep -v "~" `; do
 	echo "cd ${INSTALLATION} " >> $fullsubmitdir/${job}.sh
 	echo "eval \`scramv1 runtime -sh\` " >> $fullsubmitdir/${job}.sh
 	echo "pwd"   >> $fullsubmitdir/${job}.sh                                                                                            
-	echo "export SONORA=\"\" " >> $fullsubmitdir/${job}.sh
+	echo "export TINKU=\"\" " >> $fullsubmitdir/${job}.sh
         echo "cft=root://cms-xrd-global.cern.ch/" >>  $fullsubmitdir/${job}.sh
 	echo "COUNT=0" >>  $fullsubmitdir/${job}.sh
 	echo "file=\"${fullsubmitdir}/${job}.txt\"" >>  $fullsubmitdir/${job}.sh
