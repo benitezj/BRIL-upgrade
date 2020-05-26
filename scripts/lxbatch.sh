@@ -10,6 +10,7 @@
 ## Step 4: Copy the sample text files in submission directory where each sample text file will be one job 
 ## Step 5: Create the job execution files (.sh, .sub) using > source BRIL-upgrade/scripts/lxbatch.sh samples_17Feb2020 0
 ## Step 6: submit the jobs using > source BRIL-upgrade/scripts/lxbatch.sh samples_17Feb2020 1
+## Step 7: Modify the output directory (outputdir) path before running the code
 
 submitdir=$1
 if [ "$submitdir" == "" ]; then
