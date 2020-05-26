@@ -21,7 +21,7 @@ fi
 action=$2
 
 ## where the results will be stored, this directory will be created below
-outputdir=/eos/user/a/asehrawa/TEPX/$submitdir
+outputdir=./$submitdir
 echo "output: $outputdir"
 
 ## get the absolute path
