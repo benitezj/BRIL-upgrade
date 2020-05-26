@@ -74,13 +74,13 @@ for f in `/bin/ls $fullsubmitdir | grep .txt | grep -v "~" `; do
 	echo "echo "\$COUNT=\$line=" "  >>  $fullsubmitdir/${job}.sh
 	echo "COUNT=\$((\$COUNT +1))" >>  $fullsubmitdir/${job}.sh
 	echo "line=\$cft\$line" >>  $fullsubmitdir/${job}.sh
-	echo "export SONORA=\$SONORA\$line," >>  $fullsubmitdir/${job}.sh
+	echo "export TINKU=\$TINKU\$line," >>  $fullsubmitdir/${job}.sh
 	echo "done < \$file" >>  $fullsubmitdir/${job}.sh
 	echo "echo \"Value of count is: \$COUNT\" " >>  $fullsubmitdir/${job}.sh
-	echo "echo \${SONORA}" >>  $fullsubmitdir/${job}.sh
-	echo "echo "\${SONORA::-1}"" >>  $fullsubmitdir/${job}.sh
+	echo "echo \${TINKU}" >>  $fullsubmitdir/${job}.sh
+	echo "echo "\${TINKU::-1}"" >>  $fullsubmitdir/${job}.sh
 	echo "echo \$INPUT"   >>  $fullsubmitdir/${job}.sh
-	echo "export INPUT=\${SONORA::-1}" >>  $fullsubmitdir/${job}.sh
+	echo "export INPUT=\${TINKU::-1}" >>  $fullsubmitdir/${job}.sh
 	echo "export OUTPUT=$outputdir/${job}.root" >>  $fullsubmitdir/${job}.sh
 	echo "env" >> $fullsubmitdir/${job}.sh
         echo "cmsRun  ${fullsubmitdir}/cfg.py" >>  $fullsubmitdir/${job}.sh
