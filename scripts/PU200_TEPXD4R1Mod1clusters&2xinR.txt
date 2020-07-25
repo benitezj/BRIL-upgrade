@@ -1,4 +1,4 @@
-PU200 cluster info - Disk 4 Ring 1 Module 1
+PU200 cluster and 2x Coincidences in R info - Disk 4 Ring 1 Module 1
 
 7.91096      2.96434      265.2     2      12      1      1
 7.8486      2.93895      265.2     2      12      1      1
