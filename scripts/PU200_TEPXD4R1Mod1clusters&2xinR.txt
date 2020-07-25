@@ -1,0 +1,252 @@
+PU200 cluster info - Disk 4 Ring 1 Module 1
+
+7.91096      2.96434      265.2     2      12      1      1
+7.8486      2.93895      265.2     2      12      1      1
+10.0514      3.27394      265.2     2      12      1      1
+I have 1 overlapping clusters
+dr of cluster 0x7f350df280c0 in module 355476488 is: 0.0322117
+min dr is: 0.0322117 and is located in entry 0
+8.34109      3.00053      265.2     2      12      1      1
+8.19355      2.97209      265.2     2      12      1      1
+7.83925      2.90513      265.2     2      12      1      1
+6.18895      2.63701      265.2     2      12      1      1
+6.19081      2.56124      265.2     2      12      1      1
+9.04518      2.97093      265.2     2      12      1      1
+7.25618      2.68261      265.2     2      12      1      1
+6.26253      2.49244      265.2     2      12      1      1
+7.58679      2.64313      265.2     2      12      1      1
+7.749        2.63618      265.2     2      12      1      1
+6.3578      2.40291      265.2     2      12      1      1
+8.69768      2.73302      265.2     2      12      1      1
+6.82009      2.42804      265.2     2      12      1      1
+7.24888      2.47265      265.2     2      12      1      1
+6.42175      2.31909      265.2     2      12      1      1
+9.4997      2.78917      265.2     2      12      1      1
+6.91515      2.33985      265.2     2      12      1      1
+7.04362      2.36068      265.2     2      12      1      1
+7.57059      2.42541      265.2     2      12      1      1
+6.22102      2.11453      265.2     2      12      1      1
+6.99009      2.18666      265.2     2      12      1      1
+6.64702      2.1057      265.2     2      12      1      1
+6.54769      2.03597      265.2     2      12      1      1
+8.13231      2.24331      265.2     2      12      1      1
+8.16076      2.21914      265.2     2      12      1      1
+7.87481      2.16859      265.2     2      12      1      1
+6.7839      1.95253      265.2     2      12      1      1
+7.07305      1.91884      265.2     2      12      1      1
+6.20523      1.76621      265.2     2      12      1      1
+6.47467      1.78901      265.2     2      12      1      1
+7.72205      1.98114      265.2     2      12      1      1
+7.76786      1.94789      265.2     2      12      1      1
+7.30406      1.74028      265.2     2      12      1      1
+9.52021      2.08369      265.2     2      12      1      1
+6.15339      1.51754      265.2     2      12      1      1
+6.1575      1.49161      265.2     2      12      1      1
+8.41119      1.82085      265.2     2      12      1      1
+8.13973      1.77592      265.2     2      12      1      1
+9.24683      1.91911      265.2     2      12      1      1
+10.219      2.06222      265.2     2      12      1      1
+7.72813      1.61564      265.2     2      12      1      1
+10.0866      1.96332      265.2     2      12      1      1
+I have 2 overlapping clusters
+dr of cluster 0x7f350df27480 in module 355476484 is: 0.0180067
+dr of cluster 0x7f350df27a80 in module 355476488 is: 0.013046
+min dr is: 0.013046 and is located in entry 1
+9.02613      1.74726      265.2     2      12      1      1
+10.239      1.92463      265.2     2      12      1      1
+I have 2 overlapping clusters
+dr of cluster 0x7f350df27440 in module 355476484 is: 0.0533342
+dr of cluster 0x7f350df27900 in module 355476488 is: 0.0601364
+min dr is: 0.0533342 and is located in entry 0
+7.86986      1.47553      265.2     2      12      1      1
+6.46016      1.24466      265.2     2      12      1      1
+8.60149      1.54838      265.2     2      12      1      1
+8.63742      1.51357      265.2     2      12      1      1
+6.3812      1.1278      265.2     2      12      1      1
+6.53306      1.10434      265.2     2      12      1      1
+6.48518      1.08663      265.2     2      12      1      1
+7.02011      1.16517      265.2     2      12      1      1
+6.39139      1.03887      265.2     2      12      1      1
+7.58276      1.21967      265.2     2      12      1      1
+7.17373      1.15519      265.2     2      12      1      1
+9.83355      1.47775      265.2     2      12      1      1
+6.63717      0.969265      265.2     2      12      1      1
+10.2547      1.54193      265.2     2      12      1      1
+I have 1 overlapping clusters
+dr of cluster 0x7f350df27080 in module 355476484 is: 0.0178073
+min dr is: 0.0178073 and is located in entry 0
+6.51306      0.846652      265.2     2      12      1      1
+8.69109      1.17467      265.2     2      12      1      1
+8.38524      1.1218      265.2     2      12      1      1
+8.71246      1.16776      265.2     2      12      1      1
+9.321      1.22951      265.2     2      12      1      1
+8.22211      0.999781      265.2     2      12      1      1
+9.56462      1.18764      265.2     2      12      1      1
+7.12892      0.79816      265.2     2      12      1      1
+7.83769      0.905989      265.2     2      12      1      1
+10.0969      1.25874      265.2     2      12      1      1
+I have 1 overlapping clusters
+dr of cluster 0x7f350df26f40 in module 355476484 is: 0.00603209
+min dr is: 0.00603209 and is located in entry 0
+8.04221      0.8931      265.2     2      12      1      1
+9.37512      1.06111      265.2     2      12      1      1
+6.46139      0.596883      265.2     2      12      1      1
+6.44999      0.550981      265.2     2      12      1      1
+9.6193      1.01002      265.2     2      12      1      1
+9.74172      1.00507      265.2     2      12      1      1
+7.30715      0.568843      265.2     2      12      1      1
+8.37004      0.726412      265.2     2      12      1      1
+9.64568      0.907476      265.2     2      12      1      1
+10.0414      0.968999      265.2     2      12      1      1
+I have 1 overlapping clusters
+dr of cluster 0x7f350df26e00 in module 355476484 is: 0.0136851
+min dr is: 0.0136851 and is located in entry 0
+6.70093      0.428458      265.2     2      12      1      1
+8.44041      0.677462      265.2     2      12      1      1
+9.3956      0.822476      265.2     2      12      1      1
+8.6162      0.687585      265.2     2      12      1      1
+7.55217      0.493749      265.2     2      12      1      1
+8.06047      0.566663      265.2     2      12      1      1
+7.30777      0.436899      265.2     2      12      1      1
+7.33972      0.427194      265.2     2      12      1      1
+8.26442      0.512905      265.2     2      12      1      1
+8.02213      0.406487      265.2     2      12      1      1
+7.97902      0.372421      265.2     2      12      1      1
+9.25082      0.52064      265.2     2      12      1      1
+8.17002      0.304741      265.2     2      12      1      1
+8.88515      0.376102      265.2     2      12      1      1
+8.39486      0.293104      265.2     2      12      1      1
+8.27835      0.260729      265.2     2      12      1      1
+7.62827      0.141314      265.2     2      12      1      1
+6.44665      -0.14202      265.2     2      12      1      1
+9.20901      0.272599      265.2     2      12      1      1
+8.94563      0.207585      265.2     2      12      1      1
+7.43525      -0.111999      265.2     2      12      1      1
+8.69732      0.0473942      265.2     2      12      1      1
+9.30989      0.0836679      265.2     2      12      1      1
+7.71012      -0.184772      265.2     2      12      1      1
+7.31933      -0.265976      265.2     2      12      1      1
+8.32654      -0.107516      265.2     2      12      1      1
+10.5918      0.24573      265.2     2      12      1      1
+I have 2 overlapping clusters
+dr of cluster 0x7f350df26a00 in module 355476484 is: 0.0184298
+dr of cluster 0x7f350df3fd00 in module 355476592 is: 0.00728723
+min dr is: 0.00728723 and is located in entry 1
+10.5099      0.228166      265.2     2      12      1      1
+I have 2 overlapping clusters
+dr of cluster 0x7f350df269c0 in module 355476484 is: 0.0113366
+dr of cluster 0x7f350df3fc80 in module 355476592 is: 0.0178512
+min dr is: 0.0113366 and is located in entry 0
+9.08235      -0.0156502      265.2     2      12      1      1
+8.14273      -0.199907      265.2     2      12      1      1
+9.66125      -0.0867994      265.2     2      12      1      1
+8.93447      -0.233971      265.2     2      12      1      1
+6.71001      -0.588823      265.2     2      12      1      1
+9.09464      -0.221259      265.2     2      12      1      1
+9.65802      -0.162402      265.2     2      12      1      1
+
+
+
+2x Coincidences in R function information
+
+=> Initial detector Id: PixelEndcap Side   2+ Disk   12 Blade  1 Panel  1 Module 1 (355472388)
+phiSpan -0.105773,0.419932
+zSpan 265.193,265.208
+rSpan 6.51373,10.7688
+tmp PixelEndcap Side   2+ Disk   12 Blade  2 Panel  1 Module 1 (355476484)
+phiSpan (new) -0.0545563,0.278966
+rSpan (new) 10.1964,14.4991
+module 1 overlaps in phi with 1
+there are clusters in module 1. checking for overlaps...
+closest overlapping cluster for module 32765 is 0x7f51c9c60f40 with dr of 1000
+tmp PixelEndcap Side   2+ Disk   12 Blade  2 Panel  1 Module 2 (355476488)
+phiSpan (new) 0.169839,0.503361
+rSpan (new) 10.1964,14.4991
+module 2 overlaps in phi with 1
+there are clusters in module 2. checking for overlaps...
+closest overlapping cluster for module 32765 is 0x7f51c9c61f80 with dr of 1000
+tmp PixelEndcap Side   2+ Disk   12 Blade  2 Panel  1 Module 3 (355476492)
+phiSpan (new) 0.394243,0.727765
+rSpan (new) 10.1964,14.4991
+module 3 overlaps in phi with 1
+there are clusters in module 3. checking for overlaps...
+closest overlapping cluster for module 32765 is 0x7f51c9c62dc0 with dr of 1000
+tmp PixelEndcap Side   2+ Disk   12 Blade  2 Panel  1 Module 4 (355476496)
+phiSpan (new) 0.618638,0.95216
+rSpan (new) 10.1964,14.4991
+tmp PixelEndcap Side   2+ Disk   12 Blade  2 Panel  1 Module 5 (355476500)
+phiSpan (new) 0.843042,1.17656
+rSpan (new) 10.1964,14.4991
+tmp PixelEndcap Side   2+ Disk   12 Blade  2 Panel  1 Module 6 (355476504)
+phiSpan (new) 1.06744,1.40096
+rSpan (new) 10.1964,14.4991
+tmp PixelEndcap Side   2+ Disk   12 Blade  2 Panel  1 Module 7 (355476508)
+phiSpan (new) 1.29184,1.62536
+rSpan (new) 10.1965,14.4991
+tmp PixelEndcap Side   2+ Disk   12 Blade  2 Panel  1 Module 8 (355476512)
+phiSpan (new) 1.51624,1.84976
+rSpan (new) 10.1965,14.4991
+tmp PixelEndcap Side   2+ Disk   12 Blade  2 Panel  1 Module 9 (355476516)
+phiSpan (new) 1.74064,2.07416
+rSpan (new) 10.1964,14.4991
+tmp PixelEndcap Side   2+ Disk   12 Blade  2 Panel  1 Module 10 (355476520)
+phiSpan (new) 1.96503,2.29856
+rSpan (new) 10.1964,14.4991
+tmp PixelEndcap Side   2+ Disk   12 Blade  2 Panel  1 Module 11 (355476524)
+phiSpan (new) 2.18944,2.52296
+rSpan (new) 10.1964,14.4991
+tmp PixelEndcap Side   2+ Disk   12 Blade  2 Panel  1 Module 12 (355476528)
+phiSpan (new) 2.41383,2.74736
+rSpan (new) 10.1964,14.4991
+tmp PixelEndcap Side   2+ Disk   12 Blade  2 Panel  1 Module 13 (355476532)
+phiSpan (new) 2.63824,2.97176
+rSpan (new) 10.1964,14.4991
+tmp PixelEndcap Side   2+ Disk   12 Blade  2 Panel  1 Module 14 (355476536)
+phiSpan (new) 2.86263,-3.08703
+rSpan (new) 10.1964,14.4991
+tmp PixelEndcap Side   2+ Disk   12 Blade  2 Panel  1 Module 15 (355476540)
+phiSpan (new) 3.08704,-2.86263
+rSpan (new) 10.1964,14.4991
+tmp PixelEndcap Side   2+ Disk   12 Blade  2 Panel  1 Module 16 (355476544)
+phiSpan (new) -2.97175,-2.63823
+rSpan (new) 10.1964,14.4991
+tmp PixelEndcap Side   2+ Disk   12 Blade  2 Panel  1 Module 17 (355476548)
+phiSpan (new) -2.74735,-2.41383
+rSpan (new) 10.1964,14.4991
+tmp PixelEndcap Side   2+ Disk   12 Blade  2 Panel  1 Module 18 (355476552)
+phiSpan (new) -2.52295,-2.18943
+rSpan (new) 10.1964,14.4991
+tmp PixelEndcap Side   2+ Disk   12 Blade  2 Panel  1 Module 19 (355476556)
+phiSpan (new) -2.29855,-1.96503
+rSpan (new) 10.1964,14.4991
+tmp PixelEndcap Side   2+ Disk   12 Blade  2 Panel  1 Module 20 (355476560)
+phiSpan (new) -2.07416,-1.74063
+rSpan (new) 10.1964,14.4991
+tmp PixelEndcap Side   2+ Disk   12 Blade  2 Panel  1 Module 21 (355476564)
+phiSpan (new) -1.84975,-1.51623
+rSpan (new) 10.1965,14.4991
+tmp PixelEndcap Side   2+ Disk   12 Blade  2 Panel  1 Module 22 (355476568)
+phiSpan (new) -1.62536,-1.29184
+rSpan (new) 10.1965,14.4991
+tmp PixelEndcap Side   2+ Disk   12 Blade  2 Panel  1 Module 23 (355476572)
+phiSpan (new) -1.40095,-1.06743
+rSpan (new) 10.1964,14.4991
+tmp PixelEndcap Side   2+ Disk   12 Blade  2 Panel  1 Module 24 (355476576)
+phiSpan (new) -1.17656,-0.843036
+rSpan (new) 10.1964,14.4991
+tmp PixelEndcap Side   2+ Disk   12 Blade  2 Panel  1 Module 25 (355476580)
+phiSpan (new) -0.952154,-0.618632
+rSpan (new) 10.1964,14.4991
+tmp PixelEndcap Side   2+ Disk   12 Blade  2 Panel  1 Module 26 (355476584)
+phiSpan (new) -0.727759,-0.394237
+rSpan (new) 10.1964,14.4991
+tmp PixelEndcap Side   2+ Disk   12 Blade  2 Panel  1 Module 27 (355476588)
+phiSpan (new) -0.503355,-0.169833
+rSpan (new) 10.1964,14.4991
+tmp PixelEndcap Side   2+ Disk   12 Blade  2 Panel  1 Module 28 (355476592)
+phiSpan (new) -0.27896,0.0545617
+rSpan (new) 10.1964,14.4991
+module 28 overlaps in phi with 1
+there are clusters in module 28. checking for overlaps...
+closest overlapping cluster for module 32765 is 0x7f51c9c795c0 with dr of 1000
+Found overlapping clusters in 0 modules.
