@@ -1,0 +1,343 @@
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+ Original x 10.0514 y 3.27394 z 265.2 side 2 disk 12 ring 1 module 1
+ phiSpan -0.105773,0.419932
+ zSpan 265.193,265.208
+ rSpan 6.51373,10.7688
+ New  x 9.98653 New  y 3.28565 New  z 264.4 side(new) 2 Disk(new) 12 ring(new) 1 module(new) 2
+ phiSpan (new) 0.208387,0.734091
+ zSpan(new) 264.392,264.408
+ rSpan(new) 6.51373,10.7688
+ Found matching cluster # 1
+module 2 overlaps in phi with 1
+ Original x 8.34109 y 3.00053 z 265.2 side 2 disk 12 ring 1 module 1
+ phiSpan -0.105773,0.419932
+ zSpan 265.193,265.208
+ rSpan 6.51373,10.7688
+ New  x 8.36342 New  y 3.03103 New  z 264.4 side(new) 2 Disk(new) 12 ring(new) 1 module(new) 2
+ phiSpan (new) 0.208387,0.734091
+ zSpan(new) 264.392,264.408
+ rSpan(new) 6.51373,10.7688
+ Found matching cluster # 1
+module 2 overlaps in phi with 1
+ Original x 8.19355 y 2.97209 z 265.2 side 2 disk 12 ring 1 module 1
+ phiSpan -0.105773,0.419932
+ zSpan 265.193,265.208
+ rSpan 6.51373,10.7688
+ New  x 8.16913 New  y 2.97131 New  z 264.4 side(new) 2 Disk(new) 12 ring(new) 1 module(new) 2
+ phiSpan (new) 0.208387,0.734091
+ zSpan(new) 264.392,264.408
+ rSpan(new) 6.51373,10.7688
+ Found matching cluster # 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+ Original x 6.19081 y 2.56124 z 265.2 side 2 disk 12 ring 1 module 1
+ phiSpan -0.105773,0.419932
+ zSpan 265.193,265.208
+ rSpan 6.51373,10.7688
+ New  x 6.2016 New  y 2.51314 New  z 264.4 side(new) 2 Disk(new) 12 ring(new) 1 module(new) 2
+ phiSpan (new) 0.208387,0.734091
+ zSpan(new) 264.392,264.408
+ rSpan(new) 6.51373,10.7688
+ Found matching cluster # 1
+module 2 overlaps in phi with 1
+ Original x 9.04518 y 2.97093 z 265.2 side 2 disk 12 ring 1 module 1
+ phiSpan -0.105773,0.419932
+ zSpan 265.193,265.208
+ rSpan 6.51373,10.7688
+ New  x 9.01861 New  y 2.95802 New  z 264.4 side(new) 2 Disk(new) 12 ring(new) 1 module(new) 2
+ phiSpan (new) 0.208387,0.734091
+ zSpan(new) 264.392,264.408
+ rSpan(new) 6.51373,10.7688
+ Found matching cluster # 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+ Original x 6.26253 y 2.49244 z 265.2 side 2 disk 12 ring 1 module 1
+ phiSpan -0.105773,0.419932
+ zSpan 265.193,265.208
+ rSpan 6.51373,10.7688
+ New  x 6.2016 New  y 2.51314 New  z 264.4 side(new) 2 Disk(new) 12 ring(new) 1 module(new) 2
+ phiSpan (new) 0.208387,0.734091
+ zSpan(new) 264.392,264.408
+ rSpan(new) 6.51373,10.7688
+ Found matching cluster # 1
+ Original x 6.26253 y 2.49244 z 265.2 side 2 disk 12 ring 1 module 1
+ phiSpan -0.105773,0.419932
+ zSpan 265.193,265.208
+ rSpan 6.51373,10.7688
+ New  x 6.28731 New  y 2.43054 New  z 264.4 side(new) 2 Disk(new) 12 ring(new) 1 module(new) 2
+ phiSpan (new) 0.208387,0.734091
+ zSpan(new) 264.392,264.408
+ rSpan(new) 6.51373,10.7688
+ Found matching cluster # 2
+ Warning, found 2 Clusters within the cuts - the minimum distance is 0.0643394!
+ All distances: (dx: 0.0609217 dy: 0.0206907 dr: 0.0643394) (dx: 0.0247841 dy: 0.0619018 dr: 0.066679) 
+module 2 overlaps in phi with 1
+ Original x 7.58679 y 2.64313 z 265.2 side 2 disk 12 ring 1 module 1
+ phiSpan -0.105773,0.419932
+ zSpan 265.193,265.208
+ rSpan 6.51373,10.7688
+ New  x 7.55816 New  y 2.64878 New  z 264.4 side(new) 2 Disk(new) 12 ring(new) 1 module(new) 2
+ phiSpan (new) 0.208387,0.734091
+ zSpan(new) 264.392,264.408
+ rSpan(new) 6.51373,10.7688
+ Found matching cluster # 1
+ Original x 7.58679 y 2.64313 z 265.2 side 2 disk 12 ring 1 module 1
+ phiSpan -0.105773,0.419932
+ zSpan 265.193,265.208
+ rSpan 6.51373,10.7688
+ New  x 7.63123 New  y 2.65974 New  z 264.4 side(new) 2 Disk(new) 12 ring(new) 1 module(new) 2
+ phiSpan (new) 0.208387,0.734091
+ zSpan(new) 264.392,264.408
+ rSpan(new) 6.51373,10.7688
+ Found matching cluster # 2
+ Warning, found 2 Clusters within the cuts - the minimum distance is 0.0291815!
+ All distances: (dx: 0.0286279 dy: 0.0056572 dr: 0.0291815) (dx: 0.0444422 dy: 0.0166159 dr: 0.0474468) 
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+ Original x 6.3578 y 2.40291 z 265.2 side 2 disk 12 ring 1 module 1
+ phiSpan -0.105773,0.419932
+ zSpan 265.193,265.208
+ rSpan 6.51373,10.7688
+ New  x 6.28731 New  y 2.43054 New  z 264.4 side(new) 2 Disk(new) 12 ring(new) 1 module(new) 2
+ phiSpan (new) 0.208387,0.734091
+ zSpan(new) 264.392,264.408
+ rSpan(new) 6.51373,10.7688
+ Found matching cluster # 1
+ Original x 6.3578 y 2.40291 z 265.2 side 2 disk 12 ring 1 module 1
+ phiSpan -0.105773,0.419932
+ zSpan 265.193,265.208
+ rSpan 6.51373,10.7688
+ New  x 6.35818 New  y 2.37967 New  z 264.4 side(new) 2 Disk(new) 12 ring(new) 1 module(new) 2
+ phiSpan (new) 0.208387,0.734091
+ zSpan(new) 264.392,264.408
+ rSpan(new) 6.51373,10.7688
+ Found matching cluster # 2
+ Warning, found 2 Clusters within the cuts - the minimum distance is 0.0232456!
+ All distances: (dx: 0.0704865 dy: 0.0276301 dr: 0.0757085) (dx: 0.000379086 dy: 0.0232425 dr: 0.0232456) 
+module 2 overlaps in phi with 1
+ Original x 8.69768 y 2.73302 z 265.2 side 2 disk 12 ring 1 module 1
+ phiSpan -0.105773,0.419932
+ zSpan 265.193,265.208
+ rSpan 6.51373,10.7688
+ New  x 8.66666 New  y 2.72257 New  z 264.4 side(new) 2 Disk(new) 12 ring(new) 1 module(new) 2
+ phiSpan (new) 0.208387,0.734091
+ zSpan(new) 264.392,264.408
+ rSpan(new) 6.51373,10.7688
+ Found matching cluster # 1
+module 2 overlaps in phi with 1
+ Original x 6.82009 y 2.42804 z 265.2 side 2 disk 12 ring 1 module 1
+ phiSpan -0.105773,0.419932
+ zSpan 265.193,265.208
+ rSpan 6.51373,10.7688
+ New  x 6.79882 New  y 2.419 New  z 264.4 side(new) 2 Disk(new) 12 ring(new) 1 module(new) 2
+ phiSpan (new) 0.208387,0.734091
+ zSpan(new) 264.392,264.408
+ rSpan(new) 6.51373,10.7688
+ Found matching cluster # 1
+module 2 overlaps in phi with 1
+ Original x 7.24888 y 2.47265 z 265.2 side 2 disk 12 ring 1 module 1
+ phiSpan -0.105773,0.419932
+ zSpan 265.193,265.208
+ rSpan 6.51373,10.7688
+ New  x 7.18247 New  y 2.45005 New  z 264.4 side(new) 2 Disk(new) 12 ring(new) 1 module(new) 2
+ phiSpan (new) 0.208387,0.734091
+ zSpan(new) 264.392,264.408
+ rSpan(new) 6.51373,10.7688
+ Found matching cluster # 1
+module 2 overlaps in phi with 1
+ Original x 6.42175 y 2.31909 z 265.2 side 2 disk 12 ring 1 module 1
+ phiSpan -0.105773,0.419932
+ zSpan 265.193,265.208
+ rSpan 6.51373,10.7688
+ New  x 6.35818 New  y 2.37967 New  z 264.4 side(new) 2 Disk(new) 12 ring(new) 1 module(new) 2
+ phiSpan (new) 0.208387,0.734091
+ zSpan(new) 264.392,264.408
+ rSpan(new) 6.51373,10.7688
+ Found matching cluster # 1
+ Original x 6.42175 y 2.31909 z 265.2 side 2 disk 12 ring 1 module 1
+ phiSpan -0.105773,0.419932
+ zSpan 265.193,265.208
+ rSpan 6.51373,10.7688
+ New  x 6.37492 New  y 2.25352 New  z 264.4 side(new) 2 Disk(new) 12 ring(new) 1 module(new) 2
+ phiSpan (new) 0.208387,0.734091
+ zSpan(new) 264.392,264.408
+ rSpan(new) 6.51373,10.7688
+ Found matching cluster # 2
+ Original x 6.42175 y 2.31909 z 265.2 side 2 disk 12 ring 1 module 1
+ phiSpan -0.105773,0.419932
+ zSpan 265.193,265.208
+ rSpan 6.51373,10.7688
+ New  x 6.46119 New  y 2.24364 New  z 264.4 side(new) 2 Disk(new) 12 ring(new) 1 module(new) 2
+ phiSpan (new) 0.208387,0.734091
+ zSpan(new) 264.392,264.408
+ rSpan(new) 6.51373,10.7688
+ Found matching cluster # 3
+ Warning, found 3 Clusters within the cuts - the minimum distance is 0.0805828!
+ All distances: (dx: 0.0635786 dy: 0.0605786 dr: 0.087818) (dx: 0.0468397 dy: 0.0655715 dr: 0.0805828) (dx: 0.0394382 dy: 0.0754473 dr: 0.0851333) 
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+ Original x 7.04362 y 2.36068 z 265.2 side 2 disk 12 ring 1 module 1
+ phiSpan -0.105773,0.419932
+ zSpan 265.193,265.208
+ rSpan 6.51373,10.7688
+ New  x 7.02424 New  y 2.35148 New  z 264.4 side(new) 2 Disk(new) 12 ring(new) 1 module(new) 2
+ phiSpan (new) 0.208387,0.734091
+ zSpan(new) 264.392,264.408
+ rSpan(new) 6.51373,10.7688
+ Found matching cluster # 1
+ Original x 7.04362 y 2.36068 z 265.2 side 2 disk 12 ring 1 module 1
+ phiSpan -0.105773,0.419932
+ zSpan 265.193,265.208
+ rSpan 6.51373,10.7688
+ New  x 7.04256 New  y 2.29348 New  z 264.4 side(new) 2 Disk(new) 12 ring(new) 1 module(new) 2
+ phiSpan (new) 0.208387,0.734091
+ zSpan(new) 264.392,264.408
+ rSpan(new) 6.51373,10.7688
+ Found matching cluster # 2
+ Warning, found 2 Clusters within the cuts - the minimum distance is 0.0214526!
+ All distances: (dx: 0.019382 dy: 0.00919533 dr: 0.0214526) (dx: 0.00106287 dy: 0.0672009 dr: 0.0672093) 
+module 2 overlaps in phi with 1
+ Original x 7.57059 y 2.42541 z 265.2 side 2 disk 12 ring 1 module 1
+ phiSpan -0.105773,0.419932
+ zSpan 265.193,265.208
+ rSpan 6.51373,10.7688
+ New  x 7.55311 New  y 2.41613 New  z 264.4 side(new) 2 Disk(new) 12 ring(new) 1 module(new) 2
+ phiSpan (new) 0.208387,0.734091
+ zSpan(new) 264.392,264.408
+ rSpan(new) 6.51373,10.7688
+ Found matching cluster # 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+ Original x 6.99009 y 2.18666 z 265.2 side 2 disk 12 ring 1 module 1
+ phiSpan -0.105773,0.419932
+ zSpan 265.193,265.208
+ rSpan 6.51373,10.7688
+ New  x 6.96956 New  y 2.17211 New  z 264.4 side(new) 2 Disk(new) 12 ring(new) 1 module(new) 2
+ phiSpan (new) 0.208387,0.734091
+ zSpan(new) 264.392,264.408
+ rSpan(new) 6.51373,10.7688
+ Found matching cluster # 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+ Original x 6.7839 y 1.95253 z 265.2 side 2 disk 12 ring 1 module 1
+ phiSpan -0.105773,0.419932
+ zSpan 265.193,265.208
+ rSpan 6.51373,10.7688
+ New  x 6.88365 New  y 1.87763 New  z 264.4 side(new) 2 Disk(new) 12 ring(new) 1 module(new) 2
+ phiSpan (new) 0.208387,0.734091
+ zSpan(new) 264.392,264.408
+ rSpan(new) 6.51373,10.7688
+ Found matching cluster # 1
+module 2 overlaps in phi with 1
+ Original x 7.07305 y 1.91884 z 265.2 side 2 disk 12 ring 1 module 1
+ phiSpan -0.105773,0.419932
+ zSpan 265.193,265.208
+ rSpan 6.51373,10.7688
+ New  x 7.05305 New  y 1.92004 New  z 264.4 side(new) 2 Disk(new) 12 ring(new) 1 module(new) 2
+ phiSpan (new) 0.208387,0.734091
+ zSpan(new) 264.392,264.408
+ rSpan(new) 6.51373,10.7688
+ Found matching cluster # 1
+module 2 overlaps in phi with 1
+ Original x 6.20523 y 1.76621 z 265.2 side 2 disk 12 ring 1 module 1
+ phiSpan -0.105773,0.419932
+ zSpan 265.193,265.208
+ rSpan 6.51373,10.7688
+ New  x 6.18798 New  y 1.76546 New  z 264.4 side(new) 2 Disk(new) 12 ring(new) 1 module(new) 2
+ phiSpan (new) 0.208387,0.734091
+ zSpan(new) 264.392,264.408
+ rSpan(new) 6.51373,10.7688
+ Found matching cluster # 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+module 2 overlaps in phi with 1
+
