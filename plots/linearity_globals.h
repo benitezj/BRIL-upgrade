@@ -5,10 +5,10 @@
 #include<string.h>
 
 TString outputpath1 = "/home/ashish/TEPX_plot/Clusters/";
-TString outputpath2 = "/home/ashish/TEPX_plot/2xCoincidences/";
-TString outputpath3 = "/home/ashish/TEPX_plot/3xCoincidences/";
+TString outputpath2 = "/home/ashish/TEPX_plot/2x Coincidences/";
+TString outputpath3 = "/home/ashish/TEPX_plot/3x Coincidences/";
 
-TString inpath = "/home/ashish/TEPX/samples_17Feb2020/";
+TString inpath = "/home/ashish/Desktop/TEPX_0.05new/samples_17Feb2020/";
 
 //gROOT->ProcessLine(".x /home/ashish/rootlogon.C");
 

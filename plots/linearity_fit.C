@@ -129,7 +129,7 @@ void linearity_fit(int option){
 	  TLine* line = new TLine(0, 0, 220, 0);
 	  line->SetLineColor(kBlack);
 	  line->Draw("same");
-	  
+	  gPad->SetGrid(1, 1);
 	  legend->SetFillColor(0);
 	  legend->SetLineColor(0);
 	  legend->SetFillColor(0);
@@ -234,7 +234,7 @@ void linearity_fit(int option){
 	  TLine* line = new TLine(0, 0, 220, 0);
 	  line->SetLineColor(kBlack);
 	  line->Draw("same");
-	  
+	  gPad->SetGrid(1, 1);
 	  legend->SetFillColor(0);
 	  legend->SetLineColor(0);
 	  legend->SetFillColor(0);
@@ -336,7 +336,7 @@ void linearity_fit(int option){
 	  TLine* line = new TLine(0, 0, 220, 0);
 	  line->SetLineColor(kBlack);
 	  line->Draw("same");
-	  
+	  gPad->SetGrid(1, 1);
 	  legend->SetFillColor(0);
 	  legend->SetLineColor(0);
 	  legend->SetFillColor(0);
