@@ -1,78 +1,100 @@
-long Fill=7314;
-long Run=324841;
-#define MAXL 1.7
-#define MAXRATE 250e3
-//#define MAXRATE 40e6
 
-TString InstLumiTitle("Inst. Luminosity (x10^{34} cm^{-2} s^{-1})");
+//long Fill=7314;
+//long Run=324841;
+//#define MAXL 1.7
+//#define MAXRATE 250e3
+//#define MAXRATEEMTF 40e6
 
 
-void OMS_rates(TString Type="BMTF"){
+long Fill=7321;
+long Run=324980;
+#define MAXL 2.0
+#define MAXRATE 300e3
+#define MAXRATEEMTF 2e6
 
-  ifstream lumifile(TString("OMS-lumi-Fill")+Fill+"-Run"+Run+".dat");
-  if (!lumifile.is_open()){
+
+TString InstLumiTitle("Offline Inst. Luminosity  [x10^{34} cm^{-2} s^{-1}]");
+float L[3000];
+
+void readLumi(TString file){
+  
+  for(int i=0;i<3000;i++) L[i] = 0.;
+  
+  ifstream myfile(file.Data());
+  if (!myfile.is_open()){
     std::cout << "Unable to open lumi file"<<endl;
     return;
   }
+  
+  int LSL;
+  float Lum;
+  std::string line;
+  while (std::getline(myfile,line)){
+    std::stringstream iss(line);
+    iss>>LSL>>Lum;
+    if(LSL < 0 && LSL > 3000) continue;
+    L[LSL] = Lum/10000; ///convert to 1e34 
+  }
+  
+  cout<<"done reading lumi file : "<<file<<endl;
+}
 
-  ifstream bmtffile(TString("OMS-")+Type+"-Fill"+Fill+"-Run"+Run+".dat");
+
+void OMS_rates(TString Type="BMTF"){
+  
+  //readLumi(TString("OMS-lumi-Run"+Run+".dat"));
+  readLumi(TString("brilcalc-lumi-Run")+Run+".dat");
+  
+  TString RateFile(TString("OMS-")+Type+"-Run"+Run+".dat");
+  ifstream bmtffile(RateFile.Data());
   if (!bmtffile.is_open()){
     std::cout << "Unable to open rate file"<<endl;
     return;
   }
-
-
+  cout<<"reading rates: "<<RateFile<<endl;
+  
   
   TGraph GLvsLS;
   TGraph GBvsLS;
-  TGraph GBvsL;
-  
-   
-  std::string lumiline;
+  TGraph GBvsL;   
   int c=0;
-  int LSL;
-  float L;
+  
 
   std::string bmtfline;
-  int LSB;
-  float B;
-  
-  while (std::getline(lumifile,lumiline)){
-    std::stringstream iss(lumiline);
-    iss>>LSL>>L;
-
-
+  int LS;
+  float B;  
+  while (std::getline(bmtffile,bmtfline)){
     std::getline(bmtffile,bmtfline);
     std::stringstream issb(bmtfline);
-    issb>>LSB>>B;
+    issb>>LS>>B;
     
-    if(LSB!=LSL){
-      cout<<LSB<<"!"<<LSL<<endl;
-      break;
-    }
+    if(L[LS]==0.) continue;
+    //cout<<LS<<" "<<L[LS]<<" "<<B<<endl;
     
-    //cout<<LS<<" "<<L<<endl;
-    GLvsLS.SetPoint(c,LSL,L);
-    GBvsLS.SetPoint(c,LSL,B);
-    GBvsL.SetPoint(c,L,B);
+    GLvsLS.SetPoint(c,LS,L[LS]);
+    GBvsLS.SetPoint(c,LS,B);
+    GBvsL.SetPoint(c,L[LS],B);
     c++;
   }
-
-
+  
+  
+  
   TCanvas C;
   C.Clear();
+  GLvsLS.SetTitle(TString("Fill ")+Fill+", Run "+Run);
   GLvsLS.GetYaxis()->SetRangeUser(0,MAXL);
   GLvsLS.GetYaxis()->SetTitle(InstLumiTitle);
   GLvsLS.GetXaxis()->SetTitle("Lumi section");
   GLvsLS.Draw("ap");
-  C.Print("OMS_rates_LvsLS.png");
-
+  C.Print(TString("OMS_rates_LvsLS-")+Run+".png");
+  
   C.Clear();
-  GBvsLS.GetYaxis()->SetRangeUser(0,MAXRATE);
+  GBvsLS.SetTitle(TString("Fill ")+Fill+", Run "+Run);
+  GBvsLS.GetYaxis()->SetRangeUser(0,Type.CompareTo("EMTF")==0 ? MAXRATEEMTF : MAXRATE);
   GBvsLS.GetYaxis()->SetTitle(Type+"  total rate (Hz)");
   GBvsLS.GetXaxis()->SetTitle("Lumi section");
   GBvsLS.Draw("ap");
-  C.Print("OMS_ratevsLS.png");
+  C.Print(TString("OMS_ratevsLS-")+Type+"-"+Run+".png");
 
 
 
@@ -81,11 +103,11 @@ void OMS_rates(TString Type="BMTF"){
   GBvsL.Fit(&FLine);
   
   C.Clear();
-  GBvsL.GetXaxis()->SetRangeUser(0,MAXL);
-  GBvsL.GetYaxis()->SetRangeUser(0,MAXRATE);
-  GBvsL.GetYaxis()->SetTitle(Type+"  total rate (Hz)");
-  GBvsL.GetXaxis()->SetTitle("Inst. Luminosity (x10^{34} cm^{-2} s^{-1})");
   GBvsL.SetTitle(TString("Fill ")+Fill+", Run "+Run);
+  GBvsL.GetXaxis()->SetRangeUser(0,MAXL);
+  GBvsL.GetYaxis()->SetRangeUser(0,Type.CompareTo("EMTF")==0 ? MAXRATEEMTF : MAXRATE);
+  GBvsL.GetYaxis()->SetTitle(Type+"  total rate (Hz)");
+  GBvsL.GetXaxis()->SetTitle(InstLumiTitle.Data());
   GBvsL.SetMarkerStyle(2);
   
   GBvsL.Draw("ap");
@@ -104,12 +126,10 @@ void OMS_rates(TString Type="BMTF"){
   sprintf(txt,"p_{1} = %.0f +/- %.0f ",FLine.GetParameter(1),FLine.GetParError(1));
   text.SetTextSize(.035);
   text.DrawLatexNDC(0.6,0.3,txt);
-  sprintf(txt,"extrapolated rate @ L=7.5e34 (HL-LHC):  %.2e Hz",FLine.Eval(7.5));
+  sprintf(txt,"extrapolated rate @ L=7.5e34 :  %.2e Hz",FLine.Eval(7.5));
   text.SetTextSize(.035);
-  text.DrawLatexNDC(0.3,0.2,txt);
-  C.Print("OMS_ratevsL-"+Type+".png");
-
-
+  text.DrawLatexNDC(0.4,0.2,txt);
+  C.Print(TString("OMS_ratevsL-")+Type+"-"+Run+".png");
 
 
 
@@ -136,6 +156,7 @@ void OMS_rates(TString Type="BMTF"){
 
   
   C.Clear();
+  GBoverLvsL.SetTitle(TString("Fill ")+Fill+", Run "+Run);
   GBoverLvsL.GetYaxis()->SetTitleOffset(1.2);
   GBoverLvsL.GetYaxis()->SetRangeUser(-0.02,0.02);
   GBoverLvsL.GetYaxis()->SetTitle(TString("( ")+Type+" - Fit ) / Fit ");
@@ -143,14 +164,10 @@ void OMS_rates(TString Type="BMTF"){
   GBoverLvsL.Draw("ap");
   FZero.Draw("lsame");
   //FLinearity.Draw("lsame");
-  sprintf(txt,"slope = %.2f %% / 1e34 cm^{-2} s^{-1}",100*FLinearity.GetParameter(1));
+  sprintf(txt,"slope = %.3f +/- %.3f %%",100*FLinearity.GetParameter(1),100*FLinearity.GetParError(1));
   text.SetTextSize(.035);
   text.DrawLatexNDC(0.3,0.2,txt);
-  C.Print("OMS_ratiovsL-"+Type+".png");
-
-
-
-
+  C.Print(TString("OMS_ratiovsL-")+Type+"-"+Run+".png");
   
   
 }
