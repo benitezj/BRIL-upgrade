@@ -15,16 +15,23 @@ void print_precision(TString DETECTOR = "TEPX",
 
   cout<<DETECTOR
       <<setprecision(5)
-      <<" & "<<trigger_rate/1000
+    //<<" & "<<trigger_rate/1000
 
       <<setprecision(2)
-    //<<" "<<100./sqrt(VDM*totcount/400/10)   // pu 0.5 VDM tail
+
+    ///Vdm
       <<" & "<<100./sqrt(VDM*totcount/400)   // pu 0.5 VDM
       <<" & "<<100./sqrt(100*VDM*totcount/400)   // pu 0.5 VDM
-    
+
+    //pu=200, 1bx
       <<" & "<<100./sqrt(LN4*totcount)        // pu 200  4LN
       <<" & "<<100./sqrt(LS*totcount)  // pu 200  1LS
-      <<" & "<<100./sqrt(50*LS*totcount)  // pu 200  50LS
+
+    //pu=200, 1 orbit
+      <<" & "<<100./sqrt(NBX*LN4*totcount)        // pu 200  4LN
+      <<" & "<<100./sqrt(NBX*LS*totcount)  // pu 200  1LS
+
+
       <<"\\\\"<<endl;
   
   cout<<"\\hline"<<endl;
@@ -62,16 +69,16 @@ void stat_precision(){
   /// BMTF/OMTF/EMTF
   float BMTF = 456 / NORB;
   float OMTF = 306 / NORB;
-  float EMTF = 62100 / NORB;  
+  float EMTF = 2633 / NORB;  
 
 
   /////////////////////////////////////
   ///create table per bx
   /////////////////////////////////////
-  cout<<"\\begin{tabular}{l | c | c | c | c | c | c | }"<<endl;
+  cout<<"\\begin{tabular}{l | c | c | c | c | c | c |}"<<endl;
   cout<<"\\hline\\hline"<<endl;
-  cout<<"  &  Trigger  & \\multicolumn{2}{c}{ vdM  (pu=0.5, 30s) }    &  \\multicolumn{3}{c}{ Physics (pu = 200, per bx)} \\\\"<<endl;
-  cout<<"  &  (kHz)    & 1 bx     & 100 bx        &  4 LN     & 1 LS      & 50 LS \\\\"<<endl;
+  cout<<"  & \\multicolumn{2}{c|}{ vdM  (pu=0.5) }    &  \\multicolumn{4}{c|}{ Physics (pu = 200)} \\\\"<<endl;
+  cout<<"  & 1 bx, 30 s     & 100 bx, 30 s        &  1 bx, 4 LN     & 1 bx, 1 LS      & 1 orbit, 4 LN & 1 orbit, 1 LS \\\\"<<endl;
   cout<<"\\hline"<<endl;
   
   //print_precision("TEPX clusters",TEPX,75e3);
