@@ -85,7 +85,7 @@ for f in `/bin/ls $fullsubmitdir | grep .txt | grep -v "~" `; do
 		echo "cd ${INSTALLATION} " >> $fullsubmitdir/${job}.sh
 		echo "eval \`scramv1 runtime -sh\` " >> $fullsubmitdir/${job}.sh
 		echo "pwd"   >> $fullsubmitdir/${job}.sh                                                                                            
-		echo "export INPUT=${filelist}" >>  $fullsubmitdir/${job}.sh
+		echo "export INPUT=${filelist::-1}" >>  $fullsubmitdir/${job}.sh
 		echo "export OUTPUT=$outputdir/${job}.root" >>  $fullsubmitdir/${job}.sh
 		echo "env" >> $fullsubmitdir/${job}.sh
 		echo "cmsRun  ${fullsubmitdir}/cfg.py" >>  $fullsubmitdir/${job}.sh
@@ -111,7 +111,7 @@ for f in `/bin/ls $fullsubmitdir | grep .txt | grep -v "~" `; do
 	    
 	    ## check successful completion of job
 	    if [ "$action" == "2" ]; then
-		var = '$(cat ${fullsubmitdir}/${job}.log | grep "IT cluster Analyzer processed")'
+		var=`$(cat ${fullsubmitdir}/${job}.log | grep "IT cluster Analyzer processed")`
 		
 		if [ -z "$var" ]
 		then
