@@ -10,7 +10,7 @@ void print_precision(TString DETECTOR = "TEPX",
 		     float trigger_rate = 0  //Hz
 		     ){
 
-  float totcount = count_per_event * trigger_rate  / NBX; 
+  float totcount = count_per_event * trigger_rate; 
 
 
   cout<<DETECTOR
