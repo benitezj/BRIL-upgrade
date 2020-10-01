@@ -10,7 +10,7 @@ void print_precision(TString DETECTOR = "TEPX",
 		     float trigger_rate = 0  //Hz
 		     ){
 
-  float totcount = count_per_event * trigger_rate  / NBX; 
+  float totcount = count_per_event * trigger_rate; 
 
 
   cout<<DETECTOR
@@ -45,10 +45,10 @@ void stat_precision(){
   ///READ TEPX number of clusters per event for pu=200
   float TEPX=0;
   float TEPXDR[8][5];
-  TFile FTEPX("2023D42PU200.root","r");
+  TFile FTEPX("/home/ashish/Desktop/TEPX_0.03/samples_17Feb2020/2023D42PU200.root","r");
   std::vector<string> disk={"-4","-3","-2","-1","1","2","3","4"};
   for(long d=0;d<8;d++){
-    TH2F* H2 = (TH2F*)FTEPX.Get(TString("BRIL_IT_Analysis/TEPX/Clusters/Number of clusters for Disk ")+disk[d].c_str());
+    TH2F* H2 = (TH2F*)FTEPX.Get(TString("BRIL_IT_Analysis/TEPX/2xCoincidences/Number of 2x Coincidences for Disk ")+disk[d].c_str());
     TProfile* P=H2->ProfileX();
     for(long r=1;r<=5;r++){
       TEPXDR[d][r-1] = P->GetBinContent(r);
@@ -83,12 +83,12 @@ void stat_precision(){
   
   //print_precision("TEPX clusters",TEPX,75e3);
   //print_precision("TEPX clusters",TEPX,500e3);
-  //print_precision("TEPXD4R1 clusters",TEPXDR[0][0]+TEPXDR[7][0],800e3);
+  print_precision("TEPXD4R1 clusters",TEPXDR[0][0]+TEPXDR[7][0],800e3);
   //print_precision("OT Layer6 stubs",OTL6,40e6);
-  print_precision("DT Primitives",DTTP,40e6);
-  print_precision("BMTF",BMTF,40e6);
-  print_precision("OMTF",OMTF,40e6);
-  print_precision("EMTF",EMTF,40e6);
+  //print_precision("DT Primitives",DTTP,40e6);
+  //print_precision("BMTF",BMTF,40e6);
+  //print_precision("OMTF",OMTF,40e6);
+  //print_precision("EMTF",EMTF,40e6);
  
 
   cout<<"\\end{tabular}"<<endl;
