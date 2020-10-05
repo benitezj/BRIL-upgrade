@@ -646,7 +646,8 @@ const SiPixelCluster* Ashish2xCoincidence5::findCoincidence2x(DetId thedetid, Gl
       double dr = sqrt(pow(globalPosClu2.x(), 2) + pow(globalPosClu2.y(), 2)) - sqrt(pow(globalPosClu1.x(), 2) + pow(globalPosClu1.y(), 2));
       double dR = sqrt(pow(globalPosClu2.x() - globalPosClu1.x(), 2) + pow(globalPosClu2.y() - globalPosClu1.y(), 2));
       
-      double phi1 = TMath::ATan2(globalPosClu1.y(), globalPosClu1.x());                                                                           double phi2 = TMath::ATan2(globalPosClu2.y(), globalPosClu2.x()); 
+      double phi1 = TMath::ATan2(globalPosClu1.y(), globalPosClu1.x());        
+      double phi2 = TMath::ATan2(globalPosClu2.y(), globalPosClu2.x()); 
       
       if (dR < R_min) {
 	
