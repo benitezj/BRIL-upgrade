@@ -6,13 +6,13 @@ TCanvas * C = new TCanvas("2xCoincidences","");
 
 TH2F * histo = NULL; 
 
-histo = (TH2F*)f->Get("BRIL_IT_Analysis/TEPX/2xCoincidences/m_dphi_sametrack_side2_Disk4_Ring5");
+histo = (TH2F*)f->Get("BRIL_IT_Analysis/TEPX/2xCoincidences/m_dphi_sametrack_side2_Disk4_Ring1");
 
  if (histo==NULL){
     return;
   }
 
-histo->SetTitle("Side 2 Disk 4 Ring 5 fit");
+histo->SetTitle("Side 2 Disk 4 Ring 1 fit");
 histo->GetXaxis()->SetTitle("phi2-phi1");
 histo->GetYaxis()->SetTitle("counts");
 histo->SetLineColor(1);
