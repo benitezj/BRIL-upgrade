@@ -30,6 +30,7 @@ DG.SetParLimits(0,0,10000000);
 DG.FixParameter(1,0);
 DG.SetParLimits(2,0.0001, 0.02);
 histo->Fit(&DG);
+
 cout << DG.GetParameter(1) << " " <<endl;
 cout<< DG.GetParameter(2) << endl;
 
