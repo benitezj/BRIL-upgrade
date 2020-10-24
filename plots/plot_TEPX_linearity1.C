@@ -1,4 +1,4 @@
-void plot_TEPX_linearity(){
+void plot_TEPX_linearity1(){
 
   int option = 1;
   
