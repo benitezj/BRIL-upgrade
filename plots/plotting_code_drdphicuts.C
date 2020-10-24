@@ -189,7 +189,7 @@ for (int s = 0; s < sidelist.size(); s++) {
  C1.Clear();
  
  
-TCanvas C2("C2");
+ TCanvas C2("C2");
  C2.cd();
  
  for (int s = 0; s < sidelist.size(); s++) {
@@ -204,16 +204,11 @@ TCanvas C2("C2");
      NonLinearity_TEPXClustersPerEvent[s][d][0]->GetXaxis()->SetLabelSize(0.04);
      NonLinearity_TEPXClustersPerEvent[s][d][0]->GetXaxis()->SetRangeUser(0, 210);
      NonLinearity_TEPXClustersPerEvent[s][d][0]->GetXaxis()->SetTitle("Pileup");
-      
+     
      NonLinearity_TEPXClustersPerEvent[s][d][0]->SetMarkerStyle(20);
      NonLinearity_TEPXClustersPerEvent[s][d][0]->SetLineColor(1);
      NonLinearity_TEPXClustersPerEvent[s][d][0]->SetMarkerSize(0);
-      
-     if (d <= 3) {
-       NonLinearity_TEPXClustersPerEvent[s][d][0]->SetTitle(TString("Disk ") + (d + 1) + TString(" Side ") + (s + 1));
-     } else {
-       NonLinearity_TEPXClustersPerEvent[s][d][0]->SetTitle(TString("Disk ") + (d + 1) + TString(" Side ") + (s + 1));
-     }
+     NonLinearity_TEPXClustersPerEvent[s][d][0]->SetTitle(TString("Disk ") + (d + 1) + TString(" Side ") + (s + 1));
      
      auto legend = new TLegend(0.8, 0.2, 0.9, 0.4);
      NonLinearity_TEPXClustersPerEvent[s][d][0]->Draw("ape");
@@ -239,7 +234,7 @@ TCanvas C2("C2");
      legend->Draw("same");
      
      C2.Print(outputpath3 + TString("2xCoincidencesdisk_") + d + s + ".gif");
-      
+     
    }
  }
 }
