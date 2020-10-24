@@ -1,8 +1,8 @@
 void plotting_code_2xdrdphicuts(){
   
-  
-  TString outputpath1 = "/home/ashish/TEPX_plot/2x Coincidences/2xCoincidences_Fit/";
-  TString outputpath2 = "/home/ashish/TEPX_plot/2x Coincidences/Extrapolation/";
+
+  TString outputpath1 = "/home/ashish/TEPX_plot/2x Coincidences/Extrapolation/";
+  TString outputpath2 = "/home/ashish/TEPX_plot/2x Coincidences/2xCoincidences_Fit/";  
   TString outputpath3 = "/home/ashish/TEPX_plot/2x Coincidences/AllPU_residuals/";
   
   TString inpath = "/home/ashish/Desktop/23rdOct2020/TEPX/samples_23rdOctober2020_drdphicuts/";
@@ -116,7 +116,7 @@ void plotting_code_2xdrdphicuts(){
 	char* histname = new char[40];
 	sprintf(histname, "histo%d_linearity.gif", l);
 	cout << "==========================" << histname << endl;
-	C.Print(outputpath2 + histname);
+	C.Print(outputpath1 + histname);
 	
 	
 	FitTEPXClustersPerEvent[s][d][r] = new TF1(TString("Fit_") + d + "_" + r, "[0]+[1]*x", 0.5, 2);
@@ -127,7 +127,7 @@ void plotting_code_2xdrdphicuts(){
         char* histname1 = new char[40];
 	sprintf(histname1, "histo%d_linearity1.gif", l);
         C.Update();
-        C.Print(outputpath1 + histname1);
+        C.Print(outputpath2 + histname1);
 	
       }
     }
