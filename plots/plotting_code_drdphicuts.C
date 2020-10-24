@@ -116,7 +116,7 @@ void plotting_code_drdphicuts(){
 	char* histname = new char[40];
 	sprintf(histname, "histo%d_linearity.gif", l);
 	cout << "==========================" << histname << endl;
-	C.Print(outputpath1 + histname);
+	C.Print(outputpath2 + histname);
 	
 	
 	FitTEPXClustersPerEvent[s][d][r] = new TF1(TString("Fit_") + d + "_" + r, "[0]+[1]*x", 0.5, 2);
@@ -127,7 +127,7 @@ void plotting_code_drdphicuts(){
         char* histname1 = new char[40];
 	sprintf(histname1, "histo%d_linearity1.gif", l);
         C.Update();
-        C.Print(outputpath2 + histname1);
+        C.Print(outputpath1 + histname1);
 	
       }
     }
