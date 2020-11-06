@@ -13,19 +13,18 @@ void print_precision2(TString DETECTOR = "TEPX",
 		     ){
 
   cout<<DETECTOR
-      //<<setprecision(5)
-    //<<" & "<<trigger_rate/1000
-
       <<setprecision(3)
 
 
     //pu=200, 1bx, 4LN
-      <<"&"<<trigger_rate/1000<<"&"<<100/sqrt(count_per_event*trigger_rate*LN4/NBX)// pu 200  4LN
+      <<"&"<<trigger_rate/1000<<"&"<<100/sqrt(count_per_event*trigger_rate*LN4/NBX)
      
+   // pu+200, 2500 bx, 4LN
+      <<"&"<<100/sqrt(NCOLLIDING*count_per_event*trigger_rate*LN4/NBX)
 
     //pu=200,2500 bx, 1LS
 
-      <<" & "<<100/sqrt(NCOLLIDING*count_per_event*trigger_rate*LS/NBX)// pu 200  1LS
+      <<"&"<<100/sqrt(NCOLLIDING*count_per_event*trigger_rate*LS/NBX)
 
 
       <<"\\\\"<<endl;
@@ -109,9 +108,9 @@ void stat_precision_2(){
   /////////////////////////////////////
   cout<<"\\begin{center}"<<endl;
   cout<< "\\scalebox{.8}{"<<endl;
-  cout<<"\\begin{tabular}{|l | c | c | c | }"<<endl;
+  cout<<"\\begin{tabular}{|l | c | c | c |c |}"<<endl;
   cout<<"\\hline"<<endl;
-  cout<<" &Total Readout Rate (kHz)& 1 bx, 4LN    & 2500 bx, 1 LS \\\\"<<endl;
+  cout<<" & Readout Rate (kHz)& 1 bx, 4LN &2500 bx, 4LN   & 2500 bx, 1 LS \\\\"<<endl;
   cout<<"\\hline"<<endl;
   print_precision2("TEPXD4R1 Clusters",TEPXDR_C[0][0]+TEPXDR_C[7][0],800e3);
   print_precision2("TEPXD4R1 2x Coincidences",TEPXDR_2x[0][0]+TEPXDR_2x[7][0],800e3);
@@ -135,12 +134,12 @@ void stat_precision_2(){
   cout<< "\\scalebox{.8}{"<<endl;
   cout<<"\\begin{tabular}{|l | c | c | c |c|}"<<endl;
   cout<<"\\hline"<<endl;
-  cout<<"  & Total Readout Rate (kHz) &1 bx, 4LN & 1 bx, 30s & 100 bx, 30s\\\\"<<endl;
+  cout<<"  & Readout Rate (kHz) &1 bx, 4LN & 1 bx, 30s & 100 bx, 30s\\\\"<<endl;
   cout<<"\\hline"<<endl;  
   print_precisionvdm("TEPXD4R1 Clusters",TEPXDR_C[0][0]+TEPXDR_C[7][0],800e3);  
   print_precisionvdm("TEPXD4R1 2x Coincidences",TEPXDR_2x[0][0]+TEPXDR_2x[7][0],800e3);
-  print_precisionvdm("TEPX Clusters",TEPX_C,75e3);
-  print_precisionvdm("TEPX 2x Coincidences",TEPX_2x,75e3);
+  print_precisionvdm("TEPX Clusters",TEPX_C,500e3);
+  print_precisionvdm("TEPX 2x Coincidences",TEPX_2x,500e3);
   print_precisionvdm("OT Layer 6 track stubs",OTL6,40e6);
   print_precisionvdm("DT Trigger Primitives",DTTP,40e6);
   print_precisionvdm("BMTF",BMTF,40e6);
