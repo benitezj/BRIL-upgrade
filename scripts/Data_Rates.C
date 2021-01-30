@@ -1,27 +1,39 @@
 float NBX=3564; /// number bunches per orbit
 float LN4 = 4*0.365; //s (4 Lumi Nibles)
 float Norbit_NB4= 16417.7;// number of orbits per LN4
-
+int   N_header=9*32;
+int   N_mask=0;
+int   N_err= 0;
 
 
 void print_data_rates(TString DETECTOR= "TEPX",
                       float number_of_histo=0, 
                       float mean_counts=0,
                       float trigger_rate=0){
+
     //mean counst per event perbx/4LN
     int mean_counts_bx=(mean_counts* LN4 * trigger_rate)/(3564);
     //bits per bin
-    float bits_per_bin=ceil(log2(mean_counts_bx));
-          
+    int bits_per_bin=ceil(log2(mean_counts_bx));
+    if ( bits_per_bin <=32 && bits_per_bin>16 ) {
+       bits_per_bin=32;
+
+}
+    else if (bits_per_bin<=16 && bits_per_bin>8 ){
+
+            bits_per_bin=16;
+
+}          
+
      //bit per histogram
-     float bits_per_histo=NBX*bits_per_bin;
+     int bits_per_histo=(NBX*bits_per_bin)+N_header;
      cout<< DETECTOR
      <<setprecision(3)
      //Number of Histograms
      <<"&"<<number_of_histo
      
      // Bits per Histogram
-     <<"&"<< (bits_per_histo)/1000
+     <<"&"<< (bits_per_histo)
      
      //Data Transfer Rates
      <<"&"<< (number_of_histo*bits_per_histo)/(LN4*1000000)
@@ -63,7 +75,7 @@ void Data_Rates(){
 //TEPX Clusters                    // 
 /////////////////////////////////////
   float TEPX_C=0;
-  TFile FTEPX_C("2023D42PU200.root","r");
+  TFile FTEPX_C("/home/hedwin/2023D42PU200.root","r");
    TH2F * H1 = (TH2F*)FTEPX_C.Get(TString("BRIL_IT_Analysis/TEPX/Clusters/Number of clusters for Disk 4"));
     TProfile* P=H1->ProfileX();
      TEPX_C += P->GetBinContent(1);//mean number of clusters 
