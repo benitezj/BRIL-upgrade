@@ -5,7 +5,7 @@ void vdm_stat_precision(){
 float x_axis;/*values for the x axis*/
 float Gaus_dist;/*Values of the Gaussian distribution*/
 int center=0;/*center of the normal distribution*/
-int mean_value=1;
+int mean_value=100;
 float st_div= 50*pow(10, -6);/*standar deviation*/
 float x_lim=200*pow(10, -6);/*X axis limits*/
 
@@ -24,7 +24,7 @@ auto H=new TH1F("Van der Meer Scan"," ",25, -x_lim, x_lim);
         x_axis=H->GetXaxis()->GetBinCenter(i+1);
         Gaus_dist=G.Eval(x_axis);
         H->SetBinContent(i+1,Gaus_dist);
-        H->SetBinError(i+1,0.05);
+        H->SetBinError(i+1,sqrt(Gaus_dist));
         }
         
 /*Fitting normal distribution to Histogram*/
@@ -37,6 +37,7 @@ H->Fit(&F);
 
 
 /*plot histogram*/
+TCanvas *c1=new TCanvas("c1");
 int Max=H->GetBinContent( H->GetMaximumBin());
 gStyle->SetOptStat(0);
 H->GetXaxis()->SetTitle("x#Delta");
@@ -47,7 +48,18 @@ H->GetYaxis()->SetTitleOffset(1);
 H->GetYaxis()->SetRangeUser( 0 , 1.2*Max);
 H->Draw();
 
+/*print a gif file*/
+c1->Print("/home/hedwin/plots/Stat_Precision_VdM.gif");
 
+/*extracting parameters and parameter errors*/
+float Norm = F.GetParameter(0);
+float Norm_Error = F.GetParError(0);
+float CapSigma = F.GetParameter(2);
+float CapSigma_Error = F.GetParError(2);
+cout<<"Mean value"<<"................ "<< Norm <<endl;
+cout<<"Mean value error"<<".......... "<< Norm_Error<<endl;
+cout<<"Standard deviation"<<"........ "<< CapSigma<<endl;
+cout<<"Standard deviation error"<<".. "<< CapSigma_Error<<endl;
 }
 
 
