@@ -30,7 +30,7 @@ if (type == 'B') {
 
 if(type == 'C') {
 	
-	if(ring == 1 && mod == 1) { mapRing = 2; mapModule = 3;}
+	if(ring == 1 && mod == 1) { mapRing = 2; mapModule = 1;}
 	if(ring == 1 && mod == 3) { mapRing = 2; mapModule = 5;}
 	if(ring == 1 && mod == 5) { mapRing = 2; mapModule = 7;}
 	if(ring == 1 && mod == 7) { mapRing = 2; mapModule = 9;}
@@ -97,7 +97,7 @@ if (type == 'F') {
 	if(ring == 3 && mod == 16) { mapRing = 2; mapModule = 12;}
 	if(ring == 3 && mod == 18) { mapRing = 2; mapModule = 14;}
 	if(ring == 3 && mod == 20) { mapRing = 2; mapModule = 16;}
-	if(ring == 3 && mod == 22) { mapRing = 2; mapModule = 16;}
+	if(ring == 3 && mod == 22) { mapRing = 2; mapModule = 18;}
 	if(ring == 3 && mod == 24) { mapRing = 2; mapModule = 18;}
 	if(ring == 3 && mod == 26) { mapRing = 2; mapModule = 20;}
 	if(ring == 3 && mod == 28) { mapRing = 2; mapModule = 22;}
