@@ -5,7 +5,14 @@ float LN4 = 4*0.365; //s (4 Lumi Nibles)
 float LS = 64*0.365; //s (Lumi section)
 float VDM = 30; //s 
 float NCOLLIDING = 2500;//number of colliding bunches
-
+/// OT layer 6
+float OTL6=902; //Layer 6, N modules * stubs per module from CDR histogram
+/// DT's
+float DTTP = 0.61;        // 17MHz is total DT primitive rate from extrapolation study
+//https://indico.cern.ch/event/896820/contributions/3781668/attachments/2001707/3341677/DT_Meeting_2020_03_11.pdf
+/// BMTF/EMTF
+float BMTF = 0.042;
+float EMTF = 0.24;  
 
 void print_precision2(TString DETECTOR = "TEPX",
 		     float count_per_event=0,
@@ -64,7 +71,7 @@ void stat_precision_2(){
 ///READ TEPX number of Clusters per event for pu=200
   float TEPX_C=0;
   float TEPXDR_C[8][5];
-  TFile FTEPX_C("2023D42PU200.root","r");
+  TFile FTEPX_C("/home/hedwin/2023D42PU200.root","r");
   std::vector<string> disk_C={"-4","-3","-2","-1","1","2","3","4"};
   for(long d=0;d<8;d++){
    TH2F* H1 = (TH2F*)FTEPX_C.Get(TString("BRIL_IT_Analysis/TEPX/Clusters/Number of clusters for Disk ")+disk_C[d].c_str());
@@ -78,7 +85,7 @@ void stat_precision_2(){
 ///READ TEPX number of real 2x coincidences  per event for pu=200
   float TEPX_2x=0;
   float TEPXDR_2x[8][5];
-  TFile FTEPX_2x("2023D42PU200.root","r");
+  TFile FTEPX_2x("/home/hedwin/2023D42PU200.root","r");
   std::vector<string> disk_2x={"-4","-3","-2","-1","1","2","3","4"};
   for(long d=0;d<8;d++){
    TH2F* H2 = (TH2F*)FTEPX_2x.Get(TString("BRIL_IT_Analysis/TEPX/2xCoincidences/Number of 2x Coincidences for Disk ")+disk_2x[d].c_str());
@@ -89,18 +96,7 @@ void stat_precision_2(){
 }
 }
 
-  /// OT layer 6
-  float OTL6=902; //Layer 6, N modules * stubs per module from CDR histogram
-  
-  
-  /// DT's
-  float DTTP = 0.61;        // 17MHz is total DT primitive rate from extrapolation study
-  //https://indico.cern.ch/event/896820/contributions/3781668/attachments/2001707/3341677/DT_Meeting_2020_03_11.pdf
 
-
-  /// BMTF/EMTF
-  float BMTF = 0.042;
-  float EMTF = 0.24;  
 
 
   /////////////////////////////////////
@@ -147,7 +143,9 @@ void stat_precision_2(){
   cout<<"\\end{tabular}}"<<endl;
   cout<< "\\end{center}"<<endl;
 
-  
+    cout<<TEPX_2x<<endl;
+  cout<< TEPXDR_C[0][0]+TEPXDR_C[7][0] <<endl;
+
 }
 
 

@@ -1,24 +1,33 @@
+#include "stat_precision_2.C"
 
-void vdm_stat_precision(){
+/*Counts per event for TEPX*/
+float TEPX=5.67e+04;
+float TEPXD4R1=4.06e+03;
+float TEPX_2x=6.96e+03;
+float TEPXD4R1_2x=736;
+
+
+void vdm_stat_precision_function(TString DETECTOR = "TEPX", 
+                                 float count_per_event_vdm=0,
+                                 float trigger_rate_vdm=0 ){
 
 /* defining variables*/ 
-float x_axis;/*values for the x axis*/
-float Gaus_dist;/*Values of the Gaussian distribution*/
+float x_axis=0;/*values for the x axis*/
+float Gaus_dist=0;/*Values of the Gaussian distribution*/
 int center=0;/*center of the normal distribution*/
-int mean_value=100;
-float st_div= 50*pow(10, -6);/*standar deviation*/
-float x_lim=200*pow(10, -6);/*X axis limits*/
-
+float st_div= 0.1322;/*standard deviation*/
+float x_lim=0.6;/*X axis limits*/
+float mean_counts=(count_per_event_vdm/400)*trigger_rate_vdm*VDM/NBX;/*Mean counts/30s/bx*/
 
 /*Defining the Gaussian distribution*/
 TF1  G("G","[0]*exp(-0.5*(x-[1])**2/[2]**2)", -x_lim,x_lim );
-G.FixParameter(0,mean_value);
+G.FixParameter(0,mean_counts);
 G.FixParameter(1,center);
 G.FixParameter(2,st_div);
 
 
 /*Histogram fill */
-auto H=new TH1F("Van der Meer Scan"," ",25, -x_lim, x_lim); 
+TH1F * H=new TH1F("Van der Meer Scan",DETECTOR,25, -x_lim, x_lim); 
     
     for (int i=0;i<25;i++){
         x_axis=H->GetXaxis()->GetBinCenter(i+1);
@@ -28,39 +37,99 @@ auto H=new TH1F("Van der Meer Scan"," ",25, -x_lim, x_lim);
         }
         
 /*Fitting normal distribution to Histogram*/
-TF1  F("F","[0]*exp(-0.5*(x-[1])**2/[2]**2)", -x_lim, x_lim );
-F.SetParLimits(0,0, 1000000);
-F.FixParameter(1,0);
-F.SetParLimits(2,0, 1);
-F.SetLineColor(8);
-H->Fit(&F);
-
-
-/*plot histogram*/
-TCanvas *c1=new TCanvas("c1");
-int Max=H->GetBinContent( H->GetMaximumBin());
-gStyle->SetOptStat(0);
-H->GetXaxis()->SetTitle("x#Delta");
-H->GetXaxis()->CenterTitle(true);
-H->GetYaxis()->SetTitle("#lambda VdM");
-H->GetYaxis()->CenterTitle(true);
-H->GetYaxis()->SetTitleOffset(1);
-H->GetYaxis()->SetRangeUser( 0 , 1.2*Max);
-H->Draw();
-
-/*print a gif file*/
-c1->Print("/home/hedwin/plots/Stat_Precision_VdM.gif");
+TF1 * F=new TF1("F","[0]*exp(-0.5*(x-[1])**2/[2]**2)", -x_lim, x_lim );
+F->SetParLimits(0,0, 1000000);
+F->FixParameter(1,0);
+F->SetParLimits(2,0, 2);
+F->SetLineColor(8);
+H->Fit(F,"Q","");
 
 /*extracting parameters and parameter errors*/
-float Norm = F.GetParameter(0);
-float Norm_Error = F.GetParError(0);
-float CapSigma = F.GetParameter(2);
-float CapSigma_Error = F.GetParError(2);
-cout<<"Mean value"<<"................ "<< Norm <<endl;
-cout<<"Mean value error"<<".......... "<< Norm_Error<<endl;
-cout<<"Standard deviation"<<"........ "<< CapSigma<<endl;
-cout<<"Standard deviation error"<<".. "<< CapSigma_Error<<endl;
+float Norm = F->GetParameter(0);
+float Norm_Error = F->GetParError(0);
+float CapSigma = F->GetParameter(2);
+float CapSigma_Error = F->GetParError(2);
+float sigma_vis=sqrt(pow(Norm_Error/Norm,2)+(2*pow(CapSigma_Error/CapSigma,2)));
+
+/*plot histogram*/
+TCanvas *c1=new TCanvas("c1","",1);
+int Max=H->GetBinContent( H->GetMaximumBin());
+H->GetXaxis()->SetTitle("#Delta x(mm)");
+H->GetXaxis()->CenterTitle(true);
+H->GetXaxis()->SetRangeUser(-1.2*x_lim, 1.2*x_lim);
+H->GetYaxis()->SetTitle("counts/30s/bx");
+H->GetYaxis()->CenterTitle(true);
+H->GetYaxis()->SetTitleOffset(1);
+gPad->SetLogy(1);
+gStyle->SetOptStat(0);
+H->Draw();
+
+/*Print parameters on plot*/
+TLatex latex;
+latex.SetTextFont(42);
+latex.SetTextSize(0.04);
+latex.SetTextAlign(13);  
+latex.DrawLatex(-.1,.005*Max,TString::Format("a= %g", Norm));
+latex.DrawLatex(-.1,.003*Max,TString::Format("#deltaa= %g", Norm_Error));
+latex.DrawLatex(-.1,.0018*Max,TString::Format("#Sigma= %g", CapSigma));
+latex.DrawLatex(-.1,.001*Max,TString::Format("#delta#Sigma=%g", CapSigma_Error));
+latex.DrawLatex(-.1,.0006*Max,TString::Format("#delta#sigma_{vis}/#sigma_{vis}= %g",  sigma_vis));
+
+/*Legends*/
+TLegend * legend = new TLegend(0.75,0.7,0.9,.9);
+legend->AddEntry(H,"Toy Data","le");
+legend->AddEntry(F," Fit result","l");
+legend->SetMargin(0.2);
+legend->SetTextFont(42);
+legend->SetTextSize(0.04);
+legend->Draw();
+
+/*print a gif file*/
+c1->Print("/home/hedwin/plots/Stat_Precision_VdM_"+ DETECTOR +".png");
+
+  cout<<DETECTOR
+      
+      //amplitude and amplitude uncertainty
+      <<"&"<<Norm<<"&"<<Norm_Error
+
+   <<fixed<<setprecision(4)
+   
+      //Beam Width 
+      <<"&"<<CapSigma
+
+      //Beam Width and sigma visual uncertainty
+      <<"&"<<CapSigma_Error
+      <<"&"<<sigma_vis*100
+      <<"\\\\"<<endl;
+  cout<<"\\hline"<<endl;
 }
 
 
+
+void vdm_stat_precision(){
+
+  gErrorIgnoreLevel = kFatal;
+
+  /////////////////////////////////////
+  ///create table and plots for toy Vdm
+  /////////////////////////////////////
+  cout<<"\\begin{center}"<<endl;
+  cout<< "\\scalebox{.8}{"<<endl;
+  cout<<"\\begin{tabular}{|l | c | c | c |c|c|}"<<endl;
+  cout<<"\\hline"<<endl;
+  cout<<"Detector & a &$\\Delta a$&$ \\Sigma$&$ \\delta\\Sigma$&$\\delta\\sigma_{vis}/\\sigma_{vis}$\\\\"<<endl;
+  cout<<"\\hline"<<endl;  
+  vdm_stat_precision_function("TEPXD4R1 Clusters",TEPXD4R1,800e3);
+  vdm_stat_precision_function("TEPXD4R1 2x Coincidences",TEPXD4R1_2x,800e3);
+  vdm_stat_precision_function("TEPX Clusters",TEPX,500e3);
+  vdm_stat_precision_function("TEPX 2x Coincidences",TEPX_2x,500e3);  
+  vdm_stat_precision_function("OT Layer 6",OTL6,40e6);
+  vdm_stat_precision_function("DT",DTTP,40e6);
+  vdm_stat_precision_function("BMTF",BMTF,40e6);
+  vdm_stat_precision_function("EMTF",EMTF,40e6);
+  cout<<"\\end{tabular}}"<<endl;
+  cout<< "\\end{center}"<<endl;
+
+
+}
 
