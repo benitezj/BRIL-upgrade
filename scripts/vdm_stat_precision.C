@@ -1,10 +1,6 @@
-#include "stat_precision_2.C"
+#include "stat_precision_globals.h"
 
-/*Counts per event for TEPX*/
-float TEPX=5.67e+04;
-float TEPXD4R1=4.06e+03;
-float TEPX_2x=6.96e+03;
-float TEPXD4R1_2x=736;
+
 
 
 void vdm_stat_precision_function(TString DETECTOR = "TEPX", 
@@ -108,7 +104,22 @@ c1->Print("/home/hedwin/plots/Stat_Precision_VdM_"+ DETECTOR +".png");
 
 void vdm_stat_precision(){
 
-  gErrorIgnoreLevel = kFatal;
+
+  /*TEPX lusters */
+  float TEPX=0;
+  TEPX_Clusters(1,TEPX,0,0);
+  float TEPXD0R0=0;
+  TEPX_Clusters(2,TEPXD0R0,0,0);
+  float TEPXD7R0=0;
+  TEPX_Clusters(2,TEPXD7R0,7,0);
+  
+  /*TEPX 2x Coincidences */
+  float TEPX_2x=0;
+  TEPX_Coincidences(1,TEPX_2x,0,0);
+  float TEPXD0R0_2x=0;
+  TEPX_Coincidences(2,TEPXD0R0_2x,0,0);
+  float TEPXD7R0_2x=0;
+  TEPX_Coincidences(2,TEPXD7R0_2x,7,0);
 
   /////////////////////////////////////
   ///create table and plots for toy Vdm
@@ -119,8 +130,8 @@ void vdm_stat_precision(){
   cout<<"\\hline"<<endl;
   cout<<"Detector & a &$\\Delta a$&$ \\Sigma$&$ \\delta\\Sigma$&$\\delta\\sigma_{vis}/\\sigma_{vis}$\\\\"<<endl;
   cout<<"\\hline"<<endl;  
-  vdm_stat_precision_function("TEPXD4R1 Clusters",TEPXD4R1,800e3);
-  vdm_stat_precision_function("TEPXD4R1 2x Coincidences",TEPXD4R1_2x,800e3);
+  vdm_stat_precision_function("TEPXD4R1 Clusters",TEPXD0R0+TEPXD7R0,800e3);
+  vdm_stat_precision_function("TEPXD4R1 2x Coincidences",TEPXD0R0_2x+TEPXD7R0_2x,800e3);
   vdm_stat_precision_function("TEPX Clusters",TEPX,500e3);
   vdm_stat_precision_function("TEPX 2x Coincidences",TEPX_2x,500e3);  
   vdm_stat_precision_function("OT Layer 6",OTL6,40e6);
@@ -129,7 +140,6 @@ void vdm_stat_precision(){
   vdm_stat_precision_function("EMTF",EMTF,40e6);
   cout<<"\\end{tabular}}"<<endl;
   cout<< "\\end{center}"<<endl;
-
 
 }
 
