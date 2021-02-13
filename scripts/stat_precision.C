@@ -53,22 +53,7 @@ void print_precisionvdm(TString DETECTOR_vdm = "TEPX",
 
 void stat_precision(){
 
-  /*TEPX lusters */
-  float TEPX_C=0;
-  TEPX_Clusters(1,TEPX_C,0,0);
-  float TEPXD0R0=0;
-  TEPX_Clusters(2,TEPXD0R0,0,0);
-  float TEPXD7R0=0;
-  TEPX_Clusters(2,TEPXD7R0,7,0);
-  
-  
-  /*TEPX 2x Coincidences */
-  float TEPX_2x=0;
-  TEPX_Coincidences(1,TEPX_2x,0,0);
-  float TEPXD0R0_2x=0;
-  TEPX_Coincidences(2,TEPXD0R0_2x,0,0);
-  float TEPXD7R0_2x=0;
-  TEPX_Coincidences(2,TEPXD7R0_2x,7,0);
+  TEPX_Counts();
 
 
   /////////////////////////////////////
@@ -80,8 +65,8 @@ void stat_precision(){
   cout<<"\\hline"<<endl;
   cout<<" & Readout Rate (kHz)& 1 bx, 4LN &2500 bx, 4LN   & 2500 bx, 1 LS \\\\"<<endl;
   cout<<"\\hline"<<endl;
-  print_precision_funtion("TEPXD4R1 Clusters",TEPXD0R0+TEPXD7R0,800e3);
-  print_precision_funtion("TEPXD4R1 2x Coincidences",TEPXD0R0_2x+TEPXD7R0_2x,800e3);
+  print_precision_funtion("TEPXD4R1 Clusters",TEPXDR_C[0][0]+TEPXDR_C[7][0],800e3);
+  print_precision_funtion("TEPXD4R1 2x Coincidences",TEPXDR_2x[0][0]+TEPXDR_2x[7][0],800e3);
   print_precision_funtion("TEPX Clusters",TEPX_C,75e3);
   print_precision_funtion("TEPX 2x Coincidences",TEPX_2x,75e3);
   print_precision_funtion("OT Layer 6 track stubs",OTL6,40e6);
@@ -104,8 +89,8 @@ void stat_precision(){
   cout<<"\\hline"<<endl;
   cout<<"  & Readout Rate (kHz) &1 bx, 4LN & 1 bx, 30s & 100 bx, 30s\\\\"<<endl;
   cout<<"\\hline"<<endl;  
-  print_precisionvdm("TEPXD4R1 Clusters",TEPXD0R0+TEPXD7R0,800e3);  
-  print_precisionvdm("TEPXD4R1 2x Coincidences",TEPXD0R0_2x+TEPXD7R0_2x,800e3);
+  print_precisionvdm("TEPXD4R1 Clusters",TEPXDR_C[0][0]+TEPXDR_C[7][0],800e3);  
+  print_precisionvdm("TEPXD4R1 2x Coincidences",TEPXDR_2x[0][0]+TEPXDR_2x[7][0],800e3);
   print_precisionvdm("TEPX Clusters",TEPX_C,500e3);
   print_precisionvdm("TEPX 2x Coincidences",TEPX_2x,500e3);
   print_precisionvdm("OT Layer 6 track stubs",OTL6,40e6);

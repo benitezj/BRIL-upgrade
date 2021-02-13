@@ -104,22 +104,10 @@ c1->Print("/home/hedwin/plots/Stat_Precision_VdM_"+ DETECTOR +".png");
 
 void vdm_stat_precision(){
 
-
-  /*TEPX lusters */
-  float TEPX=0;
-  TEPX_Clusters(1,TEPX,0,0);
-  float TEPXD0R0=0;
-  TEPX_Clusters(2,TEPXD0R0,0,0);
-  float TEPXD7R0=0;
-  TEPX_Clusters(2,TEPXD7R0,7,0);
+  gErrorIgnoreLevel = kFatal;
   
-  /*TEPX 2x Coincidences */
-  float TEPX_2x=0;
-  TEPX_Coincidences(1,TEPX_2x,0,0);
-  float TEPXD0R0_2x=0;
-  TEPX_Coincidences(2,TEPXD0R0_2x,0,0);
-  float TEPXD7R0_2x=0;
-  TEPX_Coincidences(2,TEPXD7R0_2x,7,0);
+  /*call TEPX variables*/
+  TEPX_Counts();
 
   /////////////////////////////////////
   ///create table and plots for toy Vdm
@@ -130,9 +118,9 @@ void vdm_stat_precision(){
   cout<<"\\hline"<<endl;
   cout<<"Detector & a &$\\Delta a$&$ \\Sigma$&$ \\delta\\Sigma$&$\\delta\\sigma_{vis}/\\sigma_{vis}$\\\\"<<endl;
   cout<<"\\hline"<<endl;  
-  vdm_stat_precision_function("TEPXD4R1 Clusters",TEPXD0R0+TEPXD7R0,800e3);
-  vdm_stat_precision_function("TEPXD4R1 2x Coincidences",TEPXD0R0_2x+TEPXD7R0_2x,800e3);
-  vdm_stat_precision_function("TEPX Clusters",TEPX,500e3);
+  vdm_stat_precision_function("TEPXD4R1 Clusters",TEPXDR_C[0][0]+TEPXDR_C[7][0],800e3);
+  vdm_stat_precision_function("TEPXD4R1 2x Coincidences",TEPXDR_2x[0][0]+TEPXDR_2x[7][0],800e3);
+  vdm_stat_precision_function("TEPX Clusters",TEPX_C,500e3);
   vdm_stat_precision_function("TEPX 2x Coincidences",TEPX_2x,500e3);  
   vdm_stat_precision_function("OT Layer 6",OTL6,40e6);
   vdm_stat_precision_function("DT",DTTP,40e6);
@@ -141,5 +129,71 @@ void vdm_stat_precision(){
   cout<<"\\end{tabular}}"<<endl;
   cout<< "\\end{center}"<<endl;
 
+
+  
+  
+   /////////////////////////////////////
+  ///create table and plots for toy Vdm for all TEPX Disks for clsuters 
+  /////////////////////////////////////
+  cout<<"\\begin{center}"<<endl;
+  cout<< "\\scalebox{.8}{"<<endl;
+  cout<<"\\begin{tabular}{|l | c | c | c |c|c|}"<<endl;
+  cout<<"\\hline"<<endl;
+  cout<<" & a &$\\Delta a$&$ \\Sigma$&$ \\delta\\Sigma$&$\\delta\\sigma_{vis}/\\sigma_{vis}$\\\\"<<endl;
+  cout<<"\\hline"<<endl;  
+  vdm_stat_precision_function("TEPXD4R1 Clusters",TEPXDR_C[0][0]+TEPXDR_C[7][0],800e3);
+  vdm_stat_precision_function("TEPXD4R2 Clusters",TEPXDR_C[0][1]+TEPXDR_C[7][1],800e3);
+  vdm_stat_precision_function("TEPXD4R3 Clusters",TEPXDR_C[0][2]+TEPXDR_C[7][2],800e3);
+  vdm_stat_precision_function("TEPXD4R4 Clusters",TEPXDR_C[0][3]+TEPXDR_C[7][3],800e3);
+  vdm_stat_precision_function("TEPXD4R5 Clusters",TEPXDR_C[0][4]+TEPXDR_C[7][4],800e3);
+  vdm_stat_precision_function("TEPXD3R1 Clusters",TEPXDR_C[1][0]+TEPXDR_C[6][0],800e3);
+  vdm_stat_precision_function("TEPXD3R2 Clusters",TEPXDR_C[1][1]+TEPXDR_C[6][1],800e3);
+  vdm_stat_precision_function("TEPXD3R3 Clusters",TEPXDR_C[1][2]+TEPXDR_C[6][2],800e3);
+  vdm_stat_precision_function("TEPXD3R4 Clusters",TEPXDR_C[1][3]+TEPXDR_C[6][3],800e3);
+  vdm_stat_precision_function("TEPXD3R5 Clusters",TEPXDR_C[1][4]+TEPXDR_C[6][4],800e3);
+  vdm_stat_precision_function("TEPXD2R1 Clusters",TEPXDR_C[2][0]+TEPXDR_C[5][0],800e3);
+  vdm_stat_precision_function("TEPXD2R2 Clusters",TEPXDR_C[2][1]+TEPXDR_C[5][1],800e3);
+  vdm_stat_precision_function("TEPXD2R3 Clusters",TEPXDR_C[2][2]+TEPXDR_C[5][2],800e3);
+  vdm_stat_precision_function("TEPXD2R4 Clusters",TEPXDR_C[2][3]+TEPXDR_C[5][3],800e3);
+  vdm_stat_precision_function("TEPXD2R5 Clusters",TEPXDR_C[2][4]+TEPXDR_C[5][4],800e3);
+  vdm_stat_precision_function("TEPXD1R1 Clusters",TEPXDR_C[3][0]+TEPXDR_C[4][0],800e3);
+  vdm_stat_precision_function("TEPXD1R2 Clusters",TEPXDR_C[3][1]+TEPXDR_C[4][1],800e3);
+  vdm_stat_precision_function("TEPXD1R3 Clusters",TEPXDR_C[3][2]+TEPXDR_C[4][2],800e3);
+  vdm_stat_precision_function("TEPXD1R4 Clusters",TEPXDR_C[3][3]+TEPXDR_C[4][3],800e3);
+  vdm_stat_precision_function("TEPXD1R5 Clusters",TEPXDR_C[3][4]+TEPXDR_C[4][4],800e3);
+  cout<<"\\end{tabular}}"<<endl;
+  cout<< "\\end{center}"<<endl;
+
+     /////////////////////////////////////
+  ///create table and plots for toy Vdm for all TEPX Disks for 2x Coincidences 
+  /////////////////////////////////////
+  cout<<"\\begin{center}"<<endl;
+  cout<< "\\scalebox{.8}{"<<endl;
+  cout<<"\\begin{tabular}{|l | c | c | c |c|c|}"<<endl;
+  cout<<"\\hline"<<endl;
+  cout<<" & a &$\\Delta a$&$ \\Sigma$&$ \\delta\\Sigma$&$\\delta\\sigma_{vis}/\\sigma_{vis}$\\\\"<<endl;
+  cout<<"\\hline"<<endl;  
+  vdm_stat_precision_function("TEPXD4R1 2x Coincidences",TEPXDR_C[0][0]+TEPXDR_C[7][0],800e3);
+  vdm_stat_precision_function("TEPXD4R2 2x Coincidences",TEPXDR_C[0][1]+TEPXDR_C[7][1],800e3);
+  vdm_stat_precision_function("TEPXD4R3 2x Coincidences",TEPXDR_C[0][2]+TEPXDR_C[7][2],800e3);
+  vdm_stat_precision_function("TEPXD4R4 2x Coincidences",TEPXDR_C[0][3]+TEPXDR_C[7][3],800e3);
+  vdm_stat_precision_function("TEPXD4R5 2x Coincidences",TEPXDR_C[0][4]+TEPXDR_C[7][4],800e3);
+  vdm_stat_precision_function("TEPXD3R1 2x Coincidences",TEPXDR_C[1][0]+TEPXDR_C[6][0],800e3);
+  vdm_stat_precision_function("TEPXD3R2 2x Coincidences",TEPXDR_C[1][1]+TEPXDR_C[6][1],800e3);
+  vdm_stat_precision_function("TEPXD3R3 2x Coincidences",TEPXDR_C[1][2]+TEPXDR_C[6][2],800e3);
+  vdm_stat_precision_function("TEPXD3R4 2x Coincidences",TEPXDR_C[1][3]+TEPXDR_C[6][3],800e3);
+  vdm_stat_precision_function("TEPXD3R5 2x Coincidences",TEPXDR_C[1][4]+TEPXDR_C[6][4],800e3);
+  vdm_stat_precision_function("TEPXD2R1 2x Coincidences",TEPXDR_C[2][0]+TEPXDR_C[5][0],800e3);
+  vdm_stat_precision_function("TEPXD2R2 2x Coincidences",TEPXDR_C[2][1]+TEPXDR_C[5][1],800e3);
+  vdm_stat_precision_function("TEPXD2R3 2x Coincidences",TEPXDR_C[2][2]+TEPXDR_C[5][2],800e3);
+  vdm_stat_precision_function("TEPXD2R4 2x Coincidences",TEPXDR_C[2][3]+TEPXDR_C[5][3],800e3);
+  vdm_stat_precision_function("TEPXD2R5 2x Coincidences",TEPXDR_C[2][4]+TEPXDR_C[5][4],800e3);
+  vdm_stat_precision_function("TEPXD1R1 2x Coincidences",TEPXDR_C[3][0]+TEPXDR_C[4][0],800e3);
+  vdm_stat_precision_function("TEPXD1R2 2x Coincidences",TEPXDR_C[3][1]+TEPXDR_C[4][1],800e3);
+  vdm_stat_precision_function("TEPXD1R3 2x Coincidences",TEPXDR_C[3][2]+TEPXDR_C[4][2],800e3);
+  vdm_stat_precision_function("TEPXD1R4 2x Coincidences",TEPXDR_C[3][3]+TEPXDR_C[4][3],800e3);
+  vdm_stat_precision_function("TEPXD1R5 2x Coincidences",TEPXDR_C[3][4]+TEPXDR_C[4][4],800e3);
+  cout<<"\\end{tabular}}"<<endl;
+  cout<< "\\end{center}"<<endl;
 }
 
