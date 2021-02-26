@@ -1,6 +1,5 @@
-if (disk == 4) {
-      
-      
+//Disk 4 2xinR module mapping
+       
       if(type == 1) {
 	
 	if(ring == 1 && mod == 2) { mapRing = 2; mapModule = 2;}
