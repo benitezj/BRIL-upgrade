@@ -20,9 +20,11 @@ int nzero(double lambda){
 }
 
 float pdf_n(int nzero){
+  /// n0 has binomial distribution with mu=p0 * M  and variance = p0(1-p0)M
   if(nzero>MAXN) return 0;
-  if(nzero<=0) return 0;  
-  return exp(- 0.5 * pow(nzero - NAVG(),2) / NAVG() ); ///assum number of zeros has sqrt(n) standard deviation
+  if(nzero<=0) return 0;
+  if(ZEROPROB<=0 || ZEROPROB>=1)return 0.;
+  return exp( -  pow(nzero - NAVG(),2) / ( 2 * (1-ZEROPROB) * NAVG() ) ); 
 }
 
 float pdf_lambda(float lambda){
@@ -30,31 +32,26 @@ float pdf_lambda(float lambda){
 
   //this formula is derived follwoing G. Cowan
   // if a(x) is invertible map , the PDF(a) = PDF(x) |dx/da|
-  // here x : n, and a : lambda = log(M/n)
-  // PDF(x) is Gaussian with mean=NAVG() and Variance=NAVG()
+  // here x = n and a = lambda = log(M/n)
+  // PDF(x) is Gaussian with mean=NAVG() and Variance=(1-ZEROPROB)*NAVG()
 
-  return exp(-lambda) * exp( -0.5 * pow( MAXN*exp(-lambda) - NAVG(), 2) / NAVG());
+  return exp(-lambda) * exp( - pow( MAXN*exp(-lambda) - NAVG(),2) / ( 2 * (1-ZEROPROB) * NAVG() ) );
 }
 
 float lambda_mu(){
+  //mean value of lambda
+  //result of PDF analysis
   if(ZEROPROB<=0 || ZEROPROB>=1)return 0.;
-  return (log(1/ZEROPROB) - 1/NAVG());
+  return log(1/ZEROPROB);
 }
 
-float lambda_sigma(){//this is the relative uncertainty already, do not divide further by lambda
+
+float lambda_sigma_analytical(){
+  //sigma on lambda estimated using derivative dlambda / dn  with delta n = sqrt(p0*(1-p0)*M)
   if(ZEROPROB<=0 || ZEROPROB>=1)return 0.;
-  return 1./(sqrt(NAVG()) * (log(1./ZEROPROB) - 1./NAVG()));
+  return sqrt( (1. - ZEROPROB) / NAVG() ) / log(1./ZEROPROB);   //this is the relative uncertainty already, do not divide further by lambda
 }
 
-float lambda_sigma_derivative(){//this is the relative uncertainty already, do not divide further by lambda
-  if(ZEROPROB<=0 || ZEROPROB>=1)return 0.;
-  return 1./(sqrt(NAVG()) * log(1./ZEROPROB));
-}
-
-float lambda_sigma_Mohammad(){//this is the relative uncertainty already, do not divide further by lambda
-  if(ZEROPROB<=0 || ZEROPROB>=1)return 0.;
-  return sqrt(1.0 - ZEROPROB) / ( sqrt(NAVG()) * log(1./ZEROPROB) );
-}
 
 void ZeroCountingStats(){
 
@@ -107,12 +104,10 @@ void ZeroCountingStats(){
 
 
   ////Now lets scan the hit probability p to map sigma_lambda vs sigma_n
-  TGraph GLambda;
-  TGraph GLambdaSigma;
+  TGraph GLambda;//numerical solution
+  TGraph GLambdaSigma;//numerical solution
   TGraph GLambda_analytical;
   TGraph GLambdaSigma_analytical;
-  TGraph GLambdaSigma_derivative;
-  TGraph GLambdaSigma_Mohammad;
 
   int NSTEP=100;//nsteps scanning probability
   int ngood=0;
@@ -144,15 +139,9 @@ void ZeroCountingStats(){
     GLambda.SetPoint(ngood,ZEROPROB,FGauss.GetParameter(1));
     GLambdaSigma.SetPoint(ngood,ZEROPROB,100*FGauss.GetParameter(2)/FGauss.GetParameter(1));
 
-    ///analytical PDF transform from Random variable theory:  PDF(a) = PDF(x) * |dx/da|
+    //analytical formulas
     GLambda_analytical.SetPoint(ngood,ZEROPROB,lambda_mu());
-    GLambdaSigma_analytical.SetPoint(ngood,ZEROPROB,100*lambda_sigma());
-
-    //simple derivative error propagation
-    GLambdaSigma_derivative.SetPoint(ngood,ZEROPROB,100*lambda_sigma_derivative());
-
-    //Mohammad analysis
-    GLambdaSigma_Mohammad.SetPoint(ngood,ZEROPROB,100*lambda_sigma_Mohammad());
+    GLambdaSigma_analytical.SetPoint(ngood,ZEROPROB,100*lambda_sigma_analytical());
 
     ngood++;
 
@@ -173,15 +162,11 @@ void ZeroCountingStats(){
 
   Canvas.Clear();
   GLambdaSigma.SetMarkerStyle(8);
-  GLambdaSigma.GetXaxis()->SetTitle("zero count probability (p_{0})");
-  GLambdaSigma.GetYaxis()->SetTitle("uncertainty on #lambda (%)");
+  GLambdaSigma.GetXaxis()->SetTitle("p_{0}");
+  GLambdaSigma.GetYaxis()->SetTitle("relative uncertainty on #lambda (%)");
   GLambdaSigma.Draw("alp");
-  GLambdaSigma_derivative.SetLineColor(2);
-  GLambdaSigma_derivative.Draw("lsame");
-  GLambdaSigma_Mohammad.SetLineColor(4);
-  GLambdaSigma_Mohammad.Draw("lsame");
-  //GLambdaSigma_analytical.SetLineColor(2);
-  //GLambdaSigma_analytical.Draw("lsame");
+  GLambdaSigma_analytical.SetLineColor(2);
+  GLambdaSigma_analytical.Draw("lsame");
   Canvas.Print("LambdaSigma_vs_NAVG.png");
 
 }
