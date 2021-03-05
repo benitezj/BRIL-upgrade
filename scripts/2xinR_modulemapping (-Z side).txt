@@ -1,0 +1,721 @@
+if (side == 1) {
+    if (disk == 1) {
+      
+      if(type == 2) {
+	
+	if(ring == 1 && mod == 2) { mapRing = 2; mapModule = 2;}
+	if(ring == 1 && mod == 4) { mapRing = 2; mapModule = 6;}
+	if(ring == 1 && mod == 6) { mapRing = 2; mapModule = 8;}
+	if(ring == 1 && mod == 8) { mapRing = 2; mapModule = 12;}
+	if(ring == 1 && mod == 10) { mapRing = 2; mapModule = 14;}
+	if(ring == 1 && mod == 12) { mapRing = 2; mapModule = 16;}
+	if(ring == 1 && mod == 14) { mapRing = 2; mapModule = 20;}
+	if(ring == 1 && mod == 16) { mapRing = 2; mapModule = 22;}
+	if(ring == 1 && mod == 18) { mapRing = 2; mapModule = 24;}
+	if(ring == 1 && mod == 20) { mapRing = 2; mapModule = 28;}
+	
+      }      
+
+
+      if(type == 1) {
+	
+	if(ring == 1 && mod == 1) { mapRing = 2; mapModule = 1;}
+	if(ring == 1 && mod == 3) { mapRing = 2; mapModule = 5;}
+	if(ring == 1 && mod == 5) { mapRing = 2; mapModule = 7;}
+	if(ring == 1 && mod == 7) { mapRing = 2; mapModule = 9;}
+	if(ring == 1 && mod == 9) { mapRing = 2; mapModule = 13;}
+	if(ring == 1 && mod == 11) { mapRing = 2; mapModule = 15;}
+	if(ring == 1 && mod == 13) { mapRing = 2; mapModule = 19;}
+	if(ring == 1 && mod == 15) { mapRing = 2; mapModule = 21;}
+	if(ring == 1 && mod == 17) { mapRing = 2; mapModule = 23;}
+	if(ring == 1 && mod == 19) { mapRing = 2; mapModule = 27;}
+	
+      }
+
+
+      if (type == 2) {      
+	
+	if(ring == 2 && mod == 2) { mapRing = 3; mapModule = 2;}
+	if(ring == 2 && mod == 4) { mapRing = 3; mapModule = 4;}
+	if(ring == 2 && mod == 6) { mapRing = 3; mapModule = 8;}
+	if(ring == 2 && mod == 8) { mapRing = 3; mapModule = 10;}
+	if(ring == 2 && mod == 10) { mapRing = 3; mapModule = 12;}
+	if(ring == 2 && mod == 12) { mapRing = 3; mapModule = 14;}
+	if(ring == 2 && mod == 14) { mapRing = 3; mapModule = 18;}
+	if(ring == 2 && mod == 16) { mapRing = 3; mapModule = 20;}
+	if(ring == 2 && mod == 18) { mapRing = 3; mapModule = 22;}
+	if(ring == 2 && mod == 20) { mapRing = 3; mapModule = 26;}
+	if(ring == 2 && mod == 22) { mapRing = 3; mapModule = 28;}
+	if(ring == 2 && mod == 24) { mapRing = 3; mapModule = 30;}
+	if(ring == 2 && mod == 26) { mapRing = 3; mapModule = 32;}
+	if(ring == 2 && mod == 28) { mapRing = 3; mapModule = 36;}
+	
+      }
+
+
+      if(type == 1) {      
+	
+	if(ring == 2 && mod == 1) { mapRing = 3; mapModule = 1;}
+	if(ring == 2 && mod == 3) { mapRing = 3; mapModule = 3;}
+	if(ring == 2 && mod == 5) { mapRing = 3; mapModule = 7;}
+	if(ring == 2 && mod == 7) { mapRing = 3; mapModule = 9;}
+	if(ring == 2 && mod == 9) { mapRing = 3; mapModule = 11;}
+	if(ring == 2 && mod == 11) { mapRing = 3; mapModule = 13;}
+	if(ring == 2 && mod == 13) { mapRing = 3; mapModule = 17;}
+	if(ring == 2 && mod == 15) { mapRing = 3; mapModule = 19;}
+	if(ring == 2 && mod == 17) { mapRing = 3; mapModule = 21;}
+	if(ring == 2 && mod == 19) { mapRing = 3; mapModule = 23;}
+	if(ring == 2 && mod == 21) { mapRing = 3; mapModule = 27;}
+	if(ring == 2 && mod == 23) { mapRing = 3; mapModule = 29;}
+	if(ring == 2 && mod == 25) { mapRing = 3; mapModule = 31;}
+	if(ring == 2 && mod == 27) { mapRing = 3; mapModule = 35;}
+	
+      }
+
+
+      if(type == 2) {
+	
+	if(ring == 3 && mod == 2) { mapRing = 4; mapModule = 2;}
+	if(ring == 3 && mod == 4) { mapRing = 4; mapModule = 4;}
+	if(ring == 3 && mod == 6) { mapRing = 4; mapModule = 8;}
+	if(ring == 3 && mod == 8) { mapRing = 4; mapModule = 10;}
+	if(ring == 3 && mod == 10) { mapRing = 4; mapModule = 12;}
+	if(ring == 3 && mod == 12) { mapRing = 4; mapModule = 14;}
+	if(ring == 3 && mod == 14) { mapRing = 4; mapModule = 16;}
+	if(ring == 3 && mod == 16) { mapRing = 4; mapModule = 20;}
+	if(ring == 3 && mod == 18) { mapRing = 4; mapModule = 22;}
+	if(ring == 3 && mod == 20) { mapRing = 4; mapModule = 24;}
+	if(ring == 3 && mod == 22) { mapRing = 4; mapModule = 26;}
+	if(ring == 3 && mod == 24) { mapRing = 4; mapModule = 30;}
+	if(ring == 3 && mod == 26) { mapRing = 4; mapModule = 32;}
+	if(ring == 3 && mod == 28) { mapRing = 4; mapModule = 34;}
+	if(ring == 3 && mod == 30) { mapRing = 4; mapModule = 36;}
+	if(ring == 3 && mod == 32) { mapRing = 4; mapModule = 38;}
+	if(ring == 3 && mod == 34) { mapRing = 4; mapModule = 42;}
+	if(ring == 3 && mod == 36) { mapRing = 4; mapModule = 44;}
+     
+      }
+
+      if(type == 1) {
+	
+	if(ring == 3 && mod == 1) { mapRing = 4; mapModule = 1;}
+	if(ring == 3 && mod == 3) { mapRing = 4; mapModule = 3;}
+	if(ring == 3 && mod == 5) { mapRing = 4; mapModule = 7;}
+	if(ring == 3 && mod == 7) { mapRing = 4; mapModule = 9;}
+	if(ring == 3 && mod == 9) { mapRing = 4; mapModule = 11;}
+	if(ring == 3 && mod == 11) { mapRing = 4; mapModule = 13;}
+	if(ring == 3 && mod == 13) { mapRing = 4; mapModule = 15;}
+	if(ring == 3 && mod == 15) { mapRing = 4; mapModule = 19;}
+	if(ring == 3 && mod == 17) { mapRing = 4; mapModule = 21;}
+	if(ring == 3 && mod == 19) { mapRing = 4; mapModule = 23;}
+	if(ring == 3 && mod == 21) { mapRing = 4; mapModule = 25;}
+	if(ring == 3 && mod == 23) { mapRing = 4; mapModule = 29;}
+	if(ring == 3 && mod == 25) { mapRing = 4; mapModule = 31;}
+	if(ring == 3 && mod == 27) { mapRing = 4; mapModule = 33;}
+	if(ring == 3 && mod == 29) { mapRing = 4; mapModule = 35;}
+	if(ring == 3 && mod == 31) { mapRing = 4; mapModule = 37;}
+	if(ring == 3 && mod == 33) { mapRing = 4; mapModule = 41;}
+	if(ring == 3 && mod == 35) { mapRing = 4; mapModule = 43;}
+	
+      }
+
+
+      if(type == 2) {
+	
+	if(ring == 4 && mod == 2) { mapRing = 5; mapModule = 3;}
+	if(ring == 4 && mod == 4) { mapRing = 5; mapModule = 5;}
+	if(ring == 4 && mod == 6) { mapRing = 5; mapModule = 7;}
+	if(ring == 4 && mod == 8) { mapRing = 5; mapModule = 9;}
+	if(ring == 4 && mod == 10) { mapRing = 5; mapModule = 11;}
+	if(ring == 4 && mod == 12) { mapRing = 5; mapModule = 13;}
+	if(ring == 4 && mod == 14) { mapRing = 5; mapModule = 15;}
+	if(ring == 4 && mod == 16) { mapRing = 5; mapModule = 17;}
+	if(ring == 4 && mod == 18) { mapRing = 5; mapModule = 19;}
+	if(ring == 4 && mod == 20) { mapRing = 5; mapModule = 21;}
+	if(ring == 4 && mod == 22) { mapRing = 5; mapModule = 23;}
+	if(ring == 4 && mod == 24) { mapRing = 5; mapModule = 27;}
+	if(ring == 4 && mod == 26) { mapRing = 5; mapModule = 29;}
+	if(ring == 4 && mod == 28) { mapRing = 5; mapModule = 31;}
+	if(ring == 4 && mod == 30) { mapRing = 5; mapModule = 33;}
+	if(ring == 4 && mod == 32) { mapRing = 5; mapModule = 35;}
+	if(ring == 4 && mod == 34) { mapRing = 5; mapModule = 37;}
+	if(ring == 4 && mod == 36) { mapRing = 5; mapModule = 39;}
+	if(ring == 4 && mod == 38) { mapRing = 5; mapModule = 41;}
+	if(ring == 4 && mod == 40) { mapRing = 5; mapModule = 43;}
+	if(ring == 4 && mod == 42) { mapRing = 5; mapModule = 45;}
+	if(ring == 4 && mod == 44) { mapRing = 5; mapModule = 47;}
+  
+     
+      }
+
+      if (type == 1) {
+
+	if(ring == 4 && mod == 1) { mapRing = 5; mapModule = 2;}
+	if(ring == 4 && mod == 3) { mapRing = 5; mapModule = 4;}
+	if(ring == 4 && mod == 5) { mapRing = 5; mapModule = 6;}
+	if(ring == 4 && mod == 7) { mapRing = 5; mapModule = 8;}
+	if(ring == 4 && mod == 9) { mapRing = 5; mapModule = 10;}
+	if(ring == 4 && mod == 11) { mapRing = 5; mapModule = 12;}
+	if(ring == 4 && mod == 13) { mapRing = 5; mapModule = 14;}
+	if(ring == 4 && mod == 15) { mapRing = 5; mapModule = 16;}
+	if(ring == 4 && mod == 17) { mapRing = 5; mapModule = 18;}
+	if(ring == 4 && mod == 19) { mapRing = 5; mapModule = 20;}
+	if(ring == 4 && mod == 21) { mapRing = 5; mapModule = 22;}
+	if(ring == 4 && mod == 23) { mapRing = 5; mapModule = 26;}
+	if(ring == 4 && mod == 25) { mapRing = 5; mapModule = 28;}
+	if(ring == 4 && mod == 27) { mapRing = 5; mapModule = 30;}
+	if(ring == 4 && mod == 29) { mapRing = 5; mapModule = 32;}
+	if(ring == 4 && mod == 31) { mapRing = 5; mapModule = 34;}
+	if(ring == 4 && mod == 33) { mapRing = 5; mapModule = 36;}
+	if(ring == 4 && mod == 35) { mapRing = 5; mapModule = 38;}
+	if(ring == 4 && mod == 37) { mapRing = 5; mapModule = 40;}
+	if(ring == 4 && mod == 39) { mapRing = 5; mapModule = 42;}
+	if(ring == 4 && mod == 41) { mapRing = 5; mapModule = 44;}
+	if(ring == 4 && mod == 43) { mapRing = 5; mapModule = 46;}
+       
+
+      }
+
+    }
+    
+       
+    if(disk == 2) {
+
+      if(type == 2) {
+	
+	if(ring == 1 && mod == 2) { mapRing = 2; mapModule = 2;}
+	if(ring == 1 && mod == 4) { mapRing = 2; mapModule = 6;}
+	if(ring == 1 && mod == 6) { mapRing = 2; mapModule = 8;}
+	if(ring == 1 && mod == 8) { mapRing = 2; mapModule = 12;}
+	if(ring == 1 && mod == 10) { mapRing = 2; mapModule = 14;}
+	if(ring == 1 && mod == 12) { mapRing = 2; mapModule = 16;}
+	if(ring == 1 && mod == 14) { mapRing = 2; mapModule = 20;}
+	if(ring == 1 && mod == 16) { mapRing = 2; mapModule = 22;}
+	if(ring == 1 && mod == 18) { mapRing = 2; mapModule = 24;}
+	if(ring == 1 && mod == 20) { mapRing = 2; mapModule = 28;}
+	
+      }      
+
+
+      if(type == 1) {
+	
+	if(ring == 1 && mod == 1) { mapRing = 2; mapModule = 1;}
+	if(ring == 1 && mod == 3) { mapRing = 2; mapModule = 5;}
+	if(ring == 1 && mod == 5) { mapRing = 2; mapModule = 7;}
+	if(ring == 1 && mod == 7) { mapRing = 2; mapModule = 9;}
+	if(ring == 1 && mod == 9) { mapRing = 2; mapModule = 13;}
+	if(ring == 1 && mod == 11) { mapRing = 2; mapModule = 15;}
+	if(ring == 1 && mod == 13) { mapRing = 2; mapModule = 19;}
+	if(ring == 1 && mod == 15) { mapRing = 2; mapModule = 21;}
+	if(ring == 1 && mod == 17) { mapRing = 2; mapModule = 23;}
+	if(ring == 1 && mod == 19) { mapRing = 2; mapModule = 27;}
+	
+      }
+
+
+      if (type == 2) {      
+	
+	if(ring == 2 && mod == 2) { mapRing = 3; mapModule = 2;}
+	if(ring == 2 && mod == 4) { mapRing = 3; mapModule = 4;}
+	if(ring == 2 && mod == 6) { mapRing = 3; mapModule = 8;}
+	if(ring == 2 && mod == 8) { mapRing = 3; mapModule = 10;}
+	if(ring == 2 && mod == 10) { mapRing = 3; mapModule = 12;}
+	if(ring == 2 && mod == 12) { mapRing = 3; mapModule = 14;}
+	if(ring == 2 && mod == 14) { mapRing = 3; mapModule = 18;}
+	if(ring == 2 && mod == 16) { mapRing = 3; mapModule = 20;}
+	if(ring == 2 && mod == 18) { mapRing = 3; mapModule = 22;}
+	if(ring == 2 && mod == 20) { mapRing = 3; mapModule = 26;}
+	if(ring == 2 && mod == 22) { mapRing = 3; mapModule = 28;}
+	if(ring == 2 && mod == 24) { mapRing = 3; mapModule = 30;}
+	if(ring == 2 && mod == 26) { mapRing = 3; mapModule = 32;}
+	if(ring == 2 && mod == 28) { mapRing = 3; mapModule = 36;}
+	
+      }
+
+
+      if(type == 1) {      
+	
+	if(ring == 2 && mod == 1) { mapRing = 3; mapModule = 1;}
+	if(ring == 2 && mod == 3) { mapRing = 3; mapModule = 3;}
+	if(ring == 2 && mod == 5) { mapRing = 3; mapModule = 7;}
+	if(ring == 2 && mod == 7) { mapRing = 3; mapModule = 9;}
+	if(ring == 2 && mod == 9) { mapRing = 3; mapModule = 11;}
+	if(ring == 2 && mod == 11) { mapRing = 3; mapModule = 13;}
+	if(ring == 2 && mod == 13) { mapRing = 3; mapModule = 17;}
+	if(ring == 2 && mod == 15) { mapRing = 3; mapModule = 19;}
+	if(ring == 2 && mod == 17) { mapRing = 3; mapModule = 21;}
+	if(ring == 2 && mod == 19) { mapRing = 3; mapModule = 23;}
+	if(ring == 2 && mod == 21) { mapRing = 3; mapModule = 27;}
+	if(ring == 2 && mod == 23) { mapRing = 3; mapModule = 29;}
+	if(ring == 2 && mod == 25) { mapRing = 3; mapModule = 31;}
+	if(ring == 2 && mod == 27) { mapRing = 3; mapModule = 35;}
+	
+      }
+
+
+      if(type == 2) {
+	
+	if(ring == 3 && mod == 2) { mapRing = 4; mapModule = 2;}
+	if(ring == 3 && mod == 4) { mapRing = 4; mapModule = 4;}
+	if(ring == 3 && mod == 6) { mapRing = 4; mapModule = 8;}
+	if(ring == 3 && mod == 8) { mapRing = 4; mapModule = 10;}
+	if(ring == 3 && mod == 10) { mapRing = 4; mapModule = 12;}
+	if(ring == 3 && mod == 12) { mapRing = 4; mapModule = 14;}
+	if(ring == 3 && mod == 14) { mapRing = 4; mapModule = 16;}
+	if(ring == 3 && mod == 16) { mapRing = 4; mapModule = 20;}
+	if(ring == 3 && mod == 18) { mapRing = 4; mapModule = 22;}
+	if(ring == 3 && mod == 20) { mapRing = 4; mapModule = 24;}
+	if(ring == 3 && mod == 22) { mapRing = 4; mapModule = 26;}
+	if(ring == 3 && mod == 24) { mapRing = 4; mapModule = 30;}
+	if(ring == 3 && mod == 26) { mapRing = 4; mapModule = 32;}
+	if(ring == 3 && mod == 28) { mapRing = 4; mapModule = 34;}
+	if(ring == 3 && mod == 30) { mapRing = 4; mapModule = 36;}
+	if(ring == 3 && mod == 32) { mapRing = 4; mapModule = 38;}
+	if(ring == 3 && mod == 34) { mapRing = 4; mapModule = 42;}
+	if(ring == 3 && mod == 36) { mapRing = 4; mapModule = 44;}
+     
+      }
+
+      if(type == 1) {
+	
+	if(ring == 3 && mod == 1) { mapRing = 4; mapModule = 1;}
+	if(ring == 3 && mod == 3) { mapRing = 4; mapModule = 3;}
+	if(ring == 3 && mod == 5) { mapRing = 4; mapModule = 7;}
+	if(ring == 3 && mod == 7) { mapRing = 4; mapModule = 9;}
+	if(ring == 3 && mod == 9) { mapRing = 4; mapModule = 11;}
+	if(ring == 3 && mod == 11) { mapRing = 4; mapModule = 13;}
+	if(ring == 3 && mod == 13) { mapRing = 4; mapModule = 15;}
+	if(ring == 3 && mod == 15) { mapRing = 4; mapModule = 19;}
+	if(ring == 3 && mod == 17) { mapRing = 4; mapModule = 21;}
+	if(ring == 3 && mod == 19) { mapRing = 4; mapModule = 23;}
+	if(ring == 3 && mod == 21) { mapRing = 4; mapModule = 25;}
+	if(ring == 3 && mod == 23) { mapRing = 4; mapModule = 29;}
+	if(ring == 3 && mod == 25) { mapRing = 4; mapModule = 31;}
+	if(ring == 3 && mod == 27) { mapRing = 4; mapModule = 33;}
+	if(ring == 3 && mod == 29) { mapRing = 4; mapModule = 35;}
+	if(ring == 3 && mod == 31) { mapRing = 4; mapModule = 37;}
+	if(ring == 3 && mod == 33) { mapRing = 4; mapModule = 41;}
+	if(ring == 3 && mod == 35) { mapRing = 4; mapModule = 43;}
+	
+      }
+
+
+      if(type == 2) {
+	
+	if(ring == 4 && mod == 2) { mapRing = 5; mapModule = 3;}
+	if(ring == 4 && mod == 4) { mapRing = 5; mapModule = 5;}
+	if(ring == 4 && mod == 6) { mapRing = 5; mapModule = 7;}
+	if(ring == 4 && mod == 8) { mapRing = 5; mapModule = 9;}
+	if(ring == 4 && mod == 10) { mapRing = 5; mapModule = 11;}
+	if(ring == 4 && mod == 12) { mapRing = 5; mapModule = 13;}
+	if(ring == 4 && mod == 14) { mapRing = 5; mapModule = 15;}
+	if(ring == 4 && mod == 16) { mapRing = 5; mapModule = 17;}
+	if(ring == 4 && mod == 18) { mapRing = 5; mapModule = 19;}
+	if(ring == 4 && mod == 20) { mapRing = 5; mapModule = 21;}
+	if(ring == 4 && mod == 22) { mapRing = 5; mapModule = 23;}
+	if(ring == 4 && mod == 24) { mapRing = 5; mapModule = 27;}
+	if(ring == 4 && mod == 26) { mapRing = 5; mapModule = 29;}
+	if(ring == 4 && mod == 28) { mapRing = 5; mapModule = 31;}
+	if(ring == 4 && mod == 30) { mapRing = 5; mapModule = 33;}
+	if(ring == 4 && mod == 32) { mapRing = 5; mapModule = 35;}
+	if(ring == 4 && mod == 34) { mapRing = 5; mapModule = 37;}
+	if(ring == 4 && mod == 36) { mapRing = 5; mapModule = 39;}
+	if(ring == 4 && mod == 38) { mapRing = 5; mapModule = 41;}
+	if(ring == 4 && mod == 40) { mapRing = 5; mapModule = 43;}
+	if(ring == 4 && mod == 42) { mapRing = 5; mapModule = 45;}
+	if(ring == 4 && mod == 44) { mapRing = 5; mapModule = 47;}
+  
+     
+      }
+
+      if (type == 1) {
+
+	if(ring == 4 && mod == 1) { mapRing = 5; mapModule = 2;}
+	if(ring == 4 && mod == 3) { mapRing = 5; mapModule = 4;}
+	if(ring == 4 && mod == 5) { mapRing = 5; mapModule = 6;}
+	if(ring == 4 && mod == 7) { mapRing = 5; mapModule = 8;}
+	if(ring == 4 && mod == 9) { mapRing = 5; mapModule = 10;}
+	if(ring == 4 && mod == 11) { mapRing = 5; mapModule = 12;}
+	if(ring == 4 && mod == 13) { mapRing = 5; mapModule = 14;}
+	if(ring == 4 && mod == 15) { mapRing = 5; mapModule = 16;}
+	if(ring == 4 && mod == 17) { mapRing = 5; mapModule = 18;}
+	if(ring == 4 && mod == 19) { mapRing = 5; mapModule = 20;}
+	if(ring == 4 && mod == 21) { mapRing = 5; mapModule = 22;}
+	if(ring == 4 && mod == 23) { mapRing = 5; mapModule = 26;}
+	if(ring == 4 && mod == 25) { mapRing = 5; mapModule = 28;}
+	if(ring == 4 && mod == 27) { mapRing = 5; mapModule = 30;}
+	if(ring == 4 && mod == 29) { mapRing = 5; mapModule = 32;}
+	if(ring == 4 && mod == 31) { mapRing = 5; mapModule = 34;}
+	if(ring == 4 && mod == 33) { mapRing = 5; mapModule = 36;}
+	if(ring == 4 && mod == 35) { mapRing = 5; mapModule = 38;}
+	if(ring == 4 && mod == 37) { mapRing = 5; mapModule = 40;}
+	if(ring == 4 && mod == 39) { mapRing = 5; mapModule = 42;}
+	if(ring == 4 && mod == 41) { mapRing = 5; mapModule = 44;}
+	if(ring == 4 && mod == 43) { mapRing = 5; mapModule = 46;}
+       
+
+      }
+   
+    }
+    
+
+    if(disk == 3) {
+      
+      if(type == 2) {
+	
+	if(ring == 1 && mod == 2) { mapRing = 2; mapModule = 2;}
+	if(ring == 1 && mod == 4) { mapRing = 2; mapModule = 6;}
+	if(ring == 1 && mod == 6) { mapRing = 2; mapModule = 8;}
+	if(ring == 1 && mod == 8) { mapRing = 2; mapModule = 12;}
+	if(ring == 1 && mod == 10) { mapRing = 2; mapModule = 14;}
+	if(ring == 1 && mod == 12) { mapRing = 2; mapModule = 16;}
+	if(ring == 1 && mod == 14) { mapRing = 2; mapModule = 20;}
+	if(ring == 1 && mod == 16) { mapRing = 2; mapModule = 22;}
+	if(ring == 1 && mod == 18) { mapRing = 2; mapModule = 24;}
+	if(ring == 1 && mod == 20) { mapRing = 2; mapModule = 28;}
+	
+      }      
+
+
+      if(type == 1) {
+	
+	if(ring == 1 && mod == 1) { mapRing = 2; mapModule = 1;}
+	if(ring == 1 && mod == 3) { mapRing = 2; mapModule = 5;}
+	if(ring == 1 && mod == 5) { mapRing = 2; mapModule = 7;}
+	if(ring == 1 && mod == 7) { mapRing = 2; mapModule = 9;}
+	if(ring == 1 && mod == 9) { mapRing = 2; mapModule = 13;}
+	if(ring == 1 && mod == 11) { mapRing = 2; mapModule = 15;}
+	if(ring == 1 && mod == 13) { mapRing = 2; mapModule = 19;}
+	if(ring == 1 && mod == 15) { mapRing = 2; mapModule = 21;}
+	if(ring == 1 && mod == 17) { mapRing = 2; mapModule = 23;}
+	if(ring == 1 && mod == 19) { mapRing = 2; mapModule = 27;}
+	
+      }
+
+
+      if (type == 2) {      
+	
+	if(ring == 2 && mod == 2) { mapRing = 3; mapModule = 2;}
+	if(ring == 2 && mod == 4) { mapRing = 3; mapModule = 4;}
+	if(ring == 2 && mod == 6) { mapRing = 3; mapModule = 8;}
+	if(ring == 2 && mod == 8) { mapRing = 3; mapModule = 10;}
+	if(ring == 2 && mod == 10) { mapRing = 3; mapModule = 12;}
+	if(ring == 2 && mod == 12) { mapRing = 3; mapModule = 14;}
+	if(ring == 2 && mod == 14) { mapRing = 3; mapModule = 18;}
+	if(ring == 2 && mod == 16) { mapRing = 3; mapModule = 20;}
+	if(ring == 2 && mod == 18) { mapRing = 3; mapModule = 22;}
+	if(ring == 2 && mod == 20) { mapRing = 3; mapModule = 26;}
+	if(ring == 2 && mod == 22) { mapRing = 3; mapModule = 28;}
+	if(ring == 2 && mod == 24) { mapRing = 3; mapModule = 30;}
+	if(ring == 2 && mod == 26) { mapRing = 3; mapModule = 32;}
+	if(ring == 2 && mod == 28) { mapRing = 3; mapModule = 36;}
+	
+      }
+
+
+      if(type == 1) {      
+	
+	if(ring == 2 && mod == 1) { mapRing = 3; mapModule = 1;}
+	if(ring == 2 && mod == 3) { mapRing = 3; mapModule = 3;}
+	if(ring == 2 && mod == 5) { mapRing = 3; mapModule = 7;}
+	if(ring == 2 && mod == 7) { mapRing = 3; mapModule = 9;}
+	if(ring == 2 && mod == 9) { mapRing = 3; mapModule = 11;}
+	if(ring == 2 && mod == 11) { mapRing = 3; mapModule = 13;}
+	if(ring == 2 && mod == 13) { mapRing = 3; mapModule = 17;}
+	if(ring == 2 && mod == 15) { mapRing = 3; mapModule = 19;}
+	if(ring == 2 && mod == 17) { mapRing = 3; mapModule = 21;}
+	if(ring == 2 && mod == 19) { mapRing = 3; mapModule = 23;}
+	if(ring == 2 && mod == 21) { mapRing = 3; mapModule = 27;}
+	if(ring == 2 && mod == 23) { mapRing = 3; mapModule = 29;}
+	if(ring == 2 && mod == 25) { mapRing = 3; mapModule = 31;}
+	if(ring == 2 && mod == 27) { mapRing = 3; mapModule = 35;}
+	
+      }
+
+
+      if(type == 2) {
+	
+	if(ring == 3 && mod == 2) { mapRing = 4; mapModule = 2;}
+	if(ring == 3 && mod == 4) { mapRing = 4; mapModule = 4;}
+	if(ring == 3 && mod == 6) { mapRing = 4; mapModule = 8;}
+	if(ring == 3 && mod == 8) { mapRing = 4; mapModule = 10;}
+	if(ring == 3 && mod == 10) { mapRing = 4; mapModule = 12;}
+	if(ring == 3 && mod == 12) { mapRing = 4; mapModule = 14;}
+	if(ring == 3 && mod == 14) { mapRing = 4; mapModule = 16;}
+	if(ring == 3 && mod == 16) { mapRing = 4; mapModule = 20;}
+	if(ring == 3 && mod == 18) { mapRing = 4; mapModule = 22;}
+	if(ring == 3 && mod == 20) { mapRing = 4; mapModule = 24;}
+	if(ring == 3 && mod == 22) { mapRing = 4; mapModule = 26;}
+	if(ring == 3 && mod == 24) { mapRing = 4; mapModule = 30;}
+	if(ring == 3 && mod == 26) { mapRing = 4; mapModule = 32;}
+	if(ring == 3 && mod == 28) { mapRing = 4; mapModule = 34;}
+	if(ring == 3 && mod == 30) { mapRing = 4; mapModule = 36;}
+	if(ring == 3 && mod == 32) { mapRing = 4; mapModule = 38;}
+	if(ring == 3 && mod == 34) { mapRing = 4; mapModule = 42;}
+	if(ring == 3 && mod == 36) { mapRing = 4; mapModule = 44;}
+     
+      }
+
+      if(type == 1) {
+	
+	if(ring == 3 && mod == 1) { mapRing = 4; mapModule = 1;}
+	if(ring == 3 && mod == 3) { mapRing = 4; mapModule = 3;}
+	if(ring == 3 && mod == 5) { mapRing = 4; mapModule = 7;}
+	if(ring == 3 && mod == 7) { mapRing = 4; mapModule = 9;}
+	if(ring == 3 && mod == 9) { mapRing = 4; mapModule = 11;}
+	if(ring == 3 && mod == 11) { mapRing = 4; mapModule = 13;}
+	if(ring == 3 && mod == 13) { mapRing = 4; mapModule = 15;}
+	if(ring == 3 && mod == 15) { mapRing = 4; mapModule = 19;}
+	if(ring == 3 && mod == 17) { mapRing = 4; mapModule = 21;}
+	if(ring == 3 && mod == 19) { mapRing = 4; mapModule = 23;}
+	if(ring == 3 && mod == 21) { mapRing = 4; mapModule = 25;}
+	if(ring == 3 && mod == 23) { mapRing = 4; mapModule = 29;}
+	if(ring == 3 && mod == 25) { mapRing = 4; mapModule = 31;}
+	if(ring == 3 && mod == 27) { mapRing = 4; mapModule = 33;}
+	if(ring == 3 && mod == 29) { mapRing = 4; mapModule = 35;}
+	if(ring == 3 && mod == 31) { mapRing = 4; mapModule = 37;}
+	if(ring == 3 && mod == 33) { mapRing = 4; mapModule = 41;}
+	if(ring == 3 && mod == 35) { mapRing = 4; mapModule = 43;}
+	
+      }
+
+
+      if(type == 2) {
+	
+	if(ring == 4 && mod == 2) { mapRing = 5; mapModule = 3;}
+	if(ring == 4 && mod == 4) { mapRing = 5; mapModule = 5;}
+	if(ring == 4 && mod == 6) { mapRing = 5; mapModule = 7;}
+	if(ring == 4 && mod == 8) { mapRing = 5; mapModule = 9;}
+	if(ring == 4 && mod == 10) { mapRing = 5; mapModule = 11;}
+	if(ring == 4 && mod == 12) { mapRing = 5; mapModule = 13;}
+	if(ring == 4 && mod == 14) { mapRing = 5; mapModule = 15;}
+	if(ring == 4 && mod == 16) { mapRing = 5; mapModule = 17;}
+	if(ring == 4 && mod == 18) { mapRing = 5; mapModule = 19;}
+	if(ring == 4 && mod == 20) { mapRing = 5; mapModule = 21;}
+	if(ring == 4 && mod == 22) { mapRing = 5; mapModule = 23;}
+	if(ring == 4 && mod == 24) { mapRing = 5; mapModule = 27;}
+	if(ring == 4 && mod == 26) { mapRing = 5; mapModule = 29;}
+	if(ring == 4 && mod == 28) { mapRing = 5; mapModule = 31;}
+	if(ring == 4 && mod == 30) { mapRing = 5; mapModule = 33;}
+	if(ring == 4 && mod == 32) { mapRing = 5; mapModule = 35;}
+	if(ring == 4 && mod == 34) { mapRing = 5; mapModule = 37;}
+	if(ring == 4 && mod == 36) { mapRing = 5; mapModule = 39;}
+	if(ring == 4 && mod == 38) { mapRing = 5; mapModule = 41;}
+	if(ring == 4 && mod == 40) { mapRing = 5; mapModule = 43;}
+	if(ring == 4 && mod == 42) { mapRing = 5; mapModule = 45;}
+	if(ring == 4 && mod == 44) { mapRing = 5; mapModule = 47;}
+  
+     
+      }
+
+      if (type == 1) {
+
+	if(ring == 4 && mod == 1) { mapRing = 5; mapModule = 2;}
+	if(ring == 4 && mod == 3) { mapRing = 5; mapModule = 4;}
+	if(ring == 4 && mod == 5) { mapRing = 5; mapModule = 6;}
+	if(ring == 4 && mod == 7) { mapRing = 5; mapModule = 8;}
+	if(ring == 4 && mod == 9) { mapRing = 5; mapModule = 10;}
+	if(ring == 4 && mod == 11) { mapRing = 5; mapModule = 12;}
+	if(ring == 4 && mod == 13) { mapRing = 5; mapModule = 14;}
+	if(ring == 4 && mod == 15) { mapRing = 5; mapModule = 16;}
+	if(ring == 4 && mod == 17) { mapRing = 5; mapModule = 18;}
+	if(ring == 4 && mod == 19) { mapRing = 5; mapModule = 20;}
+	if(ring == 4 && mod == 21) { mapRing = 5; mapModule = 22;}
+	if(ring == 4 && mod == 23) { mapRing = 5; mapModule = 26;}
+	if(ring == 4 && mod == 25) { mapRing = 5; mapModule = 28;}
+	if(ring == 4 && mod == 27) { mapRing = 5; mapModule = 30;}
+	if(ring == 4 && mod == 29) { mapRing = 5; mapModule = 32;}
+	if(ring == 4 && mod == 31) { mapRing = 5; mapModule = 34;}
+	if(ring == 4 && mod == 33) { mapRing = 5; mapModule = 36;}
+	if(ring == 4 && mod == 35) { mapRing = 5; mapModule = 38;}
+	if(ring == 4 && mod == 37) { mapRing = 5; mapModule = 40;}
+	if(ring == 4 && mod == 39) { mapRing = 5; mapModule = 42;}
+	if(ring == 4 && mod == 41) { mapRing = 5; mapModule = 44;}
+	if(ring == 4 && mod == 43) { mapRing = 5; mapModule = 46;}
+       
+
+      }
+      
+    }
+
+    
+   
+    if (disk == 4) {
+      
+      
+      if(type == 2) {
+	
+	if(ring == 1 && mod == 2) { mapRing = 2; mapModule = 2;}
+	if(ring == 1 && mod == 4) { mapRing = 2; mapModule = 6;}
+	if(ring == 1 && mod == 6) { mapRing = 2; mapModule = 8;}
+	if(ring == 1 && mod == 8) { mapRing = 2; mapModule = 12;}
+	if(ring == 1 && mod == 10) { mapRing = 2; mapModule = 14;}
+	if(ring == 1 && mod == 12) { mapRing = 2; mapModule = 16;}
+	if(ring == 1 && mod == 14) { mapRing = 2; mapModule = 20;}
+	if(ring == 1 && mod == 16) { mapRing = 2; mapModule = 22;}
+	if(ring == 1 && mod == 18) { mapRing = 2; mapModule = 24;}
+	if(ring == 1 && mod == 20) { mapRing = 2; mapModule = 28;}
+	
+      }      
+
+
+      if(type == 1) {
+	
+	if(ring == 1 && mod == 1) { mapRing = 2; mapModule = 1;}
+	if(ring == 1 && mod == 3) { mapRing = 2; mapModule = 5;}
+	if(ring == 1 && mod == 5) { mapRing = 2; mapModule = 7;}
+	if(ring == 1 && mod == 7) { mapRing = 2; mapModule = 9;}
+	if(ring == 1 && mod == 9) { mapRing = 2; mapModule = 13;}
+	if(ring == 1 && mod == 11) { mapRing = 2; mapModule = 15;}
+	if(ring == 1 && mod == 13) { mapRing = 2; mapModule = 19;}
+	if(ring == 1 && mod == 15) { mapRing = 2; mapModule = 21;}
+	if(ring == 1 && mod == 17) { mapRing = 2; mapModule = 23;}
+	if(ring == 1 && mod == 19) { mapRing = 2; mapModule = 27;}
+	
+      }
+
+
+      if (type == 2) {      
+	
+	if(ring == 2 && mod == 2) { mapRing = 3; mapModule = 2;}
+	if(ring == 2 && mod == 4) { mapRing = 3; mapModule = 4;}
+	if(ring == 2 && mod == 6) { mapRing = 3; mapModule = 8;}
+	if(ring == 2 && mod == 8) { mapRing = 3; mapModule = 10;}
+	if(ring == 2 && mod == 10) { mapRing = 3; mapModule = 12;}
+	if(ring == 2 && mod == 12) { mapRing = 3; mapModule = 14;}
+	if(ring == 2 && mod == 14) { mapRing = 3; mapModule = 18;}
+	if(ring == 2 && mod == 16) { mapRing = 3; mapModule = 20;}
+	if(ring == 2 && mod == 18) { mapRing = 3; mapModule = 22;}
+	if(ring == 2 && mod == 20) { mapRing = 3; mapModule = 26;}
+	if(ring == 2 && mod == 22) { mapRing = 3; mapModule = 28;}
+	if(ring == 2 && mod == 24) { mapRing = 3; mapModule = 30;}
+	if(ring == 2 && mod == 26) { mapRing = 3; mapModule = 32;}
+	if(ring == 2 && mod == 28) { mapRing = 3; mapModule = 36;}
+	
+      }
+
+
+      if(type == 1) {      
+	
+	if(ring == 2 && mod == 1) { mapRing = 3; mapModule = 1;}
+	if(ring == 2 && mod == 3) { mapRing = 3; mapModule = 3;}
+	if(ring == 2 && mod == 5) { mapRing = 3; mapModule = 7;}
+	if(ring == 2 && mod == 7) { mapRing = 3; mapModule = 9;}
+	if(ring == 2 && mod == 9) { mapRing = 3; mapModule = 11;}
+	if(ring == 2 && mod == 11) { mapRing = 3; mapModule = 13;}
+	if(ring == 2 && mod == 13) { mapRing = 3; mapModule = 17;}
+	if(ring == 2 && mod == 15) { mapRing = 3; mapModule = 19;}
+	if(ring == 2 && mod == 17) { mapRing = 3; mapModule = 21;}
+	if(ring == 2 && mod == 19) { mapRing = 3; mapModule = 23;}
+	if(ring == 2 && mod == 21) { mapRing = 3; mapModule = 27;}
+	if(ring == 2 && mod == 23) { mapRing = 3; mapModule = 29;}
+	if(ring == 2 && mod == 25) { mapRing = 3; mapModule = 31;}
+	if(ring == 2 && mod == 27) { mapRing = 3; mapModule = 35;}
+	
+      }
+
+
+      if(type == 2) {
+	
+	if(ring == 3 && mod == 2) { mapRing = 4; mapModule = 2;}
+	if(ring == 3 && mod == 4) { mapRing = 4; mapModule = 4;}
+	if(ring == 3 && mod == 6) { mapRing = 4; mapModule = 8;}
+	if(ring == 3 && mod == 8) { mapRing = 4; mapModule = 10;}
+	if(ring == 3 && mod == 10) { mapRing = 4; mapModule = 12;}
+	if(ring == 3 && mod == 12) { mapRing = 4; mapModule = 14;}
+	if(ring == 3 && mod == 14) { mapRing = 4; mapModule = 16;}
+	if(ring == 3 && mod == 16) { mapRing = 4; mapModule = 20;}
+	if(ring == 3 && mod == 18) { mapRing = 4; mapModule = 22;}
+	if(ring == 3 && mod == 20) { mapRing = 4; mapModule = 24;}
+	if(ring == 3 && mod == 22) { mapRing = 4; mapModule = 26;}
+	if(ring == 3 && mod == 24) { mapRing = 4; mapModule = 30;}
+	if(ring == 3 && mod == 26) { mapRing = 4; mapModule = 32;}
+	if(ring == 3 && mod == 28) { mapRing = 4; mapModule = 34;}
+	if(ring == 3 && mod == 30) { mapRing = 4; mapModule = 36;}
+	if(ring == 3 && mod == 32) { mapRing = 4; mapModule = 38;}
+	if(ring == 3 && mod == 34) { mapRing = 4; mapModule = 42;}
+	if(ring == 3 && mod == 36) { mapRing = 4; mapModule = 44;}
+     
+      }
+
+      if(type == 1) {
+	
+	if(ring == 3 && mod == 1) { mapRing = 4; mapModule = 1;}
+	if(ring == 3 && mod == 3) { mapRing = 4; mapModule = 3;}
+	if(ring == 3 && mod == 5) { mapRing = 4; mapModule = 7;}
+	if(ring == 3 && mod == 7) { mapRing = 4; mapModule = 9;}
+	if(ring == 3 && mod == 9) { mapRing = 4; mapModule = 11;}
+	if(ring == 3 && mod == 11) { mapRing = 4; mapModule = 13;}
+	if(ring == 3 && mod == 13) { mapRing = 4; mapModule = 15;}
+	if(ring == 3 && mod == 15) { mapRing = 4; mapModule = 19;}
+	if(ring == 3 && mod == 17) { mapRing = 4; mapModule = 21;}
+	if(ring == 3 && mod == 19) { mapRing = 4; mapModule = 23;}
+	if(ring == 3 && mod == 21) { mapRing = 4; mapModule = 25;}
+	if(ring == 3 && mod == 23) { mapRing = 4; mapModule = 29;}
+	if(ring == 3 && mod == 25) { mapRing = 4; mapModule = 31;}
+	if(ring == 3 && mod == 27) { mapRing = 4; mapModule = 33;}
+	if(ring == 3 && mod == 29) { mapRing = 4; mapModule = 35;}
+	if(ring == 3 && mod == 31) { mapRing = 4; mapModule = 37;}
+	if(ring == 3 && mod == 33) { mapRing = 4; mapModule = 41;}
+	if(ring == 3 && mod == 35) { mapRing = 4; mapModule = 43;}
+	
+      }
+
+
+      if(type == 2) {
+	
+	if(ring == 4 && mod == 2) { mapRing = 5; mapModule = 3;}
+	if(ring == 4 && mod == 4) { mapRing = 5; mapModule = 5;}
+	if(ring == 4 && mod == 6) { mapRing = 5; mapModule = 7;}
+	if(ring == 4 && mod == 8) { mapRing = 5; mapModule = 9;}
+	if(ring == 4 && mod == 10) { mapRing = 5; mapModule = 11;}
+	if(ring == 4 && mod == 12) { mapRing = 5; mapModule = 13;}
+	if(ring == 4 && mod == 14) { mapRing = 5; mapModule = 15;}
+	if(ring == 4 && mod == 16) { mapRing = 5; mapModule = 17;}
+	if(ring == 4 && mod == 18) { mapRing = 5; mapModule = 19;}
+	if(ring == 4 && mod == 20) { mapRing = 5; mapModule = 21;}
+	if(ring == 4 && mod == 22) { mapRing = 5; mapModule = 23;}
+	if(ring == 4 && mod == 24) { mapRing = 5; mapModule = 27;}
+	if(ring == 4 && mod == 26) { mapRing = 5; mapModule = 29;}
+	if(ring == 4 && mod == 28) { mapRing = 5; mapModule = 31;}
+	if(ring == 4 && mod == 30) { mapRing = 5; mapModule = 33;}
+	if(ring == 4 && mod == 32) { mapRing = 5; mapModule = 35;}
+	if(ring == 4 && mod == 34) { mapRing = 5; mapModule = 37;}
+	if(ring == 4 && mod == 36) { mapRing = 5; mapModule = 39;}
+	if(ring == 4 && mod == 38) { mapRing = 5; mapModule = 41;}
+	if(ring == 4 && mod == 40) { mapRing = 5; mapModule = 43;}
+	if(ring == 4 && mod == 42) { mapRing = 5; mapModule = 45;}
+	if(ring == 4 && mod == 44) { mapRing = 5; mapModule = 47;}
+  
+     
+      }
+
+      if (type == 1) {
+
+	if(ring == 4 && mod == 1) { mapRing = 5; mapModule = 2;}
+	if(ring == 4 && mod == 3) { mapRing = 5; mapModule = 4;}
+	if(ring == 4 && mod == 5) { mapRing = 5; mapModule = 6;}
+	if(ring == 4 && mod == 7) { mapRing = 5; mapModule = 8;}
+	if(ring == 4 && mod == 9) { mapRing = 5; mapModule = 10;}
+	if(ring == 4 && mod == 11) { mapRing = 5; mapModule = 12;}
+	if(ring == 4 && mod == 13) { mapRing = 5; mapModule = 14;}
+	if(ring == 4 && mod == 15) { mapRing = 5; mapModule = 16;}
+	if(ring == 4 && mod == 17) { mapRing = 5; mapModule = 18;}
+	if(ring == 4 && mod == 19) { mapRing = 5; mapModule = 20;}
+	if(ring == 4 && mod == 21) { mapRing = 5; mapModule = 22;}
+	if(ring == 4 && mod == 23) { mapRing = 5; mapModule = 26;}
+	if(ring == 4 && mod == 25) { mapRing = 5; mapModule = 28;}
+	if(ring == 4 && mod == 27) { mapRing = 5; mapModule = 30;}
+	if(ring == 4 && mod == 29) { mapRing = 5; mapModule = 32;}
+	if(ring == 4 && mod == 31) { mapRing = 5; mapModule = 34;}
+	if(ring == 4 && mod == 33) { mapRing = 5; mapModule = 36;}
+	if(ring == 4 && mod == 35) { mapRing = 5; mapModule = 38;}
+	if(ring == 4 && mod == 37) { mapRing = 5; mapModule = 40;}
+	if(ring == 4 && mod == 39) { mapRing = 5; mapModule = 42;}
+	if(ring == 4 && mod == 41) { mapRing = 5; mapModule = 44;}
+	if(ring == 4 && mod == 43) { mapRing = 5; mapModule = 46;}
+       
+
+      }
+  }
+}
