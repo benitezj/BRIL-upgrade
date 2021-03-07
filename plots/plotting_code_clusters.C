@@ -191,7 +191,7 @@ void plotting_code_clusters(){
  line2->SetLineStyle(9);
  line2->Draw("same");
 
- C1.Print(outputpath3 + "Cluster_residualD4R1_Side2.gif");
+ C1.Print(outputpath3 + "Cluster_residualD4R1(+Z).gif");
  C1.Clear();
  
  
