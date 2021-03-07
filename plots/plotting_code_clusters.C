@@ -141,8 +141,8 @@ void plotting_code_clusters(){
 	if (pu > 2) {
 	  
 	  
-	  //NonLinearity_TEPXClustersPerEvent[d][r]->SetPoint(pu, x -(r-2), y);
-          NonLinearity_TEPXClustersPerEvent[d][r]->SetPoint(pu, x, y);
+	  NonLinearity_TEPXClustersPerEvent[d][r]->SetPoint(pu, x -(r-2), y);
+          //NonLinearity_TEPXClustersPerEvent[d][r]->SetPoint(pu, x, y);
 	  NonLinearity_TEPXClustersPerEvent[d][r]->SetPointError(pu, 0, yerr);
 	} else {
 	  
