@@ -142,7 +142,7 @@ void totalcountcluster(){
       NonLinearity_TEPXClustersPerEvent->GetYaxis()->SetNdivisions(10);
       NonLinearity_TEPXClustersPerEvent->GetYaxis()->SetLabelSize(0.04);
       NonLinearity_TEPXClustersPerEvent->GetYaxis()->SetTitle("Residual   (Data-Fit)/Fit");
-      NonLinearity_TEPXClustersPerEvent->GetYaxis()->SetRangeUser(-0.015, 0.015);
+      NonLinearity_TEPXClustersPerEvent->GetYaxis()->SetRangeUser(-0.05, 0.05);
       
       NonLinearity_TEPXClustersPerEvent->GetXaxis()->SetNdivisions(12);
       NonLinearity_TEPXClustersPerEvent->GetXaxis()->SetLabelSize(0.04);
