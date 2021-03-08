@@ -1,17 +1,14 @@
 void totalcount2x(){
   
   TFile *f = new TFile("/home/ashish/Desktop/TDRplots.root","RECREATE");
+
   f->cd();
   gDirectory->pwd();
-  gROOT->ls();
-  f->mkdir("BRIL-TDR");
   f->ls();
   
   TString outputpath1 = "/home/ashish/TEPX_plot/2x Coincidences/Extrapolation/";
   TString outputpath2 = "/home/ashish/TEPX_plot/2x Coincidences/2xCoincidences_Fit/";  
   TString outputpath3 = "/home/ashish/TEPX_plot/2x Coincidences/AllPU_residuals/";
-  //TString outputpath3 = "/home/ashish/Desktop/TDRplots.root";
-  
   
   TString inpath = "/home/ashish/Desktop/2xresults_all/TEPX/samples_17Feb2020/";
   //TString inpath = "/home/ashish/Desktop/2xcombined_3dphi_2dr/TEPX/samples_17Feb2020/";
@@ -130,7 +127,7 @@ void totalcount2x(){
       char* histname1 = new char[2];
       sprintf(histname1, "histo%d_linearity1.gif", l);
       C.Print(outputpath1 + histname1);
-      histo1_linearity1.gif->
+      //f->WriteTObject(TEPXClustersPerEvent);
 	
       FitTEPXClustersPerEvent = new TF1(TString("Fit_"), "[0]+[1]*x", 0.5, 2);
       FitTEPXClustersPerEvent->SetLineColor(4);
@@ -141,7 +138,7 @@ void totalcount2x(){
       sprintf(histname2, "histo%d_linearity2.gif", l);
       C.Update();
       C.Print(outputpath2 + histname2);
-      
+     
       TCanvas c1("c1");
       c1.cd(); 
       
@@ -187,7 +184,8 @@ void totalcount2x(){
       line2->Draw("same");
       
       c1.Print(outputpath3 + TString("2xCoincidencesdisk_2xinRtotal") +  ".png");
-      f->Close();
+      c1.Print("/home/ashish/Desktop/TDRplots.root");
+      //f->WriteTObject(NonLinearity_TEPXClustersPerEvent);
       
     }
   }  
