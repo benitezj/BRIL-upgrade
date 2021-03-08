@@ -16,10 +16,10 @@ void linearityPlots()
 {
   setTDRStyle();
   writeExtraText = true;       
-  lumi_sqrtS = "13 TeV";
-  extraText  = "       Simulation";  
+  lumi_sqrtS = "#sqrt{s} = 13 TeV";
+  extraText  = "       Phase-2 Simulation Preliminary";  
   
-  plotLuminometer("OTGraphsFromHammed.root", "BarrelL6", "OT Luminometer", 0, 210, "pile-up", 0, 1000, "# of track stubs");  
+  plotLuminometer("OTGraphsFromHammed.root", "BarrelL6", "Outer Tracker Layer 6", 0, 210, "pile-up", 0, 1000, "# of track stubs");  
 }
 
 
