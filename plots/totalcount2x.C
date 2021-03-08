@@ -126,8 +126,8 @@ void totalcount2x(){
       FitTEPXClustersPerEvent->Draw("lsame");
       char* histname1 = new char[2];
       sprintf(histname1, "histo%d_linearity1.gif", l);
-      C.Print(outputpath1 + histname1);
-      //f->WriteTObject(TEPXClustersPerEvent);
+      //C.Print(outputpath1 + histname1);
+      f->WriteTObject(TEPXClustersPerEvent);
 	
       FitTEPXClustersPerEvent = new TF1(TString("Fit_"), "[0]+[1]*x", 0.5, 2);
       FitTEPXClustersPerEvent->SetLineColor(4);
@@ -136,8 +136,8 @@ void totalcount2x(){
       TEPXClustersPerEvent->GetXaxis()->SetRangeUser(0, 2);
       char* histname2 = new char[2];
       sprintf(histname2, "histo%d_linearity2.gif", l);
-      C.Update();
-      C.Print(outputpath2 + histname2);
+      //C.Update();
+      //C.Print(outputpath2 + histname2);
      
       TCanvas c1("c1");
       c1.cd(); 
@@ -184,8 +184,7 @@ void totalcount2x(){
       line2->Draw("same");
       
       c1.Print(outputpath3 + TString("2xCoincidencesdisk_2xinRtotal") +  ".png");
-      c1.Print("/home/ashish/Desktop/TDRplots.root");
-      //f->WriteTObject(NonLinearity_TEPXClustersPerEvent);
+      f->WriteTObject(NonLinearity_TEPXClustersPerEvent);
       
     }
   }  
