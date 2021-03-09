@@ -1,4 +1,10 @@
 void plotting_code_clusters(){
+
+TFile *f = new TFile("/home/ashish/BRIL-upgrade/tdrplots/TDRplotscluster.root","RECREATE");
+
+  f->cd();
+  gDirectory->pwd();
+  f->ls();
   
   TString outputpath1 = "/home/ashish/TEPX_plot/Clusters/Extrapolation/";
   TString outputpath2 = "/home/ashish/TEPX_plot/Clusters/clusters_Fit/";  
@@ -83,9 +89,7 @@ void plotting_code_clusters(){
       FitTEPXClustersPerEvent[d][r] = new TF1(TString("Fit_") + d + "_" + r, "[0]+[1]*x", 0.5, 200);
       FitTEPXClustersPerEvent[d][r]->SetLineColor(4);
       TEPXClustersPerEvent[d][r]->Fit(FitTEPXClustersPerEvent[d][r], "", "", 0.5, 2);
-      
-      
-      
+          
       //draw the fit graphs for all disks and rings
       TEPXClustersPerEvent[d][r]->GetYaxis()->SetNdivisions(12);
       TEPXClustersPerEvent[d][r]->GetYaxis()->SetLabelSize(0.03);
@@ -99,10 +103,11 @@ void plotting_code_clusters(){
       gPad->SetGrid(1, 1);
       
       
-      TEPXClustersPerEvent[d][r]->GetYaxis()->SetTitle("Mean Number of 2x Coincidences");
-      TEPXClustersPerEvent[d][r]->GetYaxis()->SetRangeUser(0, 300);
+      TEPXClustersPerEvent[d][r]->GetYaxis()->SetTitle("Mean Number of clusters");
+      TEPXClustersPerEvent[d][r]->GetYaxis()->SetRangeUser(0, 3000);
       TEPXClustersPerEvent[d][r]->GetXaxis()->SetRangeUser(0, 210);
       TEPXClustersPerEvent[d][r]->GetXaxis()->SetNdivisions(10);
+      TEPXClustersPerEvent[d][r]->SetName(TString("TGraphErrorFit") + "D" + d + "R" + r + 1);
       TEPXClustersPerEvent[d][r]->Draw("ape");
       FitTEPXClustersPerEvent[d][r]->Draw("lsame");
       label.SetTextSize(0.1);
@@ -111,18 +116,19 @@ void plotting_code_clusters(){
       sprintf(histname, "histo%d_linearity.png", l);
       cout << "==========================" << histname << endl;
       C.Print(outputpath1 + histname);
-      
+      f->WriteTObject(TEPXClustersPerEvent[d][r]);
       
       FitTEPXClustersPerEvent[d][r] = new TF1(TString("Fit_") + d + "_" + r, "[0]+[1]*x", 0.5, 2);
       FitTEPXClustersPerEvent[d][r]->SetLineColor(4);
       TEPXClustersPerEvent[d][r]->Fit(FitTEPXClustersPerEvent[d][r], "", "", 0.5, 2);
-      TEPXClustersPerEvent[d][r]->GetYaxis()->SetRangeUser(0, 5);
+      TEPXClustersPerEvent[d][r]->GetYaxis()->SetRangeUser(0, 30);
       TEPXClustersPerEvent[d][r]->GetXaxis()->SetRangeUser(0, 2);
+      TEPXClustersPerEvent[d][r]->SetName(TString("TGraphErrorExtrapolation") + "D" + d + "R" + r + 1);
       char* histname1 = new char[40];
       sprintf(histname1, "histo%d_linearity1.gif", l);
       C.Update();
       C.Print(outputpath2 + histname1);
-      
+      f->WriteTObject(TEPXClustersPerEvent[d][r]);
     }
   }
   
@@ -141,8 +147,8 @@ void plotting_code_clusters(){
 	if (pu > 2) {
 	  
 	  
-	  NonLinearity_TEPXClustersPerEvent[d][r]->SetPoint(pu, x -(r-2), y);
-          //NonLinearity_TEPXClustersPerEvent[d][r]->SetPoint(pu, x, y);
+	  //NonLinearity_TEPXClustersPerEvent[d][r]->SetPoint(pu, x -(r-2), y);
+          NonLinearity_TEPXClustersPerEvent[d][r]->SetPoint(pu, x, y);
 	  NonLinearity_TEPXClustersPerEvent[d][r]->SetPointError(pu, 0, yerr);
 	} else {
 	  
@@ -174,6 +180,7 @@ void plotting_code_clusters(){
   NonLinearity_TEPXClustersPerEvent[0][0]->SetMarkerSize(0);
   NonLinearity_TEPXClustersPerEvent[0][0]->SetLineColor(2);
   NonLinearity_TEPXClustersPerEvent[0][0]->SetTitle("Side 1 Disk 4 Ring 1");
+  NonLinearity_TEPXClustersPerEvent[0][0]->SetName("Side 1 Disk 4 Ring 1");
   TLine* line1 = new TLine(0, 0, 210, 0);
   line1->SetLineColor(kBlack);
   
@@ -193,8 +200,48 @@ void plotting_code_clusters(){
   
   C1.Print(outputpath3 + "Cluster_residualD4R1(-Z).gif");
   C1.Clear();
+
+
+  TCanvas C4("C4");
+  C4.cd();
   
+  NonLinearity_TEPXClustersPerEvent[7][0]->GetYaxis()->SetNdivisions(10);
+  NonLinearity_TEPXClustersPerEvent[7][0]->GetYaxis()->SetLabelSize(0.03);
+  NonLinearity_TEPXClustersPerEvent[7][0]->GetYaxis()->SetTitle("Residual   (Data-Fit)/Fit");
+  NonLinearity_TEPXClustersPerEvent[7][0]->GetYaxis()->SetMaxDigits(4);
+  NonLinearity_TEPXClustersPerEvent[7][0]->GetYaxis()->SetRangeUser(-0.05, 0.05);
+  NonLinearity_TEPXClustersPerEvent[7][0]->GetXaxis()->SetNdivisions(12);
+  NonLinearity_TEPXClustersPerEvent[7][0]->GetXaxis()->SetLabelSize(0.04);
+  NonLinearity_TEPXClustersPerEvent[7][0]->GetXaxis()->SetRangeUser(0, 210);
+  NonLinearity_TEPXClustersPerEvent[7][0]->GetXaxis()->SetTitle("Pileup");
+  NonLinearity_TEPXClustersPerEvent[7][0]->SetMarkerStyle(21);
+  NonLinearity_TEPXClustersPerEvent[7][0]->SetMarkerColor(2);
+  NonLinearity_TEPXClustersPerEvent[7][0]->SetMarkerSize(0);
+  NonLinearity_TEPXClustersPerEvent[7][0]->SetLineColor(2);
+  NonLinearity_TEPXClustersPerEvent[7][0]->SetTitle("Side 2 Disk 4 Ring 1");
+  NonLinearity_TEPXClustersPerEvent[7][0]->SetName("Side 2 Disk 4 Ring 1");
+  TLine* line3 = new TLine(0, 0, 210, 0);
+  line3->SetLineColor(kBlack);
   
+  gPad->SetGrid(1, 1);
+  NonLinearity_TEPXClustersPerEvent[7][0]->Draw("ape");
+  line3->Draw("same");
+  
+  TLine* line4 = new TLine(0, -0.01, 210, -0.01);
+  line4->SetLineColor(kBlack);
+  line4->SetLineStyle(9);
+  line4->Draw("same");
+  
+  TLine* line5 = new TLine(0, 0.01, 210, 0.01);
+  line5->SetLineColor(kBlack);
+  line5->SetLineStyle(9);
+  line5->Draw("same");
+  
+  C4.Print(outputpath3 + "Cluster_residualD4R1(+Z).gif");
+  C4.Clear();
+
+
+
   TCanvas C2("C2");
   C2.cd();
   
@@ -231,11 +278,13 @@ void plotting_code_clusters(){
       NonLinearity_TEPXClustersPerEvent[d][r]->SetMarkerStyle(20);
       NonLinearity_TEPXClustersPerEvent[d][r]->SetLineColor(r + 1);
       NonLinearity_TEPXClustersPerEvent[d][r]->SetMarkerSize(0);
+      NonLinearity_TEPXClustersPerEvent[d][r]->SetName(TString("TGraphErrorResidual") + "D" + d + "R" + (r + 1));
       NonLinearity_TEPXClustersPerEvent[d][r]->Draw("pesame");
       legend->AddEntry(NonLinearity_TEPXClustersPerEvent[d][r], TString(" Ring ") + (r + 1), "l");
       
-    }
     
+    
+
     TLine* line = new TLine(0, 0, 220, 0);
     line->SetLineColor(kBlack);
     
@@ -258,9 +307,11 @@ void plotting_code_clusters(){
     legend->SetLineColor(0);
     legend->SetFillColor(0);
     legend->Draw("same");
-    
+
     C2.Print(outputpath3 + TString("Cluster_residuals") + d + ".gif");
-    
+    f->WriteTObject(NonLinearity_TEPXClustersPerEvent[d][r]);
+
+    }
   }
 }
 
