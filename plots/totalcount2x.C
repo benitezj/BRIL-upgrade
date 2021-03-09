@@ -1,6 +1,6 @@
 void totalcount2x(){
   
-  TFile *f = new TFile("/home/ashish/Desktop/TDRplots.root","RECREATE");
+  TFile *f = new TFile("/home/ashish/BRIL-upgrade/tdrplots/TDRplots2xtotal(phi+R).root","RECREATE");
 
   f->cd();
   gDirectory->pwd();
@@ -58,8 +58,7 @@ void totalcount2x(){
       
       for (int s = 0; s < sidelist.size(); s++) {
 	for (int d = 0; d < disklist.size(); d++) {
-	  
-	  //TString histoname = "BRIL_IT_Analysis/TEPX/2xCoincidences/Numberof2xCoincidences_side";
+	 
 	  //TString histoname = "BRIL_IT_Analysis/TEPX/2xCoincidences/Numberof2xCoincidences_Inphi_side";
 	  //TString histoname = "BRIL_IT_Analysis/TEPX/2xCoincidences/Numberof2xCoincidences_InR_side";
 	  //TString histoname = "BRIL_IT_Analysis/TEPX/2xCoincidences/Numberof2xCoincidencess_InR_side";        
@@ -118,7 +117,6 @@ void totalcount2x(){
       gStyle->SetOptFit(1111);
       gPad->SetGrid(1, 1);
       
-      
       TEPXClustersPerEvent->GetYaxis()->SetTitle("Mean Number of 2x Coincidences");
       TEPXClustersPerEvent->GetYaxis()->SetRangeUser(0, 7500);
       TEPXClustersPerEvent->GetXaxis()->SetRangeUser(0, 210);
@@ -126,7 +124,7 @@ void totalcount2x(){
       FitTEPXClustersPerEvent->Draw("lsame");
       char* histname1 = new char[2];
       sprintf(histname1, "histo%d_linearity1.gif", l);
-      //C.Print(outputpath1 + histname1);
+      C.Print(outputpath1 + histname1);
       f->WriteTObject(TEPXClustersPerEvent);
 	
       FitTEPXClustersPerEvent = new TF1(TString("Fit_"), "[0]+[1]*x", 0.5, 2);
@@ -136,9 +134,10 @@ void totalcount2x(){
       TEPXClustersPerEvent->GetXaxis()->SetRangeUser(0, 2);
       char* histname2 = new char[2];
       sprintf(histname2, "histo%d_linearity2.gif", l);
-      //C.Update();
-      //C.Print(outputpath2 + histname2);
-     
+      C.Update();
+      C.Print(outputpath2 + histname2);
+      f->WriteTObject(TEPXClustersPerEvent);
+
       TCanvas c1("c1");
       c1.cd(); 
       
@@ -183,11 +182,11 @@ void totalcount2x(){
       line2->SetLineStyle(9);
       line2->Draw("same");
       
-      c1.Print(outputpath3 + TString("2xCoincidencesdisk_2xinRtotal") +  ".png");
+      c1.Print(outputpath3 + TString("2xCoincidencesdisk_2xtotal") +  ".png");
       f->WriteTObject(NonLinearity_TEPXClustersPerEvent);
-      
+
     }
-  }  
+  }
 }
 
 
