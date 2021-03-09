@@ -1,6 +1,6 @@
 void totalcountcluster(){
-  
-  TFile *f = new TFile("/home/ashish/Desktop/TDRplotscluster.root","RECREATE");
+
+ TFile *f = new TFile("/home/ashish/BRIL-upgrade/tdrplots/TDRplotsclustertotal.root","RECREATE");
 
   f->cd();
   gDirectory->pwd();
@@ -109,9 +109,10 @@ void totalcountcluster(){
       gPad->SetGrid(1, 1);
       
       
-      TEPXClustersPerEvent->GetYaxis()->SetTitle("Mean Number of 2x Coincidences");
-      TEPXClustersPerEvent->GetYaxis()->SetRangeUser(0, 7500);
+      TEPXClustersPerEvent->GetYaxis()->SetTitle("Mean Number of clusters");
+      TEPXClustersPerEvent->GetYaxis()->SetRangeUser(0, 100000);
       TEPXClustersPerEvent->GetXaxis()->SetRangeUser(0, 210);
+      TEPXClustersPerEvent->SetName(TString("TGraphErrorExtrapolation"));
       TEPXClustersPerEvent->Draw("ape");
       FitTEPXClustersPerEvent->Draw("lsame");
       char* histname1 = new char[2];
@@ -122,13 +123,15 @@ void totalcountcluster(){
       FitTEPXClustersPerEvent = new TF1(TString("Fit_"), "[0]+[1]*x", 0.5, 2);
       FitTEPXClustersPerEvent->SetLineColor(4);
       TEPXClustersPerEvent->Fit(FitTEPXClustersPerEvent, "", "", 0.5, 2);
-      TEPXClustersPerEvent->GetYaxis()->SetRangeUser(0, 100);
+      TEPXClustersPerEvent->GetYaxis()->SetRangeUser(0, 1000);
       TEPXClustersPerEvent->GetXaxis()->SetRangeUser(0, 2);
+      TEPXClustersPerEvent->SetName(TString("TGraphErrorFit"));
       char* histname2 = new char[2];
       sprintf(histname2, "histo%d_linearity2.gif", l);
       C.Update();
       C.Print(outputpath2 + histname2);
-     
+      f->WriteTObject(TEPXClustersPerEvent);     
+
       TCanvas c1("c1");
       c1.cd(); 
       
@@ -152,7 +155,8 @@ void totalcountcluster(){
       NonLinearity_TEPXClustersPerEvent->SetMarkerStyle(20);
       NonLinearity_TEPXClustersPerEvent->SetLineColor(2);
       NonLinearity_TEPXClustersPerEvent->SetMarkerSize(0);
-      NonLinearity_TEPXClustersPerEvent->SetTitle(TString(" Cluster residuals"));
+      NonLinearity_TEPXClustersPerEvent->SetTitle(TString("Cluster residuals"));
+      NonLinearity_TEPXClustersPerEvent->SetName(TString("total cluster residual"));
       NonLinearity_TEPXClustersPerEvent->Draw("ape");
       
       gPad->SetGrid(1, 1);

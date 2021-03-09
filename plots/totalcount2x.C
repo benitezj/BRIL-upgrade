@@ -1,9 +1,9 @@
 void totalcount2x(){
   
-  TFile *f = new TFile("/home/ashish/BRIL-upgrade/tdrplots/TDRplots2xtotal(phi+R).root","RECREATE");
+  TFile *f = new TFile("/home/ashish/BRIL-upgrade/tdrplots/TDRplots2xinRtotal.root","RECREATE");
 
   f->cd();
-  gDirectory->pwd();
+  gDirectory->cd();
   f->ls();
   
   TString outputpath1 = "/home/ashish/TEPX_plot/2x Coincidences/Extrapolation/";
@@ -62,8 +62,8 @@ void totalcount2x(){
 	  //TString histoname = "BRIL_IT_Analysis/TEPX/2xCoincidences/Numberof2xCoincidences_Inphi_side";
 	  //TString histoname = "BRIL_IT_Analysis/TEPX/2xCoincidences/Numberof2xCoincidences_InR_side";
 	  //TString histoname = "BRIL_IT_Analysis/TEPX/2xCoincidences/Numberof2xCoincidencess_InR_side";        
-	  //TString histoname = "BRIL_IT_Analysis/TEPX/2xCoincidences/Numberof2xCoincidencestotal_InR_side";
-	  TString histoname = "BRIL_IT_Analysis/TEPX/2xCoincidences/Numberof2xCoincidencestotal_side";
+	  TString histoname = "BRIL_IT_Analysis/TEPX/2xCoincidences/Numberof2xCoincidencestotal_InR_side";
+	  //TString histoname = "BRIL_IT_Analysis/TEPX/2xCoincidences/Numberof2xCoincidencestotal_side";
 	  
 	  TH2F* H = (TH2F*)F.Get(histoname + sidelist[s].c_str() + "_Disk" + disklist[d].c_str());
 	  Histogram2D[s][pu][d] = (TH2F*)H->Clone(TString(H->GetName()));
@@ -120,23 +120,27 @@ void totalcount2x(){
       TEPXClustersPerEvent->GetYaxis()->SetTitle("Mean Number of 2x Coincidences");
       TEPXClustersPerEvent->GetYaxis()->SetRangeUser(0, 7500);
       TEPXClustersPerEvent->GetXaxis()->SetRangeUser(0, 210);
+      TEPXClustersPerEvent->SetName(TString("TGraphErrorExtrapolation"));
       TEPXClustersPerEvent->Draw("ape");
       FitTEPXClustersPerEvent->Draw("lsame");
       char* histname1 = new char[2];
       sprintf(histname1, "histo%d_linearity1.gif", l);
       C.Print(outputpath1 + histname1);
       f->WriteTObject(TEPXClustersPerEvent);
+      
 	
       FitTEPXClustersPerEvent = new TF1(TString("Fit_"), "[0]+[1]*x", 0.5, 2);
       FitTEPXClustersPerEvent->SetLineColor(4);
       TEPXClustersPerEvent->Fit(FitTEPXClustersPerEvent, "", "", 0.5, 2);
       TEPXClustersPerEvent->GetYaxis()->SetRangeUser(0, 100);
       TEPXClustersPerEvent->GetXaxis()->SetRangeUser(0, 2);
+      TEPXClustersPerEvent->SetName(TString("TGraphErrorFit"));
       char* histname2 = new char[2];
       sprintf(histname2, "histo%d_linearity2.gif", l);
       C.Update();
       C.Print(outputpath2 + histname2);
       f->WriteTObject(TEPXClustersPerEvent);
+     
 
       TCanvas c1("c1");
       c1.cd(); 
@@ -162,8 +166,11 @@ void totalcount2x(){
       NonLinearity_TEPXClustersPerEvent->SetLineColor(2);
       NonLinearity_TEPXClustersPerEvent->SetMarkerSize(0);
       //NonLinearity_TEPXClustersPerEvent->SetTitle(TString(" 2xinphi residuals"));
-      //NonLinearity_TEPXClustersPerEvent->SetTitle(TString(" 2xinR residuals"));
-      NonLinearity_TEPXClustersPerEvent->SetTitle(TString(" (2xinphi & 2xinR) residuals"));
+      NonLinearity_TEPXClustersPerEvent->SetTitle(TString(" 2xinR residuals"));
+      //NonLinearity_TEPXClustersPerEvent->SetTitle(TString(" (2xinphi & 2xinR) residuals"));
+      //NonLinearity_TEPXClustersPerEvent->SetName("total 2xinphi residual");
+      NonLinearity_TEPXClustersPerEvent->SetName("total 2xinR residual");
+      //NonLinearity_TEPXClustersPerEvent->SetName("total 2x residual");
       NonLinearity_TEPXClustersPerEvent->Draw("ape");
       
       gPad->SetGrid(1, 1);
@@ -182,9 +189,10 @@ void totalcount2x(){
       line2->SetLineStyle(9);
       line2->Draw("same");
       
-      c1.Print(outputpath3 + TString("2xCoincidencesdisk_2xtotal") +  ".png");
+      c1.Print(outputpath3 + TString("2xCoincidencesdisk_2xinR") +  ".png");
       f->WriteTObject(NonLinearity_TEPXClustersPerEvent);
-
+       
+     
     }
   }
 }

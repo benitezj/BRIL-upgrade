@@ -107,7 +107,7 @@ TFile *f = new TFile("/home/ashish/BRIL-upgrade/tdrplots/TDRplotscluster.root","
       TEPXClustersPerEvent[d][r]->GetYaxis()->SetRangeUser(0, 3000);
       TEPXClustersPerEvent[d][r]->GetXaxis()->SetRangeUser(0, 210);
       TEPXClustersPerEvent[d][r]->GetXaxis()->SetNdivisions(10);
-      TEPXClustersPerEvent[d][r]->SetName(TString("TGraphErrorFit") + "D" + d + "R" + r + 1);
+      TEPXClustersPerEvent[d][r]->SetName(TString("TGraphErrorExtrapolation") + "D" + d + "R" + r + 1);
       TEPXClustersPerEvent[d][r]->Draw("ape");
       FitTEPXClustersPerEvent[d][r]->Draw("lsame");
       label.SetTextSize(0.1);
@@ -123,7 +123,7 @@ TFile *f = new TFile("/home/ashish/BRIL-upgrade/tdrplots/TDRplotscluster.root","
       TEPXClustersPerEvent[d][r]->Fit(FitTEPXClustersPerEvent[d][r], "", "", 0.5, 2);
       TEPXClustersPerEvent[d][r]->GetYaxis()->SetRangeUser(0, 30);
       TEPXClustersPerEvent[d][r]->GetXaxis()->SetRangeUser(0, 2);
-      TEPXClustersPerEvent[d][r]->SetName(TString("TGraphErrorExtrapolation") + "D" + d + "R" + r + 1);
+      TEPXClustersPerEvent[d][r]->SetName(TString("TGraphErrorFit") + "D" + d + "R" + r + 1);
       char* histname1 = new char[40];
       sprintf(histname1, "histo%d_linearity1.gif", l);
       C.Update();
@@ -180,7 +180,7 @@ TFile *f = new TFile("/home/ashish/BRIL-upgrade/tdrplots/TDRplotscluster.root","
   NonLinearity_TEPXClustersPerEvent[0][0]->SetMarkerSize(0);
   NonLinearity_TEPXClustersPerEvent[0][0]->SetLineColor(2);
   NonLinearity_TEPXClustersPerEvent[0][0]->SetTitle("Side 1 Disk 4 Ring 1");
-  NonLinearity_TEPXClustersPerEvent[0][0]->SetName("Side 1 Disk 4 Ring 1");
+  NonLinearity_TEPXClustersPerEvent[0][0]->SetName("Side1Disk4Ring1Residual");
   TLine* line1 = new TLine(0, 0, 210, 0);
   line1->SetLineColor(kBlack);
   
@@ -199,6 +199,7 @@ TFile *f = new TFile("/home/ashish/BRIL-upgrade/tdrplots/TDRplotscluster.root","
   line2->Draw("same");
   
   C1.Print(outputpath3 + "Cluster_residualD4R1(-Z).gif");
+  f->WriteTObject(NonLinearity_TEPXClustersPerEvent[0][0]);
   C1.Clear();
 
 
@@ -219,7 +220,7 @@ TFile *f = new TFile("/home/ashish/BRIL-upgrade/tdrplots/TDRplotscluster.root","
   NonLinearity_TEPXClustersPerEvent[7][0]->SetMarkerSize(0);
   NonLinearity_TEPXClustersPerEvent[7][0]->SetLineColor(2);
   NonLinearity_TEPXClustersPerEvent[7][0]->SetTitle("Side 2 Disk 4 Ring 1");
-  NonLinearity_TEPXClustersPerEvent[7][0]->SetName("Side 2 Disk 4 Ring 1");
+  NonLinearity_TEPXClustersPerEvent[7][0]->SetName("Side2Disk4Ring1Residual");
   TLine* line3 = new TLine(0, 0, 210, 0);
   line3->SetLineColor(kBlack);
   
@@ -238,8 +239,8 @@ TFile *f = new TFile("/home/ashish/BRIL-upgrade/tdrplots/TDRplotscluster.root","
   line5->Draw("same");
   
   C4.Print(outputpath3 + "Cluster_residualD4R1(+Z).gif");
+  f->WriteTObject(NonLinearity_TEPXClustersPerEvent[7][0]);
   C4.Clear();
-
 
 
   TCanvas C2("C2");
@@ -283,17 +284,13 @@ TFile *f = new TFile("/home/ashish/BRIL-upgrade/tdrplots/TDRplotscluster.root","
       legend->AddEntry(NonLinearity_TEPXClustersPerEvent[d][r], TString(" Ring ") + (r + 1), "l");
       
     
-    
-
     TLine* line = new TLine(0, 0, 220, 0);
     line->SetLineColor(kBlack);
-    
     
     TLine* line1 = new TLine(0, -0.01, 210, -0.01);
     line1->SetLineColor(kBlack);
     line1->SetLineStyle(9);
     
-
     TLine* line2 = new TLine(0, 0.01, 210, 0.01);
     line2->SetLineColor(kBlack);
     line2->SetLineStyle(9);
