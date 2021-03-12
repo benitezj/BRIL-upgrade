@@ -7,7 +7,7 @@ TLatex text;
 TLine line;
 TF1 Fit("Fit","[0]+[1]*x", 0, 200);
 TCanvas* canv = NULL;
-void generateCanvas(float x_min, float x_max, TString x_title, float y_min, float y_max, TString y_title);
+void generateCanvas(TString LuminometerName, float x_min, float x_max, TString x_title, float y_min, float y_max, TString y_title);
 void printCanvas(TString canvName);
 void plotLuminometer(TString filename, TString graphname, TString LuminometerName, float x_min, float x_max, TString x_title, float y_min, float y_max, TString y_title, float fitmin=0, float fitmax=2);
 
@@ -15,11 +15,11 @@ void plotLuminometer(TString filename, TString graphname, TString LuminometerNam
 void linearityPlots()
 {
   setTDRStyle();
-  writeExtraText = true;       
   lumi_sqrtS = "#sqrt{s} = 13 TeV";
+  writeExtraText = true;
   extraText  = "       Phase-2 Simulation Preliminary";  
   
-  plotLuminometer("OTGraphsFromHammed.root", "BarrelL6", "Outer Tracker Layer 6", 0, 210, "pile-up", 0, 1000, "# of track stubs");  
+  plotLuminometer("OT_TDR.root", "ghBarrelL6", "Outer Tracker Layer 6", 0.5, 210, "pile-up", 0, 1200, "# of track stubs");  
 }
 
 
@@ -47,11 +47,11 @@ void plotLuminometer(TString filename, TString graphname, TString LuminometerNam
     float y=G->GetY()[i];
     float ye=G->GetEY()[i];
     Counts.SetPoint(i,x,y);
-    //Counts.SetPointError(i,0,ye);
-    Counts.SetPointError(i,0,y/200);//FIX
+    Counts.SetPointError(i,0,ye);
+    //Counts.SetPointError(i,0,y/200);//FIX
   }
     
-  generateCanvas(x_min, x_max, x_title, y_min, y_max, y_title);
+  generateCanvas(LuminometerName,x_min, x_max, x_title, y_min, y_max, y_title);
   Counts.Draw("pesame");
   Fit.Draw("lsame");
   text.DrawLatexNDC(0.2,0.85,LuminometerName);
@@ -68,7 +68,7 @@ void plotLuminometer(TString filename, TString graphname, TString LuminometerNam
     Residuals.SetPointError(i,0,100*ye/Fit.Eval(x));
   }
 
-  generateCanvas(x_min, x_max, "pile-up", -5, 5, "linearity residuals (%) ");
+  generateCanvas(LuminometerName,x_min, x_max, "pile-up", -5, 5, "linearity residuals (%) ");
   Residuals.Draw("pesame");
   line.SetLineStyle(2);
   line.SetLineWidth(2);
@@ -80,7 +80,7 @@ void plotLuminometer(TString filename, TString graphname, TString LuminometerNam
 }
 
 
-void generateCanvas( float x_min, float x_max, TString x_title, float y_min, float y_max, TString y_title){
+void generateCanvas(TString LuminometerName, float x_min, float x_max, TString x_title, float y_min, float y_max, TString y_title){
   int iPeriod=0;// uses the lumi_sqrtS string
   int iPos=0;//postion of CMS Preliminary
   
@@ -96,7 +96,7 @@ void generateCanvas( float x_min, float x_max, TString x_title, float y_min, flo
   float R = 0.04*W_ref;
 
 
-  canv = new TCanvas(x_title+"_"+y_title,"",50,50,W,H);
+  canv = new TCanvas(LuminometerName+"_"+x_title+"_"+y_title,"",50,50,W,H);
   canv->SetFillColor(0);
   canv->SetBorderMode(0);
   canv->SetFrameFillStyle(0);
@@ -107,8 +107,8 @@ void generateCanvas( float x_min, float x_max, TString x_title, float y_min, flo
   canv->SetBottomMargin( B/H );
   canv->SetTickx(0);
   canv->SetTicky(0);
-
-
+  //canv->SetLogx(1);
+  
   TH1* h = new TH1F(x_title+"_"+y_title,"",1,x_min,x_max);
   h->GetXaxis()->SetNdivisions(6,5,0);
   h->GetXaxis()->SetTitle(x_title);
@@ -129,7 +129,7 @@ void printCanvas(TString canvName){
   canv->Update();
   canv->RedrawAxis();
   canv->GetFrame()->Draw();
-  canv->Print(canvName+".pdf",".pdf");
+  //canv->Print(canvName+".pdf",".pdf");
   canv->Print(canvName+".png",".png");
 }
 
