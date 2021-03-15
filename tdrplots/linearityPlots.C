@@ -5,8 +5,10 @@
 
 TLatex text;
 TLine line;
-TF1 Fit("Fit","[0]+[1]*x", 0, 200);
+TF1 Fit("Fit","[0]+[1]*x", 0, 205);
 TCanvas* canv = NULL;
+float residual_range = 5;//%
+
 void generateCanvas(TString LuminometerName, float x_min, float x_max, TString x_title, float y_min, float y_max, TString y_title);
 void printCanvas(TString canvName);
 void plotLuminometer(TString filename, TString graphname, TString LuminometerName, float x_min, float x_max, TString x_title, float y_min, float y_max, TString y_title, float fitmin=0, float fitmax=2);
@@ -15,11 +17,16 @@ void plotLuminometer(TString filename, TString graphname, TString LuminometerNam
 void linearityPlots()
 {
   setTDRStyle();
-  lumi_sqrtS = "#sqrt{s} = 13 TeV";
+
+  lumi_sqrtS = "#sqrt{s} = 14 TeV";
   writeExtraText = true;
-  extraText  = "       Phase-2 Simulation Preliminary";  
+  extraText  = "       Phase-2 Simulation Preliminary";    
+  plotLuminometer("OT_TDR.root", "ghBarrelL6", "Outer Tracker Layer 6 track stubs", 0.5, 210, "pileup", 0, 1200, "mean number of stubs / bx");
+  plotLuminometer("TDRplotscluster.root", "cluster_TEPX", "TEPX clusters", 0.5, 210, "pileup", 0, 60000, "mean number of clusters / bx");
+  plotLuminometer("TDRplotscluster.root", "cluster_D4R1", "TEPX Disk 4 Ring 1 clusters", 0.5, 210, "pileup", 0, 5000, "mean number of clusters / bx");
+  plotLuminometer("TDRplots2xtotal_phi_R.root", "2xCoincidences_TEPX", "TEPX coincidences", 0.5, 210, "pileup", 0, 6000, "mean number of coincidences / bx");
+  plotLuminometer("TDRplots2xtotal_phi_R.root", "2xCoincidences_D4R1", "TEPX Disk 4 Ring 1 coincidences", 0.5, 210, "pileup", 0, 600, "mean number of coincidences / bx");
   
-  plotLuminometer("OT_TDR.root", "ghBarrelL6", "Outer Tracker Layer 6", 0.5, 210, "pile-up", 0, 1200, "# of track stubs");  
 }
 
 
@@ -56,7 +63,7 @@ void plotLuminometer(TString filename, TString graphname, TString LuminometerNam
   Fit.Draw("lsame");
   text.DrawLatexNDC(0.2,0.85,LuminometerName);
   printCanvas(outfile+"_Linearity");
-
+  delete canv;
   
   //residuals
   TGraphErrors Residuals;
@@ -68,7 +75,7 @@ void plotLuminometer(TString filename, TString graphname, TString LuminometerNam
     Residuals.SetPointError(i,0,100*ye/Fit.Eval(x));
   }
 
-  generateCanvas(LuminometerName,x_min, x_max, "pile-up", -5, 5, "linearity residuals (%) ");
+  generateCanvas(LuminometerName,x_min, x_max, x_title, -residual_range, residual_range, "linearity residuals (%) ");
   Residuals.Draw("pesame");
   line.SetLineStyle(2);
   line.SetLineWidth(2);
@@ -76,7 +83,7 @@ void plotLuminometer(TString filename, TString graphname, TString LuminometerNam
   line.DrawLine(0,-1,210,-1);
   text.DrawLatexNDC(0.2,0.85,LuminometerName);
   printCanvas(outfile+"_Linearity_residuals");
-  
+  delete canv;
 }
 
 
@@ -116,6 +123,7 @@ void generateCanvas(TString LuminometerName, float x_min, float x_max, TString x
   h->GetYaxis()->SetNdivisions(6,5,0);
   h->GetYaxis()->SetTitleOffset(1);
   h->GetYaxis()->SetTitle(y_title);
+  h->GetYaxis()->SetMaxDigits(3);
   h->GetYaxis()->SetRangeUser(y_min,y_max);
   h->Draw();
 
