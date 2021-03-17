@@ -1,7 +1,7 @@
 #include "linearityPlots.C"
 
 
-void linearityPlots_perdiskclusters()
+void linearityPlots_perdisk(int option=1)
 {
   setTDRStyle();
   lumi_sqrtS = "#sqrt{s} = 14 TeV";
@@ -10,18 +10,26 @@ void linearityPlots_perdiskclusters()
 
 
   TString LuminometerName="TEPX clusters per disk";
-  //TString LuminometerName="TEPX coincidences per disk";
+  
+  if(option==2) {
+    LuminometerName="TEPX coincidences per disk";
+  }
+  
   TString outfile=LuminometerName;
   outfile.ReplaceAll(" ","_");
-
-
-  TFile Finput("TDRplotscluster.root","read");
+  
+  TString filename = "TDRplotscluster.root";
   TString graphname="cluster_disk";
   
+  if(option==2){
 
-  //TFile Finput("TDRplots2xtotal_phi_R.root","read");
-  //TString graphname="2xCoincidences_disk";
-  
+    filename ="TDRplots2xtotal_phi_R.root";
+    graphname="2xCoincidences_disk";
+  }
+
+  TFile Finput(filename,"read"); 
+ 
+ 
   TGraphErrors* Counts[6];
   TF1* F[6];
  
@@ -56,8 +64,12 @@ void linearityPlots_perdiskclusters()
 
   ////////////////////////
   ////Linearity graph
-  generateCanvas(LuminometerName, 0.5, 210, "pileup", 0, 20000, "mean number of clusters / bx");
-  //generateCanvas(LuminometerName, 0.5, 210, "pileup", 0, 2000, "mean number of Coincidences / bx");
+  if(option==1) {
+    generateCanvas(LuminometerName, 0.5, 210, "pileup", 0, 20000, "mean number of clusters / bx");
+  }
+  if(option==2){
+    generateCanvas(LuminometerName, 0.5, 210, "pileup", 0, 2000, "mean number of coincidences / bx");
+  }
   for(long l=firstl;l<5;l++){
     Counts[l]->SetMarkerColor(5-l);
     Counts[l]->SetLineColor(5-l);
