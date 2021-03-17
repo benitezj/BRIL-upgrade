@@ -1,105 +1,159 @@
-#include "linearityPlots.C"
+#include "tdrstyle.C"
+#include "CMS_lumi.C"
+#include "TH1.h"
+#include "TH1F.h"
+
+TLatex text;
+TLine line;
+TF1 Fit("Fit","[0]+[1]*x", 0, 205);
+TCanvas* canv = NULL;
+float residual_range = 5;//%
+
+void generateCanvas(TString LuminometerName, float x_min, float x_max, TString x_title, float y_min, float y_max, TString y_title);
+void printCanvas(TString canvName);
+void plotLuminometer(TString filename, TString graphname, TString LuminometerName, float x_min, float x_max, TString x_title, float y_min, float y_max, TString y_title, float fitmin=0, float fitmax=2);
 
 
-void linearityPlots1_OT()
+void linearityPlots()
 {
   setTDRStyle();
-  lumi_sqrtS = "#sqrt{s} = 13 TeV";
+
+  lumi_sqrtS = "#sqrt{s} = 14 TeV";
   writeExtraText = true;
-  extraText  = "       Phase-2 Simulation Preliminary";  
+  extraText  = "       Phase-2 Simulation Preliminary";    
+  
+  plotLuminometer("TDRplotscluster.root", "cluster_TEPX", "TEPX clusters", 0.5, 210, "pileup", 0, 60000, "mean number of clusters / bx");
+  //plotLuminometer("TDRplotscluster.root", "cluster_D4R1", "TEPX Disk 4 Ring 1 clusters", 0.5, 210, "pileup", 0, 5000, "mean number of clusters / bx");
+  //plotLuminometer("TDRplots2xtotal_phi_R.root", "2xCoincidences_TEPX", "TEPX coincidences", 0.5, 210, "pileup", 0, 6000, "mean number of coincidences / bx");
+  //plotLuminometer("TDRplots2xtotal_phi_R.root", "2xCoincidences_D4R1", "TEPX Disk 4 Ring 1 coincidences", 0.5, 210, "pileup", 0, 600, "mean number of coincidences / bx");
+  
+}
 
 
-  TString LuminometerName="TEPX Clusters";
-  //TString LuminometerName="TEPX Clusters Disk 4 Ring 1";
-  //TString LuminometerName="TEPX Coincidences";
-  //TString LuminometerName="TEPX Coincidences Disk 4 Ring 1";
+
+/////////////////////////////////////////////////
+/// auxiliary functions
+////////////////////////////////////////////////
+void plotLuminometer(TString filename, TString graphname, TString LuminometerName, float x_min, float x_max, TString x_title, float y_min, float y_max, TString y_title, float fitmin=0, float fitmax=2){
 
   TString outfile=LuminometerName;
   outfile.ReplaceAll(" ","_");
 
-
-  TFile Finput("TDRplotscluster.root","read");
-  TString graphname="cluster_disk";
   
-  TGraphErrors* Counts[6];
-  TF1* F[6];
+  TFile F("TDRplotscluster.root","read");
+  TGraphErrors* G=(TGraphErrors*)F.Get("cluster_TEPX");
+  if(!G){ cout<<"Wrong graph name: "<<graphname<<endl; return;}
 
-  int firstl=1;
+  //TFile F("TDRplotscluster.root","read");
+  //TGraphErrors* G=(TGraphErrors*)F.Get("cluster_D4R1");
+  //if(!G){ cout<<"Wrong graph name: "<<graphname<<endl; return;}
 
-  
-  TLegend leg(0.2,0.5,0.4,0.8);
-  leg.SetFillColor(0);
-  leg.SetLineColor(0);
-  leg.SetBorderSize(0);
- 
+  //TFile F("TDRplots2xtotal_phi_R.root","read");
+  //TGraphErrors* G=(TGraphErrors*)F.Get("2xCoincidences_TEPX");
+  //if(!G){ cout<<"Wrong graph name: "<<graphname<<endl; return;}
 
-  ///Extract the graphs and apply fit
-  for(long l=firstl;l<5;l++){
-    TGraphErrors* G=(TGraphErrors*)Finput.Get(graphname+l);
-    if(!G){ cout<<"Wrong graph name: "<<graphname+l<<endl; return;}
+  //TFile F("TDRplots2xtotal_phi_R.root","read");
+  //TGraphErrors* G=(TGraphErrors*)F.Get("2xCoincidences_D4R1");
+  //if(!G){ cout<<"Wrong graph name: "<<graphname<<endl; return;}
 
-    ///copy for linear graph
-    Counts[l] = new TGraphErrors();
-    for(int i=0;i<G->GetN();i++){
-      float x=G->GetX()[i];
-      float y=G->GetY()[i];
-      float ye=G->GetEY()[i];
-      Counts[l]->SetPoint(i,x,y);
-      Counts[l]->SetPointError(i,0,ye);
-    }
 
-    F[l]=(TF1*)Fit.Clone(Fit.GetName()+graphname+(l+1));
-    G->Fit(F[l],"","QN",0,2);
+
+
+  //fit original graph otherwise fits stas appear on plot
+  G->Fit(&Fit,"","N",fitmin,fitmax);
+
+  ///linear graph
+  TGraphErrors Counts;
+  for(int i=0;i<G->GetN();i++){
+    float x=G->GetX()[i];
+    float y=G->GetY()[i];
+    float ye=G->GetEY()[i];
+    Counts.SetPoint(i,x,y);
+    Counts.SetPointError(i,0,ye);
+    //Counts.SetPointError(i,0,y/200);//FIX
   }
-  
-
-  ////////////////////////
-  ////Linearity graph
-  generateCanvas(LuminometerName, 0.5, 210, "pile-up", 0, 2000, "# of track stubs");
-  for(long l=firstl;l<6;l++){
-    Counts[l]->SetMarkerColor(6-l);
-    Counts[l]->SetLineColor(6-l);
-    Counts[l]->Draw("pesame");
-    F[l]->SetLineColor(6-l);
-    F[l]->Draw("lsame");
-    leg.AddEntry(Counts[l],TString("Layer ")+(l+1),"pl");
-  }
-  leg.Draw();
+    
+  generateCanvas(LuminometerName,x_min, x_max, x_title, y_min, y_max, y_title);
+  Counts.Draw("pesame");
+  Fit.Draw("lsame");
   text.DrawLatexNDC(0.2,0.85,LuminometerName);
-  printCanvas(outfile+"_Linearity");    
-
-
-
-  ///////////////////
-  //residuals graph
-  TGraphErrors Residuals[6];
-  generateCanvas(LuminometerName,0.5, 210, "pile-up", -50, 50, "linearity residuals (%) ");
+  printCanvas(outfile+"_Linearity");
+  delete canv;
   
-  for(long l=firstl;l<6;l++){
-    for(int i=0;i<Counts[l]->GetN();i++){
-      float x=Counts[l]->GetX()[i];
-      float y=Counts[l]->GetY()[i];
-      float ye=Counts[l]->GetEY()[i];
-      Residuals[l].SetPoint(i,x,100*(y-F[l]->Eval(x))/F[l]->Eval(x));
-      Residuals[l].SetPointError(i,0,100*ye/F[l]->Eval(x));
-    }
-    Residuals[l].SetMarkerColor(6-l);
-    Residuals[l].SetLineColor(6-l);
-    Residuals[l].Draw("pesame");
+  //residuals
+  TGraphErrors Residuals;
+  for(int i=0;i<Counts.GetN();i++){
+    float x=Counts.GetX()[i];
+    float y=Counts.GetY()[i];
+    float ye=Counts.GetEY()[i];
+    Residuals.SetPoint(i,x,100*(y-Fit.Eval(x))/Fit.Eval(x));
+    Residuals.SetPointError(i,0,100*ye/Fit.Eval(x));
   }
-  
+
+  generateCanvas(LuminometerName,x_min, x_max, x_title, -residual_range, residual_range, "linearity residuals (%) ");
+  Residuals.Draw("pesame");
   line.SetLineStyle(2);
   line.SetLineWidth(2);
   line.DrawLine(0,1,210,1);
   line.DrawLine(0,-1,210,-1);
   text.DrawLatexNDC(0.2,0.85,LuminometerName);
-
-  leg.SetX1NDC(0.2);
-  leg.SetY1NDC(0.15);
-  leg.SetX2NDC(0.4);
-  leg.SetY2NDC(0.45);
-  leg.Draw();
   printCanvas(outfile+"_Linearity_residuals");
- 
-  
+  delete canv;
 }
+
+
+void generateCanvas(TString LuminometerName, float x_min, float x_max, TString x_title, float y_min, float y_max, TString y_title){
+  int iPeriod=0;// uses the lumi_sqrtS string
+  int iPos=0;//postion of CMS Preliminary
+  
+  int W = 800;
+  int H = 600;
+  int H_ref = 600; 
+  int W_ref = 800; 
+
+  // references for T, B, L, R
+  float T = 0.08*H_ref;
+  float B = 0.12*H_ref; 
+  float L = 0.12*W_ref;
+  float R = 0.04*W_ref;
+
+
+  canv = new TCanvas(LuminometerName+"_"+x_title+"_"+y_title,"",50,50,W,H);
+  canv->SetFillColor(0);
+  canv->SetBorderMode(0);
+  canv->SetFrameFillStyle(0);
+  canv->SetFrameBorderMode(0);
+  canv->SetLeftMargin( L/W );
+  canv->SetRightMargin( R/W );
+  canv->SetTopMargin( T/H );
+  canv->SetBottomMargin( B/H );
+  canv->SetTickx(0);
+  canv->SetTicky(0);
+  //canv->SetLogx(1);
+  
+  TH1* h = new TH1F(x_title+"_"+y_title,"",1,x_min,x_max);
+  h->GetXaxis()->SetNdivisions(6,5,0);
+  h->GetXaxis()->SetTitle(x_title);
+  h->GetXaxis()->SetRangeUser(x_min,x_max);
+  h->GetYaxis()->SetNdivisions(6,5,0);
+  h->GetYaxis()->SetTitleOffset(1);
+  h->GetYaxis()->SetTitle(y_title);
+  h->GetYaxis()->SetMaxDigits(3);
+  h->GetYaxis()->SetRangeUser(y_min,y_max);
+  h->Draw();
+
+  
+  CMS_lumi( canv, iPeriod, iPos );
+}
+
+
+void printCanvas(TString canvName){
+
+  canv->Update();
+  canv->RedrawAxis();
+  canv->GetFrame()->Draw();
+  //canv->Print(canvName+".pdf",".pdf");
+  canv->Print(canvName+".png",".png");
+}
+
+
