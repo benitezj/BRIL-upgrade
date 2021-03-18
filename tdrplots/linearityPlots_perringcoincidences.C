@@ -7,15 +7,18 @@ void linearityPlots_perringcoincidences()
   writeExtraText = true;
   extraText  = "       Phase-2 Simulation Preliminary";  
   
-  TString LuminometerName="TEPX coincidences per ring, Disk ";
+  TString LuminometerName="TEPX coincidences in R per ring, Disk ";
   TString outfile=LuminometerName;
   
   outfile.ReplaceAll(" ","_");
   outfile.ReplaceAll(",","_");
   outfile.ReplaceAll("-","n");
   outfile.ReplaceAll("+","p");
+
   
-  TFile Finput("TDRplots2xtotal_phi_R.root","read");
+  //TFile Finput("TDRplots_2xinphi.root","read");
+  TFile Finput("TDRplots_2xinR.root","read");
+  //TFile Finput("TDRplots2x_phi_R.root","read");
   TString graphname="2xCoincidences";
   
   TGraphErrors* Counts[20][20][20];
@@ -28,10 +31,10 @@ void linearityPlots_perringcoincidences()
   //Extract the graphs and apply fit
   for(long n=firstn;n<2;n++){
     for(long l=firstl;l<4;l++){
-      for(long m=firstm;m<5;m++){
+      for(long m=firstm;m<4;m++){
 	
-	TGraphErrors* G=(TGraphErrors*)Finput.Get(graphname+"S"+n+"D"+l+"R"+m);
-	if(!G){ cout<<"Wrong graph name: "<<graphname+"S"+n+"D"+l+"R"+m<<endl; return;}
+	TGraphErrors* G=(TGraphErrors*)Finput.Get(graphname+"S"+(n+1)+"D"+(l+1)+"R"+(m+1));
+	if(!G){ cout<<"Wrong graph name: "<<graphname+"S"+(n+1)+"D"+(l+1)+"R"+(m+1)<<endl; return;}
 	
 	///copy for linear graph
 	Counts[n][l][m] = new TGraphErrors();
@@ -55,12 +58,12 @@ void linearityPlots_perringcoincidences()
   
   for(long n=firstn;n<2;n++){
     for(long l=firstl;l<4;l++){
-      generateCanvas(LuminometerName, 0.5, 210, "pileup", 0, 400, "mean number of coincidences / bx");
+      generateCanvas(LuminometerName, 0.5, 210, "pileup", 0, 100, "mean number of coincidences / bx");
       TLegend leg(0.2,0.6,0.4,0.8);
       leg.SetFillColor(0);
       leg.SetLineColor(0);
       leg.SetBorderSize(0);
-      for(long m=firstm;m<5;m++){
+      for(long m=firstm;m<4;m++){
 	Counts[n][l][m]->SetMarkerColor(5-m);
 	Counts[n][l][m]->SetLineColor(5-m);
 	Counts[n][l][m]->Draw("pesame");
@@ -76,8 +79,14 @@ void linearityPlots_perringcoincidences()
 	text.DrawLatexNDC(0.2,0.85,LuminometerName+(l-4));
       } else {
 	text.DrawLatexNDC(0.2,0.85,LuminometerName+(l+1));
-      }  
-      printCanvas(outfile+l+n+"_Linearity");
+      } 
+ 
+    if(n==0) {
+      printCanvas(outfile+(l-4)+"_Linearity");
+    } else {
+
+     printCanvas(outfile+(l+1)+"_Linearity");
+}
     }
   }
   
@@ -92,7 +101,7 @@ void linearityPlots_perringcoincidences()
       leg.SetFillColor(0);
       leg.SetLineColor(0);
       leg.SetBorderSize(0);
-      for(long m=firstm;m<5;m++){
+      for(long m=firstm;m<4;m++){
 	for(int i=0;i<Counts[n][l][m]->GetN();i++){
 	  
 	  float x=Counts[n][l][m]->GetX()[i];
@@ -120,7 +129,14 @@ void linearityPlots_perringcoincidences()
 	
       }
       leg.Draw();
-      printCanvas(outfile+l+n+"_Linearity_residuals");
+
+  if(n==0) {
+      printCanvas(outfile+(l-4)+"_Linearity_residuals");
+} else {
+
+     printCanvas(outfile+(l+1)+"_Linearity_residuals");
+}
+    
      
     }    
   }

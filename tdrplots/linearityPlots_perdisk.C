@@ -18,12 +18,12 @@ void linearityPlots_perdisk(int option=1)
   outfile.ReplaceAll(" ","_");
   
   TString filename = "TDRplotscluster.root";
-  TString graphname="cluster_disk";
+  TString graphname="cluster_disk-";
   
   if(option==2){
     
-    filename ="TDRplots2xtotal_phi_R.root";
-    graphname="2xCoincidences_disk";
+    filename ="TDRplots2x_phi_R.root";
+    graphname="2xCoincidences_disk-";
   }
   
   TFile Finput(filename,"read"); 
@@ -63,10 +63,10 @@ void linearityPlots_perdisk(int option=1)
   ////////////////////////
   ////Linearity graph
   if(option==1) {
-    generateCanvas(LuminometerName, 0.5, 210, "pileup", 0, 20000, "mean number of clusters / bx");
+    generateCanvas(LuminometerName, 0.5, 210, "pileup", 0, 10000, "mean number of clusters / bx");
   }
   if(option==2){
-    generateCanvas(LuminometerName, 0.5, 210, "pileup", 0, 2000, "mean number of coincidences / bx");
+    generateCanvas(LuminometerName, 0.5, 210, "pileup", 0, 1000, "mean number of coincidences / bx");
   }
   for(long l=firstl;l<5;l++){
     Counts[l]->SetMarkerColor(5-l);
@@ -74,7 +74,7 @@ void linearityPlots_perdisk(int option=1)
     Counts[l]->Draw("pesame");
     F[l]->SetLineColor(5-l);
     F[l]->Draw("lsame");
-    leg.AddEntry(Counts[l],TString("Disk ")+l,"pl");
+    leg.AddEntry(Counts[l],TString("Disk ")+(-l),"pl");
   }
   leg.Draw();
   text.DrawLatexNDC(0.2,0.85,LuminometerName);
