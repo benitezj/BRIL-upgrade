@@ -120,17 +120,12 @@ void linearityPlots_perringclusters()
     line.DrawLine(0,1,210,1);
     line.DrawLine(0,-1,210,-1);
 
-    
-    
-    
     if(l<=3){
       text.DrawLatexNDC(0.2,0.85,LuminometerName+(l-4));
     } else {
       text.DrawLatexNDC(0.2,0.85,LuminometerName+(l-3)); 
     }
-    
-
-    
+        
     printCanvas(outfile+l+"_Linearity_residuals");
     
   }

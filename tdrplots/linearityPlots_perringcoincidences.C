@@ -76,10 +76,8 @@ void linearityPlots_perringcoincidences()
 	text.DrawLatexNDC(0.2,0.85,LuminometerName+(l-4));
       } else {
 	text.DrawLatexNDC(0.2,0.85,LuminometerName+(l+1));
-      }
-      
+      }  
       printCanvas(outfile+l+n+"_Linearity");
-      
     }
   }
   
@@ -123,6 +121,7 @@ void linearityPlots_perringcoincidences()
       }
       leg.Draw();
       printCanvas(outfile+l+n+"_Linearity_residuals");
+     
     }    
   }
 }

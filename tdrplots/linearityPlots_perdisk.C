@@ -1,6 +1,5 @@
 #include "linearityPlots.C"
 
-
 void linearityPlots_perdisk(int option=1)
 {
   setTDRStyle();
