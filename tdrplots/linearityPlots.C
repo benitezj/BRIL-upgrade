@@ -40,10 +40,6 @@ void plotLuminometer(TString filename, TString graphname, TString LuminometerNam
   outfile.ReplaceAll(" ","_");
 
   
-  TFile F(filename,"read");
-  TGraphErrors* G=(TGraphErrors*)F.Get(graphname);
-  if(!G){ cout<<"Wrong graph name: "<<graphname<<endl; return;}
-
   //fit original graph otherwise fits stas appear on plot
   G->Fit(&Fit,"","N",fitmin,fitmax);
 
@@ -116,7 +112,7 @@ void generateCanvas(TString LuminometerName, float x_min, float x_max, TString x
   canv->SetTicky(0);
   //canv->SetLogx(1);
   
-  TH1* h = new TH1F(x_title+"_"+y_title,"",1,x_min,x_max);
+  TH1F* h = new TH1F(LuminometerName+x_title+"_"+y_title,"",1,x_min,x_max);
   h->GetXaxis()->SetNdivisions(6,5,0);
   h->GetXaxis()->SetTitle(x_title);
   h->GetXaxis()->SetRangeUser(x_min,x_max);
