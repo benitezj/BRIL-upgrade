@@ -97,7 +97,6 @@ void linearityPlots_perdisk(int option=1)
       Residuals[l].SetPointError(i,0,100*ye/F[l]->Eval(x));
     }
     Residuals[l].SetMarkerColor(5-l);
-    //Residuals[l].SetMarkerSize(0);
     Residuals[l].SetLineColor(5-l);
     Residuals[l].Draw("pesame");
   }
