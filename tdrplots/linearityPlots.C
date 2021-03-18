@@ -17,7 +17,7 @@ void plotLuminometer(TString filename, TString graphname, TString LuminometerNam
 void linearityPlots()
 {
   setTDRStyle();
-
+  
   lumi_sqrtS = "#sqrt{s} = 14 TeV";
   writeExtraText = true;
   extraText  = "       Phase-2 Simulation Preliminary";    
@@ -35,10 +35,13 @@ void linearityPlots()
 /// auxiliary functions
 ////////////////////////////////////////////////
 void plotLuminometer(TString filename, TString graphname, TString LuminometerName, float x_min, float x_max, TString x_title, float y_min, float y_max, TString y_title, float fitmin=0, float fitmax=2){
-
+  
   TString outfile=LuminometerName;
   outfile.ReplaceAll(" ","_");
 
+   TFile F(filename,"read");
+  TGraphErrors* G=(TGraphErrors*)F.Get(graphname);
+  if(!G){ cout<<"Wrong graph name: "<<graphname<<endl; return;}
   
   //fit original graph otherwise fits stas appear on plot
   G->Fit(&Fit,"","N",fitmin,fitmax);
@@ -53,7 +56,7 @@ void plotLuminometer(TString filename, TString graphname, TString LuminometerNam
     Counts.SetPointError(i,0,ye);
     //Counts.SetPointError(i,0,y/200);//FIX
   }
-    
+  
   generateCanvas(LuminometerName,x_min, x_max, x_title, y_min, y_max, y_title);
   Counts.Draw("pesame");
   Fit.Draw("lsame");
@@ -70,7 +73,7 @@ void plotLuminometer(TString filename, TString graphname, TString LuminometerNam
     Residuals.SetPoint(i,x,100*(y-Fit.Eval(x))/Fit.Eval(x));
     Residuals.SetPointError(i,0,100*ye/Fit.Eval(x));
   }
-
+  
   generateCanvas(LuminometerName,x_min, x_max, x_title, -residual_range, residual_range, "linearity residuals (%) ");
   Residuals.Draw("pesame");
   line.SetLineStyle(2);
@@ -91,14 +94,14 @@ void generateCanvas(TString LuminometerName, float x_min, float x_max, TString x
   int H = 600;
   int H_ref = 600; 
   int W_ref = 800; 
-
+  
   // references for T, B, L, R
   float T = 0.08*H_ref;
   float B = 0.12*H_ref; 
   float L = 0.12*W_ref;
   float R = 0.04*W_ref;
-
-
+  
+  
   canv = new TCanvas(LuminometerName+"_"+x_title+"_"+y_title,"",50,50,W,H);
   canv->SetFillColor(0);
   canv->SetBorderMode(0);
@@ -122,14 +125,14 @@ void generateCanvas(TString LuminometerName, float x_min, float x_max, TString x
   h->GetYaxis()->SetMaxDigits(3);
   h->GetYaxis()->SetRangeUser(y_min,y_max);
   h->Draw();
-
+  
   
   CMS_lumi( canv, iPeriod, iPos );
 }
 
 
 void printCanvas(TString canvName){
-
+  
   canv->Update();
   canv->RedrawAxis();
   canv->GetFrame()->Draw();
