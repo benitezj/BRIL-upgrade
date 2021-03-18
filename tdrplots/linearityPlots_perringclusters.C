@@ -24,13 +24,7 @@ void linearityPlots_perringclusters()
   
   int firstl=0;
   int firstm=0;
-  
-  TLegend leg(0.2,0.6,0.4,0.8);
-  leg.SetFillColor(0);
-  leg.SetLineColor(0);
-  leg.SetBorderSize(0);
-  
-  
+    
   ///Extract the graphs and apply fit
   for(long l=firstl;l<8;l++){
     for(long m=firstm;m<5;m++){
@@ -52,12 +46,18 @@ void linearityPlots_perringclusters()
       G->Fit(F[l][m],"","QN",0,2);
     }
   } 
+
+
   
   ////////////////////////
   ////Linearity graph
   
   for(long l=firstl;l<8;l++){
     generateCanvas(LuminometerName+l, 0.5, 210, "pileup", 0, 3000, "mean number of clusters / bx");
+    	TLegend leg(0.2,0.6,0.4,0.8);
+	leg.SetFillColor(0);
+	leg.SetLineColor(0);
+	leg.SetBorderSize(0);	
     for(long m=firstm;m<5;m++){
       
       Counts[l][m]->SetMarkerColor(5-m);
@@ -65,21 +65,18 @@ void linearityPlots_perringclusters()
       Counts[l][m]->Draw("pesame");
       F[l][m]->SetLineColor(5-m);
       F[l][m]->Draw("lsame");
-      leg.AddEntry(Counts[l][m],TString("ring ")+(m+1),"pl");
-      
-    }
-      
-    leg.Draw();
+     
+     	leg.AddEntry(Counts[l][m],TString("ring ")+(m+1),"pl");
+	leg.Draw(); 
     
+      
+  }
     if(l<=3){
       text.DrawLatexNDC(0.2,0.85,LuminometerName+(l-4));
+    } else {
+      text.DrawLatexNDC(0.2,0.85,LuminometerName+(l-3));  
     }
-    
-    else {
-      text.DrawLatexNDC(0.2,0.85,LuminometerName+(l-3));
-      
-    }
-    
+
     printCanvas(outfile+l+"_Linearity");
   }
   
@@ -89,9 +86,12 @@ void linearityPlots_perringclusters()
   //residuals graph
   TGraphErrors Residuals[50][50];
   
-  
   for(long l=firstl;l<8;l++){
     generateCanvas(LuminometerName+l,0.5, 210, "pileup", -5, 5, "linearity residuals (%) ");
+    TLegend leg(0.75,0.72,0.95,0.9);
+    leg.SetFillColor(0);
+    leg.SetLineColor(0);
+    leg.SetBorderSize(0);    
     for(long m=firstm;m<5;m++){
       for(int i=0;i<Counts[l][m]->GetN();i++){
 	
@@ -100,36 +100,37 @@ void linearityPlots_perringclusters()
 	float ye=Counts[l][m]->GetEY()[i];
 	Residuals[l][m].SetPoint(i,x-m,100*(y-F[l][m]->Eval(x))/F[l][m]->Eval(x));
 	Residuals[l][m].SetPointError(i,0,100*ye/F[l][m]->Eval(x));
+	
       }
       
-      
+      leg.AddEntry(Counts[l][m],TString("ring ")+(m+1),"pl");
       Residuals[l][m].SetMarkerColor(5-m);
       Residuals[l][m].SetLineColor(5-m);
       Residuals[l][m].Draw("pesame");
       
+      leg.SetX1NDC(0.75);
+      leg.SetY1NDC(0.72);
+      leg.SetX2NDC(0.95);
+      leg.SetY2NDC(0.9);
+      leg.Draw();
     }
-
-       
+    
     line.SetLineStyle(2);
     line.SetLineWidth(2);
     line.DrawLine(0,1,210,1);
     line.DrawLine(0,-1,210,-1);
 
+    
+    
+    
     if(l<=3){
       text.DrawLatexNDC(0.2,0.85,LuminometerName+(l-4));
-    }
-    else {
+    } else {
       text.DrawLatexNDC(0.2,0.85,LuminometerName+(l-3)); 
     }
     
+
     
-    leg.SetX1NDC(0.75);
-    leg.SetY1NDC(0.72);
-    leg.SetX2NDC(0.95);
-    leg.SetY2NDC(0.9);
-    leg.Draw();
-
-
     printCanvas(outfile+l+"_Linearity_residuals");
     
   }

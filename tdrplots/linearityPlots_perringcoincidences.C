@@ -13,7 +13,7 @@ void linearityPlots_perringcoincidences()
   outfile.ReplaceAll(" ","_");
   outfile.ReplaceAll(",","_");
   outfile.ReplaceAll("-","n");
-  outfile.ReplaceAll("+","p")
+  outfile.ReplaceAll("+","p");
   
   TFile Finput("TDRplots2xtotal_phi_R.root","read");
   TString graphname="2xCoincidences";
@@ -24,12 +24,6 @@ void linearityPlots_perringcoincidences()
   int firstl=0;
   int firstm=0;
   int firstn=0;
-  
-  TLegend leg(0.2,0.6,0.4,0.8);
-  leg.SetFillColor(0);
-  leg.SetLineColor(0);
-  leg.SetBorderSize(0);
-  
   
   //Extract the graphs and apply fit
   for(long n=firstn;n<2;n++){
@@ -62,12 +56,16 @@ void linearityPlots_perringcoincidences()
   for(long n=firstn;n<2;n++){
     for(long l=firstl;l<4;l++){
       generateCanvas(LuminometerName, 0.5, 210, "pileup", 0, 400, "mean number of coincidences / bx");
+      TLegend leg(0.2,0.6,0.4,0.8);
+      leg.SetFillColor(0);
+      leg.SetLineColor(0);
+      leg.SetBorderSize(0);
       for(long m=firstm;m<5;m++){
 	Counts[n][l][m]->SetMarkerColor(5-m);
 	Counts[n][l][m]->SetLineColor(5-m);
 	Counts[n][l][m]->Draw("pesame");
 	F[n][l][m]->SetLineColor(5-m);
-	F[n][l][m]->Draw("lsame");
+	F[n][l][m]->Draw("lsame");	
 	leg.AddEntry(Counts[n][l][m],TString("ring ")+(m+1),"pl");
 	
       }
@@ -92,6 +90,10 @@ void linearityPlots_perringcoincidences()
   for(long n=firstn;n<2;n++){
     for(long l=firstl;l<4;l++){
       generateCanvas(LuminometerName,0.5, 210, "pileup", -5, 5, "linearity residuals (%) ");
+      TLegend leg(0.7,0.2,0.9,0.4);
+      leg.SetFillColor(0);
+      leg.SetLineColor(0);
+      leg.SetBorderSize(0);
       for(long m=firstm;m<5;m++){
 	for(int i=0;i<Counts[n][l][m]->GetN();i++){
 	  
@@ -100,8 +102,9 @@ void linearityPlots_perringcoincidences()
 	  float ye=Counts[n][l][m]->GetEY()[i];
 	  Residuals[n][l][m].SetPoint(i,x-m,100*(y-F[n][l][m]->Eval(x))/F[n][l][m]->Eval(x));
 	  Residuals[n][l][m].SetPointError(i,0,100*ye/F[n][l][m]->Eval(x));
+	  
 	}
-	
+	leg.AddEntry(Counts[n][l][m],TString("ring ")+(m+1),"pl");
 	Residuals[n][l][m].SetMarkerColor(5-m);
 	Residuals[n][l][m].SetLineColor(5-m);
 	Residuals[n][l][m].Draw("pesame");
@@ -117,14 +120,9 @@ void linearityPlots_perringcoincidences()
 	  text.DrawLatexNDC(0.2,0.85,LuminometerName+(l+1));
 	}
 	
-	leg.SetX1NDC(0.75);
-	leg.SetY1NDC(0.2);
-	leg.SetX2NDC(0.95);
-	leg.SetY2NDC(0.4);
-	leg.Draw();
-	printCanvas(outfile+l+n+"_Linearity_residuals");
-	
       }
-    }
+      leg.Draw();
+      printCanvas(outfile+l+n+"_Linearity_residuals");
+    }    
   }
 }
