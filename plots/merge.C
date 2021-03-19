@@ -22,6 +22,11 @@ void merge() {
   TGraphErrors* K[50];
   TGraphErrors* K1[50];
   TGraphErrors* K2[50];
+
+  TGraphErrors* L[50];
+  TGraphErrors* L1[50];
+  TGraphErrors* L2[50];
+ 
   
   TGraphErrors* A;
   TGraphErrors* B;
@@ -48,6 +53,7 @@ void merge() {
   f->WriteTObject(A);
   f->WriteTObject(B);
   f->WriteTObject(C);
+
   
   for (int s = 0; s < sidelist.size(); s++){
     for (int d = 0; d < disklist.size(); d++){
@@ -131,4 +137,37 @@ void merge() {
     f->WriteTObject(K2[d]);
     
   }
+
+
+for (int d = 1; d < 5; d++){
+for (int r = 0; r < ringlist.size(); r++){
+    
+    L[d]=(TGraphErrors*)F.Get(TString("2xCoincidencesinphi_disk")+d+"combinedring"+(r+1));
+    if(!L[d]){ cout<<"Wrong graph name: "<<TString("2xCoincidencesinphi_disk")+d+"combinedring"+(r+1)<<endl; return;}
+    
+    L[d]->SetName(TString("2xCoincidencesinphi_disk")+d+"combinedring"+(r+1));  
+    f->WriteTObject(L[d]);
+    
+    L2[d]=(TGraphErrors*)F2.Get(TString("2xCoincidences_disk")+d+"combinedring"+(r+1));
+    if(!L2[d]){ cout<<"Wrong graph name: "<<TString("2xCoincidences_disk")+d+"combinedring"+(r+1)<<endl; return;}
+    
+    L2[d]->SetName(TString("2xCoincidences_disk")+d+"combinedring"+(r+1));  
+    f->WriteTObject(L2[d]);
+    
+  }
+}
+
+
+for (int d = 1; d < 5; d++){
+for (int r = 0; r < ringlist1.size(); r++){
+
+L1[d]=(TGraphErrors*)F1.Get(TString("2xCoincidencesinR_disk")+d+"combinedring"+(r+1));
+    if(!L1[d]){ cout<<"Wrong graph name: "<<TString("2xCoincidencesinR_disk")+d+"combinedring"+(r+1)<<endl; return;}
+    
+    L1[d]->SetName(TString("2xCoincidencesinR_disk")+d+"combinedring"+(r+1));  
+    f->WriteTObject(L1[d]);
+}
+}
+
+
 }
