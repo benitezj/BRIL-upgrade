@@ -6,7 +6,7 @@ void linearityPlots_perdisk(int option=1)
   lumi_sqrtS = "#sqrt{s} = 14 TeV";
   writeExtraText = true;
   extraText  = "       Phase-2 Simulation Preliminary";  
-
+  
   
   TString LuminometerName="TEPX clusters per disk";
   
@@ -18,14 +18,15 @@ void linearityPlots_perdisk(int option=1)
   outfile.ReplaceAll(" ","_");
   
   TString filename = "TDRplotscluster.root";
-  TString graphname="cluster_disk-";
+  TString graphname="cluster_disk";
   
   if(option==2){
     
     filename ="TDRplots2x_phi_R.root";
-    graphname="2xCoincidences_disk-";
+    graphname="2xCoincidences_disk";
   }
-  
+
+ 
   TFile Finput(filename,"read"); 
   
   TGraphErrors* Counts[6];
@@ -42,8 +43,8 @@ void linearityPlots_perdisk(int option=1)
   ///Extract the graphs and apply fit
   for(long l=firstl;l<5;l++){
     
-    TGraphErrors* G=(TGraphErrors*)Finput.Get(graphname+l);
-    if(!G){ cout<<"Wrong graph name: "<<graphname<<endl; return;}
+    TGraphErrors* G=(TGraphErrors*)Finput.Get(graphname+l+"combined");
+    if(!G){ cout<<"Wrong graph name: "<<graphname+l+"combined"<<endl; return;}
     
     ///copy for linear graph
     Counts[l] = new TGraphErrors();
@@ -55,7 +56,7 @@ void linearityPlots_perdisk(int option=1)
       Counts[l]->SetPointError(i,0,ye);
     }
     
-    F[l]=(TF1*)Fit.Clone(Fit.GetName()+graphname+l);
+    F[l]=(TF1*)Fit.Clone(Fit.GetName()+graphname+l+"combined");
     G->Fit(F[l],"","QN",0,2);
   }
   
@@ -112,6 +113,5 @@ void linearityPlots_perdisk(int option=1)
   leg.SetY2NDC(0.9);
   leg.Draw();
   printCanvas(outfile+"_Linearity_residuals");
-  
-  
+    
 }
