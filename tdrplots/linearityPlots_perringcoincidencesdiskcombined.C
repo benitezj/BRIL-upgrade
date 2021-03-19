@@ -25,19 +25,19 @@ void linearityPlots_perringcoincidencesdiskcombined(int option=1)
   outfile.ReplaceAll("-","n");
   
   
-  TString filename = "TDRplots_2xinphi.root";
+  TString filename = "TDRplots_2x_phi_R.root";
   TString graphname = "2xCoincidencesinphi_disk";
   
   if(option==2) {
     
-    filename = "TDRplots_2xinR.root";
+    filename = "TDRplots_2xinphi.root";
     graphname = "2xCoincidencesinR_disk";
     
   }
   
   if(option==3) {
     
-    filename = "TDRplots2x_phi_R.root";
+    filename = "TDRplots2xinR.root";
     graphname = "2xCoincidences_disk";
     
   }
