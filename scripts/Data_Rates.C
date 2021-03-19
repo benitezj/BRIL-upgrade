@@ -1,18 +1,18 @@
-float NBX=3564; /// number bunches per orbit
-float LN4 = 4*0.365; //s (4 Lumi Nibles)
-float Norbit_NB4= 16417.7;// number of orbits per LN4
-int   N_header=9*32;
-int   N_mask=0;
-int   N_err= 0;
+#include "stat_precision_globals.h"
+
+
 
 
 void print_data_rates(TString DETECTOR= "TEPX",
                       float number_of_histo=0, 
                       float mean_counts=0,
-                      float trigger_rate=0){
+                      float trigger_rate=0,
+                      int N_header=0,
+                      int N_mask=0,
+                      int N_err= 0){
 
     //mean counst per event perbx/4LN
-    int mean_counts_bx=(mean_counts* LN4 * trigger_rate)/(3564);
+    int mean_counts_bx=(mean_counts* second * trigger_rate)/(NBX);
     //bits per bin
     int bits_per_bin=ceil(log2(mean_counts_bx));
     if ( bits_per_bin <=32 && bits_per_bin>16 ) {
@@ -26,17 +26,17 @@ void print_data_rates(TString DETECTOR= "TEPX",
 }          
 
      //bit per histogram
-     int bits_per_histo=(NBX*bits_per_bin)+N_header;
+     int bits_per_histo=(NBX*bits_per_bin)+(N_header+N_mask+N_err)*32;
      cout<< DETECTOR
      <<setprecision(3)
      //Number of Histograms
      <<"&"<<number_of_histo
      
      // Bits per Histogram
-     <<"&"<< (bits_per_histo)
+     <<"&"<< (bits_per_histo)/1000
      
      //Data Transfer Rates
-     <<"&"<< (number_of_histo*bits_per_histo)/(LN4*1000000)
+     <<"&"<< (number_of_histo*bits_per_histo)/(second*1000000)
 
      <<"\\\\"<<endl;
   
@@ -48,12 +48,12 @@ void data_used(TString DETECTOR_d= "TEPX",
                       float mean_counts_d=0,
                       int trigger_rate_d=0){
                           //mean counst per event perbx/4LN
-    float mean_counts_bx_d=(mean_counts_d* LN4 *trigger_rate_d)/(3564);
+    float mean_counts_bx_d=(mean_counts_d* second *trigger_rate_d)/(3564);
     //bits per bin
     float bits_per_bin_d=ceil(log2(mean_counts_bx_d));
           
      //bit per histogram
-     float bits_per_histo_d=NBX*bits_per_bin_d;
+
      cout<< DETECTOR_d
      <<setprecision(3)
      <<"&"<<trigger_rate_d/1000
@@ -69,39 +69,27 @@ void data_used(TString DETECTOR_d= "TEPX",
 
 void Data_Rates(){
      
-
+TEPX_Counts();
 
 /////////////////////////////////////
 //TEPX Clusters                    // 
 /////////////////////////////////////
-  float TEPX_C=0;
-  TFile FTEPX_C("/home/hedwin/2023D42PU200.root","r");
-   TH2F * H1 = (TH2F*)FTEPX_C.Get(TString("BRIL_IT_Analysis/TEPX/Clusters/Number of clusters for Disk 4"));
-    TProfile* P=H1->ProfileX();
-     TEPX_C += P->GetBinContent(1);//mean number of clusters 
 
-float Ncluster_QuarterRing=TEPX_C/4;        
-float Nhistogram_C  =  4*5*4*2  ;
+
+float Ncluster_QuarterRing=TEPXDR_C[1][3][0]*0.25;        
+float Nhistogram_C  =  152  ;
 /////////////////////////////////////
 //TEPXD4R1 Clusters                // 
 /////////////////////////////////////
-
-
-     
         
 float D4R1_Nhistogram_C  =  2*4;
 
 /////////////////////////////////////
 //TEPX 2x Coincidences             // 
 /////////////////////////////////////
-
-  float TEPX_2x=0;
-   TH2F * H3 = (TH2F*)FTEPX_C.Get(TString("BRIL_IT_Analysis/TEPX/2xCoincidences/Number of 2x Coincidences for Disk 4"));
-    TProfile* J=H3->ProfileX();
-     TEPX_2x += J->GetBinContent(1);//mean number of 2x Coincidences
   
-  float N2x_QuarterRing=TEPX_2x/4;
-  float Nhistogram_2x =  4*5*4*2  ;
+  float N2x_QuarterRing=2*TEPXDR_2x[3][0]*0.25;
+  float Nhistogram_2x =  152  ;
 
 /////////////////////////////////////
 //TEPXD4R1 2x Coincidences         // 
@@ -109,6 +97,7 @@ float D4R1_Nhistogram_C  =  2*4;
 
 
   float D4R1_Nhistogram_2x =  2*4;
+  
 /////////////////////////////////////
 //OT                               // 
 /////////////////////////////////////
@@ -153,14 +142,14 @@ float NHisto_EMTF=1;
   cout<<"&  Number of Histograms & Memory per histogram (Kb) & Data Transfer Rates (Mbps)\\\\"<<endl;
   cout<<"\\hline"<<endl;  
   
-  print_data_rates("TEPXD4R1 Clusters",D4R1_Nhistogram_C,Ncluster_QuarterRing,825e3);
-  print_data_rates("TEPXD4R1 2x Coincidences",D4R1_Nhistogram_2x,N2x_QuarterRing,825e3);
-  print_data_rates("TEPX Clusters",Nhistogram_C,Ncluster_QuarterRing,75e3);
-  print_data_rates("TEPX 2x Coincidences",Nhistogram_2x,N2x_QuarterRing,75e3);
-  print_data_rates("OT Layer 6 track stubs",Nhistogram_OT,Nstub_module,40e6);
-  print_data_rates("DT Trigger Primitives",Nhistogram_DT,Ntp_chamber,40e6);
-  print_data_rates("BMTF Track",NHisto_BMTF,Ntr_BMTF,40e6);
-  print_data_rates("EMTF Tracks",NHisto_EMTF,Ntr_EMTF,40e6);
+  print_data_rates("TEPXD4R1 Clusters",D4R1_Nhistogram_C,Ncluster_QuarterRing,825e3,9,4,320);
+  print_data_rates("TEPXD4R1 2x Coincidences",D4R1_Nhistogram_2x,N2x_QuarterRing,825e3,9,4,320);
+  print_data_rates("TEPX Clusters",Nhistogram_C,Ncluster_QuarterRing,75e3,9,4,768);
+  print_data_rates("TEPX 2x Coincidences",Nhistogram_2x,N2x_QuarterRing,75e3,9,4,768);
+  print_data_rates("OT Layer 6 track stubs",Nhistogram_OT,Nstub_module,40e6,9,4,192);
+  print_data_rates("DT Trigger Primitives",Nhistogram_DT,Ntp_chamber,40e6,0,0,0);
+  print_data_rates("BMTF Track",NHisto_BMTF,Ntr_BMTF,40e6,0,0,0);
+  print_data_rates("EMTF Tracks",NHisto_EMTF,Ntr_EMTF,40e6,0,0,0);
   cout<<"\\end{tabular}}"<<endl;
   cout<< "\\end{center}"<<endl;
   
@@ -169,7 +158,7 @@ float NHisto_EMTF=1;
   cout<< "\\scalebox{.8}{"<<endl;
   cout<<"\\begin{tabular}{|l |c |c |c |c|}"<<endl;
   cout<<"\\hline"<<endl;
-  cout<<"&  Trigger rate (KHz) & Counts per event & Counts/bx/4LN&Bits/bin\\\\"<<endl;
+  cout<<"&  Trigger rate (KHz) & Counts per event & Counts/bx/1s&Bits/bin\\\\"<<endl;
   cout<<"\\hline"<<endl;
  data_used("TEPXD4R1 Clusters",D4R1_Nhistogram_C,Ncluster_QuarterRing,825e3);
   data_used("TEPXD4R1 2x Coincidences",D4R1_Nhistogram_2x,N2x_QuarterRing,825e3);
@@ -181,7 +170,8 @@ float NHisto_EMTF=1;
   data_used("EMTF Tracks",NHisto_EMTF,Ntr_EMTF,40e6);
   cout<<"\\end{tabular}}"<<endl;
   cout<< "\\end{center}"<<endl;
-  
+ 
+
 
 }
 
