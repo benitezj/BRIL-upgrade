@@ -2663,43 +2663,6 @@ uint32_t ITclusterAnalyzerCoincidences::get2xRModuleMap(unsigned int disk, unsig
     }
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   
   if (side == 2) {
     if (disk == 1) {
