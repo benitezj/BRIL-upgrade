@@ -91,7 +91,7 @@ void vdm_stat_precision_function(TString DETECTOR = "TEPX",
 	/*print a gif file*/
 	c1->Print("/home/hedwin/plots/Stat_Precision_VdM_"+ DETECTOR +".png");
 
-  cout<<DETECTOR
+  myfile<<DETECTOR
       
       //amplitude and amplitude uncertainty
       <<"&"<<Norm<<"&"<<Norm_Error
@@ -106,7 +106,7 @@ void vdm_stat_precision_function(TString DETECTOR = "TEPX",
       <<"&"<<sigma_vis*100
 
       <<"\\\\"<<endl;
-  cout<<"\\hline"<<endl;
+  myfile<<"\\hline"<<endl;
 }
 
 
@@ -115,19 +115,21 @@ void vdm_stat_precision(){
 
   gErrorIgnoreLevel = kFatal;
   
+  /*open txt file*/
+  myfile.open("vdm_stat_precision_LATEX_tables.txt");	  
   /*call TEPX variables*/
   TEPX_Counts();
   float TEPX_2X=2*TEPX_2x;
   float TEPXD4R1_2X=2*TEPXDR_2x[3][0];
-  /////////////////////////////////////
-  ///create table and plots for toy Vdm
-  /////////////////////////////////////
-  cout<<"\\begin{center}"<<endl;
-  cout<< "\\scalebox{.8}{"<<endl;
-  cout<<"\\begin{tabular}{|l | c | c | c |c|c|}"<<endl;
-  cout<<"\\hline"<<endl;
-  cout<<" & $N_0$ &$\\delta N_0$&$ \\Sigma$&$ \\delta\\Sigma$&$\\delta\\sigma_{vis}/\\sigma_{vis}$\\\\"<<endl;
-  cout<<"\\hline"<<endl;  
+  myfile<<"//////////////////////////////////////"<<endl;
+  myfile<<"//create table and plots for toy Vdm//"<<endl;
+  myfile<<"//////////////////////////////////////"<<endl;
+  myfile<<"\\begin{center}"<<endl;
+  myfile<< "\\scalebox{.8}{"<<endl;
+  myfile<<"\\begin{tabular}{|l | c | c | c |c|c|}"<<endl;
+  myfile<<"\\hline"<<endl;
+  myfile<<" & $N_0$ &$\\delta N_0$&$ \\Sigma$&$ \\delta\\Sigma$&$\\delta\\sigma_{vis}/\\sigma_{vis}$\\\\"<<endl;
+  myfile<<"\\hline"<<endl;  
   vdm_stat_precision_function("TEPXD4R1 Clusters",TEPXDR_C[0][0][0]+TEPXDR_C[0][3][0],825e3);
   vdm_stat_precision_function("TEPXD4R1 2x Coincidences",TEPXD4R1_2X,825e3);
   vdm_stat_precision_function("TEPX Clusters",TEPX_C,500e3);
@@ -136,8 +138,8 @@ void vdm_stat_precision(){
   vdm_stat_precision_function("DT",DTTP,40e6);
   vdm_stat_precision_function("BMTF",BMTF,40e6);
   vdm_stat_precision_function("EMTF",EMTF,40e6);
-  cout<<"\\end{tabular}}"<<endl;
-  cout<< "\\end{center}"<<endl;
+  myfile<<"\\end{tabular}}"<<endl;
+  myfile<< "\\end{center}"<<endl;
 
 
 

@@ -9,8 +9,10 @@ float P_count=1.15*pow(10,11);
 float NCOLLIDING = 2500;//number of colliding bunches
 int second=1;//one second 
 
-/*Counts for detectors*/
+/*initiate output file*/
+ofstream myfile;  
 
+/*Counts for detectors*/
 float TEPX_C=0;
 float TEPXDR_C[2][4][5];
 float TEPX_2x=0;
@@ -23,6 +25,8 @@ float DTTP = 0.61;        // 17MHz is total DT primitive rate from extrapolation
 // BMTF/EMTF
 float BMTF = 0.042;
 float EMTF = 0.24;  
+
+
 
 
 
