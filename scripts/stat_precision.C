@@ -1,11 +1,14 @@
 #include "stat_precision_globals.h"
+#include <fstream>
+
+
 
 void print_precision_funtion(TString DETECTOR = "TEPX",
 		     float count_per_event=0,
 		     int trigger_rate = 0  //Hz
 		     ){
 
-  cout<<DETECTOR
+  myfile<<DETECTOR
       <<setprecision(3)
 
 
@@ -20,7 +23,7 @@ void print_precision_funtion(TString DETECTOR = "TEPX",
 
       <<"\\\\"<<endl;
   
-  cout<<"\\hline"<<endl;
+  myfile<<"\\hline"<<endl;
 }
 
 
@@ -30,7 +33,7 @@ void print_precisionvdm(TString DETECTOR_vdm = "TEPX",
 		     ){
 
 
-  cout<<DETECTOR_vdm
+  myfile<<DETECTOR_vdm
       //<<setprecision(5)
     //<<" & "<<trigger_rate/1000
 
@@ -45,24 +48,27 @@ void print_precisionvdm(TString DETECTOR_vdm = "TEPX",
 
       <<"\\\\"<<endl;
   
-  cout<<"\\hline"<<endl;
+  myfile<<"\\hline"<<endl;
 }
 
 
 void stat_precision(){
-
+  /**/
   TEPX_Counts();
 
 
-  /////////////////////////////////////
-  ///create table per bx
-  /////////////////////////////////////
-  cout<<"\\begin{center}"<<endl;
-  cout<< "\\scalebox{.8}{"<<endl;
-  cout<<"\\begin{tabular}{|l | c | c | c |}"<<endl;
-  cout<<"\\hline"<<endl;
-  cout<<" & Readout Rate (kHz)& 1 bx, 1s &2500 bx, 1s   \\\\"<<endl;
-  cout<<"\\hline"<<endl;
+  myfile.open("Stat_Precision_tables_LATEX.txt");
+
+  myfile<<"/////////////////////////////////////////////////////////////"<<endl;
+  myfile<<"///Stat pecision per bx and per  2500 bx for physics PU 200//"<<endl;
+  myfile<<"0////////////////////////////////////////////////////////////"<<endl;
+  
+  myfile<<"\\begin{center}"<<endl;
+  myfile<< "\\scalebox{.8}{"<<endl;
+  myfile<<"\\begin{tabular}{|l | c | c | c |}"<<endl;
+  myfile<<"\\hline"<<endl;
+  myfile<<" & Readout Rate (kHz)& 1 bx, 1s &2500 bx, 1s   \\\\"<<endl;
+  myfile<<"\\hline"<<endl;
   print_precision_funtion("TEPXD4R1 Clusters",TEPXDR_C[0][0][0]+TEPXDR_C[0][3][0],825e3);
   print_precision_funtion("TEPXD4R1 2x Coincidences",2*TEPXDR_2x[3][0],825e3);
   print_precision_funtion("TEPX Clusters",TEPX_C,75e3);
@@ -71,22 +77,22 @@ void stat_precision(){
   print_precision_funtion("DT Trigger Primitives",DTTP,40e6);
   print_precision_funtion("BMTF",BMTF,40e6);
   print_precision_funtion("EMTF",EMTF,40e6);
-  cout<<"\\end{tabular}}"<<endl;
-  cout<< "\\end{center}"<<endl;
+  myfile<<"\\end{tabular}}"<<endl;
+  myfile<< "\\end{center}"<<endl;
   
-  cout<<"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"<<endl;
-  cout<<"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"<<endl;
-  cout<<"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"<<endl;
+  myfile<<"////////////////////////////////////////////////////////////"<<endl;
+  myfile<<"///Stat pecision per bx and per 150 bx for Vdm scan PU 0.5//"<<endl;
+  myfile<<"////////////////////////////////////////////////////////////"<<endl;
   
   /////////////////////////////////////
   ///create table per bx for Vdm
   /////////////////////////////////////
-  cout<<"\\begin{center}"<<endl;
-  cout<< "\\scalebox{.8}{"<<endl;
-  cout<<"\\begin{tabular}{|l | c | c | c |c|}"<<endl;
-  cout<<"\\hline"<<endl;
-  cout<<"  & Readout Rate (kHz) &1 bx, 1s & 1 bx, 30s & 150 bx, 30s\\\\"<<endl;
-  cout<<"\\hline"<<endl;  
+  myfile<<"\\begin{center}"<<endl;
+  myfile<< "\\scalebox{.8}{"<<endl;
+  myfile<<"\\begin{tabular}{|l | c | c | c |c|}"<<endl;
+  myfile<<"\\hline"<<endl;
+  myfile<<"  & Readout Rate (kHz) &1 bx, 1s & 1 bx, 30s & 150 bx, 30s\\\\"<<endl;
+  myfile<<"\\hline"<<endl;  
   print_precisionvdm("TEPXD4R1 Clusters",TEPXDR_C[0][3][0]+TEPXDR_C[0][3][0],825e3);  
   print_precisionvdm("TEPXD4R1 2x Coincidences",2*TEPXDR_2x[3][0],825e3);
   print_precisionvdm("TEPX Clusters",TEPX_C,500e3);
@@ -95,10 +101,10 @@ void stat_precision(){
   print_precisionvdm("DT Trigger Primitives",DTTP,40e6);
   print_precisionvdm("BMTF",BMTF,40e6);
   print_precisionvdm("EMTF",EMTF,40e6);
-  cout<<"\\end{tabular}}"<<endl;
-  cout<< "\\end{center}"<<endl;
-  
-    cout<<TEPXDR_2x[3][0] <<endl;
+  myfile<<"\\end{tabular}}"<<endl;
+  myfile<< "\\end{center}"<<endl;
+  myfile.close();
+
 
 }
 

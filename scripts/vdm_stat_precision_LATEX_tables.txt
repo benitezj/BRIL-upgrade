@@ -1,0 +1,27 @@
+//////////////////////////////////////
+//create table and plots for toy Vdm//
+//////////////////////////////////////
+\begin{center}
+\scalebox{.8}{
+\begin{tabular}{|l | c | c | c |c|c|}
+\hline
+ & $N_0$ &$\delta N_0$&$ \Sigma$&$ \delta\Sigma$&$\delta\sigma_{vis}/\sigma_{vis}$\\
+\hline
+TEPXD4R1 Clusters&70409&129.825&0.12&0.00013&0.10644\\
+\hline
+TEPXD4R1 2x Coincidences&9575.44336&47.87669&0.12000&0.00035&0.28864\\
+\hline
+TEPX Clusters&597014.93750&378.03787&0.12000&0.00004&0.03655\\
+\hline
+TEPX 2x Coincidences&60536.76172&120.37959&0.12000&0.00014&0.11480\\
+\hline
+OT Layer 6&759259.31250&426.32199&0.12000&0.00004&0.03241\\
+\hline
+DT&513.46765&11.08690&0.12000&0.00150&1.24636\\
+\hline
+BMTF&35.35353&2.90941&0.12000&0.00570&4.74876\\
+\hline
+EMTF&202.02014&6.95438&0.12000&0.00239&1.98693\\
+\hline
+\end{tabular}}
+\end{center}
