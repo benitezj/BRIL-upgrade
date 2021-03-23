@@ -94,16 +94,16 @@ void vdm_stat_precision_function(TString DETECTOR = "TEPX",
   myfile<<DETECTOR
       
       //amplitude and amplitude uncertainty
-      <<"&"<<Norm<<"&"<<Norm_Error
+      <<"&"<<toPrecision(Norm,3)<<"&"<<toPrecision(Norm_Error,3)
 
 
    
       //Beam Width 
-      <<"&"<<CapSigma
-   <<fixed<<setprecision(5)
+      <<"&"<<toPrecision(CapSigma,2)
+
       //Beam Width and sigma visual uncertainty
-      <<"&"<<CapSigma_Error
-      <<"&"<<sigma_vis*100
+      <<"&"<<fixed<<setprecision(5)<<CapSigma_Error
+      <<"&"<<toPrecision(sigma_vis*100,3)
 
       <<"\\\\"<<endl;
   myfile<<"\\hline"<<endl;
@@ -121,6 +121,11 @@ void vdm_stat_precision(){
   TEPX_Counts();
   float TEPX_2X=2*TEPX_2x;
   float TEPXD4R1_2X=2*TEPXDR_2x[3][0];
+  
+  myfile<<ctime(&mytime)<<endl;
+  myfile<<" "<<endl;
+  myfile<<" "<<endl;
+  myfile<<" "<<endl;
   myfile<<"//////////////////////////////////////"<<endl;
   myfile<<"//create table and plots for toy Vdm//"<<endl;
   myfile<<"//////////////////////////////////////"<<endl;
@@ -140,7 +145,7 @@ void vdm_stat_precision(){
   vdm_stat_precision_function("EMTF",EMTF,40e6);
   myfile<<"\\end{tabular}}"<<endl;
   myfile<< "\\end{center}"<<endl;
-
+  myfile.close();
 
 
 }

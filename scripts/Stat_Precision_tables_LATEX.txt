@@ -1,3 +1,8 @@
+Tue Mar 23 13:59:40 2021
+
+ 
+ 
+ 
 /////////////////////////////////////////////////////////////
 ///Stat pecision per bx and per  2500 bx for physics PU 200//
 0////////////////////////////////////////////////////////////
@@ -15,7 +20,7 @@ TEPX Clusters&75&0.0915&0.00183\\
 \hline
 TEPX 2x Coincidences&75&0.287&0.00575\\
 \hline
-OT Layer 6 track stubs&40000&0.0314&0.000629\\
+OT Layer 6 track stubs&40000&0.0287&0.000575\\
 \hline
 DT Trigger Primitives&40000&1.21&0.0242\\
 \hline
@@ -42,7 +47,7 @@ TEPX Clusters&500&0.709&0.129 & 0.0106\\
 \hline
 TEPX 2x Coincidences&500&2.23&0.406 & 0.0332\\
 \hline
-OT Layer 6 track stubs&40000&0.629&0.115 & 0.00937\\
+OT Layer 6 track stubs&40000&0.575&0.105 & 0.00857\\
 \hline
 DT Trigger Primitives&40000&24.2&4.41 & 0.36\\
 \hline

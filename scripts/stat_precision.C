@@ -58,6 +58,11 @@ void stat_precision(){
 
 
   myfile.open("Stat_Precision_tables_LATEX.txt");
+  
+  myfile<<ctime(&mytime)<<endl;
+  myfile<<" "<<endl;
+  myfile<<" "<<endl;
+  myfile<<" "<<endl;
 
   myfile<<"/////////////////////////////////////////////////////////////"<<endl;
   myfile<<"///Stat pecision per bx and per  2500 bx for physics PU 200//"<<endl;
