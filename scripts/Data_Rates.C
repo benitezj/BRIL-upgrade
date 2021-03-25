@@ -27,7 +27,7 @@ void print_data_rates(TString DETECTOR= "TEPX",
 
      //bit per histogram
      int bits_per_histo=(NBX*bits_per_bin)+(N_header+N_mask+N_err)*32;
-     cout<< DETECTOR
+     myfile<< DETECTOR
      <<setprecision(3)
      //Number of Histograms
      <<"&"<<number_of_histo
@@ -40,7 +40,7 @@ void print_data_rates(TString DETECTOR= "TEPX",
 
      <<"\\\\"<<endl;
   
-    cout<<"\\hline"<<endl;     
+    myfile<<"\\hline"<<endl;     
 
 }
 void data_used(TString DETECTOR_d= "TEPX",
@@ -54,7 +54,7 @@ void data_used(TString DETECTOR_d= "TEPX",
           
      //bit per histogram
 
-     cout<< DETECTOR_d
+     myfile<< DETECTOR_d
      <<setprecision(3)
      <<"&"<<trigger_rate_d/1000
      <<"&"<<mean_counts_d
@@ -62,7 +62,7 @@ void data_used(TString DETECTOR_d= "TEPX",
      <<"&"<< bits_per_bin_d
      <<"\\\\"<<endl;
   
-    cout<<"\\hline"<<endl;     
+    myfile<<"\\hline"<<endl;     
 
 
 }
@@ -70,6 +70,8 @@ void data_used(TString DETECTOR_d= "TEPX",
 void Data_Rates(){
      
 TEPX_Counts();
+
+myfile.open("Data_Rate_tables_LATEX.txt");
 
 
 /////////////////////////////////////
@@ -136,12 +138,16 @@ float NHisto_EMTF=1;
   /////////////////////////////////////
   ///create table 
   /////////////////////////////////////
-  cout<<"\\begin{center}"<<endl;
-  cout<< "\\scalebox{.8}{"<<endl;
-  cout<<"\\begin{tabular}{|l  |c |c |c|}"<<endl;
-  cout<<"\\hline"<<endl;
-  cout<<"&  Number of Histograms & Memory per histogram (Kb) & Data Transfer Rates (Mbps)\\\\"<<endl;
-  cout<<"\\hline"<<endl;  
+    myfile<<ctime(&mytime)<<endl;
+  myfile<<" "<<endl;
+  myfile<<" "<<endl;
+  myfile<<" "<<endl;
+  myfile<<"\\begin{center}"<<endl;
+  myfile<< "\\scalebox{.8}{"<<endl;
+  myfile<<"\\begin{tabular}{|l  |c |c |c|}"<<endl;
+  myfile<<"\\hline"<<endl;
+  myfile<<"&  Number of Histograms & Memory per histogram (Kb) & Data Transfer Rates (Mbps)\\\\"<<endl;
+  myfile<<"\\hline"<<endl;  
   
   print_data_rates("TEPXD4R1 Clusters",D4R1_Nhistogram_C,Ncluster_QuarterRing,825e3,9,4,320);
   print_data_rates("TEPXD4R1 2x Coincidences",D4R1_Nhistogram_2x,N2x_QuarterRing,825e3,9,4,320);
@@ -151,16 +157,16 @@ float NHisto_EMTF=1;
   print_data_rates("DT Trigger Primitives",Nhistogram_DT,Ntp_chamber,40e6,0,0,0);
   print_data_rates("BMTF Track",NHisto_BMTF,Ntr_BMTF,40e6,0,0,0);
   print_data_rates("EMTF Tracks",NHisto_EMTF,Ntr_EMTF,40e6,0,0,0);
-  cout<<"\\end{tabular}}"<<endl;
-  cout<< "\\end{center}"<<endl;
+  myfile<<"\\end{tabular}}"<<endl;
+  myfile<< "\\end{center}"<<endl;
   
   
-    cout<<"\\begin{center}"<<endl;
-  cout<< "\\scalebox{.8}{"<<endl;
-  cout<<"\\begin{tabular}{|l |c |c |c |c|}"<<endl;
-  cout<<"\\hline"<<endl;
-  cout<<"&  Trigger rate (KHz) & Counts per event & Counts/bx/1s&Bits/bin\\\\"<<endl;
-  cout<<"\\hline"<<endl;
+    myfile<<"\\begin{center}"<<endl;
+  myfile<< "\\scalebox{.8}{"<<endl;
+  myfile<<"\\begin{tabular}{|l |c |c |c |c|}"<<endl;
+  myfile<<"\\hline"<<endl;
+  myfile<<"&  Trigger rate (KHz) & Counts per event & Counts/bx/1s&Bits/bin\\\\"<<endl;
+  myfile<<"\\hline"<<endl;
  data_used("TEPXD4R1 Clusters",D4R1_Nhistogram_C,Ncluster_QuarterRing,825e3);
   data_used("TEPXD4R1 2x Coincidences",D4R1_Nhistogram_2x,N2x_QuarterRing,825e3);
   data_used("TEPX Clusters",Nhistogram_C,Ncluster_QuarterRing,75e3);
@@ -169,9 +175,9 @@ float NHisto_EMTF=1;
   data_used("DT Trigger Primitives",Nhistogram_DT,Ntp_chamber,40e6);
   data_used("BMTF Track",NHisto_BMTF,Ntr_BMTF,40e6);
   data_used("EMTF Tracks",NHisto_EMTF,Ntr_EMTF,40e6);
-  cout<<"\\end{tabular}}"<<endl;
-  cout<< "\\end{center}"<<endl;
- 
+  myfile<<"\\end{tabular}}"<<endl;
+  myfile<< "\\end{center}"<<endl;
+  myfile.close();
 
 
 }

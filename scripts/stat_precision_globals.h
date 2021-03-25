@@ -1,3 +1,9 @@
+#include <string>
+#include <sstream>
+#include <cmath>
+#include <iostream>
+
+
 
 float NBX=3564; /// number bunches per orbit
 float NORB = 11246; //Hz ,  = orbits per second  =  1/(3564 * 25 ns )
@@ -18,7 +24,7 @@ float TEPXDR_C[2][4][5];
 float TEPX_2x=0;
 float TEPXDR_2x[4][5];
 // OT layer 6
-float OTL6=902; //Layer 6, N modules * stubs per module from CDR histogram
+float OTL6=1078; //Layer 6, N modules * stubs per module from CDR histogram
 // DT's
 float DTTP = 0.61;        // 17MHz is total DT primitive rate from extrapolation study
 //https://indico.cern.ch/event/896820/contributions/3781668/attachments/2001707/3341677/DT_Meeting_2020_03_11.pdf
@@ -26,7 +32,8 @@ float DTTP = 0.61;        // 17MHz is total DT primitive rate from extrapolation
 float BMTF = 0.042;
 float EMTF = 0.24;  
 
-
+/*time varianle*/
+time_t mytime= time(NULL);
 
 
 
@@ -66,6 +73,48 @@ void TEPX_Counts(){
 }
 
 }
+
+/*number precision function*/
+
+
+std::string toPrecision(double num, int n) {
+    https://stackoverflow.com/questions/202302/rounding-to-an-arbitrary-number-of-significant-digits
+
+    if(num == 0) {
+      return "0";
+    }
+
+    double d = std::ceil(std::log10(num < 0 ? -num : num));
+    int power = n - (int)d;
+    double magnitude = std::pow(10., power);
+    long shifted = ::round(num*magnitude);
+
+    std::ostringstream oss;
+    oss << shifted/magnitude;
+    return oss.str();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*  
   
    /////////////////////////////////////
