@@ -58,6 +58,8 @@ void OMS_rates(TString Type="BMTF"){
   TGraph GBvsLS;
   TGraph GBvsL;   
   int c=0;
+
+  TH2F TH2Linearity("TH2Linearity","",26,0.6,1.9,1000,0,300);
   
 
   std::string bmtfline;
@@ -74,9 +76,31 @@ void OMS_rates(TString Type="BMTF"){
     GLvsLS.SetPoint(c,LS,L[LS]);
     GBvsLS.SetPoint(c,LS,B);
     GBvsL.SetPoint(c,L[LS],B);
+
+
+    TH2Linearity.Fill(L[LS],B/1e3);
+    
     c++;
   }
-  
+
+  ///create TGraphErrors for Linearity
+  TProfile* TH2Prof=TH2Linearity.ProfileX();
+  TGraphErrors Linearity;
+  int pcount=0;
+  for(int i=0;i<TH2Prof->GetNbinsX();i++){
+    //cout<<TH2Prof->GetBinCenter(i+1)<<" "<<TH2Prof->GetBinContent(i+1)<<" "<<TH2Prof->GetBinError(i+1)<<endl;
+    if(TH2Prof->GetBinContent(i+1)<=0. || TH2Prof->GetBinError(i+1)<=0. ) continue;
+    if(TH2Prof->GetBinError(i+1)/TH2Prof->GetBinContent(i+1)>0.005) continue;//only save precise points
+    Linearity.SetPoint(pcount,TH2Prof->GetBinCenter(i+1),TH2Prof->GetBinContent(i+1));
+    Linearity.SetPointError(pcount,0,TH2Prof->GetBinError(i+1));
+    pcount++;
+  }
+  TFile Output(Type+"_"+Run+".root","recreate");
+  TH2Linearity.SetName("TH2RateVsLumi");
+  TH2Linearity.Write();
+  Linearity.SetName("RateVsLumi_RateInkHz_LumiInE34");
+  Linearity.Write();
+  Output.Close();
   
   
   TCanvas C;
