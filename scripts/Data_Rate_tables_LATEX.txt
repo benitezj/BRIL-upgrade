@@ -1,8 +1,11 @@
-Tue Mar 23 13:59:14 2021
+Tue Apr  6 12:24:56 2021
 
  
  
  
+/////////////////////////////////////////////////////////////
+/////////////////////Data Rate table///////////////////////////
+///////////////////////////////////////////////////////////////
 \begin{center}
 \scalebox{.8}{
 \begin{tabular}{|l  |c |c |c|}
@@ -17,7 +20,7 @@ TEPX Clusters&152&82&12.5\\
 \hline
 TEPX 2x Coincidences&152&82&12.5\\
 \hline
-OT Layer 6 track stubs&156&120&18.8\\
+OT Layer 6 track stubs&152&120&18.3\\
 \hline
 DT Trigger Primitives&250&28&7.13\\
 \hline
@@ -25,29 +28,7 @@ BMTF Track&1&57&0.057\\
 \hline
 EMTF Tracks&1&57&0.057\\
 \hline
-\end{tabular}}
-\end{center}
-\begin{center}
-\scalebox{.8}{
-\begin{tabular}{|l |c |c |c |c|}
-\hline
-&  Trigger rate (KHz) & Counts per event & Counts/bx/1s&Bits/bin\\
-\hline
-TEPXD4R1 Clusters&825&539&1.25e+05&17\\
-\hline
-TEPXD4R1 2x Coincidences&825&138&3.19e+04&15\\
-\hline
-TEPX Clusters&75&539&1.13e+04&14\\
-\hline
-TEPX 2x Coincidences&75&138&2.9e+03&12\\
-\hline
-OT Layer 6 track stubs&40000&8&8.98e+04&17\\
-\hline
-DT Trigger Primitives&40000&0.0125&140&8\\
-\hline
-BMTF Track&40000&0.041&460&9\\
-\hline
-EMTF Tracks&40000&0.234&2.63e+03&12\\
+HFOC, HFET & 4 & 114 & 0.456\\
 \hline
 \end{tabular}}
 \end{center}

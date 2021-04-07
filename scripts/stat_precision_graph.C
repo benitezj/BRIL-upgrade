@@ -15,7 +15,7 @@ void stat_precision_function(){
 
  TEPX_Counts();
 
-  float count_per_event[8]={TEPXDR_C[0][0][0]+TEPXDR_C[0][3][0],2*TEPXDR_2x[3][0],TEPX_C,2*TEPX_2x,OTL6,DTTP,BMTF,EMTF};
+  float count_per_event[8]={TEPXDR_C[0][3][0]+TEPXDR_C[1][3][0],TEPXDR_2x[0][3][0]+TEPXDR_2x[1][3][0],TEPX_C,TEPX_2x,OTL6,DTTP,BMTF,EMTF};
 float trigger_rate[8]={825e3,825e3,75e3,75e3,40e6,40e6,40e6,40e6};
 
     for (int i=0;i<8;i++){

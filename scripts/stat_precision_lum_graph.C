@@ -12,8 +12,9 @@ float stat_unc[8][21];
 void stat_precision_lum_function(){
 
     TEPX_Counts();
-    float count_per_events[8]={TEPXDR_C[0][0][0]+TEPXDR_C[0][3][0],2*TEPXDR_2x[3][0],TEPX_C,2*TEPX_2x,OTL6,DTTP,BMTF,EMTF};
-    float trigger_rates[8]={825e3,825e3,75e3,75e3,40e6,40e6,40e6,40e6};
+    float count_per_events[8]={TEPXDR_C[0][3][0]+TEPXDR_C[1][3][0],TEPXDR_2x[0][3][0]+TEPXDR_2x[1][3][0],TEPX_C,TEPX_2x,OTL6,DTTP,BMTF,EMTF};
+    float trigger_rates[8]={1000e3,1000e3,500e3,500e3,40e6,40e6,40e6,40e6};
+    float Number_BX[8]={NBX_TEPX_VDM,NBX_TEPX_VDM,NBX_TEPX_VDM,NBX_TEPX_VDM,NBX,NBX,NBX,NBX};
 
     // float stat_unc_pup5[8]={2.1/100,4.92/100,0.709/100,2.02/100,0.629/100,24.2/100,92.1/100,38.5/100};
 
@@ -36,7 +37,7 @@ void stat_precision_lum_function(){
 
 	for(int m=0;m<8;m++){
 
-	 mean_counts[m]=(count_per_events[m]/400)*trigger_rates[m]*VDM/NBX;/*Mean counts/30s/bx*/
+	 mean_counts[m]=(count_per_events[m]/400)*(trigger_rates[m])*(VDM)/Number_BX[m];/*Mean counts/30s/bx*/
 
 
 	/*Defining the Gaussian distribution*/
@@ -57,9 +58,9 @@ void stat_precision_lum_function(){
 		     
 	/*Fitting normal distribution to Histogram*/
 
-	F->SetParLimits(0,0, 1000000);
+	F->SetParLimits(0,0, 100000000);
 	F->FixParameter(1,0);
-	F->SetParLimits(2,0, 2);
+	F->SetParLimits(2,0, 1);
 	F->SetLineColor(8);
 	H->Fit(F,"Q","");
 
@@ -74,7 +75,7 @@ void stat_precision_lum_function(){
 	TFitResultPtr r = H->Fit(F,"SQ");
 	TMatrixD cor = r->GetCorrelationMatrix();
 	TMatrixD cov = r->GetCovarianceMatrix();
-   sigma_vis[m]=sqrt((pow(1/Norm,2)*cov[0][0])+2*(pow(1/CapSigma,2)*cov[2][2])+(4/(Norm*CapSigma))*cov[0][2]);
+   sigma_vis[m]=sqrt((pow(1/Norm,2)*cov[0][0])+2*(pow(1/CapSigma,2)*cov[2][2])+(4*cov[0][2]/(Norm*CapSigma)));
 
 
 	 for(int n=0;n<21;n++){
