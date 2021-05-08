@@ -1,0 +1,59 @@
+Wed Apr  7 09:51:14 2021
+
+ 
+ 
+ 
+/////////////////////////////////////////////////////////////
+///Stat pecision per bx and per  2500 bx for physics PU 200//
+0////////////////////////////////////////////////////////////
+\begin{center}
+\scalebox{.8}{
+\begin{tabular}{|l | c | c | c |}
+\hline
+ & Readout Rate (kHz)& 1 bx, 1s &2500 bx, 1s   \\
+\hline
+TEPXD4R1 Clusters&825&0.1&0.002\\
+\hline
+TEPXD4R1 2x Coincidences&825&0.317&0.00633\\
+\hline
+TEPX Clusters&75&0.0952&0.0019\\
+\hline
+TEPX 2x Coincidences&75&0.347&0.00695\\
+\hline
+OT Layer 6 track stubs&4e+04&0.0287&0.000575\\
+\hline
+DT Trigger Primitives&4e+04&1.21&0.0242\\
+\hline
+BMTF&4e+04&4.61&0.0921\\
+\hline
+EMTF&4e+04&1.93&0.0385\\
+\hline
+\end{tabular}}
+\end{center}
+////////////////////////////////////////////////////////////
+///Stat pecision per bx and per 150 bx for Vdm scan PU 0.5//
+////////////////////////////////////////////////////////////
+\begin{center}
+\scalebox{.8}{
+\begin{tabular}{|l | c | c | c |c|}
+\hline
+  & Readout Rate (kHz) &1 bx, 1s & 1 bx, 30s & 150 bx, 30s\\
+\hline
+TEPXD4R1 Clusters&1000&0.373&0.0681 & 0.00556\\
+\hline
+TEPXD4R1 2x Coincidences&1000&1.18&0.215 & 0.0176\\
+\hline
+TEPX Clusters&500&0.151&0.0276 & 0.00226\\
+\hline
+TEPX 2x Coincidences&500&0.552&0.101 & 0.00823\\
+\hline
+OT Layer 6 track stubs&40000&0.575&0.105 & 0.00857\\
+\hline
+DT Trigger Primitives&40000&24.2&4.41 & 0.36\\
+\hline
+BMTF&40000&92.1&16.8 & 1.37\\
+\hline
+EMTF&40000&38.5&7.04 & 0.574\\
+\hline
+\end{tabular}}
+\end{center}

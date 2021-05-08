@@ -20,10 +20,51 @@ void totalcountcluster1(){
   //create the profiles to be filled below.
   TGraphErrors* TEPXClustersPerEvent; //number of clusters vs pu
   TGraphErrors* TEPXClustersPerEvent1[20][20];
+<<<<<<< HEAD
+=======
+
+>>>>>>> 65a305296a9c8208ad70db265c67b5c3b836de24
   TGraphErrors* TEPXClustersPerEvent_disk1;
   TGraphErrors* TEPXClustersPerEvent_disk2;
   TGraphErrors* TEPXClustersPerEvent_disk3;
   TGraphErrors* TEPXClustersPerEvent_disk4;
+<<<<<<< HEAD
+=======
+  TGraphErrors* TEPXClustersPerEvent_disk5;
+  TGraphErrors* TEPXClustersPerEvent_disk6;
+  TGraphErrors* TEPXClustersPerEvent_disk7;
+  TGraphErrors* TEPXClustersPerEvent_disk8;
+  
+  TGraphErrors* TEPXClustersPerEvent_disk1combined;
+  TGraphErrors* TEPXClustersPerEvent_disk2combined;
+  TGraphErrors* TEPXClustersPerEvent_disk3combined;
+  TGraphErrors* TEPXClustersPerEvent_disk4combined;
+  
+  TGraphErrors* TEPXClustersPerEvent_disk1combinedring1;
+  TGraphErrors* TEPXClustersPerEvent_disk1combinedring2;
+  TGraphErrors* TEPXClustersPerEvent_disk1combinedring3;
+  TGraphErrors* TEPXClustersPerEvent_disk1combinedring4;
+  TGraphErrors* TEPXClustersPerEvent_disk1combinedring5;
+  
+  TGraphErrors* TEPXClustersPerEvent_disk2combinedring1;
+  TGraphErrors* TEPXClustersPerEvent_disk2combinedring2;
+  TGraphErrors* TEPXClustersPerEvent_disk2combinedring3;
+  TGraphErrors* TEPXClustersPerEvent_disk2combinedring4;
+  TGraphErrors* TEPXClustersPerEvent_disk2combinedring5;
+  
+  TGraphErrors* TEPXClustersPerEvent_disk3combinedring1;
+  TGraphErrors* TEPXClustersPerEvent_disk3combinedring2;
+  TGraphErrors* TEPXClustersPerEvent_disk3combinedring3;
+  TGraphErrors* TEPXClustersPerEvent_disk3combinedring4;
+  TGraphErrors* TEPXClustersPerEvent_disk3combinedring5;
+  
+  TGraphErrors* TEPXClustersPerEvent_disk4combinedring1;
+  TGraphErrors* TEPXClustersPerEvent_disk4combinedring2;
+  TGraphErrors* TEPXClustersPerEvent_disk4combinedring3;
+  TGraphErrors* TEPXClustersPerEvent_disk4combinedring4;
+  TGraphErrors* TEPXClustersPerEvent_disk4combinedring5;
+  
+>>>>>>> 65a305296a9c8208ad70db265c67b5c3b836de24
   TGraphErrors* TEPXClustersPerEvent_D4R1;
   
   TH2F* Histogram2D[20][20];
@@ -41,8 +82,45 @@ void totalcountcluster1(){
 	TEPXClustersPerEvent_disk2 = new TGraphErrors();
 	TEPXClustersPerEvent_disk3 = new TGraphErrors();
 	TEPXClustersPerEvent_disk4 = new TGraphErrors();
+<<<<<<< HEAD
 	TEPXClustersPerEvent_D4R1 = new TGraphErrors();
 	TEPXClustersPerEvent1[d][r] = new TGraphErrors();
+=======
+        TEPXClustersPerEvent_disk5 = new TGraphErrors();
+	TEPXClustersPerEvent_disk6 = new TGraphErrors();
+	TEPXClustersPerEvent_disk7 = new TGraphErrors();
+	TEPXClustersPerEvent_disk8 = new TGraphErrors();
+        TEPXClustersPerEvent_disk1combined = new TGraphErrors();
+	TEPXClustersPerEvent_disk2combined = new TGraphErrors();
+	TEPXClustersPerEvent_disk3combined = new TGraphErrors();
+	TEPXClustersPerEvent_disk4combined = new TGraphErrors();
+	TEPXClustersPerEvent_D4R1 = new TGraphErrors();
+	TEPXClustersPerEvent1[d][r] = new TGraphErrors();
+	
+	TEPXClustersPerEvent_disk1combinedring1= new TGraphErrors();
+	TEPXClustersPerEvent_disk1combinedring2= new TGraphErrors();
+	TEPXClustersPerEvent_disk1combinedring3= new TGraphErrors();
+	TEPXClustersPerEvent_disk1combinedring4= new TGraphErrors();
+	TEPXClustersPerEvent_disk1combinedring5= new TGraphErrors();
+
+	TEPXClustersPerEvent_disk2combinedring1= new TGraphErrors();
+	TEPXClustersPerEvent_disk2combinedring2= new TGraphErrors();
+	TEPXClustersPerEvent_disk2combinedring3= new TGraphErrors();
+	TEPXClustersPerEvent_disk2combinedring4= new TGraphErrors();
+	TEPXClustersPerEvent_disk2combinedring5= new TGraphErrors();
+	
+	TEPXClustersPerEvent_disk3combinedring1= new TGraphErrors();
+	TEPXClustersPerEvent_disk3combinedring2= new TGraphErrors();
+	TEPXClustersPerEvent_disk3combinedring3= new TGraphErrors();
+	TEPXClustersPerEvent_disk3combinedring4= new TGraphErrors();
+	TEPXClustersPerEvent_disk3combinedring5= new TGraphErrors();
+	
+	TEPXClustersPerEvent_disk4combinedring1= new TGraphErrors();
+	TEPXClustersPerEvent_disk4combinedring2= new TGraphErrors();
+	TEPXClustersPerEvent_disk4combinedring3= new TGraphErrors();
+	TEPXClustersPerEvent_disk4combinedring4= new TGraphErrors();
+	TEPXClustersPerEvent_disk4combinedring5= new TGraphErrors();
+>>>>>>> 65a305296a9c8208ad70db265c67b5c3b836de24
   	
       }
     }
@@ -73,6 +151,98 @@ void totalcountcluster1(){
       float totalcount_disk4=0;
       float totalcounterror_disk4=0;
       
+<<<<<<< HEAD
+=======
+      float totalcount_disk5=0;
+      float totalcounterror_disk5=0;
+      
+      float totalcount_disk6=0;
+      float totalcounterror_disk6=0;
+      
+      float totalcount_disk7=0;
+      float totalcounterror_disk7=0;
+      
+      float totalcount_disk8=0;
+      float totalcounterror_disk8=0;
+      
+      
+      float totalcount_disk1combined=0;
+      float totalcounterror_disk1combined=0;
+      
+      float totalcount_disk2combined=0;
+      float totalcounterror_disk2combined=0;
+      
+      float totalcount_disk3combined=0;
+      float totalcounterror_disk3combined=0;
+      
+      float totalcount_disk4combined=0;
+      float totalcounterror_disk4combined=0;
+
+      
+      float totalcount_disk1combinedring1=0;
+      float totalcounterror_disk1combinedring1=0;
+      
+      float totalcount_disk1combinedring2=0;
+      float totalcounterror_disk1combinedring2=0;
+      
+      float totalcount_disk1combinedring3=0;
+      float totalcounterror_disk1combinedring3=0;
+      
+      float totalcount_disk1combinedring4=0;
+      float totalcounterror_disk1combinedring4=0;
+      
+      float totalcount_disk1combinedring5=0;
+      float totalcounterror_disk1combinedring5=0;
+      
+      
+      float totalcount_disk2combinedring1=0;
+      float totalcounterror_disk2combinedring1=0;
+      
+      float totalcount_disk2combinedring2=0;
+      float totalcounterror_disk2combinedring2=0;
+      
+      float totalcount_disk2combinedring3=0;
+      float totalcounterror_disk2combinedring3=0;
+      
+      float totalcount_disk2combinedring4=0;
+      float totalcounterror_disk2combinedring4=0;
+      
+      float totalcount_disk2combinedring5=0;
+      float totalcounterror_disk2combinedring5=0;
+      
+      
+      float totalcount_disk3combinedring1=0;
+      float totalcounterror_disk3combinedring1=0;
+      
+      float totalcount_disk3combinedring2=0;
+      float totalcounterror_disk3combinedring2=0;
+      
+      float totalcount_disk3combinedring3=0;
+      float totalcounterror_disk3combinedring3=0;
+      
+      float totalcount_disk3combinedring4=0;
+      float totalcounterror_disk3combinedring4=0;
+      
+      float totalcount_disk3combinedring5=0;
+      float totalcounterror_disk3combinedring5=0;
+      
+      
+      float totalcount_disk4combinedring1=0;
+      float totalcounterror_disk4combinedring1=0;
+      
+      float totalcount_disk4combinedring2=0;
+      float totalcounterror_disk4combinedring2=0;
+      
+      float totalcount_disk4combinedring3=0;
+      float totalcounterror_disk4combinedring3=0;
+      
+      float totalcount_disk4combinedring4=0;
+      float totalcounterror_disk4combinedring4=0;
+      
+      float totalcount_disk4combinedring5=0;
+      float totalcounterror_disk4combinedring5=0;
+      
+>>>>>>> 65a305296a9c8208ad70db265c67b5c3b836de24
       
       for (int d = 0; d < disklist.size(); d++) {
 	
@@ -90,27 +260,237 @@ void totalcountcluster1(){
 	  TEPXClustersPerEvent1[d][r]->SetPoint(pu, pumap[pulist[pu]], count);
 	  TEPXClustersPerEvent1[d][r]->SetPointError(pu, 0, counterror);
 	  
+<<<<<<< HEAD
 	  if (d == 3 || d == 4) {
+=======
+	  
+	  
+	  
+	  if ((d == 3 || d == 4) && r == 0) {
+	    
+	    totalcount_disk1combinedring1+=count;
+	    totalcounterror_disk1combinedring1+= counterror * counterror;
+	    
+	  }
+	  
+	  
+	  if ((d == 3 || d == 4) && r == 1) {
+	    
+	    totalcount_disk1combinedring2+=count;
+	    totalcounterror_disk1combinedring2+= counterror * counterror;
+	    
+	  }
+	  
+	  
+	  
+	  if ((d == 3 || d == 4) && r == 2) {
+	    
+	    
+	    totalcount_disk1combinedring3+=count;
+	    totalcounterror_disk1combinedring3+= counterror * counterror;
+	  }
+	  
+	  
+	  if ((d == 3 || d == 4) && r == 3) {
+	    
+	    totalcount_disk1combinedring4+=count;
+	    totalcounterror_disk1combinedring4+= counterror * counterror;
+	    
+	  }
+	  
+	  
+	  if ((d == 3 || d == 4) && r == 4) {
+	    
+	    totalcount_disk1combinedring5+=count;
+	    totalcounterror_disk1combinedring5+= counterror * counterror;
+	    
+	  }
+	  
+	  
+	  if((d == 2 || d == 5) && r == 0) {
+	    
+	    
+	    totalcount_disk2combinedring1+=count;
+	    totalcounterror_disk2combinedring1+= counterror * counterror;
+	  }
+	  
+	  
+	  if((d == 2 || d == 5) && r == 1) {
+
+	    totalcount_disk2combinedring2+=count;
+	    totalcounterror_disk2combinedring2+= counterror * counterror;
+	    
+	  }
+	  
+	  
+	  if((d == 2 || d == 5) && r == 2) {
+	    
+	    totalcount_disk2combinedring3+=count;
+	    totalcounterror_disk2combinedring3+= counterror * counterror;
+	  }
+	  
+	  
+	  if((d == 2 || d == 5) && r == 3) {
+	    
+	    totalcount_disk2combinedring4+=count;
+	    totalcounterror_disk2combinedring4+= counterror * counterror;
+	  }
+	  
+	  
+	  if((d == 2 || d == 5) && r == 4) {
+
+	    totalcount_disk2combinedring5+=count;
+	    totalcounterror_disk2combinedring5+= counterror * counterror;
+	  }
+	  
+	  
+	  
+	  if((d == 1 || d == 6) && r == 0) {
+	    
+	    totalcount_disk3combinedring1+=count;
+	    totalcounterror_disk3combinedring1+= counterror * counterror;
+	    
+	  }
+	  
+	  
+	  if((d == 1 || d == 6) && r == 1) {
+	    
+	    totalcount_disk3combinedring2+=count;
+	    totalcounterror_disk3combinedring2+= counterror * counterror;
+	    
+	    
+	  }
+	  
+	  if((d == 1 || d == 6) && r == 2) {
+	    
+	    totalcount_disk3combinedring3+=count;
+	    totalcounterror_disk3combinedring3+= counterror * counterror;
+	    
+	    
+	  }
+	  
+	  
+	  if((d == 1 || d == 6) && r == 3) {
+	    
+	    totalcount_disk3combinedring4+=count;
+	    totalcounterror_disk3combinedring4+= counterror * counterror;
+	    
+	    
+	  }
+	  
+	  
+	  if((d == 1 || d == 6) && r == 4) {
+	    
+	    totalcount_disk3combinedring5+=count;
+	    totalcounterror_disk3combinedring5+= counterror * counterror;
+	    
+	    
+	  }
+	  
+	  
+	  if((d == 0 || d == 7) && r == 0) {
+	    
+	    totalcount_disk4combinedring1+=count;
+	   totalcounterror_disk4combinedring1+= counterror * counterror;
+	   
+	  }
+	  
+	  
+	  if((d == 0 || d == 7) && r == 1) {
+	    
+	    totalcount_disk4combinedring2+=count;
+	    totalcounterror_disk4combinedring2+= counterror * counterror;
+	    
+	  }
+	  
+	  
+	  
+	  if((d == 0 || d == 7) && r == 2) {
+	    
+	    totalcount_disk4combinedring3+=count;
+	    totalcounterror_disk4combinedring3+= counterror * counterror;
+	    
+	  }
+
+	  
+	  
+	  if((d == 0 || d == 7) && r == 3) {
+	    
+	    totalcount_disk4combinedring4+=count;
+	    totalcounterror_disk4combinedring4+= counterror * counterror;
+	    
+	  }
+	  
+	  
+	  if((d == 0 || d == 7) && r == 4) {
+	    
+	    totalcount_disk4combinedring5+=count;
+	    totalcounterror_disk4combinedring5+= counterror * counterror;
+	    
+	  }
+	  
+	  
+	  
+	  if (d == 3) {
+>>>>>>> 65a305296a9c8208ad70db265c67b5c3b836de24
 	    
 	    totalcount_disk1+=count;
 	    totalcounterror_disk1+= counterror * counterror;
 	    
 	  }
+<<<<<<< HEAD
 	   
 	  if (d == 2 || d == 5) {
+=======
+	  
+	  if(d == 4) {
+	    
+	    totalcount_disk5+=count;
+	    totalcounterror_disk5+= counterror * counterror;
+	    
+	  }
+	  
+	  if (d == 3 || d == 4) {
+	    
+	    totalcount_disk1combined+=count;
+	    totalcounterror_disk1combined+= counterror * counterror;
+	     
+	  }
+	  
+	  if (d == 2) {
+>>>>>>> 65a305296a9c8208ad70db265c67b5c3b836de24
 	    
 	    totalcount_disk2+=count;
 	    totalcounterror_disk2+= counterror * counterror;
 	    
 	  }
 	  
+<<<<<<< HEAD
 	  if (d == 1 || d == 6) {
+=======
+	  if(d == 5) {
+	    
+	    totalcount_disk6+=count;
+	    totalcounterror_disk6+= counterror * counterror;
+	    
+	  }
+	  
+	  if(d == 2 || d == 5) {
+	    
+            totalcount_disk2combined+=count;
+	    totalcounterror_disk2combined+= counterror * counterror;
+	  }
+	  
+	  
+	  if (d == 1) {
+>>>>>>> 65a305296a9c8208ad70db265c67b5c3b836de24
 	    
 	    totalcount_disk3+=count;
 	    totalcounterror_disk3+= counterror * counterror;
 	    
 	  }
 	  
+<<<<<<< HEAD
 	   if (d == 0 || d == 7) {
 	     
 	     totalcount_disk4+=count;
@@ -132,6 +512,59 @@ void totalcountcluster1(){
 	     totalcounterror_D4R1 = counterror * counterror;
 	     
 	   }
+=======
+	  
+	  if(d == 6) {
+	    
+	    totalcount_disk7+=count;
+	    totalcounterror_disk7+= counterror * counterror;
+	    
+	  }
+	  
+	  if(d == 1 || d == 6) {
+
+            totalcount_disk3combined+=count;
+	    totalcounterror_disk3combined+= counterror * counterror;
+	    
+	  }
+	  
+	  if (d == 0) {
+	    
+	    totalcount_disk4+=count;
+	    totalcounterror_disk4+= counterror * counterror;
+	    
+	  }
+	  
+	  if (d == 7) {
+	    
+	    totalcount_disk8+=count;
+	    totalcounterror_disk8+= counterror * counterror;
+	    
+	  }
+	  
+	  
+          if(d == 0 || d == 7) {
+	    
+            totalcount_disk4combined+=count;
+	    totalcounterror_disk4combined+= counterror * counterror;
+	    
+	    
+	  }
+	  
+	  if(!((d == 0 || d == 7) && r == 0)){
+	    
+	    totalcount+=count;
+	    totalcounterror+= counterror * counterror;
+	    
+	  }
+	  
+	  if((d == 0 || d == 7) && r == 0){
+	    
+	    totalcount_D4R1+=count;
+	    totalcounterror_D4R1 = counterror * counterror;
+	    
+	  }
+>>>>>>> 65a305296a9c8208ad70db265c67b5c3b836de24
 	}	
       }
       
@@ -151,12 +584,113 @@ void totalcountcluster1(){
       TEPXClustersPerEvent_disk4->SetPoint(pu, pumap[pulist[pu]], totalcount_disk4);
       TEPXClustersPerEvent_disk4->SetPointError(pu, 0, sqrt(totalcounterror_disk4));
       
+<<<<<<< HEAD
       TEPXClustersPerEvent_D4R1->SetPoint(pu, pumap[pulist[pu]], totalcount_D4R1);
       TEPXClustersPerEvent_D4R1->SetPointError(pu, 0, sqrt(totalcounterror_D4R1));
       
     }
   }
   
+=======
+
+      TEPXClustersPerEvent_disk5->SetPoint(pu, pumap[pulist[pu]], totalcount_disk5);
+      TEPXClustersPerEvent_disk5->SetPointError(pu, 0, sqrt(totalcounterror_disk5));
+      
+      TEPXClustersPerEvent_disk6->SetPoint(pu, pumap[pulist[pu]], totalcount_disk6);
+      TEPXClustersPerEvent_disk6->SetPointError(pu, 0, sqrt(totalcounterror_disk6));
+      
+      TEPXClustersPerEvent_disk7->SetPoint(pu, pumap[pulist[pu]], totalcount_disk7);
+      TEPXClustersPerEvent_disk7->SetPointError(pu, 0, sqrt(totalcounterror_disk7));
+      
+      TEPXClustersPerEvent_disk8->SetPoint(pu, pumap[pulist[pu]], totalcount_disk8);
+      TEPXClustersPerEvent_disk8->SetPointError(pu, 0, sqrt(totalcounterror_disk8));
+      
+      
+      TEPXClustersPerEvent_D4R1->SetPoint(pu, pumap[pulist[pu]], totalcount_D4R1);
+      TEPXClustersPerEvent_D4R1->SetPointError(pu, 0, sqrt(totalcounterror_D4R1));
+      
+      
+      TEPXClustersPerEvent_disk1combined->SetPoint(pu, pumap[pulist[pu]], totalcount_disk1combined);
+      TEPXClustersPerEvent_disk1combined->SetPointError(pu, 0, sqrt(totalcounterror_disk1combined));
+      
+      TEPXClustersPerEvent_disk2combined->SetPoint(pu, pumap[pulist[pu]], totalcount_disk2combined);
+      TEPXClustersPerEvent_disk2combined->SetPointError(pu, 0, sqrt(totalcounterror_disk2combined));
+      
+      TEPXClustersPerEvent_disk3combined->SetPoint(pu, pumap[pulist[pu]], totalcount_disk3combined);
+      TEPXClustersPerEvent_disk3combined->SetPointError(pu, 0, sqrt(totalcounterror_disk3combined));
+      
+      TEPXClustersPerEvent_disk4combined->SetPoint(pu, pumap[pulist[pu]], totalcount_disk4combined);
+      TEPXClustersPerEvent_disk4combined->SetPointError(pu, 0, sqrt(totalcounterror_disk4combined));
+      
+      
+      TEPXClustersPerEvent_disk1combinedring1->SetPoint(pu, pumap[pulist[pu]], totalcount_disk1combinedring1);
+      TEPXClustersPerEvent_disk1combinedring1->SetPointError(pu, 0, sqrt(totalcounterror_disk1combinedring1));
+      
+      TEPXClustersPerEvent_disk1combinedring2->SetPoint(pu, pumap[pulist[pu]], totalcount_disk1combinedring2);
+      TEPXClustersPerEvent_disk1combinedring2->SetPointError(pu, 0, sqrt(totalcounterror_disk1combinedring2));
+      
+      TEPXClustersPerEvent_disk1combinedring3->SetPoint(pu, pumap[pulist[pu]], totalcount_disk1combinedring3);
+      TEPXClustersPerEvent_disk1combinedring3->SetPointError(pu, 0, sqrt(totalcounterror_disk1combinedring3));
+      
+      TEPXClustersPerEvent_disk1combinedring4->SetPoint(pu, pumap[pulist[pu]], totalcount_disk1combinedring4);
+      TEPXClustersPerEvent_disk1combinedring4->SetPointError(pu, 0, sqrt(totalcounterror_disk1combinedring4));
+      
+      TEPXClustersPerEvent_disk1combinedring5->SetPoint(pu, pumap[pulist[pu]], totalcount_disk1combinedring5);
+      TEPXClustersPerEvent_disk1combinedring5->SetPointError(pu, 0, sqrt(totalcounterror_disk1combinedring5));
+      
+      
+      TEPXClustersPerEvent_disk2combinedring1->SetPoint(pu, pumap[pulist[pu]], totalcount_disk2combinedring1);
+      TEPXClustersPerEvent_disk2combinedring1->SetPointError(pu, 0, sqrt(totalcounterror_disk2combinedring1));
+      
+      TEPXClustersPerEvent_disk2combinedring2->SetPoint(pu, pumap[pulist[pu]], totalcount_disk2combinedring2);
+      TEPXClustersPerEvent_disk2combinedring2->SetPointError(pu, 0, sqrt(totalcounterror_disk2combinedring2));
+      
+      TEPXClustersPerEvent_disk2combinedring3->SetPoint(pu, pumap[pulist[pu]], totalcount_disk2combinedring3);
+      TEPXClustersPerEvent_disk2combinedring3->SetPointError(pu, 0, sqrt(totalcounterror_disk2combinedring3));
+      
+      TEPXClustersPerEvent_disk2combinedring4->SetPoint(pu, pumap[pulist[pu]], totalcount_disk2combinedring4);
+      TEPXClustersPerEvent_disk2combinedring4->SetPointError(pu, 0, sqrt(totalcounterror_disk2combinedring4));
+      
+      TEPXClustersPerEvent_disk2combinedring5->SetPoint(pu, pumap[pulist[pu]], totalcount_disk2combinedring5);
+      TEPXClustersPerEvent_disk2combinedring5->SetPointError(pu, 0, sqrt(totalcounterror_disk2combinedring5));
+
+      
+      TEPXClustersPerEvent_disk3combinedring1->SetPoint(pu, pumap[pulist[pu]], totalcount_disk3combinedring1);
+      TEPXClustersPerEvent_disk3combinedring1->SetPointError(pu, 0, sqrt(totalcounterror_disk3combinedring1));
+      
+      TEPXClustersPerEvent_disk3combinedring2->SetPoint(pu, pumap[pulist[pu]], totalcount_disk3combinedring2);
+      TEPXClustersPerEvent_disk3combinedring2->SetPointError(pu, 0, sqrt(totalcounterror_disk3combinedring2));
+      
+      TEPXClustersPerEvent_disk3combinedring3->SetPoint(pu, pumap[pulist[pu]], totalcount_disk3combinedring3);
+      TEPXClustersPerEvent_disk3combinedring3->SetPointError(pu, 0, sqrt(totalcounterror_disk3combinedring3));
+      
+      TEPXClustersPerEvent_disk3combinedring4->SetPoint(pu, pumap[pulist[pu]], totalcount_disk3combinedring4);
+      TEPXClustersPerEvent_disk3combinedring4->SetPointError(pu, 0, sqrt(totalcounterror_disk3combinedring4));
+      
+      TEPXClustersPerEvent_disk3combinedring5->SetPoint(pu, pumap[pulist[pu]], totalcount_disk3combinedring5);
+      TEPXClustersPerEvent_disk3combinedring5->SetPointError(pu, 0, sqrt(totalcounterror_disk3combinedring5));
+      
+
+      TEPXClustersPerEvent_disk4combinedring1->SetPoint(pu, pumap[pulist[pu]], totalcount_disk4combinedring1);
+      TEPXClustersPerEvent_disk4combinedring1->SetPointError(pu, 0, sqrt(totalcounterror_disk4combinedring1));
+      
+      TEPXClustersPerEvent_disk4combinedring2->SetPoint(pu, pumap[pulist[pu]], totalcount_disk4combinedring2);
+      TEPXClustersPerEvent_disk4combinedring2->SetPointError(pu, 0, sqrt(totalcounterror_disk4combinedring2));
+      
+      TEPXClustersPerEvent_disk4combinedring3->SetPoint(pu, pumap[pulist[pu]], totalcount_disk4combinedring3);
+      TEPXClustersPerEvent_disk4combinedring3->SetPointError(pu, 0, sqrt(totalcounterror_disk4combinedring3));
+      
+      TEPXClustersPerEvent_disk4combinedring4->SetPoint(pu, pumap[pulist[pu]], totalcount_disk4combinedring4);
+      TEPXClustersPerEvent_disk4combinedring4->SetPointError(pu, 0, sqrt(totalcounterror_disk4combinedring4));
+      
+      TEPXClustersPerEvent_disk4combinedring5->SetPoint(pu, pumap[pulist[pu]], totalcount_disk4combinedring5);
+      TEPXClustersPerEvent_disk4combinedring5->SetPointError(pu, 0, sqrt(totalcounterror_disk4combinedring5));
+      
+    }
+  }
+  
+  
+>>>>>>> 65a305296a9c8208ad70db265c67b5c3b836de24
   TEPXClustersPerEvent->SetMarkerSize(2);
   TEPXClustersPerEvent->SetMarkerColor(2);
   TEPXClustersPerEvent->SetName(TString("cluster_TEPX"));  
@@ -169,11 +703,16 @@ void totalcountcluster1(){
   
   TEPXClustersPerEvent_disk1->SetMarkerSize(2);
   TEPXClustersPerEvent_disk1->SetMarkerColor(2);
+<<<<<<< HEAD
   TEPXClustersPerEvent_disk1->SetName(TString("cluster_disk1"));  
+=======
+  TEPXClustersPerEvent_disk1->SetName(TString("cluster_disk-4"));  
+>>>>>>> 65a305296a9c8208ad70db265c67b5c3b836de24
   f->WriteTObject(TEPXClustersPerEvent_disk1);
   
   TEPXClustersPerEvent_disk2->SetMarkerSize(2);
   TEPXClustersPerEvent_disk2->SetMarkerColor(2);
+<<<<<<< HEAD
   TEPXClustersPerEvent_disk2->SetName(TString("cluster_disk2"));  
   f->WriteTObject(TEPXClustersPerEvent_disk2);
   
@@ -181,19 +720,191 @@ void totalcountcluster1(){
   TEPXClustersPerEvent_disk3->SetMarkerSize(2);
   TEPXClustersPerEvent_disk3->SetMarkerColor(2);
   TEPXClustersPerEvent_disk3->SetName(TString("cluster_disk3"));  
+=======
+  TEPXClustersPerEvent_disk2->SetName(TString("cluster_disk-3"));  
+  f->WriteTObject(TEPXClustersPerEvent_disk2);
+  
+  TEPXClustersPerEvent_disk3->SetMarkerSize(2);
+  TEPXClustersPerEvent_disk3->SetMarkerColor(2);
+  TEPXClustersPerEvent_disk3->SetName(TString("cluster_disk-2"));  
+>>>>>>> 65a305296a9c8208ad70db265c67b5c3b836de24
   f->WriteTObject(TEPXClustersPerEvent_disk3);
   
   TEPXClustersPerEvent_disk4->SetMarkerSize(2);
   TEPXClustersPerEvent_disk4->SetMarkerColor(2);
+<<<<<<< HEAD
   TEPXClustersPerEvent_disk4->SetName(TString("cluster_disk4"));  
   f->WriteTObject(TEPXClustersPerEvent_disk4);
   
+=======
+  TEPXClustersPerEvent_disk4->SetName(TString("cluster_disk-1"));  
+  f->WriteTObject(TEPXClustersPerEvent_disk4);
+  
+  
+  TEPXClustersPerEvent_disk5->SetMarkerSize(2);
+  TEPXClustersPerEvent_disk5->SetMarkerColor(2);
+  TEPXClustersPerEvent_disk5->SetName(TString("cluster_disk1"));  
+  f->WriteTObject(TEPXClustersPerEvent_disk5);
+  
+  TEPXClustersPerEvent_disk6->SetMarkerSize(2);
+  TEPXClustersPerEvent_disk6->SetMarkerColor(2);
+  TEPXClustersPerEvent_disk6->SetName(TString("cluster_disk2"));  
+  f->WriteTObject(TEPXClustersPerEvent_disk6);
+  
+  TEPXClustersPerEvent_disk7->SetMarkerSize(2);
+  TEPXClustersPerEvent_disk7->SetMarkerColor(2);
+  TEPXClustersPerEvent_disk7->SetName(TString("cluster_disk3"));  
+  f->WriteTObject(TEPXClustersPerEvent_disk7);
+  
+  TEPXClustersPerEvent_disk8->SetMarkerSize(2);
+  TEPXClustersPerEvent_disk8->SetMarkerColor(2);
+  TEPXClustersPerEvent_disk8->SetName(TString("cluster_disk4"));  
+  f->WriteTObject(TEPXClustersPerEvent_disk8);
+  
+
+  TEPXClustersPerEvent_disk1combined->SetMarkerSize(2);
+  TEPXClustersPerEvent_disk1combined->SetMarkerColor(2);
+  TEPXClustersPerEvent_disk1combined->SetName(TString("cluster_disk1combined"));  
+  f->WriteTObject(TEPXClustersPerEvent_disk1combined);
+  
+  TEPXClustersPerEvent_disk2combined->SetMarkerSize(2);
+  TEPXClustersPerEvent_disk2combined->SetMarkerColor(2);
+  TEPXClustersPerEvent_disk2combined->SetName(TString("cluster_disk2combined"));  
+  f->WriteTObject(TEPXClustersPerEvent_disk2combined);
+  
+  TEPXClustersPerEvent_disk3combined->SetMarkerSize(2);
+  TEPXClustersPerEvent_disk3combined->SetMarkerColor(2);
+  TEPXClustersPerEvent_disk3combined->SetName(TString("cluster_disk3combined"));  
+  f->WriteTObject(TEPXClustersPerEvent_disk3combined);
+  
+  TEPXClustersPerEvent_disk4combined->SetMarkerSize(2);
+  TEPXClustersPerEvent_disk4combined->SetMarkerColor(2);
+  TEPXClustersPerEvent_disk4combined->SetName(TString("cluster_disk4combined"));  
+  f->WriteTObject(TEPXClustersPerEvent_disk4combined);
+  
+  
+  TEPXClustersPerEvent_disk1combinedring1->SetMarkerSize(2);
+  TEPXClustersPerEvent_disk1combinedring1->SetMarkerColor(2);
+  TEPXClustersPerEvent_disk1combinedring1->SetName(TString("cluster_disk1combinedring1"));  
+  f->WriteTObject(TEPXClustersPerEvent_disk1combinedring1);
+  
+  TEPXClustersPerEvent_disk1combinedring2->SetMarkerSize(2);
+  TEPXClustersPerEvent_disk1combinedring2->SetMarkerColor(2);
+  TEPXClustersPerEvent_disk1combinedring2->SetName(TString("cluster_disk1combinedring2"));  
+  f->WriteTObject(TEPXClustersPerEvent_disk1combinedring2);
+  
+  TEPXClustersPerEvent_disk1combinedring3->SetMarkerSize(2);
+  TEPXClustersPerEvent_disk1combinedring3->SetMarkerColor(2);
+  TEPXClustersPerEvent_disk1combinedring3->SetName(TString("cluster_disk1combinedring3"));  
+  f->WriteTObject(TEPXClustersPerEvent_disk1combinedring3);
+  
+  TEPXClustersPerEvent_disk1combinedring4->SetMarkerSize(2);
+  TEPXClustersPerEvent_disk1combinedring4->SetMarkerColor(2);
+  TEPXClustersPerEvent_disk1combinedring4->SetName(TString("cluster_disk1combinedring4"));  
+  f->WriteTObject(TEPXClustersPerEvent_disk1combinedring4);
+  
+  TEPXClustersPerEvent_disk1combinedring5->SetMarkerSize(2);
+  TEPXClustersPerEvent_disk1combinedring5->SetMarkerColor(2);
+  TEPXClustersPerEvent_disk1combinedring5->SetName(TString("cluster_disk1combinedring5"));  
+  f->WriteTObject(TEPXClustersPerEvent_disk1combinedring5);
+  
+ 
+  TEPXClustersPerEvent_disk2combinedring1->SetMarkerSize(2);
+  TEPXClustersPerEvent_disk2combinedring1->SetMarkerColor(2);
+  TEPXClustersPerEvent_disk2combinedring1->SetName(TString("cluster_disk2combinedring1"));  
+  f->WriteTObject(TEPXClustersPerEvent_disk2combinedring1);
+  
+  TEPXClustersPerEvent_disk2combinedring2->SetMarkerSize(2);
+  TEPXClustersPerEvent_disk2combinedring2->SetMarkerColor(2);
+  TEPXClustersPerEvent_disk2combinedring2->SetName(TString("cluster_disk2combinedring2"));  
+  f->WriteTObject(TEPXClustersPerEvent_disk2combinedring2);
+  
+  TEPXClustersPerEvent_disk2combinedring3->SetMarkerSize(2);
+  TEPXClustersPerEvent_disk2combinedring3->SetMarkerColor(2);
+  TEPXClustersPerEvent_disk2combinedring3->SetName(TString("cluster_disk2combinedring3"));  
+  f->WriteTObject(TEPXClustersPerEvent_disk2combinedring3);
+  
+  TEPXClustersPerEvent_disk2combinedring4->SetMarkerSize(2);
+  TEPXClustersPerEvent_disk2combinedring4->SetMarkerColor(2);
+  TEPXClustersPerEvent_disk2combinedring4->SetName(TString("cluster_disk2combinedring4"));  
+  f->WriteTObject(TEPXClustersPerEvent_disk2combinedring4);
+  
+  TEPXClustersPerEvent_disk2combinedring5->SetMarkerSize(2);
+  TEPXClustersPerEvent_disk2combinedring5->SetMarkerColor(2);
+  TEPXClustersPerEvent_disk2combinedring5->SetName(TString("cluster_disk2combinedring5"));  
+  f->WriteTObject(TEPXClustersPerEvent_disk2combinedring5);
+
+ 
+  TEPXClustersPerEvent_disk3combinedring1->SetMarkerSize(2);
+  TEPXClustersPerEvent_disk3combinedring1->SetMarkerColor(2);
+  TEPXClustersPerEvent_disk3combinedring1->SetName(TString("cluster_disk3combinedring1"));  
+  f->WriteTObject(TEPXClustersPerEvent_disk3combinedring1);
+  
+  TEPXClustersPerEvent_disk3combinedring2->SetMarkerSize(2);
+  TEPXClustersPerEvent_disk3combinedring2->SetMarkerColor(2);
+  TEPXClustersPerEvent_disk3combinedring2->SetName(TString("cluster_disk3combinedring2"));  
+  f->WriteTObject(TEPXClustersPerEvent_disk3combinedring2);
+  
+  TEPXClustersPerEvent_disk3combinedring3->SetMarkerSize(2);
+  TEPXClustersPerEvent_disk3combinedring3->SetMarkerColor(2);
+  TEPXClustersPerEvent_disk3combinedring3->SetName(TString("cluster_disk3combinedring3"));  
+  f->WriteTObject(TEPXClustersPerEvent_disk3combinedring3);
+  
+  TEPXClustersPerEvent_disk3combinedring4->SetMarkerSize(2);
+  TEPXClustersPerEvent_disk3combinedring4->SetMarkerColor(2);
+  TEPXClustersPerEvent_disk3combinedring4->SetName(TString("cluster_disk3combinedring4"));  
+  f->WriteTObject(TEPXClustersPerEvent_disk3combinedring4);
+  
+  TEPXClustersPerEvent_disk3combinedring5->SetMarkerSize(2);
+  TEPXClustersPerEvent_disk3combinedring5->SetMarkerColor(2);
+  TEPXClustersPerEvent_disk3combinedring5->SetName(TString("cluster_disk3combinedring5"));  
+  f->WriteTObject(TEPXClustersPerEvent_disk3combinedring5);
+  
+  
+  TEPXClustersPerEvent_disk4combinedring1->SetMarkerSize(2);
+  TEPXClustersPerEvent_disk4combinedring1->SetMarkerColor(2);
+  TEPXClustersPerEvent_disk4combinedring1->SetName(TString("cluster_disk4combinedring1"));  
+  f->WriteTObject(TEPXClustersPerEvent_disk4combinedring1);
+  
+  TEPXClustersPerEvent_disk4combinedring2->SetMarkerSize(2);
+  TEPXClustersPerEvent_disk4combinedring2->SetMarkerColor(2);
+  TEPXClustersPerEvent_disk4combinedring2->SetName(TString("cluster_disk4combinedring2"));  
+  f->WriteTObject(TEPXClustersPerEvent_disk4combinedring2);
+  
+  TEPXClustersPerEvent_disk4combinedring3->SetMarkerSize(2);
+  TEPXClustersPerEvent_disk4combinedring3->SetMarkerColor(2);
+  TEPXClustersPerEvent_disk4combinedring3->SetName(TString("cluster_disk4combinedring3"));  
+  f->WriteTObject(TEPXClustersPerEvent_disk4combinedring3);
+  
+  TEPXClustersPerEvent_disk4combinedring4->SetMarkerSize(2);
+  TEPXClustersPerEvent_disk4combinedring4->SetMarkerColor(2);
+  TEPXClustersPerEvent_disk4combinedring4->SetName(TString("cluster_disk4combinedring4"));  
+  f->WriteTObject(TEPXClustersPerEvent_disk4combinedring4);
+  
+  TEPXClustersPerEvent_disk4combinedring5->SetMarkerSize(2);
+  TEPXClustersPerEvent_disk4combinedring5->SetMarkerColor(2);
+  TEPXClustersPerEvent_disk4combinedring5->SetName(TString("cluster_disk4combinedring5"));  
+  f->WriteTObject(TEPXClustersPerEvent_disk4combinedring5);
+  
+  
+>>>>>>> 65a305296a9c8208ad70db265c67b5c3b836de24
   for (int d = 0; d < disklist.size(); d++) {
     for (int r = 0; r < 5; r++){
       
       TEPXClustersPerEvent1[d][r]->SetMarkerSize(2);
       TEPXClustersPerEvent1[d][r]->SetMarkerColor(2);
+<<<<<<< HEAD
       TEPXClustersPerEvent1[d][r]->SetName(TString("Clusters") + "D" + d + "R" + r);
+=======
+      
+      if (d <= 3) {
+	TEPXClustersPerEvent1[d][r]->SetName(TString("Clusters") + "D" + (d-4) + "R" + (r+1));
+      } else {
+	
+	TEPXClustersPerEvent1[d][r]->SetName(TString("Clusters") + "D" + (d-3) + "R" + (r+1));
+      }
+      
+>>>>>>> 65a305296a9c8208ad70db265c67b5c3b836de24
       f->WriteTObject(TEPXClustersPerEvent1[d][r]);
       
       

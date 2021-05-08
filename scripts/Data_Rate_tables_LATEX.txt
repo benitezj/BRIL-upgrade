@@ -1,0 +1,34 @@
+Tue Apr  6 12:24:56 2021
+
+ 
+ 
+ 
+/////////////////////////////////////////////////////////////
+/////////////////////Data Rate table///////////////////////////
+///////////////////////////////////////////////////////////////
+\begin{center}
+\scalebox{.8}{
+\begin{tabular}{|l  |c |c |c|}
+\hline
+&  Number of Histograms & Memory per histogram (Kb) & Data Transfer Rates (Mbps)\\
+\hline
+TEPXD4R1 Clusters&8&124&0.998\\
+\hline
+TEPXD4R1 2x Coincidences&8&67&0.541\\
+\hline
+TEPX Clusters&152&82&12.5\\
+\hline
+TEPX 2x Coincidences&152&82&12.5\\
+\hline
+OT Layer 6 track stubs&152&120&18.3\\
+\hline
+DT Trigger Primitives&250&28&7.13\\
+\hline
+BMTF Track&1&57&0.057\\
+\hline
+EMTF Tracks&1&57&0.057\\
+\hline
+HFOC, HFET & 4 & 114 & 0.456\\
+\hline
+\end{tabular}}
+\end{center}
