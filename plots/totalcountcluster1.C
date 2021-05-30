@@ -1,6 +1,6 @@
 void totalcountcluster1(){
   
-  TFile *f = new TFile("./TDRplotscluster.root","RECREATE");
+  TFile *f = new TFile("./TDRplotscluster_testing.root","RECREATE");
   
   f->cd();
   gDirectory->pwd();
@@ -16,20 +16,17 @@ void totalcountcluster1(){
     { "2023D42PU0p5", 0.5 }, { "2023D42PU1", 1 }, { "2023D42PU1p5", 1.5 }, { "2023D42PU2", 2 }, { "2023D42PU10", 10 }, { "2023D42PU30", 30 }, { "2023D42PU50", 50 }, { "2023D42PU100", 100 }, { "2023D42PU140", 140 }, { "2023D42PU200", 200 } };
   
   std::vector<std::string> disklist = {"-4", "-3", "-2", "-1", "1", "2", "3", "4"};
+  //std::vector<std::string> disklist = {"-1", "-2", "-3", "-4", "1", "2", "3", "4"};
+  //std::cout << "disklist " << disklist << std::endl;
   
   //create the profiles to be filled below.
   TGraphErrors* TEPXClustersPerEvent; //number of clusters vs pu
   TGraphErrors* TEPXClustersPerEvent1[20][20];
-<<<<<<< HEAD
-=======
-
->>>>>>> 65a305296a9c8208ad70db265c67b5c3b836de24
+  
   TGraphErrors* TEPXClustersPerEvent_disk1;
   TGraphErrors* TEPXClustersPerEvent_disk2;
   TGraphErrors* TEPXClustersPerEvent_disk3;
   TGraphErrors* TEPXClustersPerEvent_disk4;
-<<<<<<< HEAD
-=======
   TGraphErrors* TEPXClustersPerEvent_disk5;
   TGraphErrors* TEPXClustersPerEvent_disk6;
   TGraphErrors* TEPXClustersPerEvent_disk7;
@@ -64,7 +61,6 @@ void totalcountcluster1(){
   TGraphErrors* TEPXClustersPerEvent_disk4combinedring4;
   TGraphErrors* TEPXClustersPerEvent_disk4combinedring5;
   
->>>>>>> 65a305296a9c8208ad70db265c67b5c3b836de24
   TGraphErrors* TEPXClustersPerEvent_D4R1;
   
   TH2F* Histogram2D[20][20];
@@ -82,18 +78,16 @@ void totalcountcluster1(){
 	TEPXClustersPerEvent_disk2 = new TGraphErrors();
 	TEPXClustersPerEvent_disk3 = new TGraphErrors();
 	TEPXClustersPerEvent_disk4 = new TGraphErrors();
-<<<<<<< HEAD
-	TEPXClustersPerEvent_D4R1 = new TGraphErrors();
-	TEPXClustersPerEvent1[d][r] = new TGraphErrors();
-=======
         TEPXClustersPerEvent_disk5 = new TGraphErrors();
 	TEPXClustersPerEvent_disk6 = new TGraphErrors();
 	TEPXClustersPerEvent_disk7 = new TGraphErrors();
 	TEPXClustersPerEvent_disk8 = new TGraphErrors();
+	
         TEPXClustersPerEvent_disk1combined = new TGraphErrors();
 	TEPXClustersPerEvent_disk2combined = new TGraphErrors();
 	TEPXClustersPerEvent_disk3combined = new TGraphErrors();
 	TEPXClustersPerEvent_disk4combined = new TGraphErrors();
+	
 	TEPXClustersPerEvent_D4R1 = new TGraphErrors();
 	TEPXClustersPerEvent1[d][r] = new TGraphErrors();
 	
@@ -102,7 +96,7 @@ void totalcountcluster1(){
 	TEPXClustersPerEvent_disk1combinedring3= new TGraphErrors();
 	TEPXClustersPerEvent_disk1combinedring4= new TGraphErrors();
 	TEPXClustersPerEvent_disk1combinedring5= new TGraphErrors();
-
+	
 	TEPXClustersPerEvent_disk2combinedring1= new TGraphErrors();
 	TEPXClustersPerEvent_disk2combinedring2= new TGraphErrors();
 	TEPXClustersPerEvent_disk2combinedring3= new TGraphErrors();
@@ -120,7 +114,6 @@ void totalcountcluster1(){
 	TEPXClustersPerEvent_disk4combinedring3= new TGraphErrors();
 	TEPXClustersPerEvent_disk4combinedring4= new TGraphErrors();
 	TEPXClustersPerEvent_disk4combinedring5= new TGraphErrors();
->>>>>>> 65a305296a9c8208ad70db265c67b5c3b836de24
   	
       }
     }
@@ -151,8 +144,6 @@ void totalcountcluster1(){
       float totalcount_disk4=0;
       float totalcounterror_disk4=0;
       
-<<<<<<< HEAD
-=======
       float totalcount_disk5=0;
       float totalcounterror_disk5=0;
       
@@ -177,7 +168,7 @@ void totalcountcluster1(){
       
       float totalcount_disk4combined=0;
       float totalcounterror_disk4combined=0;
-
+      
       
       float totalcount_disk1combinedring1=0;
       float totalcounterror_disk1combinedring1=0;
@@ -242,13 +233,13 @@ void totalcountcluster1(){
       float totalcount_disk4combinedring5=0;
       float totalcounterror_disk4combinedring5=0;
       
->>>>>>> 65a305296a9c8208ad70db265c67b5c3b836de24
       
       for (int d = 0; d < disklist.size(); d++) {
 	
 	TString histoname = "BRIL_IT_Analysis/TEPX/Clusters/Number of clusters for Disk ";
 	
 	TH2F* H = (TH2F*)F.Get(histoname + disklist[d].c_str());
+        std::cout << "Value of d "<< d << " disklist " << disklist[d].c_str() << std::endl;
 	Histogram2D[pu][d] = (TH2F*)H->Clone(TString(H->GetName()));
 	Prof_TEPXClustersPerEvent[pu][d] = (TProfile*)H->ProfileX()->Clone(TString(H->GetName()) + "Profile");
 	
@@ -260,16 +251,13 @@ void totalcountcluster1(){
 	  TEPXClustersPerEvent1[d][r]->SetPoint(pu, pumap[pulist[pu]], count);
 	  TEPXClustersPerEvent1[d][r]->SetPointError(pu, 0, counterror);
 	  
-<<<<<<< HEAD
-	  if (d == 3 || d == 4) {
-=======
 	  
-	  
-	  
+          
 	  if ((d == 3 || d == 4) && r == 0) {
 	    
 	    totalcount_disk1combinedring1+=count;
 	    totalcounterror_disk1combinedring1+= counterror * counterror;
+            
 	    
 	  }
 	  
@@ -316,7 +304,7 @@ void totalcountcluster1(){
 	  
 	  
 	  if((d == 2 || d == 5) && r == 1) {
-
+	    
 	    totalcount_disk2combinedring2+=count;
 	    totalcounterror_disk2combinedring2+= counterror * counterror;
 	    
@@ -338,7 +326,7 @@ void totalcountcluster1(){
 	  
 	  
 	  if((d == 2 || d == 5) && r == 4) {
-
+	    
 	    totalcount_disk2combinedring5+=count;
 	    totalcounterror_disk2combinedring5+= counterror * counterror;
 	  }
@@ -391,8 +379,8 @@ void totalcountcluster1(){
 	  if((d == 0 || d == 7) && r == 0) {
 	    
 	    totalcount_disk4combinedring1+=count;
-	   totalcounterror_disk4combinedring1+= counterror * counterror;
-	   
+	    totalcounterror_disk4combinedring1+= counterror * counterror;
+	    
 	  }
 	  
 	  
@@ -411,7 +399,7 @@ void totalcountcluster1(){
 	    totalcounterror_disk4combinedring3+= counterror * counterror;
 	    
 	  }
-
+	  
 	  
 	  
 	  if((d == 0 || d == 7) && r == 3) {
@@ -430,18 +418,14 @@ void totalcountcluster1(){
 	  }
 	  
 	  
-	  
 	  if (d == 3) {
->>>>>>> 65a305296a9c8208ad70db265c67b5c3b836de24
 	    
 	    totalcount_disk1+=count;
 	    totalcounterror_disk1+= counterror * counterror;
 	    
 	  }
-<<<<<<< HEAD
-	   
-	  if (d == 2 || d == 5) {
-=======
+	  
+          //cout << "disk1(-Z) count "<<totalcount_disk1 << endl;	  
 	  
 	  if(d == 4) {
 	    
@@ -450,24 +434,27 @@ void totalcountcluster1(){
 	    
 	  }
 	  
+          //cout << "disk1(+Z) count "<<totalcount_disk5 << endl;
+	  
 	  if (d == 3 || d == 4) {
 	    
 	    totalcount_disk1combined+=count;
 	    totalcounterror_disk1combined+= counterror * counterror;
-	     
+	    
 	  }
 	  
+          //cout <<"disk1 combined count "<< totalcount_disk1combined << endl;
+	  
+	  
 	  if (d == 2) {
->>>>>>> 65a305296a9c8208ad70db265c67b5c3b836de24
 	    
 	    totalcount_disk2+=count;
 	    totalcounterror_disk2+= counterror * counterror;
 	    
 	  }
 	  
-<<<<<<< HEAD
-	  if (d == 1 || d == 6) {
-=======
+          //cout << "disk2(-Z) count "<<totalcount_disk2 << endl;
+	  
 	  if(d == 5) {
 	    
 	    totalcount_disk6+=count;
@@ -475,44 +462,25 @@ void totalcountcluster1(){
 	    
 	  }
 	  
+          //cout << "disk2(+Z) count "<<totalcount_disk6 << endl;
+	  
 	  if(d == 2 || d == 5) {
 	    
             totalcount_disk2combined+=count;
 	    totalcounterror_disk2combined+= counterror * counterror;
 	  }
 	  
+	  //cout <<"disk2 combined count "<< totalcount_disk2combined << endl;
 	  
 	  if (d == 1) {
->>>>>>> 65a305296a9c8208ad70db265c67b5c3b836de24
 	    
 	    totalcount_disk3+=count;
 	    totalcounterror_disk3+= counterror * counterror;
 	    
 	  }
 	  
-<<<<<<< HEAD
-	   if (d == 0 || d == 7) {
-	     
-	     totalcount_disk4+=count;
-	     totalcounterror_disk4+= counterror * counterror;
-	     
-	   }
-	   
-	   
-	   if(!((d == 0 || d == 7) && r == 0)){
-	     
-	     totalcount+=count;
-	     totalcounterror+= counterror * counterror;
-	     
-	   }
-	   
-	   if((d == 0 || d == 7) && r == 0){
-	     
-	     totalcount_D4R1+=count;
-	     totalcounterror_D4R1 = counterror * counterror;
-	     
-	   }
-=======
+          //cout << "disk3(-Z) count "<<totalcount_disk3 << endl;
+	  
 	  
 	  if(d == 6) {
 	    
@@ -521,12 +489,17 @@ void totalcountcluster1(){
 	    
 	  }
 	  
+	  //cout << "disk3(+Z) count "<<totalcount_disk7 << endl;
+	  
 	  if(d == 1 || d == 6) {
-
+	    
             totalcount_disk3combined+=count;
 	    totalcounterror_disk3combined+= counterror * counterror;
 	    
 	  }
+	  
+          //cout <<"disk3 combined count "<< totalcount_disk3combined << endl;
+	  
 	  
 	  if (d == 0) {
 	    
@@ -535,6 +508,9 @@ void totalcountcluster1(){
 	    
 	  }
 	  
+	  //cout << "disk4(-Z) count "<<totalcount_disk4 << endl;
+	  
+	  
 	  if (d == 7) {
 	    
 	    totalcount_disk8+=count;
@@ -542,6 +518,7 @@ void totalcountcluster1(){
 	    
 	  }
 	  
+	  //cout << "disk4(+Z) count "<<totalcount_disk8 << endl;  
 	  
           if(d == 0 || d == 7) {
 	    
@@ -550,6 +527,8 @@ void totalcountcluster1(){
 	    
 	    
 	  }
+	  
+	  //cout <<"disk4 combined count "<< totalcount_disk4combined << endl;
 	  
 	  if(!((d == 0 || d == 7) && r == 0)){
 	    
@@ -562,9 +541,8 @@ void totalcountcluster1(){
 	    
 	    totalcount_D4R1+=count;
 	    totalcounterror_D4R1 = counterror * counterror;
-	    
+	    	  
 	  }
->>>>>>> 65a305296a9c8208ad70db265c67b5c3b836de24
 	}	
       }
       
@@ -584,14 +562,6 @@ void totalcountcluster1(){
       TEPXClustersPerEvent_disk4->SetPoint(pu, pumap[pulist[pu]], totalcount_disk4);
       TEPXClustersPerEvent_disk4->SetPointError(pu, 0, sqrt(totalcounterror_disk4));
       
-<<<<<<< HEAD
-      TEPXClustersPerEvent_D4R1->SetPoint(pu, pumap[pulist[pu]], totalcount_D4R1);
-      TEPXClustersPerEvent_D4R1->SetPointError(pu, 0, sqrt(totalcounterror_D4R1));
-      
-    }
-  }
-  
-=======
 
       TEPXClustersPerEvent_disk5->SetPoint(pu, pumap[pulist[pu]], totalcount_disk5);
       TEPXClustersPerEvent_disk5->SetPointError(pu, 0, sqrt(totalcounterror_disk5));
@@ -690,223 +660,197 @@ void totalcountcluster1(){
   }
   
   
->>>>>>> 65a305296a9c8208ad70db265c67b5c3b836de24
   TEPXClustersPerEvent->SetMarkerSize(2);
   TEPXClustersPerEvent->SetMarkerColor(2);
-  TEPXClustersPerEvent->SetName(TString("cluster_TEPX"));  
+  TEPXClustersPerEvent->SetName(TString("clusters_TEPX"));  
   f->WriteTObject(TEPXClustersPerEvent);
   
   TEPXClustersPerEvent_D4R1->SetMarkerSize(2);
   TEPXClustersPerEvent_D4R1->SetMarkerColor(2);
-  TEPXClustersPerEvent_D4R1->SetName(TString("cluster_D4R1"));  
+  TEPXClustersPerEvent_D4R1->SetName(TString("clusters_TEPXD4R1"));  
   f->WriteTObject(TEPXClustersPerEvent_D4R1);
   
   TEPXClustersPerEvent_disk1->SetMarkerSize(2);
   TEPXClustersPerEvent_disk1->SetMarkerColor(2);
-<<<<<<< HEAD
-  TEPXClustersPerEvent_disk1->SetName(TString("cluster_disk1"));  
-=======
-  TEPXClustersPerEvent_disk1->SetName(TString("cluster_disk-4"));  
->>>>>>> 65a305296a9c8208ad70db265c67b5c3b836de24
+  TEPXClustersPerEvent_disk1->SetName(TString("clusters_D-4"));  
   f->WriteTObject(TEPXClustersPerEvent_disk1);
   
   TEPXClustersPerEvent_disk2->SetMarkerSize(2);
   TEPXClustersPerEvent_disk2->SetMarkerColor(2);
-<<<<<<< HEAD
-  TEPXClustersPerEvent_disk2->SetName(TString("cluster_disk2"));  
-  f->WriteTObject(TEPXClustersPerEvent_disk2);
-  
-  
-  TEPXClustersPerEvent_disk3->SetMarkerSize(2);
-  TEPXClustersPerEvent_disk3->SetMarkerColor(2);
-  TEPXClustersPerEvent_disk3->SetName(TString("cluster_disk3"));  
-=======
-  TEPXClustersPerEvent_disk2->SetName(TString("cluster_disk-3"));  
+  TEPXClustersPerEvent_disk2->SetName(TString("clusters_D-3"));  
   f->WriteTObject(TEPXClustersPerEvent_disk2);
   
   TEPXClustersPerEvent_disk3->SetMarkerSize(2);
   TEPXClustersPerEvent_disk3->SetMarkerColor(2);
-  TEPXClustersPerEvent_disk3->SetName(TString("cluster_disk-2"));  
->>>>>>> 65a305296a9c8208ad70db265c67b5c3b836de24
+  TEPXClustersPerEvent_disk3->SetName(TString("clusters_D-2"));  
   f->WriteTObject(TEPXClustersPerEvent_disk3);
   
   TEPXClustersPerEvent_disk4->SetMarkerSize(2);
   TEPXClustersPerEvent_disk4->SetMarkerColor(2);
-<<<<<<< HEAD
-  TEPXClustersPerEvent_disk4->SetName(TString("cluster_disk4"));  
-  f->WriteTObject(TEPXClustersPerEvent_disk4);
-  
-=======
-  TEPXClustersPerEvent_disk4->SetName(TString("cluster_disk-1"));  
+  TEPXClustersPerEvent_disk4->SetName(TString("clusters_D-1"));  
   f->WriteTObject(TEPXClustersPerEvent_disk4);
   
   
   TEPXClustersPerEvent_disk5->SetMarkerSize(2);
   TEPXClustersPerEvent_disk5->SetMarkerColor(2);
-  TEPXClustersPerEvent_disk5->SetName(TString("cluster_disk1"));  
+  TEPXClustersPerEvent_disk5->SetName(TString("clusters_D1"));  
   f->WriteTObject(TEPXClustersPerEvent_disk5);
   
   TEPXClustersPerEvent_disk6->SetMarkerSize(2);
   TEPXClustersPerEvent_disk6->SetMarkerColor(2);
-  TEPXClustersPerEvent_disk6->SetName(TString("cluster_disk2"));  
+  TEPXClustersPerEvent_disk6->SetName(TString("clusters_D2"));  
   f->WriteTObject(TEPXClustersPerEvent_disk6);
   
   TEPXClustersPerEvent_disk7->SetMarkerSize(2);
   TEPXClustersPerEvent_disk7->SetMarkerColor(2);
-  TEPXClustersPerEvent_disk7->SetName(TString("cluster_disk3"));  
+  TEPXClustersPerEvent_disk7->SetName(TString("clusters_D3"));  
   f->WriteTObject(TEPXClustersPerEvent_disk7);
   
   TEPXClustersPerEvent_disk8->SetMarkerSize(2);
   TEPXClustersPerEvent_disk8->SetMarkerColor(2);
-  TEPXClustersPerEvent_disk8->SetName(TString("cluster_disk4"));  
+  TEPXClustersPerEvent_disk8->SetName(TString("clusters_D4"));  
   f->WriteTObject(TEPXClustersPerEvent_disk8);
   
 
   TEPXClustersPerEvent_disk1combined->SetMarkerSize(2);
   TEPXClustersPerEvent_disk1combined->SetMarkerColor(2);
-  TEPXClustersPerEvent_disk1combined->SetName(TString("cluster_disk1combined"));  
+  TEPXClustersPerEvent_disk1combined->SetName(TString("clusters_combinedD1"));  
   f->WriteTObject(TEPXClustersPerEvent_disk1combined);
   
   TEPXClustersPerEvent_disk2combined->SetMarkerSize(2);
   TEPXClustersPerEvent_disk2combined->SetMarkerColor(2);
-  TEPXClustersPerEvent_disk2combined->SetName(TString("cluster_disk2combined"));  
+  TEPXClustersPerEvent_disk2combined->SetName(TString("clusters_combinedD2"));  
   f->WriteTObject(TEPXClustersPerEvent_disk2combined);
   
   TEPXClustersPerEvent_disk3combined->SetMarkerSize(2);
   TEPXClustersPerEvent_disk3combined->SetMarkerColor(2);
-  TEPXClustersPerEvent_disk3combined->SetName(TString("cluster_disk3combined"));  
+  TEPXClustersPerEvent_disk3combined->SetName(TString("clusters_combinedD3"));  
   f->WriteTObject(TEPXClustersPerEvent_disk3combined);
   
   TEPXClustersPerEvent_disk4combined->SetMarkerSize(2);
   TEPXClustersPerEvent_disk4combined->SetMarkerColor(2);
-  TEPXClustersPerEvent_disk4combined->SetName(TString("cluster_disk4combined"));  
+  TEPXClustersPerEvent_disk4combined->SetName(TString("clusters_combinedD4"));  
   f->WriteTObject(TEPXClustersPerEvent_disk4combined);
   
   
   TEPXClustersPerEvent_disk1combinedring1->SetMarkerSize(2);
   TEPXClustersPerEvent_disk1combinedring1->SetMarkerColor(2);
-  TEPXClustersPerEvent_disk1combinedring1->SetName(TString("cluster_disk1combinedring1"));  
+  TEPXClustersPerEvent_disk1combinedring1->SetName(TString("clusters_combinedD1R1"));  
   f->WriteTObject(TEPXClustersPerEvent_disk1combinedring1);
   
   TEPXClustersPerEvent_disk1combinedring2->SetMarkerSize(2);
   TEPXClustersPerEvent_disk1combinedring2->SetMarkerColor(2);
-  TEPXClustersPerEvent_disk1combinedring2->SetName(TString("cluster_disk1combinedring2"));  
+  TEPXClustersPerEvent_disk1combinedring2->SetName(TString("clusters_combinedD1R2"));  
   f->WriteTObject(TEPXClustersPerEvent_disk1combinedring2);
   
   TEPXClustersPerEvent_disk1combinedring3->SetMarkerSize(2);
   TEPXClustersPerEvent_disk1combinedring3->SetMarkerColor(2);
-  TEPXClustersPerEvent_disk1combinedring3->SetName(TString("cluster_disk1combinedring3"));  
+  TEPXClustersPerEvent_disk1combinedring3->SetName(TString("clusters_combinedD1R3"));  
   f->WriteTObject(TEPXClustersPerEvent_disk1combinedring3);
   
   TEPXClustersPerEvent_disk1combinedring4->SetMarkerSize(2);
   TEPXClustersPerEvent_disk1combinedring4->SetMarkerColor(2);
-  TEPXClustersPerEvent_disk1combinedring4->SetName(TString("cluster_disk1combinedring4"));  
+  TEPXClustersPerEvent_disk1combinedring4->SetName(TString("clusters_combinedD1R4"));  
   f->WriteTObject(TEPXClustersPerEvent_disk1combinedring4);
   
   TEPXClustersPerEvent_disk1combinedring5->SetMarkerSize(2);
   TEPXClustersPerEvent_disk1combinedring5->SetMarkerColor(2);
-  TEPXClustersPerEvent_disk1combinedring5->SetName(TString("cluster_disk1combinedring5"));  
+  TEPXClustersPerEvent_disk1combinedring5->SetName(TString("clusters_combinedD1R5"));  
   f->WriteTObject(TEPXClustersPerEvent_disk1combinedring5);
   
  
   TEPXClustersPerEvent_disk2combinedring1->SetMarkerSize(2);
   TEPXClustersPerEvent_disk2combinedring1->SetMarkerColor(2);
-  TEPXClustersPerEvent_disk2combinedring1->SetName(TString("cluster_disk2combinedring1"));  
+  TEPXClustersPerEvent_disk2combinedring1->SetName(TString("clusters_combinedD2R1"));  
   f->WriteTObject(TEPXClustersPerEvent_disk2combinedring1);
   
   TEPXClustersPerEvent_disk2combinedring2->SetMarkerSize(2);
   TEPXClustersPerEvent_disk2combinedring2->SetMarkerColor(2);
-  TEPXClustersPerEvent_disk2combinedring2->SetName(TString("cluster_disk2combinedring2"));  
+  TEPXClustersPerEvent_disk2combinedring2->SetName(TString("clusters_combinedD2R2"));  
   f->WriteTObject(TEPXClustersPerEvent_disk2combinedring2);
   
   TEPXClustersPerEvent_disk2combinedring3->SetMarkerSize(2);
   TEPXClustersPerEvent_disk2combinedring3->SetMarkerColor(2);
-  TEPXClustersPerEvent_disk2combinedring3->SetName(TString("cluster_disk2combinedring3"));  
+  TEPXClustersPerEvent_disk2combinedring3->SetName(TString("clusters_combinedD2R3"));  
   f->WriteTObject(TEPXClustersPerEvent_disk2combinedring3);
   
   TEPXClustersPerEvent_disk2combinedring4->SetMarkerSize(2);
   TEPXClustersPerEvent_disk2combinedring4->SetMarkerColor(2);
-  TEPXClustersPerEvent_disk2combinedring4->SetName(TString("cluster_disk2combinedring4"));  
+  TEPXClustersPerEvent_disk2combinedring4->SetName(TString("clusters_combinedD2R4"));  
   f->WriteTObject(TEPXClustersPerEvent_disk2combinedring4);
   
   TEPXClustersPerEvent_disk2combinedring5->SetMarkerSize(2);
   TEPXClustersPerEvent_disk2combinedring5->SetMarkerColor(2);
-  TEPXClustersPerEvent_disk2combinedring5->SetName(TString("cluster_disk2combinedring5"));  
+  TEPXClustersPerEvent_disk2combinedring5->SetName(TString("clusters_combinedD2R5"));  
   f->WriteTObject(TEPXClustersPerEvent_disk2combinedring5);
 
  
   TEPXClustersPerEvent_disk3combinedring1->SetMarkerSize(2);
   TEPXClustersPerEvent_disk3combinedring1->SetMarkerColor(2);
-  TEPXClustersPerEvent_disk3combinedring1->SetName(TString("cluster_disk3combinedring1"));  
+  TEPXClustersPerEvent_disk3combinedring1->SetName(TString("clusters_combinedD3R1"));  
   f->WriteTObject(TEPXClustersPerEvent_disk3combinedring1);
   
   TEPXClustersPerEvent_disk3combinedring2->SetMarkerSize(2);
   TEPXClustersPerEvent_disk3combinedring2->SetMarkerColor(2);
-  TEPXClustersPerEvent_disk3combinedring2->SetName(TString("cluster_disk3combinedring2"));  
+  TEPXClustersPerEvent_disk3combinedring2->SetName(TString("clusters_combinedD3R2"));  
   f->WriteTObject(TEPXClustersPerEvent_disk3combinedring2);
   
   TEPXClustersPerEvent_disk3combinedring3->SetMarkerSize(2);
   TEPXClustersPerEvent_disk3combinedring3->SetMarkerColor(2);
-  TEPXClustersPerEvent_disk3combinedring3->SetName(TString("cluster_disk3combinedring3"));  
+  TEPXClustersPerEvent_disk3combinedring3->SetName(TString("clusters_combinedD3R3"));  
   f->WriteTObject(TEPXClustersPerEvent_disk3combinedring3);
   
   TEPXClustersPerEvent_disk3combinedring4->SetMarkerSize(2);
   TEPXClustersPerEvent_disk3combinedring4->SetMarkerColor(2);
-  TEPXClustersPerEvent_disk3combinedring4->SetName(TString("cluster_disk3combinedring4"));  
+  TEPXClustersPerEvent_disk3combinedring4->SetName(TString("clusters_combinedD3R4"));  
   f->WriteTObject(TEPXClustersPerEvent_disk3combinedring4);
   
   TEPXClustersPerEvent_disk3combinedring5->SetMarkerSize(2);
   TEPXClustersPerEvent_disk3combinedring5->SetMarkerColor(2);
-  TEPXClustersPerEvent_disk3combinedring5->SetName(TString("cluster_disk3combinedring5"));  
+  TEPXClustersPerEvent_disk3combinedring5->SetName(TString("clusters_combinedD3R5"));  
   f->WriteTObject(TEPXClustersPerEvent_disk3combinedring5);
   
   
   TEPXClustersPerEvent_disk4combinedring1->SetMarkerSize(2);
   TEPXClustersPerEvent_disk4combinedring1->SetMarkerColor(2);
-  TEPXClustersPerEvent_disk4combinedring1->SetName(TString("cluster_disk4combinedring1"));  
+  TEPXClustersPerEvent_disk4combinedring1->SetName(TString("clusters_combinedD4R1"));  
   f->WriteTObject(TEPXClustersPerEvent_disk4combinedring1);
   
   TEPXClustersPerEvent_disk4combinedring2->SetMarkerSize(2);
   TEPXClustersPerEvent_disk4combinedring2->SetMarkerColor(2);
-  TEPXClustersPerEvent_disk4combinedring2->SetName(TString("cluster_disk4combinedring2"));  
+  TEPXClustersPerEvent_disk4combinedring2->SetName(TString("clusters_combinedD4R2"));  
   f->WriteTObject(TEPXClustersPerEvent_disk4combinedring2);
   
   TEPXClustersPerEvent_disk4combinedring3->SetMarkerSize(2);
   TEPXClustersPerEvent_disk4combinedring3->SetMarkerColor(2);
-  TEPXClustersPerEvent_disk4combinedring3->SetName(TString("cluster_disk4combinedring3"));  
+  TEPXClustersPerEvent_disk4combinedring3->SetName(TString("clusters_combinedD4R3"));  
   f->WriteTObject(TEPXClustersPerEvent_disk4combinedring3);
   
   TEPXClustersPerEvent_disk4combinedring4->SetMarkerSize(2);
   TEPXClustersPerEvent_disk4combinedring4->SetMarkerColor(2);
-  TEPXClustersPerEvent_disk4combinedring4->SetName(TString("cluster_disk4combinedring4"));  
+  TEPXClustersPerEvent_disk4combinedring4->SetName(TString("clusters_combinedD4R4"));  
   f->WriteTObject(TEPXClustersPerEvent_disk4combinedring4);
   
   TEPXClustersPerEvent_disk4combinedring5->SetMarkerSize(2);
   TEPXClustersPerEvent_disk4combinedring5->SetMarkerColor(2);
-  TEPXClustersPerEvent_disk4combinedring5->SetName(TString("cluster_disk4combinedring5"));  
+  TEPXClustersPerEvent_disk4combinedring5->SetName(TString("clusters_combinedD4R5"));  
   f->WriteTObject(TEPXClustersPerEvent_disk4combinedring5);
   
   
->>>>>>> 65a305296a9c8208ad70db265c67b5c3b836de24
   for (int d = 0; d < disklist.size(); d++) {
     for (int r = 0; r < 5; r++){
       
       TEPXClustersPerEvent1[d][r]->SetMarkerSize(2);
       TEPXClustersPerEvent1[d][r]->SetMarkerColor(2);
-<<<<<<< HEAD
-      TEPXClustersPerEvent1[d][r]->SetName(TString("Clusters") + "D" + d + "R" + r);
-=======
       
       if (d <= 3) {
-	TEPXClustersPerEvent1[d][r]->SetName(TString("Clusters") + "D" + (d-4) + "R" + (r+1));
+	TEPXClustersPerEvent1[d][r]->SetName(TString("clusters_") + "D" + (d-4) + "R" + (r+1));
       } else {
 	
-	TEPXClustersPerEvent1[d][r]->SetName(TString("Clusters") + "D" + (d-3) + "R" + (r+1));
+	TEPXClustersPerEvent1[d][r]->SetName(TString("clusters_") + "D" + (d-3) + "R" + (r+1));
       }
       
->>>>>>> 65a305296a9c8208ad70db265c67b5c3b836de24
       f->WriteTObject(TEPXClustersPerEvent1[d][r]);
-      
       
     }
   }
