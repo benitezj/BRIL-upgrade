@@ -46,7 +46,7 @@ void vdm_stat_precision_function(TString DETECTOR = "TEPX",
 	TFitResultPtr r = H->Fit(F,"S");
 	TMatrixD cor = r->GetCorrelationMatrix();
 	TMatrixD cov = r->GetCovarianceMatrix();
-   //cov.Print();
+   cov.Print();
    cout<<DETECTOR<<" .......... "<<cov[0][2]<<endl;
 
 
@@ -141,10 +141,10 @@ void vdm_stat_precision(){
   myfile<<"\\hline"<<endl;
   myfile<<" & $N_0$ &$\\delta N_0$&$ \\Sigma$&$ \\delta\\Sigma$&$\\delta\\sigma_{vis}/\\sigma_{vis}(\\\%)$&$\\delta\\sigma_{vis}/\\sigma_{vis}(\\\%)$, 150 bx\\\\"<<endl;
   myfile<<"\\hline"<<endl;  
-  vdm_stat_precision_function("TEPXD4R1 Clusters",TEPXDR_C[0][3][0]+TEPXDR_C[1][3][0],1000e3,NBX_TEPX_VDM);
-  vdm_stat_precision_function("TEPXD4R1 2x Coincidences",TEPXD4R1_2X,1000e3,NBX_TEPX_VDM);
-  vdm_stat_precision_function("TEPX Clusters",TEPX_C,500e3,NBX_TEPX_VDM);
-  vdm_stat_precision_function("TEPX 2x Coincidences",TEPX_2X,500e3,NBX_TEPX_VDM);  
+  vdm_stat_precision_function("TEPXD4R1 Clusters",TEPXDR_C[0][3][0]+TEPXDR_C[1][3][0],2000e3,NBX);
+  vdm_stat_precision_function("TEPXD4R1 2x Coincidences",TEPXD4R1_2X,2000e3,NBX);
+  vdm_stat_precision_function("TEPX Clusters",TEPX_C,1000e3,NBX);
+  vdm_stat_precision_function("TEPX 2x Coincidences",TEPX_2X,1000e3,NBX);  
   vdm_stat_precision_function("OT Layer 6",OTL6,40e6,NBX);
   vdm_stat_precision_function("DT",DTTP,40e6,NBX);
   vdm_stat_precision_function("BMTF",BMTF,40e6,NBX);

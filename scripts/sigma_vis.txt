@@ -1,0 +1,34 @@
+Fri Aug 20 03:26:25 2021
+
+ 
+ 
+ 
+/////////////////////////////////////////////////////////////
+///Stat pecision per bx and per  2500 bx for physics PU 200//
+0////////////////////////////////////////////////////////////
+\begin{center}
+\scalebox{.8}{
+\begin{tabular}{|l | c | c |}
+\hline
+ & Readout Rate (kHz)& $\sigma_{vis}$  \\
+\hline
+TEPXD4R1 Clusters&825&3.39e-22\\
+\hline
+TEPXD4R1 2x Coincidences&825&3.39e-23\\
+\hline
+TEPX Clusters&75&3.75e-22\\
+\hline
+TEPX 2x Coincidences&75&2.82e-23\\
+\hline
+OT Layer 6 track stubs&4e+04&4.11e-21\\
+\hline
+DT Trigger Primitives&4e+04&2.33e-24\\
+\hline
+BMTF&4e+04&1.6e-25\\
+\hline
+EMTF&4e+04&9.16e-25\\
+\hline
+\end{tabular}}
+\end{center}
+4.31e+03
+431

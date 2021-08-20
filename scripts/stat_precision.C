@@ -73,7 +73,7 @@ void stat_precision(){
   myfile<< "\\scalebox{.8}{"<<endl;
   myfile<<"\\begin{tabular}{|l | c | c | c |}"<<endl;
   myfile<<"\\hline"<<endl;
-  myfile<<" & Readout Rate (kHz)& 1 bx, 1s &2500 bx, 1s   \\\\"<<endl;
+  myfile<<" & Readout Rate (kHz)& 1 bx, 1s &2748 bx, 1s   \\\\"<<endl;
   myfile<<"\\hline"<<endl;
   print_precision_funtion("TEPXD4R1 Clusters",TEPXDR_C[0][3][0]+TEPXDR_C[1][3][0],825e3);
   print_precision_funtion("TEPXD4R1 2x Coincidences",TEPXDR_2x[0][3][0]+TEPXDR_2x[1][3][0],825e3);
@@ -99,10 +99,10 @@ void stat_precision(){
   myfile<<"\\hline"<<endl;
   myfile<<"  & Readout Rate (kHz) &1 bx, 1s & 1 bx, 30s & 150 bx, 30s\\\\"<<endl;
   myfile<<"\\hline"<<endl;  
-  print_precisionvdm("TEPXD4R1 Clusters",TEPXDR_C[0][3][0]+TEPXDR_C[1][3][0],1000e3,NBX_TEPX_VDM);  
-  print_precisionvdm("TEPXD4R1 2x Coincidences",TEPXDR_2x[0][3][0]+TEPXDR_2x[1][3][0],1000e3,NBX_TEPX_VDM);
-  print_precisionvdm("TEPX Clusters",TEPX_C,500e3,NBX_TEPX_VDM);
-  print_precisionvdm("TEPX 2x Coincidences",TEPX_2x,500e3,NBX_TEPX_VDM);
+  print_precisionvdm("TEPXD4R1 Clusters",TEPXDR_C[0][3][0]+TEPXDR_C[1][3][0],2000e3,NBX);  
+  print_precisionvdm("TEPXD4R1 2x Coincidences",TEPXDR_2x[0][3][0]+TEPXDR_2x[1][3][0],2000e3,NBX);
+  print_precisionvdm("TEPX Clusters",TEPX_C,1000e3,NBX);
+  print_precisionvdm("TEPX 2x Coincidences",TEPX_2x,1000e3,NBX);
   print_precisionvdm("OT Layer 6 track stubs",OTL6,40e6,NBX);
   print_precisionvdm("DT Trigger Primitives",DTTP,40e6,NBX);
   print_precisionvdm("BMTF",BMTF,40e6,NBX);

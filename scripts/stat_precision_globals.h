@@ -4,7 +4,7 @@
 #include <iostream>
 
 
-
+float total_pp_crossection= 68*pow(10,-27);// for 13 Tev
 float NBX=3564; /// number bunches per orbit
 float NBX_TEPX_VDM=150;
 float NORB = 11246; //Hz ,  = orbits per second  =  1/(3564 * 25 ns )
@@ -13,7 +13,7 @@ float LS = 64*0.365; //s (Lumi section)
 float VDM = 30; //s 
 float P_count=1.15*pow(10,11);
 //float Norbit_NB4= 16417.7;// number of orbits per LN4
-float NCOLLIDING = 2500;//number of colliding bunches
+float NCOLLIDING = 2748;//number of colliding bunches
 int second=1;//one second 
 
 /*initiate output file*/

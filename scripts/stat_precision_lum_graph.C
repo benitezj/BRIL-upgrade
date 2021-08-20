@@ -13,8 +13,8 @@ void stat_precision_lum_function(){
 
     TEPX_Counts();
     float count_per_events[8]={TEPXDR_C[0][3][0]+TEPXDR_C[1][3][0],TEPXDR_2x[0][3][0]+TEPXDR_2x[1][3][0],TEPX_C,TEPX_2x,OTL6,DTTP,BMTF,EMTF};
-    float trigger_rates[8]={1000e3,1000e3,500e3,500e3,40e6,40e6,40e6,40e6};
-    float Number_BX[8]={NBX_TEPX_VDM,NBX_TEPX_VDM,NBX_TEPX_VDM,NBX_TEPX_VDM,NBX,NBX,NBX,NBX};
+    float trigger_rates[8]={2000e3,2000e3,1000e3,1000e3,40e6,40e6,40e6,40e6};
+    float Number_BX[8]={NBX,NBX,NBX,NBX,NBX,NBX,NBX,NBX};
 
     // float stat_unc_pup5[8]={2.1/100,4.92/100,0.709/100,2.02/100,0.629/100,24.2/100,92.1/100,38.5/100};
 
