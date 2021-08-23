@@ -151,8 +151,8 @@ float NHisto_EMTF=1;
   myfile<<"&  Number of Histograms & Memory per histogram (Kb) & Data Transfer Rates (Mbps)\\\\"<<endl;
   myfile<<"\\hline"<<endl;  
   
-  print_data_rates("TEPXD4R1 Clusters",D4R1_Nhistogram_C,Ncluster_QuarterRing,825e3,9,4,320);
-  print_data_rates("TEPXD4R1 2x Coincidences",D4R1_Nhistogram_2x,N2x_QuarterRing,825e3,9,4,320);
+  print_data_rates("TEPXD4R1 Clusters",D4R1_Nhistogram_C,Ncluster_QuarterRing,825e3,9,2,160);
+  print_data_rates("TEPXD4R1 2x Coincidences",D4R1_Nhistogram_2x,N2x_QuarterRing,825e3,9,2,160);
   print_data_rates("TEPX Clusters",Nhistogram_C,Ncluster_QuarterRing,75e3,9,4,768);
   print_data_rates("TEPX 2x Coincidences",Nhistogram_2x,N2x_QuarterRing,75e3,9,4,768);
   print_data_rates("OT Layer 6 track stubs",Nhistogram_OT,Nstub_module,40e6,9,4,192);
