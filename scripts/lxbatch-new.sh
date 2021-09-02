@@ -9,7 +9,11 @@
 ##         /store/relval/CMSSW_10_6_0_patch2/RelValNuGun/GEN-SIM-RECO/PU25ns_106X_upgrade2023_realistic_v3_2023D42PU200-v1/10000/95A7E5A6-3D38-D148-8385-ECE34384D67F.root corresponding to each pileup value.
 ## Step 4: Copy the sample text files in submission directory where each sample text file will be one job 
 ## Step 5: Create the job execution files (.sh, .sub) using > source BRIL-upgrade/scripts/lxbatch.sh samples_17Feb2020 0
+<<<<<<< HEAD
 ## Step 6: submit the jobs using > source BRIL-upgrade/scripts/lxbatch-new.sh samples_17Feb2020 1
+=======
+## Step 6: submit the jobs using > source BRIL-upgrade/scripts/lxbatch.sh samples_17Feb2020 1
+>>>>>>> 601f091cd59b3fbd35dcb515a62099e297666b9b
 ## Step 7: Modify the output directory (outputdir) path before running the code
 
 submitdir=$1
@@ -23,17 +27,30 @@ action=$2
 
 ## where the results will be stored, this directory will be created below
 #outputdir=/eos/user/a/asehrawa/TEPX/$submitdir
+<<<<<<< HEAD
 outputdir=/eos/user/a/asehrawa/TEPX/$submitdir
 echo "output: $outputdir"
 
 ## set number of jobs to process
 NROOTFILESPERJOB=10
 NJOBSPERPOINT=20
+=======
+outputdir=/eos/user/b/benitezj/BRIL/UpgradeStudies/$submitdir
+echo "output: $outputdir"
+
+## set number of jobs to process
+NROOTFILESPERJOB=2
+NJOBSPERPOINT=2
+>>>>>>> 601f091cd59b3fbd35dcb515a62099e297666b9b
 
 
 ## get the absolute path
 INSTALLATION=${CMSSW_BASE}/src
+<<<<<<< HEAD
 cfg=$INSTALLATION/BRIL-upgrade/Ashish2xCoincidences_cfg.py
+=======
+cfg=$INSTALLATION/BRIL-upgrade/ITclusterAnalyzer_cfg.py
+>>>>>>> 601f091cd59b3fbd35dcb515a62099e297666b9b
 fullsubmitdir=`readlink -f $submitdir`
 echo "Config: $cfg"
 
@@ -71,6 +88,7 @@ for f in `/bin/ls $fullsubmitdir | grep .txt | grep -v "~" `; do
 	filecounter=$(($filecounter+1))
 
 	if  [ "${filecounter}" == "${NROOTFILESPERJOB}" ] && [ $counter2 -lt $NJOBSPERPOINT ]  ; then
+<<<<<<< HEAD
 	        #echo $filelist
 	        job=${JOB}_${counter2}
 		    #echo $job
@@ -128,12 +146,72 @@ for f in `/bin/ls $fullsubmitdir | grep .txt | grep -v "~" `; do
 
 					    counter=$(($counter+1))
 					    fi
+=======
+	    #echo $filelist
+	    job=${JOB}_${counter2}
+	    #echo $job
+	    
+	    ## create the scripts
+	    if [ "$action" == "0" ]; then
+		rm -f $fullsubmitdir/${job}.sh
+		rm -f $fullsubmitdir/${job}.sub
+		
+		## create the CMSSW job
+		echo "export X509_USER_PROXY=${HOME}/x509up_u55361 " >> $fullsubmitdir/${job}.sh
+		echo "cd ${INSTALLATION} " >> $fullsubmitdir/${job}.sh
+		echo "eval \`scramv1 runtime -sh\` " >> $fullsubmitdir/${job}.sh
+		echo "pwd"   >> $fullsubmitdir/${job}.sh                                                                                            
+		echo "export INPUT=${filelist::-1}" >>  $fullsubmitdir/${job}.sh
+		echo "export OUTPUT=$outputdir/${job}.root" >>  $fullsubmitdir/${job}.sh
+		echo "env" >> $fullsubmitdir/${job}.sh
+		echo "cmsRun  ${fullsubmitdir}/cfg.py" >>  $fullsubmitdir/${job}.sh
+		
+		## create condor jdl
+		echo "Universe   = vanilla" >>  $fullsubmitdir/${job}.sub
+		echo "+JobFlavour = \"tomorrow\" " >> $fullsubmitdir/${job}.sub
+		echo "Executable = /bin/bash" >> $fullsubmitdir/${job}.sub 
+		echo "Arguments  = ${fullsubmitdir}/${job}.sh" >> $fullsubmitdir/${job}.sub 
+		echo "Log        = ${fullsubmitdir}/${job}.log" >> $fullsubmitdir/${job}.sub 
+		echo "Output     = ${fullsubmitdir}/${job}.log" >> $fullsubmitdir/${job}.sub 
+		echo "Error      = ${fullsubmitdir}/${job}.log" >> $fullsubmitdir/${job}.sub 
+		echo "Queue  " >> $fullsubmitdir/${job}.sub 
+		
+	    fi
+	    
+	    
+	    ## submit to lxbatch
+	    if [ "$action" == "1" ]; then
+		submit $job
+	    fi
+	    
+	    
+	    ## check successful completion of job
+	    if [ "$action" == "2" ]; then
+		var=`$(cat ${fullsubmitdir}/${job}.log | grep "IT cluster Analyzer processed")`
+		
+		if [ -z "$var" ]
+		then
+		    echo "${job} is not successfully completed"
+		else
+		    echo "${job} is successfully completed $var"
+		fi
+	    fi
+	    
+	    
+	    filecounter=0
+	    filelist=""
+	    counter2=$(($counter2+1))
+
+	    counter=$(($counter+1))
+	fi
+>>>>>>> 601f091cd59b3fbd35dcb515a62099e297666b9b
 	
     done
 
 
     ##merge the output
     if [ "$action" == "3" ]; then
+<<<<<<< HEAD
 ##	`hadd $outputdir/${JOB}.root $outputdir/${JOB}_*.root`
 ##	haddcommand="hadd ${outputdir}/${JOB}.root ${outputdir}/${JOB}_*.root"
 ##	echo $haddcommand  
@@ -147,3 +225,14 @@ hadd ${outputdir}/${JOB}.root ${outputdir}/${JOB}_*.root
 
 done
 echo "Total jobs: $counter"
+=======
+	`hadd $outputdir/${JOB}.root $outputdir/${JOB}_*.root`
+    fi
+
+done
+echo "Total jobs: $counter"
+
+    
+
+
+>>>>>>> 601f091cd59b3fbd35dcb515a62099e297666b9b

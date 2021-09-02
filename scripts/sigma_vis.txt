@@ -1,0 +1,32 @@
+Mon Aug 23 04:18:08 2021
+
+ 
+ 
+ 
+/////////////////////////////////////////////////////////////
+/////////////////////sigma visible///////////////////////////
+0////////////////////////////////////////////////////////////
+\begin{center}
+\scalebox{.8}{
+\begin{tabular}{|l | c | c |}
+\hline
+ & $\left\langle N_{\text {observables/interaction }}\right\rangle $& $\sigma_{vis}$ mb  \\
+\hline
+TEPXD4R1 Clusters&21.6&1.69e+03\\
+\hline
+TEPXD4R1 2x Coincidences&2.15&169\\
+\hline
+TEPX Clusters&262&2.06e+04\\
+\hline
+TEPX 2x Coincidences&19.7&1.54e+03\\
+\hline
+OT Layer 6 track stubs&5.39&423\\
+\hline
+DT Trigger Primitives&0.00305&0.237\\
+\hline
+BMTF&0.00021&0.0163\\
+\hline
+EMTF&0.0012&0.0931\\
+\hline
+\end{tabular}}
+\end{center}
