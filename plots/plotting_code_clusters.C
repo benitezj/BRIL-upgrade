@@ -6,11 +6,17 @@ TFile *f = new TFile("/home/ashish/BRIL-upgrade/tdrplots/TDRplotscluster.root","
   gDirectory->pwd();
   f->ls();
   
-  TString outputpath1 = "/home/ashish/TEPX_plot/Clusters/Extrapolation/";
-  TString outputpath2 = "/home/ashish/TEPX_plot/Clusters/clusters_Fit/";  
-  TString outputpath3 = "/home/ashish/TEPX_plot/Clusters/AllPU_residuals/";
+  //TString outputpath1 = "/home/ashish/TEPX_plot/Clusters/Extrapolation/";
+  //TString outputpath2 = "/home/ashish/TEPX_plot/Clusters/clusters_Fit/";  
+  //TString outputpath3 = "/home/ashish/TEPX_plot/Clusters/AllPU_residuals/";
+	
+    TString outputpath1 = "./Clusters/Extrapolation/";
+    TString outputpath2 = "./Clusters/clusters_Fit/";  
+    TString outputpath3 = "./Clusters/AllPU_residuals/";
+	
   
-  TString inpath = "/home/ashish/TEPX_rootfiles/samples_17Feb2020/";
+  //TString inpath = "/home/ashish/TEPX_rootfiles/samples_17Feb2020/";
+    TString inpath = "/eos/user/a/asehrawa/TEPX/samples_for_clusters_old_CMSSW_code/";
   
   gROOT->ProcessLine(".x /home/ashish/rootlogon.C");
   
