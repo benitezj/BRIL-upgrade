@@ -8,7 +8,8 @@ void totalcount2x1(){
   gDirectory->cd();
   f->ls();
   
-  TString inpath = "/home/ashish/Desktop/2xresults_all/TEPX/samples_17Feb2020/";
+  //TString inpath = "/home/ashish/Desktop/2xresults_all/TEPX/samples_17Feb2020/";
+  TString inpath = "/eos/user/a/asehrawa/TEPX/2xresults_all";
   gROOT->ProcessLine(".x /home/ashish/rootlogon.C");
   
   //string containing names of input sample files
