@@ -6,11 +6,12 @@ void plotting_code_2xdrdphicuts(){
   gDirectory->pwd();
   f->ls();
     
-  TString outputpath1 = "/home/ashish/TEPX_plot/2x Coincidences/Extrapolation/";
-  TString outputpath2 = "/home/ashish/TEPX_plot/2x Coincidences/2xCoincidences_Fit/";  
-  TString outputpath3 = "/home/ashish/TEPX_plot/2x Coincidences/AllPU_residuals/";
-  
-  TString inpath = "/home/ashish/Desktop/2xresults_all/TEPX/samples_17Feb2020/";
+  TString outputpath1 = "./2xCoincidences/Extrapolation/";
+  TString outputpath2 = "./2xCoincidences/2xCoincidences_Fit/";  
+  TString outputpath3 = "./2xCoincidences/AllPU_residuals/";
+  TString inpath = "/eos/user/a/asehrawa/TEPX/2xresults_all";
+	
+  //TString inpath = "/home/ashish/Desktop/2xresults_all/TEPX/samples_17Feb2020/";
   //TString inpath = "/home/ashish/Desktop/24thOct2020/TEPX/samples_24thOctober2020_drdphicuts/";
   //TString inpath = "/home/ashish/Desktop/30thNov2020_drdphicuts_1sigma/TEPX/samples_17Feb2020/";
   //TString inpath = "/home/ashish/Desktop/26thOct2020_28thOct2020presentation_drdphicuts_2sigma/TEPX/samples_17Feb2020/";
