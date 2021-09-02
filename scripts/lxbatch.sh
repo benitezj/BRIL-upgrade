@@ -19,7 +19,7 @@ echo "output: $outputdir"
 
 ## get the absolute path
 INSTALLATION=${CMSSW_BASE}/src
-cfg=$INSTALLATION/BRIL-upgrade/ITclusterAnalyzer_cfg.py
+cfg=$INSTALLATION/BRIL-upgrade/Ashish2xCoincidences_cfg.py
 fullsubmitdir=`readlink -f $submitdir`
 
 echo "Config: $cfg"
@@ -63,7 +63,7 @@ for f in `/bin/ls $fullsubmitdir | grep .txt | grep -v "~" `; do
         echo "cft=root://cms-xrd-global.cern.ch/" >>  $fullsubmitdir/${job}.sh
 	echo "COUNT=0" >>  $fullsubmitdir/${job}.sh
 	echo "file=\"${fullsubmitdir}/${job}.txt\"" >>  $fullsubmitdir/${job}.sh
-	echo "while IFS= read -r line && [ \$COUNT -lt 10 ]; do" >>  $fullsubmitdir/${job}.sh
+	echo "while IFS= read -r line && [ \$COUNT -lt 50 ]; do" >>  $fullsubmitdir/${job}.sh
 	echo "echo "\$COUNT=\$line=" "  >>  $fullsubmitdir/${job}.sh
 	echo "COUNT=\$((\$COUNT +1))" >>  $fullsubmitdir/${job}.sh
 	echo "line=\$cft\$line" >>  $fullsubmitdir/${job}.sh
@@ -80,7 +80,7 @@ for f in `/bin/ls $fullsubmitdir | grep .txt | grep -v "~" `; do
 	
 	## create condor jdl
 	echo "Universe   = vanilla" >>  $fullsubmitdir/${job}.sub
-	echo "+JobFlavour = \"microcentury\" " >> $fullsubmitdir/${job}.sub
+	echo "+JobFlavour = \"workday\" " >> $fullsubmitdir/${job}.sub
 	echo "Executable = /bin/bash" >> $fullsubmitdir/${job}.sub 
 	echo "Arguments  = ${fullsubmitdir}/${job}.sh" >> $fullsubmitdir/${job}.sub 
 	echo "Log        = ${fullsubmitdir}/${job}.log" >> $fullsubmitdir/${job}.sub 

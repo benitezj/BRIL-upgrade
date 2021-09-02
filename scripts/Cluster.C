@@ -1,9 +1,9 @@
 void Cluster() {
 
-  TFile*f = new TFile("/eos/user/a/asehrawa/TEPX/samples_17Feb2020/2023D42PU0p5.root");
-  TFile*f1 = new TFile("/eos/user/a/asehrawa/TEPX/samples_17Feb2020/2023D42PU1.root");
-  TFile*f2 = new TFile("/eos/user/a/asehrawa/TEPX/samples_17Feb2020/2023D42PU1p5.root");
-  TFile*f3 = new TFile("/eos/user/a/asehrawa/TEPX/samples_17Feb2020/2023D42PU2.root");
+  //TFile*f = new TFile("/eos/user/a/asehrawa/TEPX/samples_17Feb2020/2023D42PU0p5.root");
+  //TFile*f1 = new TFile("/eos/user/a/asehrawa/TEPX/samples_17Feb2020/2023D42PU1.root");
+  //TFile*f2 = new TFile("/eos/user/a/asehrawa/TEPX/samples_17Feb2020/2023D42PU1p5.root");
+  //TFile*f3 = new TFile("/eos/user/a/asehrawa/TEPX/samples_17Feb2020/2023D42PU2.root");
   TFile*f4 = new TFile("/eos/user/a/asehrawa/TEPX/samples_17Feb2020/2023D42PU10.root");
   TFile*f5 = new TFile("/eos/user/a/asehrawa/TEPX/samples_17Feb2020/2023D42PU30.root");
   TFile*f6 = new TFile("/eos/user/a/asehrawa/TEPX/samples_17Feb2020/2023D42PU50.root");
@@ -15,10 +15,10 @@ void Cluster() {
   //C->SetLogx();
   C->SetLogy();
 
-  TH2F * H = NULL;
-  TH2F * H1 = NULL;
-  TH2F * H2 = NULL;
-  TH2F * H3 = NULL;
+  //TH2F * H = NULL;
+  //TH2F * H1 = NULL;
+  //TH2F * H2 = NULL;
+  //TH2F * H3 = NULL;
   TH2F * H4 = NULL;
   TH2F * H5 = NULL;
   TH2F * H6 = NULL;
@@ -26,15 +26,15 @@ void Cluster() {
   TH2F * H8 = NULL;
   TH2F * H9 = NULL;
   
-   H = (TH2F*)f->Get("BRIL_IT_Analysis/TEPX/3xCoincidences/Number of 3x Coincidences for Disk 4");
-  if (H==NULL){
-  return;
+  //H = (TH2F*)f->Get("BRIL_IT_Analysis/TEPX/3xCoincidences/Number of 3x Coincidences for Disk 4");
+  //if (H==NULL){
+  //return;
    }
   //H->GetXaxis()->SetRangeUser(0,600);
   
-  H1 = (TH2F*)f1->Get("BRIL_IT_Analysis/TEPX/3xCoincidences/Number of 3x Coincidences for Disk 4");
-  H2 = (TH2F*)f2->Get("BRIL_IT_Analysis/TEPX/3xCoincidences/Number of 3x Coincidences for Disk 4");
-  H3 = (TH2F*)f3->Get("BRIL_IT_Analysis/TEPX/3xCoincidences/Number of 3x Coincidences for Disk 4");
+  //H1 = (TH2F*)f1->Get("BRIL_IT_Analysis/TEPX/3xCoincidences/Number of 3x Coincidences for Disk 4");
+  //H2 = (TH2F*)f2->Get("BRIL_IT_Analysis/TEPX/3xCoincidences/Number of 3x Coincidences for Disk 4");
+  //H3 = (TH2F*)f3->Get("BRIL_IT_Analysis/TEPX/3xCoincidences/Number of 3x Coincidences for Disk 4");
   H4 = (TH2F*)f4->Get("BRIL_IT_Analysis/TEPX/3xCoincidences/Number of 3x Coincidences for Disk 4");
   H5 = (TH2F*)f5->Get("BRIL_IT_Analysis/TEPX/3xCoincidences/Number of 3x Coincidences for Disk 4");
   H6 = (TH2F*)f6->Get("BRIL_IT_Analysis/TEPX/3xCoincidences/Number of 3x Coincidences for Disk 4");
@@ -43,28 +43,28 @@ void Cluster() {
   H9 = (TH2F*)f9->Get("BRIL_IT_Analysis/TEPX/3xCoincidences/Number of 3x Coincidences for Disk 4");
 
 
-  TH1D* H10 = H->ProjectionY("H10",1,1);
+//TH1D* H10 = H->ProjectionY("H10",1,1);
   //H10->GetYaxis()->SetRangeUser(0,16000); 
-  H10->GetXaxis()->SetRangeUser(0,4);
-  H10->SetLineColor(28);
+  //H10->GetXaxis()->SetRangeUser(0,4);
+  //H10->SetLineColor(28);
 
   //H10->Scale(1./H10->Integral());
   gStyle->SetOptStat(0);
   gStyle->SetOptTitle(0); 
 
-  TH1D* H11 = H1->ProjectionY("H11",1,1);
-  H11->GetXaxis()->SetRangeUser(0,250);
-  H11->SetLineColor(1);
+//TH1D* H11 = H1->ProjectionY("H11",1,1);
+//H11->GetXaxis()->SetRangeUser(0,250);
+//H11->SetLineColor(1);
   //H11->Scale(1./H11->Integral());
 
-  TH1D* H12 = H2->ProjectionY("H12",1,1);
-  H12->GetXaxis()->SetRangeUser(0,500);
-  H12->SetLineColor(2);
+  //TH1D* H12 = H2->ProjectionY("H12",1,1);
+  //H12->GetXaxis()->SetRangeUser(0,500);
+  //H12->SetLineColor(2);
   //H12->Scale(1./H12->Integral());
 
-  TH1D* H13 = H3->ProjectionY("H13",1,1);
-  H13->GetXaxis()->SetRangeUser(0,500);
-  H13->SetLineColor(3);
+  //TH1D* H13 = H3->ProjectionY("H13",1,1);
+  //H13->GetXaxis()->SetRangeUser(0,500);
+  //H13->SetLineColor(3);
   //H13->Scale(1./H13->Integral());
 
   TH1D* H14 = H4->ProjectionY("H14",1,1);
