@@ -1,21 +1,17 @@
+
 void plotting_code_clusters(){
 
-TFile *f = new TFile("/home/ashish/BRIL-upgrade/tdrplots/TDRplotscluster.root","RECREATE");
-
+  TFile *f = new TFile("./TDRplotscluster.root","RECREATE");
+  
   f->cd();
   gDirectory->pwd();
   f->ls();
   
-  //TString outputpath1 = "/home/ashish/TEPX_plot/Clusters/Extrapolation/";
-  //TString outputpath2 = "/home/ashish/TEPX_plot/Clusters/clusters_Fit/";  
-  //TString outputpath3 = "/home/ashish/TEPX_plot/Clusters/AllPU_residuals/";
-	
-    TString outputpath1 = "./Clusters/Extrapolation/";
-    TString outputpath2 = "./Clusters/clusters_Fit/";  
-    TString outputpath3 = "./Clusters/AllPU_residuals/";
-	  
-  //TString inpath = "/home/ashish/TEPX_rootfiles/samples_17Feb2020/";
-    TString inpath = "/eos/user/a/asehrawa/TEPX/samples_for_clusters_old_CMSSW_code/";
+  //    TString outputpath1 = "./Clusters/Extrapolation/";
+  //    TString outputpath2 = "./Clusters/clusters_Fit/";  
+  //    TString outputpath3 = "./Clusters/AllPU_residuals/";
+  
+  TString inpath = "/eos/user/a/asehrawa/TEPX/samples_for_clusters_old_CMSSW_code/";
   
   gROOT->ProcessLine(".x /home/ashish/rootlogon.C");
   
@@ -120,7 +116,7 @@ TFile *f = new TFile("/home/ashish/BRIL-upgrade/tdrplots/TDRplotscluster.root","
       char* histname = new char[40];
       sprintf(histname, "histo%d_linearity.png", l);
       cout << "==========================" << histname << endl;
-      C.Print(outputpath1 + histname);
+      //C.Print(outputpath1 + histname);
       f->WriteTObject(TEPXClustersPerEvent[d][r]);
       
       FitTEPXClustersPerEvent[d][r] = new TF1(TString("Fit_") + d + "_" + r, "[0]+[1]*x", 0.5, 2);
@@ -132,7 +128,7 @@ TFile *f = new TFile("/home/ashish/BRIL-upgrade/tdrplots/TDRplotscluster.root","
       char* histname1 = new char[40];
       sprintf(histname1, "histo%d_linearity1.gif", l);
       C.Update();
-      C.Print(outputpath2 + histname1);
+      //C.Print(outputpath2 + histname1);
       f->WriteTObject(TEPXClustersPerEvent[d][r]);
     }
   }
@@ -203,7 +199,7 @@ TFile *f = new TFile("/home/ashish/BRIL-upgrade/tdrplots/TDRplotscluster.root","
   line2->SetLineStyle(9);
   line2->Draw("same");
   
-  C1.Print(outputpath3 + "Cluster_residualD4R1(-Z).gif");
+  //C1.Print(outputpath3 + "Cluster_residualD4R1(-Z).gif");
   f->WriteTObject(NonLinearity_TEPXClustersPerEvent[0][0]);
   C1.Clear();
 
@@ -243,7 +239,7 @@ TFile *f = new TFile("/home/ashish/BRIL-upgrade/tdrplots/TDRplotscluster.root","
   line5->SetLineStyle(9);
   line5->Draw("same");
   
-  C4.Print(outputpath3 + "Cluster_residualD4R1(+Z).gif");
+  //C4.Print(outputpath3 + "Cluster_residualD4R1(+Z).gif");
   f->WriteTObject(NonLinearity_TEPXClustersPerEvent[7][0]);
   C4.Clear();
 
@@ -310,7 +306,7 @@ TFile *f = new TFile("/home/ashish/BRIL-upgrade/tdrplots/TDRplotscluster.root","
     legend->SetFillColor(0);
     legend->Draw("same");
 
-    C2.Print(outputpath3 + TString("Cluster_residuals") + d + ".gif");
+    //C2.Print(outputpath3 + TString("Cluster_residuals") + d + ".gif");
     f->WriteTObject(NonLinearity_TEPXClustersPerEvent[d][r]);
 
     }
