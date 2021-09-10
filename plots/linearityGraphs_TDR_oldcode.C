@@ -1,7 +1,7 @@
 
 
 
-void linearityGraphs_TDR(){
+void linearityGraphs_TDR_oldcode(){
   
   TFile *f = new TFile("./TEPXLinearityGraphs.root","RECREATE");
   if(f->IsZombie()) return;
@@ -14,8 +14,8 @@ void linearityGraphs_TDR(){
  
 
   //TString inpath = "/eos/user/a/asehrawa/TEPX/samples_for_clusters_old_CMSSW_code/"; // old low stats processing where log files were lost
-  TString inpath = "/eos/user/a/asehrawa/TEPX/2xresults_all/"; //high stats processing with new lxbatch script splitting to many jobs
-  //TString inpath = "/eos/user/a/asehrawa/TEPX/samples_7Sep2021/"; //new processing with only 50 root files per point to reproduce cluster plot in TDR
+  //TString inpath = "/eos/user/a/asehrawa/TEPX/2xresults_all/"; //high stats processing with new lxbatch script splitting to many jobs
+  TString inpath = "/eos/user/a/asehrawa/TEPX/samples_7Sep2021/"; //new processing with only 50 root files per point to reproduce cluster plot in TDR
 
   //local laptop paths
   //TString inpath = "/home/ashish/TEPX_rootfiles/samples_17Feb2020/";
@@ -38,10 +38,10 @@ void linearityGraphs_TDR(){
   
   
   std::map<std::string, std::string>  inputHistMap= {
-    {"BRIL_IT_Analysis/TEPX/Clusters/Numberofclusters_","Clusters"},
-    {"BRIL_IT_Analysis/TEPX/2xCoincidences/Numberof2xCoincidences_Inphi_","Coincidences2x_Inphi"},
-    {"BRIL_IT_Analysis/TEPX/2xCoincidences/Numberof2xCoincidencestotal_InR_","Coincidences2x_InR"},
-    {"BRIL_IT_Analysis/TEPX/2xCoincidences/Numberof2xCoincidencestotal_","Coincidences2x_total"}
+    {"BRIL_IT_Analysis/TEPX/Clusters/Number of clusters for Disk ","Clusters"}
+    //,{"BRIL_IT_Analysis/TEPX/2xCoincidences/Numberof2xCoincidences_Inphi_","Coincidences2x_Inphi"},
+    //,{"BRIL_IT_Analysis/TEPX/2xCoincidences/Numberof2xCoincidencestotal_InR_","Coincidences2x_InR"},
+    //,{"BRIL_IT_Analysis/TEPX/2xCoincidences/Numberof2xCoincidencestotal_","Coincidences2x_total"}
   };
   
     
@@ -50,10 +50,10 @@ void linearityGraphs_TDR(){
     //create the profiles to be filled below.
     TGraphErrors* TEPXClustersPerEvent  = new TGraphErrors();
     TGraphErrors* TEPXClustersPerEvent_D4R1 = new TGraphErrors();
-    TGraphErrors* TEPXClustersPerEvent_disk[2][4];
-    TGraphErrors* TEPXClustersPerEvent_ring[2][4][5];
-    for (int s = 0; s < 2; s++) {
-      for (int d = 0; d < 4; d++){
+    TGraphErrors* TEPXClustersPerEvent_disk[1][8];
+    TGraphErrors* TEPXClustersPerEvent_ring[1][8][5];
+    for (int s = 0; s < 1; s++) {
+      for (int d = 0; d < 8; d++){
 	TEPXClustersPerEvent_disk[s][d] = new TGraphErrors();	
 	for (int r = 0; r < 5; r++){
 	  TEPXClustersPerEvent_ring[s][d][r] = new TGraphErrors();	
@@ -81,12 +81,13 @@ void linearityGraphs_TDR(){
       float totalcount_D4R1=0;
       float totalcounterror_D4R1=0;
       
-      for (int s = 0; s < 2; s++) {
-	for (int d = 0; d < 4; d++) {
+      for (int s = 0; s < 1; s++) {
+	for (int d = 0; d < 8; d++) {
 	  
-	  int disk = (s==0 ? -(d+1) : d+1 );
+	  int disk = (d<4 ? d-4 : d-3 );
 	  
-	  TString histname=TString(it_hist->first)+"side"+(s+1)+"_Disk"+(d+1);
+	  //TString histname=TString(it_hist->first)+"side"+(s+1)+"_Disk"+(d+1);
+	  TString histname=TString(it_hist->first)+disk;
 	  TH2F* H = (TH2F*)F.Get(histname);
 	  if(!H){ cout<<histname<<"  not found in "<<F.GetName()<<endl; }
 	    
@@ -148,9 +149,10 @@ void linearityGraphs_TDR(){
     f->WriteTObject(TEPXClustersPerEvent_D4R1);
   
 
-    for (int s = 0; s < 2; s++) {
-      for (int d = 0; d < 4; d++) {
-	int disk = (s==0 ? -(d+1) : d+1 );
+    for (int s = 0; s < 1; s++) {
+      for (int d = 0; d < 8; d++) {
+	//int disk = (s==0 ? -(d+1) : d+1 );
+	int disk = (d<4 ? d-4 : d-3 );
 	
 	if (disk < 0 )
 	  TEPXClustersPerEvent_disk[s][d]->SetName(TString(it_hist->second)+ "_Dm" + (-disk));
